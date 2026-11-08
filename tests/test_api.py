@@ -21,6 +21,22 @@ def client(tmp_path):
     return TestClient(create_app(tmp_path, sandbox=UnavailableSandbox()))
 
 
+def test_landing_and_workspace_are_distinct_with_same_origin_security(client):
+    landing = client.get("/")
+    workspace = client.get("/app")
+    assert landing.status_code == workspace.status_code == 200
+    assert 'id="hero-title"' in landing.text
+    assert 'Prooflane — Invoice review, backed by evidence' in landing.text
+    assert '40 × ($85.00 − $72.00)' in landing.text
+    assert 'href="/app"' in landing.text
+    assert 'id="case-workbench"' not in landing.text
+    assert 'id="case-workbench"' in workspace.text
+    assert 'id="hero-title"' not in workspace.text
+    assert landing.headers["Content-Security-Policy"] == workspace.headers["Content-Security-Policy"]
+    assert "prooflane_session" in client.cookies
+    assert client.get("/static/landing-model.js").status_code == 200
+
+
 def test_reference_receipt_and_session_isolation(client):
     response = client.post("/api/runs", json={"csv": SAMPLE, "mode": "reference"}, headers=HEADERS)
     assert response.status_code == 200, response.text

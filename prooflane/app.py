@@ -424,6 +424,10 @@ def create_app(data_dir=None, sandbox=None, provider=None):
 
     @app.get("/")
     def index():
+        return FileResponse(ROOT / "web" / "landing.html")
+
+    @app.get("/app")
+    def workspace():
         return FileResponse(ROOT / "web" / "index.html")
 
     app.mount("/static", StaticFiles(directory=ROOT / "web", check_dir=False), name="static")

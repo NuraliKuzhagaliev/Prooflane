@@ -1,0 +1,20 @@
+{
+  "passed": true,
+  "python_tests": 180,
+  "javascript_tests": 30,
+  "bootstrap": "STRUCTURAL_ONLY_PASS",
+  "public_http": "PASS; 8 exact static hashes, TLS, distinct routes and UTF-8 checks",
+  "existing_video": "HTTP206; unchanged recording",
+  "browser": "Desktop, tablet, 390px and 320px; exact presets, keyboard cent boundary, invalid input, native FAQ, same saved case restored at /app",
+  "model_calls": 0,
+  "independent_review": "NOT_RUN; one implementation owner",
+  "physical_touch": "NOT_RUN",
+  "screen_reader_listening": "NOT_RUN",
+  "reduced_motion_emulation": "NOT_RUN; explicit CSS rule, no autoplay",
+  "failed_intermediate_checks": [
+    "Restricted-loopback pytest stalled after13 checks and was interrupted; permitted-loopback run passed180.",
+    "Phone/tablet source-paper overlap corrected after actual renders.",
+    "Intermediate Windows-default text edit damaged Unicode; HTML and CSS repaired, preflight/public byte checks and full regressions repeated."
+  ],
+  "scope": "A landing/navigation release; no new AI execution, customer study or public load benchmark."
+}

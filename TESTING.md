@@ -2,6 +2,12 @@
 
 Updated 9 November 2026. Counts below identify distinct checks and environments. Unit/API doubles, actual HTTP/Docker, browser operation, model calls and user studies are not interchangeable.
 
+## Landing release
+
+The separate homepage and `/app` workspace passed 180 Python tests and 30 JavaScript tests. The added route test checks that the pages remain distinct under the same origin/security headers. Preview tests reproduce the fictional baseline, shared-price totals, the 82.59/82.60/82.61 priority boundary and invalid-price rejection. Bootstrap verification passed structurally. Restricted-loopback pytest stalled after 13 checks and was interrupted; the successful full run used permitted loopback access.
+
+Actual public browser checks cover desktop/tablet/mobile rendering, keyboard range steps, invalid input, native FAQ disclosure, landing-to-workspace navigation and restoration of the same existing Reference case. No new AI call was needed for this page. Reduced-motion rules disable transitions and smooth scrolling; system-preference emulation, physical touch hardware and a complete screen-reader listening session were not performed for this release. [Detailed scope and artifacts](docs/LANDING_20261109.md).
+
 ## Latest live recording and regression
 
 | Check | Observed result | Evidence |

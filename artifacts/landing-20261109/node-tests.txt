@@ -1,0 +1,38 @@
+✔ preserves cents at the maximum supported input product (2.0827ms)
+✔ preserves cents for the aggregate of 500 maximum rows (0.4572ms)
+✔ formats ordinary, fractional and zero amounts (1.6387ms)
+✔ invalid or missing amounts remain unavailable (0.3141ms)
+✔ signed comparison amounts preserve direction and exact cents (0.8007ms)
+✔ zero deltas are neutral and malformed deltas unavailable (0.5002ms)
+✔ landing price examples agree with the independently verified fictional case (4.7869ms)
+✔ whole-cent boundary changes priority without floating-point rounding (2.0509ms)
+✔ invalid or out-of-bounds prices never become preview results (2.351ms)
+✔ landing display retains cents at the decision boundary (82.996ms)
+✔ resume persists only a valid review ID and reading location, dropping sources and credentials (4.7969ms)
+✔ invalid or malformed saved navigation never creates a request target (0.6307ms)
+✔ denied browser storage does not prevent the review from running (2.0915ms)
+✔ pending recovery stores an operation identity without payloads or tokens and can be cleared (0.5786ms)
+✔ assumption tool switch exposes one panel and one keyboard tab without changing saved analysis (4.1266ms)
+✔ archive cannot interrupt a pending request and captures the opener before native modal focus (1.3168ms)
+✔ choosing a source row moves focus to the new inspector and returns to the replacement row (1.822ms)
+✔ packet submission preserves duplicate JSON keys for strict server rejection (1.7783ms)
+✔ a stalled execution response has a deadline and never retries its POST (5.6055ms)
+✔ failed live baseline exposes its safe diagnostic and clears the credential (2.6182ms)
+✔ completed API reads clear their shorter deadline and preserve server errors (1.9385ms)
+✔ pending request identity blocks execution before history or session-readiness promises settle (5.7629ms)
+✔ source focus preserves original identity after a preceding exclusion (4.0341ms)
+✔ source focus never guesses a calculation row for a missing contract binding (0.4024ms)
+✔ reference results cannot claim independent execution verification (0.3234ms)
+✔ decimal draft comparisons preserve cents beyond Number precision (0.775ms)
+✔ drafts reject no-ops, repeated targets, over-capacity and invalid quantities (0.8116ms)
+✔ ranges must contain the original and obey field precision (0.2881ms)
+✔ source queue separates unresolved, selected and excluded with case-insensitive text search (0.313ms)
+✔ contract inspector only identifies the explicitly returned chosen candidate (0.3123ms)
+ℹ tests 30
+ℹ suites 0
+ℹ pass 30
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 280.0839

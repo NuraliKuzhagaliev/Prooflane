@@ -19,6 +19,7 @@ The captured deadline is9 November 2026,04:00 Kazakhstan time (UTC+5). [Event](h
 | Cover | [Team-supplied PNG, 1672×941](cover.png) |
 | Demo platform | Vultr Cloud Compute |
 | Demo URL | [Public application](https://45.76.92.198/) |
+| Direct workspace | [Skip the homepage](https://45.76.92.198/app) |
 | Public source | [GitHub](https://github.com/NuraliKuzhagaliev/Prooflane) |
 
 The new video shows the real site: source decisions, a newly executed VSI/Docker baseline, source inspection, exact priority boundary, actual model/code provenance, fresh containment and downloaded-packet verification. It uses existing ElevenLabs Free-plan credits; no paid subscription, Runway generation, stock scenes or fake cursor was used. Keep **elevenlabs.io** in the video title/description and retain the end attribution. The free voice asset has separate noncommercial terms, not MIT. [Production and rights](video-v2/PRODUCTION.md).

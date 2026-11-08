@@ -1,0 +1,109 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f8faf7">
+  <meta name="description" content="Trace invoice differences to their source, test the assumptions that change your review, and hand over a reproducible case. Built on Vultr.">
+  <meta property="og:title" content="Prooflane — Question the price. Keep the proof.">
+  <meta property="og:description" content="Invoice review with source decisions, exact what-if analysis and portable evidence.">
+  <meta property="og:type" content="website">
+  <title>Prooflane — Invoice review, backed by evidence</title>
+  <link rel="preload" href="/static/fonts/newsreader.ttf" as="font" type="font/ttf" crossorigin>
+  <link rel="stylesheet" href="/static/landing.css">
+  <script type="module" src="/static/landing.js"></script>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header wrap">
+    <a class="brand" href="/" aria-label="Prooflane home"><svg viewBox="75 265 1120 305" width="207" height="57" aria-hidden="true" focusable="false"><image href="/static/brand/prooflane-logo.webp" width="1248" height="726"/></svg></a>
+    <nav aria-label="Main navigation">
+      <a href="#workflow">The workflow</a>
+      <a href="#evidence">The evidence</a>
+      <a class="nav-source" href="https://github.com/NuraliKuzhagaliev/Prooflane">GitHub <span aria-hidden="true">↗</span></a>
+    </nav>
+    <a class="button button-small" href="/app">Open workspace <span aria-hidden="true">↗</span></a>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <section class="hero wrap" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="small-rule" aria-hidden="true"></span> For accounts payable &amp; procurement</p>
+        <h1 id="hero-title">Question the price.<br><em>Keep the proof.</em></h1>
+        <p class="hero-description">An invoice says one thing. The contract says another. Follow the difference, test what matters, and leave a review someone else can reproduce.</p>
+        <div class="hero-actions"><a class="button" href="/app">Try the demo <span aria-hidden="true">↗</span></a><a class="text-link" href="#price-lab">See a price change <span aria-hidden="true">↓</span></a></div>
+        <p class="entry-note">No account needed. Start with a fictional example.</p>
+      </div>
+
+      <figure class="source-scene" aria-labelledby="scene-caption">
+        <div class="scene-grid" aria-hidden="true"></div>
+        <svg class="source-lines" viewBox="0 0 580 490" aria-hidden="true" focusable="false"><path d="M165 250 C165 350 285 250 300 354 M442 240 C442 325 333 280 326 354"/><circle cx="165" cy="250" r="4"/><circle cx="442" cy="240" r="4"/></svg>
+        <div class="source-paper invoice-paper"><p class="paper-label">Invoice <span>INV501</span></p><p class="paper-title">Atlas</p><p class="paper-date">November 1, 2026</p><div class="paper-rule"></div><p class="paper-row"><span>FILTER · 40 units</span><strong>$85.00 <small>each</small></strong></p><p class="paper-total"><span>Billed</span><strong>$3,400.00</strong></p><span class="source-tag">Invoice source · row 2</span></div>
+        <div class="source-paper contract-paper"><p class="paper-label">Contract <span>C1</span></p><p class="paper-title">The agreed price.</p><p class="paper-date">Nov 1–30, 2026 · FILTER</p><div class="contract-price"><span>Price per unit</span><strong>$72.00</strong></div><span class="source-tag">Contract source · row 2</span></div>
+        <div class="difference-slip"><span class="slip-check" aria-hidden="true">✓</span><div><p>Difference to review</p><strong>$520.00</strong><span>40 × ($85.00 − $72.00)</span></div><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></div>
+        <figcaption id="scene-caption">One fictional invoice. Two linked sources.<br> A difference you can trace.</figcaption>
+      </figure>
+      <div class="hero-footnote"><span>Source-linked review</span><span>Exact what-if analysis</span><span>Portable case evidence</span><span class="vultr-note"><i aria-hidden="true"></i> Built on Vultr</span></div>
+    </section>
+
+    <section class="workflow-section" id="workflow" aria-labelledby="workflow-title">
+      <div class="wrap">
+        <div class="section-heading"><p class="eyebrow">From two files to a reviewable case</p><h2 id="workflow-title">A clear thread.<br>From question to handover.</h2><p>Keep the original sources, the choices you made, and the calculation that followed.</p></div>
+        <ol class="workflow-list">
+          <li><span class="step-number">01</span><div><h3>Bring the sources together.</h3><p>Import invoice and contract CSVs. Select the right dated contract when versions overlap; record why an invoice is excluded.</p></div><span class="step-detail">Sources &amp; decisions</span></li>
+          <li><span class="step-number">02</span><div><h3>Ask what could change.</h3><p>Change a shared price once and follow it across every linked invoice. Find the exact price that changes your review priority.</p></div><span class="step-detail">Original &amp; alternatives</span></li>
+          <li><span class="step-number">03</span><div><h3>Pass on the whole story.</h3><p>Download a case packet with the source choices, code and results. A separate verifier reconstructs the arithmetic without running its Python.</p></div><span class="step-detail">Evidence &amp; handover</span></li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="price-section" id="price-lab" aria-labelledby="price-title">
+      <div class="wrap">
+        <div class="price-heading"><div><p class="eyebrow">A small change. A different question.</p><h2 id="price-title">One contract price.<br><em>Three invoices move.</em></h2></div><p>Try changing Atlas’s shared contract price. Watch the differences update and see which invoice comes first.</p></div>
+        <div class="price-lab" data-price-lab>
+          <div class="price-control">
+            <label for="contract-price">C1 · Atlas · price per unit</label>
+            <div class="price-input-line"><span aria-hidden="true">$</span><input id="contract-price" type="number" min="65" max="85" step="0.01" value="72.00" inputmode="decimal" aria-describedby="price-hint price-error"><span class="currency">USD</span></div>
+            <p id="price-hint">Enter $65.00–$85.00, or use the slider.</p><p id="price-error" class="price-error" role="alert" hidden>Use a price from $65.00 to $85.00, with up to two decimals.</p>
+            <label class="sr-only" for="price-slider">Adjust C1 contract price in cents</label><input id="price-slider" type="range" min="6500" max="8500" step="1" value="7200" aria-valuetext="72 dollars per unit">
+            <div class="slider-endpoints" aria-hidden="true"><span>$65</span><span>$85</span></div>
+            <div class="price-presets" aria-label="Example prices"><button type="button" data-price="7200" aria-pressed="true">Original $72</button><button type="button" data-price="8000" aria-pressed="false">Try $80</button><button type="button" data-price="8260" aria-pressed="false">The $82.60 tie</button></div>
+            <p class="lab-boundary">An exact, local calculation using fictional data.<br>No AI call. No source files changed.</p>
+          </div>
+          <div class="price-result">
+            <div class="result-total"><div><p>Positive variance · 7 included invoices</p><output id="preview-total" for="contract-price price-slider">$768.00</output></div><div class="original-total"><span>Original</span><strong>$768.00</strong></div></div>
+            <table class="preview-table"><caption>Invoices linked to C1. The other four included invoices contribute $148.00 throughout. Bars share a $800 scale.</caption><thead><tr><th scope="col">Invoice</th><th scope="col">Units</th><th scope="col">Difference</th></tr></thead><tbody>
+              <tr><th scope="row">INV501 <span>Atlas</span></th><td>40</td><td><span id="variance-501">$520.00</span><i class="variance-track" aria-hidden="true"><i id="bar-501" style="width:65%"></i></i></td></tr>
+              <tr><th scope="row">INV502 <span>Atlas</span></th><td>10</td><td><span id="variance-502">$100.00</span><i class="variance-track" aria-hidden="true"><i id="bar-502" style="width:12.5%"></i></i></td></tr>
+              <tr><th scope="row">INV508 <span>Atlas</span></th><td>15</td><td><span id="variance-508">$0.00</span><i class="variance-track" aria-hidden="true"><i id="bar-508" style="width:0"></i></i></td></tr>
+            </tbody></table>
+            <p class="priority-result"><span class="priority-dot" aria-hidden="true"></span><span id="preview-priority">INV501 is first to review.</span></p>
+          </div>
+        </div>
+        <p class="sr-only" id="price-announcement" role="status" aria-live="polite" aria-atomic="true"></p>
+        <noscript><p class="noscript-note">Enable JavaScript to explore alternative prices. The values shown are the original fictional baseline.</p></noscript>
+      </div>
+    </section>
+
+    <section class="product-section wrap" aria-labelledby="product-title">
+      <div class="product-heading"><div><p class="eyebrow">The actual workspace</p><h2 id="product-title">Less guessing.<br><em>More context.</em></h2></div><div><p>Keep the ledger and its source evidence together. Go deeper when you need to; keep the original calculation in view.</p><a class="text-link" href="https://45.76.92.198/static/demo/prooflane-live-demo.mp4">Watch the complete site demo <span aria-hidden="true">↗</span></a><p class="video-note">3 min 30 sec · English · narration by elevenlabs.io</p></div></div>
+      <figure class="product-capture"><div class="capture-caption"><span><i aria-hidden="true"></i> A real product capture</span><span>Fictional data · Reference mode</span></div><a href="/static/media/landing-workspace.jpg" aria-label="View the full-size Prooflane workspace screenshot"><img src="/static/media/landing-workspace.jpg" width="1440" height="960" alt="Prooflane workspace showing USD768.00 positive variance, seven included invoices, one exclusion and links to source decisions." loading="lazy" decoding="async"></a><figcaption>The reference example is open to everyone. Live Vultr AI execution requires an operator token to protect the credit allowance.</figcaption></figure>
+    </section>
+
+    <section class="evidence-section" id="evidence" aria-labelledby="evidence-title"><div class="wrap evidence-layout">
+      <div class="evidence-intro"><p class="eyebrow">Useful AI. Visible boundaries.</p><h2 id="evidence-title">An answer is a start.<br><em>Evidence is the handover.</em></h2><p>Vultr generates the Python. A disposable, offline Docker container executes it. Independent Decimal arithmetic checks every reported row.</p><a class="text-link" href="https://github.com/NuraliKuzhagaliev/Prooflane/blob/main/docs/ARCHITECTURE.md">Read the architecture <span aria-hidden="true">↗</span></a></div>
+      <dl class="evidence-list"><div><dt><span>01</span> Sources stay attached.</dt><dd>Original rows, contract selections and exclusions stay in the exported case.</dd></div><div><dt><span>02</span> Execution stays visible.</dt><dd>Inspect the actual mode, generated code, model request IDs, runtime limits and container cleanup.</dd></div><div><dt><span>03</span> Results can be checked.</dt><dd>The packet verifier reconstructs the arithmetic and checks content integrity. Hashes do not establish contract truth or issuer identity.</dd></div></dl>
+    </div></section>
+
+    <section class="questions-section wrap" aria-labelledby="questions-title"><div><p class="eyebrow">Before you open a review</p><h2 id="questions-title">A few useful answers.</h2></div><div class="questions">
+      <details><summary>What can I try without an account?<span aria-hidden="true">+</span></summary><p>Open the workspace and choose “Open a reviewed example.” It uses fictional invoice and contract files and trusted Reference rules. There is no model call, sign-up or payment step. You can inspect sources, explore assumptions and export the case.</p></details>
+      <details><summary>Does every review use AI?<span aria-hidden="true">+</span></summary><p>No. Reference mode uses fixed arithmetic. Sandbox mode runs a fixed Python recipe in Docker. Vultr agent mode requests generated Python from Vultr Serverless Inference and requires an operator token. The workspace labels the actual mode.</p></details>
+      <details><summary>What files does Prooflane accept?<span aria-hidden="true">+</span></summary><p>Invoice and contract CSVs with the columns shown in the workspace’s field guide. Matching uses exact vendor and item keys plus inclusive contract dates. This prototype does not scan PDFs, connect to an ERP or make payments.</p></details>
+      <details><summary>What does a positive difference mean?<span aria-hidden="true">+</span></summary><p>It means a billed unit price exceeds the supplied contract price for an included row. It is a signal for review, not proof of fraud, contractual liability or recovered savings.</p></details>
+    </div></section>
+
+    <section class="closing-section wrap" aria-labelledby="closing-title"><div><p class="eyebrow">Start with one clear question</p><h2 id="closing-title">Which price supports<br><em>this invoice?</em></h2></div><div><a class="button" href="/app">Open the demo <span aria-hidden="true">↗</span></a><p>Bring your CSVs, or use ours.</p></div><svg class="closing-mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false"><path d="M22 52l19 19 39-43"/></svg></section>
+  </main>
+  <footer class="site-footer wrap"><span>Prooflane <span class="footer-separator">·</span> Invoice review, backed by evidence.</span><div><a href="https://github.com/NuraliKuzhagaliev/Prooflane">Source code ↗</a><a href="/app">Workspace ↗</a><span>Built on Vultr</span></div></footer>
+</body>
+</html>

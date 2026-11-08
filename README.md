@@ -4,7 +4,7 @@
 
 A review workspace for accounts payable and procurement teams investigating differences between invoice and contract prices. Resolve source decisions, execute contained analysis, test what could change your priority, and give the next reviewer a case they can reproduce.
 
-[Live application](https://45.76.92.198/) · [Watch demo — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Demo and submission files](submission/agent-rush/README.md)
+[Product homepage](https://45.76.92.198/) · [Open workspace](https://45.76.92.198/app) · [Watch demo — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Submission files](submission/agent-rush/README.md)
 
 ![Prooflane brand cover: invoice reconciliation with evidence, assumptions and proof](docs/images/prooflane-cover.png)
 
@@ -12,13 +12,15 @@ A review workspace for accounts payable and procurement teams investigating diff
 
 ## Try the workflow
 
-1. Open the [public demo](https://45.76.92.198/). **Open a reviewed example** loads a disclosed Reference example without a model call.
+1. Start on the [homepage](https://45.76.92.198/) for the product story and an interactive price example, or go directly to the [workspace](https://45.76.92.198/app). **Open a reviewed example** loads a disclosed Reference example without a model call.
 2. For a new analysis, choose **Try the fictional review**, or supply the [invoice CSV](examples/case-invoices.csv) and [contract CSV](examples/case-contracts.csv). Reconcile the sources.
 3. Inspect INV504. Two dated contracts overlap; explicitly select C2R. Record why INV506 has no active supplied contract and is excluded.
 4. Create a baseline. The fixture includes seven of eight invoices: **USD 768.00 positive price variance**, five flagged rows, USD 7,110 billed in scope. The USD 250 excluded billed amount is coverage information, not estimated savings.
 5. Inspect a source row, review all invoices sharing C1, explore assumptions, and export the case packet. In **Proof**, run the fixed containment probes or verify a downloaded packet.
 
 The public application supports Reference and fixed-recipe Docker workflows without an inference key. **Vultr agent** calls require an operator token to protect the available credit allowance. Never publish that token or enter the inference API key in the browser.
+
+The homepage's price experiment is explicitly a local illustration using the same fictional fixture. It calculates in integer cents, makes no model call and changes no source file. At C1=$82.60, INV501 and INV503 tie; one cent further changes the priority. [Landing design and verification](docs/LANDING_20261109.md).
 
 ## What makes the review reproducible
 
@@ -82,7 +84,7 @@ docker build -t prooflane-sandbox:local sandbox
 .\.venv\Scripts\python.exe -m uvicorn prooflane.app:app --host 127.0.0.1 --port 8765
 ```
 
-Open [localhost:8765](http://127.0.0.1:8765/). For a Linux checkout, use `python3 -m venv .venv` and `.venv/bin/python` in the equivalent commands. See [deployment](docs/DEPLOYMENT.md) for the dedicated Vultr VM, service ownership, HTTPS and rollback procedure.
+Open [localhost:8765](http://127.0.0.1:8765/) for the homepage or [localhost:8765/app](http://127.0.0.1:8765/app) for the workspace. For a Linux checkout, use `python3 -m venv .venv` and `.venv/bin/python` in the equivalent commands. See [deployment](docs/DEPLOYMENT.md) for the dedicated Vultr VM, service ownership, HTTPS and rollback procedure.
 
 To configure agent mode, copy `.env.example` to a new `.env` without overwriting an existing configuration. Set `VULTR_INFERENCE_API_KEY`, an available `VULTR_MODEL`, a separate random `PROOFLANE_OPERATOR_TOKEN`, and explicitly enable `PROOFLANE_LIVE_ENABLED=true`. Restart the server. Keys stay on the server and outside Git.
 

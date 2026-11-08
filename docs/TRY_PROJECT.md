@@ -1,6 +1,6 @@
 # Try Prooflane
 
-Open [the public Vultr application](https://45.76.92.198/). Use fictional data only. The [recorded live walkthrough](../submission/agent-rush/video-v2/prooflane-live-demo.mp4) shows the actual site, including a real VSI run.
+Start on the [product homepage](https://45.76.92.198/) or open [the review workspace directly](https://45.76.92.198/app). The homepage has a local integer-cent illustration; it does not run AI or create a case. Use fictional data for the demo. The [recorded live walkthrough](../submission/agent-rush/video-v2/prooflane-live-demo.mp4) shows the actual workspace, including a real VSI run; it was recorded before the separate homepage was added.
 
 For an immediate introduction, choose **Open a reviewed example**. It is explicitly Reference mode and makes no model call. To execute a new review, choose **Try the fictional review**, or select [case-invoices.csv](../examples/case-invoices.csv) and [case-contracts.csv](../examples/case-contracts.csv), then **Reconcile sources**.
 

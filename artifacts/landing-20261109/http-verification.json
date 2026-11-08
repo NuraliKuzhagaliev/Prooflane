@@ -1,0 +1,75 @@
+{
+  "passed": true,
+  "origin": "https://45.76.92.198",
+  "routes": [
+    "/",
+    "/app"
+  ],
+  "utf8_title_and_formula": true,
+  "same_origin_headers_and_cookie": true,
+  "static_assets": [
+    {
+      "path": "/static/landing.html",
+      "status": 200,
+      "bytes": 14025,
+      "sha256": "876ea1726e1c06ebfd76d527ea356fdaaf39047048c7e3e578c77f505795c676"
+    },
+    {
+      "path": "/static/landing.css",
+      "status": 200,
+      "bytes": 26119,
+      "sha256": "85b7bf0fbd4f2fe7bab2be3c256f24118898e83c9bfd6ea18e2ccee9fe824931"
+    },
+    {
+      "path": "/static/landing.js",
+      "status": 200,
+      "bytes": 2723,
+      "sha256": "458a1470ef346c8259afcc9efba37a19c8fa258bdc5245d670018b53ea96865b"
+    },
+    {
+      "path": "/static/landing-model.js",
+      "status": 200,
+      "bytes": 1420,
+      "sha256": "d89d59f86a5494cbb934fbbb159979fdb1d7136afdde4bcabcbbaec206744382"
+    },
+    {
+      "path": "/static/index.html",
+      "status": 200,
+      "bytes": 44808,
+      "sha256": "27d4106b230cb8077c3c4bfa65761f36d508102731988b5c95b7aee0e7bb0040"
+    },
+    {
+      "path": "/static/workbench.css",
+      "status": 200,
+      "bytes": 55362,
+      "sha256": "1f07afabad41541cceff497474c017af1ebf0d0423c0aa6dffff1e73504b7204"
+    },
+    {
+      "path": "/static/media/landing-workspace.jpg",
+      "status": 200,
+      "bytes": 89061,
+      "sha256": "b8c3e5a720c6e5de35b9c926d303600eed77b96f04e1a4c3a0eb54031f266d9b"
+    },
+    {
+      "path": "/static/brand/prooflane-logo.webp",
+      "status": 200,
+      "bytes": 385564,
+      "sha256": "f65ceb336645e29b01ed0bb4569ab10a97cd124b76e06719800275d0ae544c93"
+    }
+  ],
+  "health": {
+    "version": "0.1.0",
+    "docker": {
+      "available": true,
+      "detail": "Linux Docker engine and sandbox image are available."
+    },
+    "inference": {
+      "configured": true,
+      "enabled": true,
+      "model": "deepseek-v4.1-flash-1017"
+    }
+  },
+  "video_range_status": 206,
+  "model_calls": 0,
+  "scope": "Read-only route, TLS and static-file checks; not a new AI execution or load test."
+}

@@ -1,6 +1,6 @@
 # Deploying and operating Prooflane on Vultr
 
-The existing public deployment is [https://45.76.92.198/](https://45.76.92.198/), Frankfurt. Vultr Serverless Inference is enabled and has completed real browser runs. Do not repeat first-install instructions over that installation. The latest video preparation changed only `web/workbench.js` on the VM, with a file backup and SHA-256 confirmation; it did not change secrets, services or infrastructure.
+The existing public deployment is [https://45.76.92.198/](https://45.76.92.198/), Frankfurt. The root serves the product landing page; [`/app`](https://45.76.92.198/app) serves the existing review workspace. Vultr Serverless Inference is enabled and has completed real browser runs. Do not repeat first-install instructions over that installation. The later landing release adds static files and a separate workspace route, with backups and a restart of only the Prooflane service. It does not change secrets, data, sandbox settings or infrastructure.
 
 ## Existing installation
 

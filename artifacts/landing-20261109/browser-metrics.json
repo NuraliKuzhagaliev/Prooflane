@@ -1,0 +1,58 @@
+{
+  "phone": {
+    "headerTargets": [
+      {
+        "height": 48,
+        "label": "Prooflane home"
+      },
+      {
+        "height": 44,
+        "label": "The workflow"
+      },
+      {
+        "height": 44,
+        "label": "The evidence"
+      },
+      {
+        "height": 44,
+        "label": "GitHub ↗"
+      },
+      {
+        "height": 44,
+        "label": "Open workspace ↗"
+      }
+    ],
+    "reducedMotionPreference": false,
+    "scrollWidth": 375,
+    "title": "Prooflane — Invoice review, backed by evidence",
+    "width": 390
+  },
+  "narrow": {
+    "captionTop": 1189.2396240234375,
+    "contractBottom": 1006.3963317871094,
+    "resultBottom": 1169.5938339233398,
+    "resultTop": 1051.197998046875,
+    "scrollWidth": 305,
+    "width": 320
+  },
+  "tablet": {
+    "captionTop": 1115.979248046875,
+    "contractBottom": 915.8556823730468,
+    "resultBottom": 1085.5118026733398,
+    "resultTop": 963.321533203125,
+    "scrollWidth": 805,
+    "width": 820
+  },
+  "keyboard": {
+    "price8260": "244.00; INV501 and INV503 tie",
+    "arrowRight": "82.61; 243.60; INV503 first"
+  },
+  "invalidInput": "90 rejected; total and rows cleared",
+  "faq": "Enter toggles native details; focus visible",
+  "restoredCase": "e5392d04-945f-4e9d-8d06-4f10a564c252",
+  "restoredRun": "71a59f51-412",
+  "utf8": "Confirmed after repairing one bad intermediate encoding edit",
+  "physicalTouch": "NOT_RUN",
+  "screenReaderListening": "NOT_RUN",
+  "reducedMotionEmulation": "NOT_RUN; CSS rule inspected"
+}
