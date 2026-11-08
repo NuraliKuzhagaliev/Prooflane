@@ -1,0 +1,13 @@
+{
+  "passed": true,
+  "source_filename": "Prooflane_Redesigned.pdf",
+  "repository_path": "submission/agent-rush/prooflane-deck.pdf",
+  "bytes": 17748662,
+  "sha256": "ee2a5bb581c61511c7ce72708107412210a557e03611548d2fadb7d62eea8959",
+  "unchanged_source_bytes": true,
+  "pages": 6,
+  "all_pages_rendered_with": "Poppler pdftoppm; six PNGs inspected as a montage",
+  "content_edits": false,
+  "retained_pptx": "Previous design; not an editable source of this PDF",
+  "scope": "File integrity/rendering and publication replacement; no application change or new hackathon submission."
+}

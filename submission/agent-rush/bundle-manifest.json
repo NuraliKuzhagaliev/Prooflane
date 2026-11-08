@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 2627,
-      "sha256": "b651a1ad79c914236806cacde89722c74158902b45261284451b1da820fd0b7d"
+      "bytes": 2759,
+      "sha256": "4d32f70bf9f8b4fff2635573366efa3432d85c05fc630bdb8920c13fc55fc12f"
     },
     {
       "path": "title.txt",
@@ -32,8 +32,8 @@
     },
     {
       "path": "prooflane-deck.pdf",
-      "bytes": 690128,
-      "sha256": "f24d7d627ffd4e79e029f2a17e30e4f1dc65fdce9e047215d6c5ddd70d3d3351"
+      "bytes": 17748662,
+      "sha256": "ee2a5bb581c61511c7ce72708107412210a557e03611548d2fadb7d62eea8959"
     },
     {
       "path": "prooflane-deck.pptx",

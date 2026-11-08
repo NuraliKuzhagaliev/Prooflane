@@ -15,7 +15,8 @@ The captured deadline is9 November 2026,04:00 Kazakhstan time (UTC+5). [Event](h
 | Final video | [Actual website demo — elevenlabs.io narration](video-v2/prooflane-live-demo.mp4),about 3:30,1080p,under 10 MB |
 | Video plan / script | [Shot plan](video-v2/PLAN.md), [narration](video-v2/narration.en.txt) |
 | English captions | [SRT](video-v2/prooflane-live-demo.en.srt); also burned into the MP4 |
-| Slides | [Six-page PDF](prooflane-deck.pdf), [editable PPTX](prooflane-deck.pptx) |
+| Current slides | [Redesigned six-page PDF supplied by the team](prooflane-deck.pdf) |
+| Earlier editable source | [Previous PPTX](prooflane-deck.pptx); earlier design, not the editable source of the redesigned PDF |
 | Cover | [Team-supplied PNG, 1672×941](cover.png) |
 | Demo platform | Vultr Cloud Compute |
 | Demo URL | [Public application](https://45.76.92.198/) |

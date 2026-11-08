@@ -1,5 +1,9 @@
 # Submission build notes
 
+The current `agent-rush/prooflane-deck.pdf` is the team's supplied `Prooflane_Redesigned.pdf`, copied without modifying its bytes. It contains six pages and was rendered successfully for inspection. The retained PPTX is the earlier design; it is not an editable version of the supplied PDF. Preserve the supplied PDF when rebuilding other submission files: the earlier deck/PDF build scripts would regenerate the previous design. See [replacement verification](../artifacts/submission-pdf-update-20261109/verification.json).
+
+## Earlier deck generation
+
 The final Agent Rush files are under [agent-rush](agent-rush/README.md). After the video refresh, the existing editable deck was imported into an Artifact Session and updated with the team-supplied logo on all six slides. The exported PPTX passed structural package/layout validation; all six rendered slides were visually inspected. `scripts/build_submission_pdf.py` assembled the updated renders into the six-page PDF. The unchanged team-supplied 1672×941 cover replaces the earlier slide-derived cover. Native PowerPoint rendering was not tested. `scripts/build_submission.mjs` now preserves these brand assets on a future rebuild.
 
 The current movie is built by `scripts/build_live_demo.py` from timestamped native browser recordings in the ignored project cache and eight downloaded ElevenLabs MP3 chapters. It is an actual-site recording, unlike the previous still-frame walkthrough. The plan, script, captions, rights and edit manifest are public alongside the MP4. Raw capture frames are local cache and are not needed to run the application.
