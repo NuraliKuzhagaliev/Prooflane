@@ -88,12 +88,14 @@ test('choosing a source row moves focus to the new inspector and returns to the 
 test('packet submission preserves duplicate JSON keys for strict server rejection', async () => {
   const original = '{"schema":"prooflane.case.v1","case_id":"first","case_id":"second"}';
   let sent;
+  let packetLabel;
   const resultNode = { hidden: true, replaceChildren() {}, append() {} };
   const node = () => ({ append() {} });
   const context = vm.createContext({
     state: { busy: false, packetText: original, packetRequest: 1 },
     $: () => resultNode, MAX_PACKET: 8 * 1024 * 1024,
     bytes: value => Buffer.byteLength(value), error() {}, setBusy() {}, announce() {},
+    text: (id, value) => { if (id === 'wb-packet-file-label') packetLabel = value; },
     badge: node, el: node,
     api: async (path, options) => { sent = { path, ...options }; return { passed: false, error: 'Duplicate JSON keys rejected.' }; },
   });
@@ -103,6 +105,7 @@ test('packet submission preserves duplicate JSON keys for strict server rejectio
   assert.equal(sent.method, 'POST');
   assert.equal(sent.body, original);
   assert.equal(resultNode.hidden, false);
+  assert.equal(packetLabel, 'Case packet rejected');
 });
 
 test('a stalled execution response has a deadline and never retries its POST', async () => {

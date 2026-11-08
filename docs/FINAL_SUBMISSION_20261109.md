@@ -1,66 +1,52 @@
-# Финальная подготовка Prooflane, 9 ноября 2026
+# Final submission preparation — 9 November 2026
 
-**Пакет материалов готов. Официальная отправка не выполнена и не подтверждена.** [Файлы для загрузки](../submission/agent-rush/README.md). Технические проверки ниже относятся к наблюдавшимся сценариям, а не к любому будущему коду модели.
+The refreshed local material bundle contains a new actual website recording, English narration/captions, English copy, PDF slides, cover and public repository. **Official LabLab submission has not been confirmed.** [Upload files](../submission/agent-rush/README.md).
 
-## Источники правил и срок
+## Rules and deadline
 
-- [Agent Rush: Challenge, Technology, Guidelines, Judging Criteria](https://lablab.build/ai-hackathons/vultr-hackathon).
-- [Стандартные поля и форматы подачи](https://lablab.build/delivering-your-hackathon-solution).
-- [Общий Rule Book](https://lablab.build/hackathon-rules).
+Checked the [event](https://lablab.build/ai-hackathons/vultr-hackathon), [standard guide](https://lablab.build/delivering-your-hackathon-solution) and [rules](https://lablab.build/hackathon-rules). The live browser showed9 November 2026,04:00 Kazakhstan time (UTC+5), or8 November23:00 UTC. [Schedule evidence](../artifacts/final-submission-20261109/deadline.jpg). The authorized team form itself has not been reviewed.
 
-Все три страницы прочитаны 9 ноября по времени Казахстана. Текстовый веб-экстрактор показывал `To be announced` в расписании, но **живой браузер показал согласованный срок в баннере и расписании: 9 ноября 2026, 04:00 Kazakhstan Time**, то есть 8 ноября, 23:00 UTC. Это разрешает прежнюю неопределённость расписания. [Кадр](../artifacts/final-submission-20261109/deadline.jpg) · [метаданные](../artifacts/final-submission-20261109/official-rules-check.json). Открытая авторизованная форма команды не проверялась; готовность файлов не доказывает доступность Submit в аккаунте.
+## Evidence gates
 
-## Обязательные требования и доказательства
+| Requirement | Status and evidence |
+| --- | --- |
+| Vultr central control layer / public demo | PASS in actual HTTPS/Docker workflows on the dedicated VM. [Public app](https://45.76.92.198/), [23-check HTTP report](../artifacts/final-submission-20261109/http/sandbox-review-smoke.json). |
+| Actual Vultr Serverless Inference | PASS for the new recorded browser run,7 included rows, USD768,2 actual model calls. [Packet](../artifacts/live-demo-v2/live-case-packet.json). |
+| Isolation, no injected keys, limits and cleanup | Five fresh observed containment checks PASS; code fails closed without Docker and quarantines unknown cleanup. [Observation](../artifacts/live-demo-v2/containment.txt). Docker is shared-kernel, not a microVM. |
+| Executed and independently verified result | New packet accepted by browser and offline CLI, seven groups. [Verdict](../artifacts/live-demo-v2/packet-verification.json). |
+| Public repository, setup and architecture | English current documentation and source on [GitHub](https://github.com/NuraliKuzhagaliev/Prooflane). Final commit/access checks are in [publication record](GITHUB_PUBLICATION_20261109.md). |
+| Video / containment moment | New H.264/AAC MP4,1920×1080,about 3:30,under 10 MB, English ElevenLabs speech and captions. Real actions/new AI/probes/recheck; no generated scenes. [Edit manifest](../submission/agent-rush/video-v2/edit-manifest.json). |
+| PDF / cover / copy | Six-page PDF,1600×900 PNG; title9, short187,long1755 characters. Actual form takes priority. [Files](../submission/agent-rush/README.md). |
+| Team and format | Four user-confirmed participants, online. Team name/roles are not invented. [Fields](../submission/agent-rush/submission.json). |
+| Licensing | MIT code, retained font licenses, fictional data, separately attributed ElevenLabs Free-plan audio. Free audio has noncommercial terms; commercial licensing and organizer acceptance of any asset remain separate questions. |
+| Form-specific categories/attestations | NOT_RUN. Candidate tags require mapping to actual options; participant must confirm personal statements. |
+| Upload and Submit | NOT_RUN. No platform confirmation or published-entry URL is present. GitHub does not submit the entry. |
 
-| Условие | Статус | Проверенное доказательство |
-|---|---|---|
-| Vultr VM управляет задачами | PASS | 23 свежие HTTP-проверки публичного backend, включая настоящий sandbox-run. [Отчёт](../artifacts/final-submission-20261109/http/sandbox-review-smoke.json). |
-| Публичное веб-приложение | PASS | https://45.76.92.198/ проверен через браузер и HTTP. Вымышленный Reference-пример доступен без ключа; реальное AI-исполнение защищено operator token. |
-| Vultr Serverless Inference | PASS для сохранённого живого прогона | Два фактических ID Vultr, сгенерированный Python, Docker, проверенные USD768. [Живой браузерный прогон](LIVE_AI_CHECK_20261109.md). В текущей подготовке новых модельных вызовов не делали. |
-| Изоляция, лимиты, отсутствие ключей, очистка | PASS для наблюдавшихся контейнеров | Сохранённые runtime limits и пять свежих браузерных проб. [Наблюдение](../artifacts/final-submission-20261109/browser-containment.txt), [кадр результата](../artifacts/final-submission-20261109/video-review/scene-07.jpg). Docker разделяет ядро VM с хостом; это не microVM и не доказательство отсутствия всех способов выхода. |
-| Реальное исполнение и проверяемый результат | PASS | Независимый Decimal-verifier, исходные строки, код и receipt; JSON-пакет повторно принят браузером и CLI, семь групп PASS. [Браузер](../artifacts/final-submission-20261109/browser-packet-check.txt), [CLI](../artifacts/final-submission-20261109/receipt-check.json). |
-| Отказ при ошибочном/неполном результате | PASS в проверенных отрицательных сценариях | Unit/API tests отвергают несовпадения и не исполняют модельный код без Docker. Начальный реальный incomplete-ответ ранее отказал до исполнения, сохранён в live-отчёте. |
-| Открытый GitHub с запуском и архитектурой | PASS | [Репозиторий](https://github.com/NuraliKuzhagaliev/Prooflane), README, исходники и тесты. [Свежий клон](GITHUB_PUBLICATION_20261109.md). |
-| Описание в пределах стандартных лимитов | PASS | Title9, short187, long1755 символов; [валидация](../submission/agent-rush/field-validation.json). Реальная форма имеет приоритет над стандартными лимитами. |
-| Видео MP4/MOV и containment-момент | PASS как локальный файл | MP4 1920×1080, примерно3:58, менее5MB; H.264/AAC, английские голос и субтитры, пять containment-проб в главе7. Полное декодирование и выборочные кадры проверены. [Manifest](../submission/agent-rush/video/video-manifest.json). |
-| Слайды PDF | PASS | Шесть страниц, обновлён статус Inference. PPTX прошёл структурную/layout-проверку, импорт и визуальную проверку рендеров. Native PowerPoint не запускался. [PDF](../submission/agent-rush/prooflane-deck.pdf). |
-| Обложка | PASS | PNG1600×900,16:9. [Файл](../submission/agent-rush/cover.png). |
-| Состав 1–6 и формат участия | PASS по сведениям пользователя | Четыре участника со скриншота, онлайн. Роли и официальное название команды не выдуманы. [Поля](../submission/agent-rush/submission.json). |
-| Лицензия и происхождение | PASS для опубликованной лицензии; личные аттестации NOT_RUN | MIT в корне, лицензии шрифтов сохранены, только вымышленные данные. Независимое установление авторства, права каждого участника и персональные условия участия не подтверждались кодом или тестами. |
-| Категории и специфические поля формы | NOT_RUN | Подготовлены кандидатные теги; их нужно сопоставить с вариантами авторизованной формы. |
-| Загрузка файлов и Submit на LabLab | NOT_RUN | Пользователь просил подготовить подачу. Файлы не загружались в форму, подтверждения отправки нет. Публикация GitHub этого не заменяет. |
+Formal all-gates readiness remains **not_ready** because actual form/attestation/Submit gates are open. This does not negate the recorded technical passes or completed material files.
 
-Итог формальной готовности: `not_ready` для утверждения «все ворота подачи закрыты» из-за непроверенных полей/аттестаций и отсутствующего Submit. Это не отказ технических проверок. Локальный комплект готов к загрузке. Решение о допустимости заявки принимает организатор.
+## Published judging criteria
 
-## Четыре критерия оценивания
+| Criterion | What the demo demonstrates | Evidence boundary |
+| --- | --- | --- |
+| Application of Technology | VSI code generation, actual Vultr Docker, independent Decimal check, separate VSI guidance selection and packet reconstruction | Bounded invoice contract, not a general autonomous agent |
+| Presentation | One actual case from source choices through a verified result, exact priority boundary, runtime details, containment and export | Edited screen recording; inspection views have cuts, execution/probe transitions remain real |
+| Business Value | AP/procurement reviewer can understand scope, update shared assumptions and hand another colleague a reproducible case | Subscription and reviewer-time benefits are hypotheses; no customers, measured ROI or recovered money claimed |
+| Originality | Explicit contract choice, shared inputs, exact cent witnesses and portable reconstruction in a single workflow | No world-first claim for sandboxing, receipts, matching or duplicate checks |
 
-Это покрытие опубликованного рубрикатора, а не прогноз судейских баллов. Отдельные веса на странице события не опубликованы.
+No official weights or guaranteed placing are asserted.
 
-| Критерий | Что предъявляется | Граница доказательства |
-|---|---|---|
-| Application of Technology | Фактическая цепочка VSI → Python → Docker → Decimal → выбор объяснения → пакет; обе роли модели раскрыты. | Фиксированная задача анализа, а не универсальный автономный агент. |
-| Presentation | Описание, PDF и видео ведут через одно дело; видны сумма, решение по договору, граница приоритета и containment. | Видео смонтировано из настоящих статичных кадров с синтетическим голосом. Непрерывный скринкаст и новая AI-генерация в этом ролике отсутствуют и не заявляются. |
-| Business Value | Понятная задача AP/закупок, сохранение причин исключения, пересчёт связанных счетов, передача проверяемого дела коллеге. | Коммерческая модель — гипотеза подписки. Нет измеренных клиентов, экономии времени или возврата денег. |
-| Originality | Сочетание явного выбора версии договора, общей ставки на несколько строк, точной границы смены лидера и реконструкции пакета. | Песочницы и receipts сами по себе распространены; мировая или научная новизна не заявляется. |
+## Latest verification and changes
 
-## Выполненные проверки
+179 Python tests passed (one existing warning);26 JavaScript tests passed. The initial JS rerun exposed a missing text-helper stub after the label fix; the fixture was corrected and the complete suite passed. [Logs](../TESTING.md). The new downloaded packet passed seven groups. Fresh five-probe containment passed during recording. A real new VSI run succeeded; this replaces the previous movie's saved-run-only presentation.
 
-Проверяемая версия приложения совпадает с опубликованным `6cbcedfc9b0d5479194ed91b6a2261c5e2809a25`: побайтово сравнён51файл приложения, frontend, тестов и зависимостей. SHA дерева записан в [readiness.json](../artifacts/final-submission-20261109/readiness.json). Миграций и развёртывания приложения в этой подготовке не было. Откат материалов — отдельный revert коммита упаковки; существующее приложение на VM от этого не меняется.
+The frontend now updates a pasted packet's helper label to the actual verdict. Its old misleading “not verified” helper is fixed on the VM. The one file was backed up before deployment; no arithmetic, environment, service, infrastructure or secret setting changed. Restore the saved `workbench.js.before-video-v2` only if rollback is needed and verify its revision before use.
 
-- Python:179 PASS, одно существующее предупреждение Starlette,5.72с. [Лог](../artifacts/final-submission-20261109/pytest.txt).
-- JavaScript:26 PASS. [Лог](../artifacts/final-submission-20261109/node-tests.txt).
-- Bootstrap: структурная проверка PASS; сама по себе не запускала приложение. [Лог](../artifacts/final-submission-20261109/bootstrap-verify.txt).
-- Public HTTP:23 PASS, режим sandbox,0 модельных вызовов. Пакет/CSV/brief, session isolation, recovery/replay и строгий parser проверены.
-- Браузер: пять свежих containment-проб и семь проверок исходного AI-пакета PASS. Сохранённый AI baseline осмотрен без нового исполнения.
-- MP4: полное декодирование без ошибок; присутствуют H.264 video/AAC audio, английские captions. Выборочно проверены кадры каждой из10глав; титр номера главы перенесён, чтобы не перекрывать screenshot. Аудио: средний уровень около−20.4dB, максимум−2.0dB, это технический замер, не слуховая экспертиза.
-- PDF: исправлена устаревшая строка Inference. Все шесть рендеров осмотрены; геометрия и две редактируемые таблицы проверены инструментом.
+The MP4 fully decoded without errors; actual frames from each chapter were inspected. Mean audio level was −17.3 dB and maximum −1.4 dB. These are technical measurements, not a listening-panel claim. The native screen stream is approximately11fps, encoded as30fps with repeated frames, without motion interpolation. Captions match the script with approximate cue timing. The slow native file-selection interval was omitted; chapter2 starts with the actual selected CSV filenames, then shows reconciliation. [Production detail](../submission/agent-rush/video-v2/PRODUCTION.md).
 
-Первый повторный pytest в ограниченной среде был прерван после13тестов без итогового результата. Полный прогон вне ограничений среды завершился успешно; причина зависания первого не установлена. Это не скрывается как успешный прогон. Новую установку runtime-зависимостей приложения здесь не проверяли; проверка клона использовала существующее окружение.
+PDF and cover were retained from the previous verified preparation; their production did not recur in this video-only revision. Historical test logs and original document versions remain versioned; English historical summaries are editorial summaries, not newly performed independent reviews.
 
-## Остаточные ограничения
+## Remaining limitations
 
-AI-запуск требует operator token, чтобы не открыть публичный расход кредитов. Судьи могут проверить открытый пример, фиксированный Docker-рецепт, исходники и включённый AI-пакет без передачи ключа. Для собственного AI-запуска нужны их локальная конфигурация или предоставленный владельцем доступ; ключи в материалы не вложены.
+Live execution needs an operator token to protect credits. Public Reference/fixed Docker, saved AI evidence and offline packet verification require no provider key. Credentials are excluded from all files. No real customer study, physical touch, full screen-reader listening, system reduced-motion validation, broad public load test or real SIGKILL experiment is claimed. Provider success in a recorded run does not guarantee future responses.
 
-У браузерного загрузчика после успешного paste-пакета остаётся вспомогательная строка `Pasted packet · not verified`; итоговая панель отдельно и корректно показывает семь PASS. Ролик показывает эту итоговую панель. Это известная неоднозначность подписи, не пересчитанный результат и не изменённое доказательство.
-
-Ни Hash, ни Decimal-проверка не устанавливают подлинность договора, ответственность поставщика, безопасность любого будущего кода или реальные возвращённые деньги. Изменений приложения/инфраструктуры в этой подготовке не было; изменены упаковка, слайды, описание и артефакты проверки.
+The participant still needs to review the actual team form, upload the selected files, confirm personal terms and complete Submit before the platform cutoff. No such action was performed by this preparation task.

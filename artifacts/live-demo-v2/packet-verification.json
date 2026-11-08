@@ -1,0 +1,28 @@
+{
+  "passed": true,
+  "case_name": "November supplier review",
+  "case_id": "18615e14-2242-4f83-9034-3a5afa96479d",
+  "checks": [
+    "Source reconciliation and explicit exclusions",
+    "Baseline receipt and source CSV",
+    "All alternative arithmetic and parent links",
+    "Declared changes and shared-contract propagation",
+    "Exact ranges, sensitivity and review priorities",
+    "Case hash and all comparisons",
+    "Priority boundaries and cent-grid witnesses"
+  ],
+  "counts": {
+    "excluded": 1,
+    "matched": 6,
+    "selected": 1,
+    "total": 8,
+    "unresolved": 0
+  },
+  "alternatives": 0,
+  "range": {
+    "low": "768.00",
+    "high": "768.00",
+    "width": "0.00"
+  },
+  "scope": "Source/assumption consistency and arithmetic only. No issuer authentication, runtime attestation or proof that supplied contracts are true."
+}

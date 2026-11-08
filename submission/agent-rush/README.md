@@ -1,34 +1,24 @@
-# Prooflane — пакет для LabLab Agent Rush
+# Prooflane — Agent Rush submission files
 
-Трек: **Blast Radius Zero**. Участие: **онлайн**. Четыре участника подтверждены пользователем: Nurali Kuzhagaliev, Nuraiym Kilybayeva, Mariyam Murzagaliyeva, Abylay Tabayev. Официальное название команды возьмите из существующего аккаунта; оно не было предоставлено.
+Track: **Blast Radius Zero**. Participation: **online**. User-confirmed team: Nurali Kuzhagaliev, Nuraiym Kilybayeva, Mariyam Murzagaliyeva and Abylay Tabayev. Use the official team name from the existing account; none has been invented.
 
-Дедлайн живой страницы: **9 ноября 2026, 04:00 по Казахстану (UTC+5)**. [Событие](https://lablab.build/ai-hackathons/vultr-hackathon). Заявка ещё не отправлена.
+The captured deadline is9 November 2026,04:00 Kazakhstan time (UTC+5). [Event](https://lablab.build/ai-hackathons/vultr-hackathon). **Official submission is not confirmed.**
 
-Файлы для формы:
-
-| Поле | Готовое значение или файл |
-|---|---|
-| Project title | [Prooflane](title.txt),9символов |
-| Short description | [Готовый английский текст](short_description.txt),187символов |
-| Long description | [Готовый английский текст](long_description.txt),1755символов |
-| Все поля одним файлом | [submission.json](submission.json) |
-| Video | [prooflane-demo.mp4](video/prooflane-demo.mp4), около3:58,1080p, менее5MB |
-| Slides | [prooflane-deck.pdf](prooflane-deck.pdf),6страниц |
-| Cover | [cover.png](cover.png),1600×900 |
+| Form field | File or value |
+| --- | --- |
+| Project title | [Prooflane](title.txt),9 characters |
+| Short description | [English copy](short_description.txt),187 characters |
+| Long description | [English copy](long_description.txt),1755 characters |
+| All fields | [submission.json](submission.json) |
+| Final video | [Actual website demo — elevenlabs.io narration](video-v2/prooflane-live-demo.mp4),about 3:30,1080p,under 10 MB |
+| Video plan / script | [Shot plan](video-v2/PLAN.md), [narration](video-v2/narration.en.txt) |
+| English captions | [SRT](video-v2/prooflane-live-demo.en.srt); also burned into the MP4 |
+| Slides | [Six-page PDF](prooflane-deck.pdf), [editable PPTX](prooflane-deck.pptx) |
+| Cover | [PNG1600×900](cover.png) |
 | Demo platform | Vultr Cloud Compute |
-| Demo URL | https://45.76.92.198/ |
-| Public GitHub | https://github.com/NuraliKuzhagaliev/Prooflane |
-| Participation | Online |
+| Demo URL | [Public application](https://45.76.92.198/) |
+| Public source | [GitHub](https://github.com/NuraliKuzhagaliev/Prooflane) |
 
-Дополнительно: [редактируемые слайды](prooflane-deck.pptx), [английские субтитры](video/prooflane-demo.en.srt), [текст озвучки](video/transcript.en.txt), [чек-лист и ограничения](../../docs/FINAL_SUBMISSION_20261109.md).
+The new video shows the real site: source decisions, a newly executed VSI/Docker baseline, source inspection, exact priority boundary, actual model/code provenance, fresh containment and downloaded-packet verification. It uses existing ElevenLabs Free-plan credits; no paid subscription, Runway generation, stock scenes or fake cursor was used. Keep **elevenlabs.io** in the video title/description and retain the end attribution. The free voice asset has separate noncommercial terms, not MIT. [Production and rights](video-v2/PRODUCTION.md).
 
-Видео — монтаж реальных кадров сайта с локальной синтетической озвучкой. Сохранённый успешный AI-прогон и свежая проверка контейнера помечены отдельно. Новый AI-запрос во время производства ролика не запускался. [Метод и происхождение](video/PRODUCTION.md).
-
-Последовательность финальной отправки:
-
-1. Откройте существующую команду на странице Agent Rush под своим аккаунтом; проверьте четырёх участников.
-2. Откройте создание/редактирование заявки и вставьте готовые тексты. Выберите Blast Radius Zero, Online и подходящие категории/технологии из фактических вариантов формы.
-3. Загрузите MP4, PDF и cover PNG. Проверьте предпросмотр и ссылки на сайт и GitHub.
-4. Личные подтверждения и условия заполняет участник от своего имени. Нажмите Submit до дедлайна и сохраните URL опубликованной заявки/подтверждение.
-
-Технические проверки пройдены в указанных сценариях. До шага4 нельзя утверждать, что проект участвует в судействе. Стандартные лимиты проверены; конкретная форма события имеет приоритет.
+For final entry: open the existing team; verify its four members; copy the prepared fields; map candidate tags to actual form options; choose the track/online format; upload MP4/PDF/PNG; inspect previews and public links. The participant must confirm personal statements/terms, complete Submit and retain the published-entry URL. These form steps have not been completed by preparation. [Gate checklist](../../docs/FINAL_SUBMISSION_20261109.md).

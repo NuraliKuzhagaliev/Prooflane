@@ -883,6 +883,7 @@ async function verifyPacket(event) {
     if (result.scope) node.append(el('p', '', typeof result.scope === 'string' ? result.scope : JSON.stringify(result.scope)));
     if (Array.isArray(result.checks)) node.append(checksList(result.checks, result.passed === true));
     else if (result.checks) { const details = el('pre'); details.textContent = JSON.stringify(result.checks, null, 2); node.append(details); }
+    text('wb-packet-file-label', result.passed ? 'Case packet verified' : 'Case packet rejected');
     node.hidden = false; announce(result.passed ? 'Packet verification passed. See the verification scope.' : 'Packet rejected. See the failed check.');
   } catch (failure) { error(failure.message); }
   finally { setBusy(false); }

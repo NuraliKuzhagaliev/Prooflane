@@ -1,0 +1,159 @@
+1
+00:00:00,400 --> 00:00:06,599
+An invoice is disputed. Before calculating, we need to know which contract price applies.
+
+2
+00:00:06,599 --> 00:00:11,913
+Prooflane helps accounts payable teams trace that decision and hand another reviewer
+
+3
+00:00:11,913 --> 00:00:17,670
+a case they can reproduce. Here is the actual application running on Vultr.
+
+4
+00:00:18,720 --> 00:00:22,882
+We load an invoice CSV and a separate contract CSV.
+
+5
+00:00:22,882 --> 00:00:26,628
+Invoice five hundred and four has two overlapping agreements.
+
+6
+00:00:26,628 --> 00:00:30,790
+We compare their consequences and explicitly select C two R.
+
+7
+00:00:30,790 --> 00:00:36,201
+Another invoice has no active supplied contract. We exclude it with a reason.
+
+8
+00:00:36,201 --> 00:00:39,530
+Seven of eight rows are now in scope;
+
+9
+00:00:39,530 --> 00:00:42,860
+the excluded amount is not counted as savings.
+
+10
+00:00:45,909 --> 00:00:50,096
+Now we create the baseline in Vultr agent mode.
+
+11
+00:00:50,096 --> 00:00:56,143
+Serverless Inference writes Python, and the Vultr virtual machine dispatches it to a
+
+12
+00:00:56,143 --> 00:01:00,795
+disposable Docker container. An independent Decimal checker verifies every finding.
+
+13
+00:01:00,795 --> 00:01:07,308
+The completed result is seven hundred and sixty eight dollars of positive price variance,
+
+14
+00:01:07,308 --> 00:01:10,099
+with five rows flagged for review.
+
+15
+00:01:11,909 --> 00:01:17,522
+The result stays connected to its sources. Selecting an invoice reveals the exact quantity
+
+16
+00:01:17,522 --> 00:01:22,334
+and both prices. One contract price, C one, affects three invoices together.
+
+17
+00:01:22,334 --> 00:01:26,744
+The assumptions view calculates the cent at which review priority changes:
+
+18
+00:01:26,744 --> 00:01:30,353
+eighty two dollars and sixty cents creates a tie.
+
+19
+00:01:30,353 --> 00:01:33,961
+One cent more makes a different invoice the priority.
+
+20
+00:01:33,961 --> 00:01:37,169
+These are explicit what if calculations, not predictions.
+
+21
+00:01:40,013 --> 00:01:45,853
+In Proof, we can inspect the actual model, the generation and explanation request identifiers,
+
+22
+00:01:45,853 --> 00:01:51,692
+and the Python that ran. Vultr selects the focus of the guidance after verification;
+
+23
+00:01:51,692 --> 00:01:57,949
+the server inserts the checked amounts. Execution has no network, no host mounts or injected
+
+24
+00:01:57,949 --> 00:02:01,703
+credentials, a read only root filesystem, and resource limits.
+
+25
+00:02:01,703 --> 00:02:04,623
+The container is removed after the task.
+
+26
+00:02:05,673 --> 00:02:11,142
+Let us test containment from the site. A fresh container runs the probes now.
+
+27
+00:02:11,142 --> 00:02:16,610
+Network access fails, writing to the root filesystem is denied, the inference key variable
+
+28
+00:02:16,610 --> 00:02:19,735
+is absent, and the process is not root.
+
+29
+00:02:19,735 --> 00:02:23,251
+Finally, the system confirms that the container was removed.
+
+30
+00:02:23,251 --> 00:02:29,110
+These five observed checks pass; they are evidence of these controls, not a claim that
+
+31
+00:02:29,110 --> 00:02:31,063
+every possible escape is impossible.
+
+32
+00:02:36,354 --> 00:02:39,848
+We download the case packet and verify it again.
+
+33
+00:02:39,848 --> 00:02:44,118
+The verifier reconstructs the source choices, arithmetic, receipt links and priority
+
+34
+00:02:44,118 --> 00:02:49,553
+boundaries. All seven groups pass. The same packet can be checked offline without our
+
+35
+00:02:49,553 --> 00:02:55,764
+server. Its hashes detect changes; they do not prove that a supplier or contract is authentic.
+
+36
+00:03:03,820 --> 00:03:09,721
+Prooflane turns a disputed amount into a review another colleague can reproduce.
+
+37
+00:03:09,721 --> 00:03:14,147
+Our initial users are accounts payable and procurement teams.
+
+38
+00:03:14,147 --> 00:03:20,540
+A team subscription is a business hypothesis; customer savings have not been measured.
+
+39
+00:03:20,540 --> 00:03:25,458
+Try the public demo and inspect the open source repository.
+
+40
+00:03:25,458 --> 00:03:28,900
+Built on Vultr. Narration generated with ElevenLabs.

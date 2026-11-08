@@ -1,6 +1,11 @@
 {
   "files": [
     {
+      "path": "README.md",
+      "bytes": 2376,
+      "sha256": "7c8c2f79ac3ecd21e66f2cfb66d77adaa0f971f54fbad5e6fbf5542f6a414844"
+    },
+    {
       "path": "title.txt",
       "bytes": 10,
       "sha256": "3486bcf373794c19d0a80479450e4bcba5ae6bab1353d51dc4c2a9e558bc23e8"
@@ -17,13 +22,13 @@
     },
     {
       "path": "submission.json",
-      "bytes": 2902,
-      "sha256": "f12764e35c1cca331bf7b89583fd0ada8974046f3832ee5c6a78c0ec5928d147"
+      "bytes": 3181,
+      "sha256": "4715c5201e3add139b0153c3a40722fcb95d80db0000c53e3982f9d8787958e5"
     },
     {
       "path": "field-validation.json",
-      "bytes": 365,
-      "sha256": "b83d5c38990b1af6336fcbcb0e374d90f28b99a2d0cd0d07e28d04fd8d0131d0"
+      "bytes": 362,
+      "sha256": "80b6f59e0959606e2aa11925457ba8a602c4cb810e4c9b255448a48065aa7cd4"
     },
     {
       "path": "prooflane-deck.pdf",
@@ -41,26 +46,81 @@
       "sha256": "aff5c26aefea8e314917ed3c436fb069345e82db177d8748c5b2534b0e782cd4"
     },
     {
-      "path": "video/prooflane-demo.mp4",
-      "bytes": 4612381,
-      "sha256": "4c69239cc5517cb44b7d8ec38b8dee10d3075a96d44da2da64341fca3b2255d8"
+      "path": "video-v2/audio/01-intro.mp3",
+      "bytes": 293208,
+      "sha256": "1870b9719a788e13416cd2f74fb1b271d00e14dfe548e1c963484c3e944a9eb1"
     },
     {
-      "path": "video/prooflane-demo.en.srt",
-      "bytes": 4388,
-      "sha256": "7dc097311475c75792c7aeddd39a2e3317b6b0f4154611514a539cb10d376b08"
+      "path": "video-v2/audio/02-sources.mp3",
+      "bytes": 403131,
+      "sha256": "08811ec95333ce68f7fbf011bab8f9ef779b2c16a93a8c9a6c2e4f0c8e454030"
     },
     {
-      "path": "video/transcript.en.txt",
-      "bytes": 3319,
-      "sha256": "14849d58e617c327a4bc636c5720f401321626d05ae884f85162cbe011289acb"
+      "path": "video-v2/audio/03-execute.mp3",
+      "bytes": 403967,
+      "sha256": "559d0a427565bfef7b59103313c1b79c0a5910e5dbaa08bb91dc582263e2baa3"
     },
     {
-      "path": "video/video-manifest.json",
-      "bytes": 6147,
-      "sha256": "babd3edc26b58387e17a1862978c5dccfd53d7b61531ac987ef2a7010359ed53"
+      "path": "video-v2/audio/04-decisions.mp3",
+      "bytes": 421103,
+      "sha256": "b4f141c3e0961c8b7afc8dd8b8f5f412b0f4ea3bbc5f63f5e47c9a6d46c40c6e"
+    },
+    {
+      "path": "video-v2/audio/05-proof.mp3",
+      "bytes": 410654,
+      "sha256": "47b9701e7a75de9fb7dc1d84640def7bcc2292a6b40e7832612de6fd7a6fa99f"
+    },
+    {
+      "path": "video-v2/audio/06-containment.mp3",
+      "bytes": 423193,
+      "sha256": "9194c00812215ec2b9a251de125c553d840d15c0395e7313a60e3e5acf72579b"
+    },
+    {
+      "path": "video-v2/audio/07-packet.mp3",
+      "bytes": 327480,
+      "sha256": "d616ac647d2a85e6a4d7ef2c1531f72d00b25c7fefa18c5390c8144c2e18b78f"
+    },
+    {
+      "path": "video-v2/audio/08-close.mp3",
+      "bytes": 418177,
+      "sha256": "889b809f168025b769ca1a44de1aee40b0c1d86939884ffee1a3d7735999e368"
+    },
+    {
+      "path": "video-v2/edit-manifest.json",
+      "bytes": 6340,
+      "sha256": "c3a4cd128ac5c54b53b2389d6ba5778e0f5b056da65f0f89cfc48cf1140e6f53"
+    },
+    {
+      "path": "video-v2/narration.en.txt",
+      "bytes": 2772,
+      "sha256": "5bba929094a17c4d138480ea61967dbcd1fa899b1e67732719f0d010b7e3c4f4"
+    },
+    {
+      "path": "video-v2/PLAN.md",
+      "bytes": 5206,
+      "sha256": "df70b5c2f24bf7e9b5c0fc1cf48e572cafcb4f095aa70af0e02b884262e2d551"
+    },
+    {
+      "path": "video-v2/PRODUCTION.md",
+      "bytes": 4029,
+      "sha256": "e4ecc6e6920f8883fd6a5d22b4b8c4575074b204fa2a223615403b1a81c988bc"
+    },
+    {
+      "path": "video-v2/prooflane-live-demo.en.srt",
+      "bytes": 4115,
+      "sha256": "aa6bec9a4f7743cc60dd0747a7aab6ca06c5ecc26a161355623a5f2b03af395d"
+    },
+    {
+      "path": "video-v2/prooflane-live-demo.mp4",
+      "bytes": 8019667,
+      "sha256": "089ba397bca8c2813dc7f0c71d3afabba6a62994ca3b02632f023cc10dda0e8c"
+    },
+    {
+      "path": "video-v2/script.json",
+      "bytes": 3240,
+      "sha256": "b59c3f3813a6e80a37fd26e4882ee0d43fc49b92e8ecd9900a2d3e23b5fe4b2e"
     }
   ],
-  "note": "Submission materials only. Source code remains in public GitHub; no secrets or local databases included.",
-  "hash_scope": "Exact upload-file bytes; text files pinned to LF with scoped .gitattributes"
+  "note": "Updated submission files only; no secrets, databases or raw recording cache. Code is in public GitHub. ElevenLabs audio retains separate noncommercial attribution terms.",
+  "hash_scope": "Exact file bytes; scoped text eol=lf, media binary."
 }

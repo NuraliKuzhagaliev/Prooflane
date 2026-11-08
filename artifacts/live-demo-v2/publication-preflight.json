@@ -1,0 +1,13 @@
+{
+  "base_commit": "ff0b6b117fd7f16b819f25894e5aec07314389ad",
+  "public_files": 535,
+  "markdown_files": 78,
+  "non_english_markdown": [],
+  "broken_local_links": [],
+  "excluded_private_paths_found": [],
+  "secret_pattern_matches": [],
+  "all_submission_hashes_passed": true,
+  "secret_scan_scope": "Pattern scan only; does not prove absence of every possible secret",
+  "local_workspace_guidance": "Original guarded AGENTS.md retained; public equivalent is English",
+  "new_video_sha256": "089ba397bca8c2813dc7f0c71d3afabba6a62994ca3b02632f023cc10dda0e8c"
+}

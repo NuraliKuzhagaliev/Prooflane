@@ -1,51 +1,28 @@
-# Живой AI через браузер, 9 ноября 2026
+# Live Vultr AI verification — 9 November 2026
 
-**PASS для полного проверенного сценария:** публичная форма Prooflane → Vultr Serverless Inference → сгенерированный Python → настоящий Docker → независимый Decimal-verifier → объяснение Vultr → скачанный JSON-пакет → офлайн и браузерная проверка. Использованы только вымышленные invoices/contracts.
+Two distinct successful public-browser runs are retained. The latest was recorded for the updated demonstration; it is not a Reference or fixed-recipe substitution.
 
-Локальное время успешного baseline: 9 ноября около00:14, Asia/Qyzylorda. Timestamp API: `2026-11-08T19:14:24.341640+00:00`.
+## New recorded run
 
-## Наблюдаемый результат
+- Site: [public HTTPS application](https://45.76.92.198/).
+- Case: `18615e14-2242-4f83-9034-3a5afa96479d`; run: `80e94339-3715-4832-baf0-fed3c6b5cc38`.
+- Model: `deepseek-v4.1-flash-1017`.
+- Generation request: `chatcmpl-5c3c7b38-9dbb-4177-8141-644840bc922c`.
+- Guidance request: `chatcmpl-4a182d04-ca35-4c91-bf6e-4894aa9b1d28`.
+- Actual result: seven of eight fictional invoice rows, one reasoned exclusion, five positive findings, USD768.00 positive variance, USD7,110.00 billed in scope.
+- Docker: exit0, cleanup confirmed,128MiB/0.5CPU/32PIDs,network none,read-only root,UID65534,no host mounts or injected credentials.
+- Independent output verification passed; downloaded [case packet](../artifacts/live-demo-v2/live-case-packet.json) passed all seven browser/CLI groups. Five fresh containment probes passed during the movie.
 
-| Поле | Значение |
-|---|---|
-| Публичный адрес | https://45.76.92.198/ |
-| Mode | `vultr`, показан в интерфейсе как Vultr agent |
-| Requested/returned model | `deepseek-v4.1-flash-1017` |
-| Case ID | `f73c5d8c-8923-40e2-b070-5123983a5063` |
-| Run ID | `93ccc09e-5289-402d-b7b8-41be8c8e958e` |
-| Generation request ID | `chatcmpl-da46cfa5-ca31-4ac1-8e13-9757e978f989` |
-| Explanation request ID | `chatcmpl-de6f9e21-11e9-41a9-a13b-0f4ad4b2af72` |
-| Успешный прогон | 2 модельных вызова, 1 генерация без correction |
-| Usage из ответов | Генерация909 total tokens, объяснение116 total tokens |
-| Охват | 7из8 строк, C2R выбран явно, INV506 исключён с причиной |
-| Billed / positive variance | USD7110.00 / USD768.00 |
-| Положительные отклонения | 5из7 включённых строк |
-| Runtime | Docker, exit0, cleanup=true |
-| Время самого контейнера | 723.04мс; это не полная задержка AI-запроса |
-| Контейнер | `85a151c376c2b43c982a10debb82cb17b5f6672da01cc086bc09e25ccd48cf8c` |
-| Наблюдавшиеся ограничения | network none, non-root65534, read-only root, host mounts0, memory128MiB, cpu0.5, pids32 |
-| Офлайн пакет | 7групп PASS |
-| Браузерный загрузчик пакета | 7групп PASS |
-| Reload | То же дело и Vultr agent восстановлены, нового исполнения не было |
+The browser selected C2R for the overlapping contract and excluded INV506 with an explicit reason before creating the baseline. The new movie shows execution start, waiting and result, actual code/request IDs, containment and packet verification. [Edit/production record](../submission/agent-rush/video-v2/PRODUCTION.md).
 
-[Сырой отчёт](../artifacts/live-ai-20261109/live-evidence.json) · [Скачанный из браузера пакет](../artifacts/live-ai-20261109/live-case-packet.json) · [Браузерная проверка](../artifacts/live-ai-20261109/browser-checks.json) · [Ledger](../artifacts/live-ai-20261109/live-ledger.jpg) · [Proof с обоими ID Vultr](../artifacts/live-ai-20261109/live-proof.jpg).
+## Earlier run and failure history
 
-## Найденный сбой и исправление
+The earlier successful run was `93ccc09e-5289-402d-b7b8-41be8c8e958e`, also7/8 rows, USD768 and two model calls, with exit0/cleanup true. [Earlier browser image](../artifacts/live-ai-20261109/live-proof.jpg).
 
-Первый фактический браузерный запуск завершился `Vultr model output was incomplete`. Приложение остановилось до Docker, не создало case и не выдало непроверенную сумму. [Диагностика](../artifacts/live-ai-20261109/initial-failure.json) и [кадр](../artifacts/live-ai-20261109/initial-failure.jpg) сохранены. В этой старой записи точный finish_reason и usage не сохранены; утверждать, сколько именно токенов ушло на reasoning, нельзя.
+The first earlier live response was incomplete and correctly refused before Docker. Investigation found default reasoning consumed the bounded DeepSeek response allocation. The provider now explicitly disables that default for the plan/guidance JSON requests. Token ceilings remained4096/1024, no alternate provider or Reference fallback was used, and the successful retest retained actual request IDs. The failure was not deleted or counted as a pass.
 
-По [официальной документации Vultr](https://api.vultrinference.com/docs/concepts/reasoning) модель может расходовать reasoning и финальный ответ из общего completion-лимита. Для текущего семейства DeepSeek V4.1 адаптер теперь явно передаёт `reasoning.effort=none` для ограниченных JSON-задач генерации и выбора объяснения. Другие model profiles не менялись; caps4096/1024 не повышены. Это устраняет зависимость от дефолтного thinking-режима; точная причина конкретного первого обрыва не доказана без его полного envelope. [Контракт API](https://api.vultrinference.com/docs/reference/create-chat-completion).
+The guidance step is a bounded model choice of focus and next review action after arithmetic verification. The server supplies checked values. It is not a free-form model narrative or a second arithmetic authority. Raw CSV is not automatically included in model prompts; the user question can still contain supplied information.
 
-Незавершённые ответы по-прежнему отвергаются. Для известных finish_reason в сообщении теперь сохраняется безопасная причина. Форма показывает `failed_run.error` рядом с общим отказом baseline и очищает поле operator token. Автоматического повторного модельного запроса не добавлялось. Повтор после исправления был отдельным намеренным запуском через ту же публичную форму.
+The API key stayed on the server. The user explicitly authorized temporary operator-token transfer for entering their own site; the restricted local file was removed and credentials were entered off-record. Secret values were never included in evidence. Regressions and their environment limits are in [TESTING](../TESTING.md).
 
-В этом цикле было два пользовательских запуска: один незавершённый запрос генерации и успешный прогон с двумя вызовами. Usage неуспешного запроса неизвестен; полная стоимость не измерялась. Никаких альтернативных моделей или Reference-fallback не использовано.
-
-## Код, развёртывание и проверки
-
-- Изменены `prooflane/provider.py` и `web/workbench.js`; добавлены regression-тесты provider-профиля, отказа на length и вывода failed-run диагностики с очисткой credential.
-- **179 Python PASS**, одно существующее предупреждение Starlette; **26 JavaScript PASS**. [Python](../artifacts/live-ai-20261109/pytest.txt) · [JavaScript](../artifacts/live-ai-20261109/node-tests.txt).
-- Два файла опубликованы с проверкой SHA-256 `d0d13f8cf7707081592fdbf78d4606cb7b9a14c6573994a8ad598d0b60d9025d`. [Manifest](../artifacts/live-ai-20261109/release-manifest.json). Rollback: `/opt/prooflane/rollback/pre-live-fix-20261108T191326Z.tar.gz`.
-- `.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/live-ai-20261109/live-case-packet.json` → passed=true,7групп. Скрипт не исполнял код из пакета.
-- API-ключ Vultr не переносился с VM. Первоначальный перенос operator token был отклонён автоматической проверкой разрешений; после явного согласия пользователя токен использован в password-поле только своего HTTPS-сайта. Временный локальный файл удалён сразу после ввода, поле очищено после запроса; секретные значения в evidence не записывались.
-
-Проверка подтверждает этот вымышленный сценарий и текущую модель. Она не гарантирует доступность провайдера, корректность любого будущего сгенерированного кода, подлинность договоров или прохождение конкурсной подачи. Другие новые платные прогоны не выполнялись.
+These observations prove the documented calls and supported calculation worked in those runs. They do not establish universal model reliability, live repair quality, a cryptographic runtime attestation or correctness of real-world contracts.

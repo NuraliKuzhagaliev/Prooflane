@@ -12,13 +12,28 @@
     "Abylay Tabayev"
   ],
   "team_source": "User-confirmed screenshot; roles and official team name not supplied",
-  "candidate_categories": ["AI Agents", "Finance & Accounting", "Data Analysis", "Cybersecurity"],
-  "candidate_technologies": ["Vultr", "Vultr Serverless Inference", "Python", "Docker", "FastAPI", "JavaScript", "SQLite"],
+  "candidate_categories": [
+    "AI Agents",
+    "Finance & Accounting",
+    "Data Analysis",
+    "Cybersecurity"
+  ],
+  "candidate_technologies": [
+    "Vultr",
+    "Vultr Serverless Inference",
+    "Python",
+    "Docker",
+    "FastAPI",
+    "JavaScript",
+    "SQLite"
+  ],
   "demo_platform": "Vultr Cloud Compute",
   "demo_url": "https://45.76.92.198/",
   "github_url": "https://github.com/NuraliKuzhagaliev/Prooflane",
-  "video": "video/prooflane-demo.mp4",
+  "video": "video-v2/prooflane-live-demo.mp4",
   "slides": "prooflane-deck.pdf",
   "cover": "cover.png",
-  "form_note": "Candidate tags must be mapped to actual form options. Submission has not been sent."
+  "form_note": "Candidate tags must be mapped to actual form options. Submission has not been sent.",
+  "video_title": "Prooflane live product demo | elevenlabs.io narration",
+  "media_notice": "ElevenLabs Free-plan narration: attribution and noncommercial terms; see video-v2/PRODUCTION.md. No paid subscription used."
 }

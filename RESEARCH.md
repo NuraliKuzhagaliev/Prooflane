@@ -1,77 +1,33 @@
-# Исследование: Prooflane
+# Research and positioning
 
-**Актуализация после реализации:** [OPTIMIZATION_RESEARCH](docs/OPTIMIZATION_RESEARCH.md) проверяет шесть нынешних альтернатив, официальные требования, две исследовательские работы и 18 возможностей. Этот первоначальный документ сохранён как история выбора. В частности, текущая версия Open Interpreter и её лицензия проверены заново; старое описание не следует переносить в pitch. Реализованный фокус — одно изменённое допущение с отдельным исполнением и проверяемой парой версий. Пользовательская ценность и превосходство над Excel ещё не измерены.
+The selected job is an AP/procurement reviewer investigating a supplied invoice/contract price difference and handing it to another reviewer. The product does not claim general accounting, OCR, fuzzy supplier identity, automated payments or contract authenticity.
 
-Дата проверки: 3 ноября 2026, Asia/Qyzylorda. Рабочее название; торговая марка и домен не проверялись. Документ обосновывает выбор реализации, а не утверждает готовность продукта.
+Historical research compared spreadsheet what-if tools, enterprise planning, AP automation and code-oriented data assistants. First-party descriptions show that matching, duplicates, scenarios, auditability and visible code are not unique to Prooflane. E2B is an execution component, not an AP application to assign a fabricated competitor score.
 
-## Решение и границы
+The defensible distinction is the demonstrated sequence: dated source ambiguity → explicit choice/exclusion → unchanged baseline → shared joint alternatives → exact uncertainty/priority witnesses → portable reconstruction. Public descriptions cannot prove that a competitor lacks an undocumented capability. No superiority benchmark or world-first claim follows from this research.
 
-**Рекомендация:** узкий агент анализа операционных CSV для трека Blast Radius Zero. Пользователь загружает выгрузку счетов/заказов, формулирует вопрос о расхождениях, получает реально исполненный анализ, независимую проверку поддерживаемых числовых результатов и связанный набор артефактов. Все экспериментальные данные — явно синтетические. Сервис не проводит платежи и не принимает финансовые решения.
+Primary reference families retained from the dated reports include Microsoft Excel what-if analysis, Lucanet/Pigment planning, AppZen/Ramp AP, Julius/DataLab data workflows, MindBridge explainability, Docker isolation and Vultr execution/inference. Design research used Mercury, Linear, Stripe, Instrument, Pentagram and Observable for principles, not literal page copies. See the linked historical research pages for dates, alternatives, methods and source registers.
 
-Исследовательский вопрос: какой небольшой сценарий одновременно показывает полезное действие агента, изоляцию, проверяемый результат и понятную демонстрацию? Стоп-критерий: сравнить три направления, четыре релевантных продукта/инструмента и подтвердить ключевые технические ограничения первичными источниками. Он достигнут. Следующая полезная информация должна поступить из реализации и проверки пользователями, а не из расширения обзора.
+Technical selection favored one same-origin FastAPI service, SQLite, vanilla JS and actual disposable Linux Docker on the required Vultr control layer. Trusted Decimal arithmetic bounds the task; model code is not its own oracle. Shared-kernel/daemon risk, raw-question disclosure, in-memory quotas and unsigned evidence remain explicit.
 
-Бюджет разработки — $0; облачные кредиты, ключ VSI и доступность Docker daemon на момент этого исследования **UNKNOWN**. Исследование не включало запуск конкурентов, нагрузочные тесты или интервью пользователей. Заявления вендоров ниже подтверждают опубликованную функциональность, но не независимую оценку качества.
+Evidence supports synthetic correctness and actual deployed execution. It does not support user demand, measured savings, reliable repair rates, a broad cloud performance comparison or a product-market claim. Proposed follow-up: equal-task spreadsheet comparison and a blind second-reviewer reconstruction, reporting correctness and preparation time as well as speed. [Current evidence](TESTING.md), [historical opportunity research](docs/TRANSFORMATION_RESEARCH_20261108.md).
 
-## Конкуренты и альтернативы
+## Historical source preservation
 
-| Альтернатива | Подтверждено первичным источником | Что это означает для Prooflane | Не установлено |
-|---|---|---|---|
-| [Julius](https://julius.ai/home/ai-for-data-analysis), [руководство](https://www.juliuscontent.com/docs/get-started/quickstart) | Работа с файлами, анализ и графики по естественному языку; руководство описывает перевод команд в Python; страница продукта заявляет sandbox для кода. | «Чат с CSV», Python и красивые графики сами по себе не отличают проект. Нужен видимый переход от конкретного утверждения к воспроизводимому вычислению и строкам источника. | Независимая проверка всех метрик, экспорт цепочки хешей и публичная демонстрация ограничений контейнера в изученных страницах не установлены. Это UNKNOWN, не доказанное отсутствие. |
-| [DataCamp DataLab](https://www.datacamp.com/datalab/) | AI-notebook с подключением данных; сгенерированный код можно просматривать, менять, запускать и делиться отчётом. | Прозрачность кода и повторный запуск уже являются привычной функцией. Делать ещё один общий notebook нецелесообразно. | Проверка каждого утверждения отдельным валидатором и наш конкретный формат receipt не проверены. Производительность и безопасность не тестировались. |
-| [E2B](https://e2b.dev/security), [сетевые ограничения](https://docs.e2b.dev/network/internet-access) | Вендор описывает Firecracker microVM; документация позволяет выключить исходящий интернет или задать сетевые списки. Управляемая инфраструктура описана как Google Cloud. | Изоляция и выключение сети — установившиеся механизмы. E2B полезен как эталон интерфейса sandbox; управляемый сервис сам по себе не доказывает выполнение на обязательной инфраструктуре Vultr. | Совместимость конкретного самостоятельного развёртывания с правилами и стоимость такого развёртывания здесь не исследовались. |
-| [Open Interpreter](https://www.openinterpreter.com/docs/terminal/sandbox), [execution policy](https://www.openinterpreter.com/docs/terminal/execpolicy) | Документация разделяет техническую изоляцию, подтверждение пользователем и правила классификации команд. | Подтверждение команды не заменяет изоляцию. Общий агент исполнения уже существует; специализация на проверяемом бизнес-результате понятнее для нашего демо. | Конкретная версия, её поведение в Windows и эквивалентность её политик Docker-профилю не тестировались. |
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/RESEARCH.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](TESTING.md).
 
-Ни один из этих источников не доказывает неудовлетворённый платёжеспособный спрос. Рабочая гипотеза пользователя: операционному аналитику нужно быстро проверить расхождения в выгрузке и объяснить коллеге происхождение результата. Проверка: дать 3–5 потенциальным пользователям одинаковый CSV и задачу, наблюдать время до найденного расхождения, число неверно принятых утверждений и возможность повторить расчёт. Интервью и сравнительный эксперимент пока **NOT_RUN**.
+Preserved original source/evidence links:
 
-## Выбор концепции
-
-Четыре колонки соответствуют названиям официальных критериев. Числа — **внутренняя оценка реализуемого сценария**, не официальный рейтинг, вероятность победы или измеренный результат. Шкала 1–5; для планирования принят равный вес 25%: официальные веса не опубликованы. Риск исполнения рассматривается отдельно и может отменить высокую оценку.
-
-| Концепция | Application of Technology | Presentation | Business Value | Originality | Внутреннее среднее | Риск и решение |
-|---|---:|---:|---:|---:|---:|---|
-| Prooflane: проверяемые CSV-расхождения | 4 | 5 | 4 | 3 | 4.00 | Ограниченный формат данных; независимая проверка должна быть реальной. **Выбрано:** короткий детерминированный сценарий. |
-| Агент QA сайта с браузером и доказательствами | 4 | 4 | 4 | 3 | 3.75 | Браузерные зависимости, изменчивые страницы, авторизация, визуальная оценка; выше риск нестабильности демо. Отложено. |
-| Универсальный coding agent с sandbox | 4 | 3 | 3 | 2 | 3.00 | Слишком широкая задача и зрелые альтернативы; сложнее объяснить уникальную пользу. Отклонено для первого MVP. |
-
-Оценки основаны на инженерном суждении: узкий CSV-кейс легче проверить фиксированными ожидаемыми значениями и показать за несколько минут. Изменить решение стоит, если обязательное облачное исполнение окажется недоступно либо реальные пользователи не смогут понять/использовать отчёт, но подтвердят более сильную потребность в другом сценарии.
-
-## Технические основания
-
-| ID | Факт или вывод | Вид и ограничение | Источник / локатор |
-|---|---|---|---|
-| R01 | Генерация программы языковой моделью с выполнением вычислений интерпретатором — известный подход. | verified: механизм PAL; результаты его бенчмарков не переносятся на наш продукт. | [PAL, Gao et al., arXiv:2211.10435v2](https://arxiv.org/abs/2211.10435), abstract, 2023-01-27 |
-| R02 | Цикл планирования и действий с обновлением по наблюдениям описан ранее. | verified: механизм ReAct; он не подтверждает безопасность или качество текущей реализации. | [ReAct, Yao et al., arXiv:2210.03629v3](https://arxiv.org/abs/2210.03629), abstract, 2023-03-10 |
-| R03 | Docker по умолчанию не задаёт лимиты ресурсов; ограничения CPU/памяти задаются явно и зависят от хоста. | verified: документация; фактическое enforcement требует runtime-проверки. | [Docker resource constraints](https://docs.docker.com/engine/containers/resource_constraints/), overview / memory |
-| R04 | `--network none` оставляет контейнеру loopback. | verified: документированная конфигурация; факт применения к конкретному запуску проверяется отдельно. | [Docker none driver](https://docs.docker.com/engine/network/drivers/none/), overview |
-| R05 | Контроль Docker daemon даёт широкие полномочия; API, создающий контейнеры, должен строго ограничивать параметры. | verified: руководство безопасности. | [Docker Engine security](https://docs.docker.com/engine/security/), Docker daemon attack surface |
-| R06 | Контейнеры не являются гарантией отсутствия escape: конфигурация и уязвимости ядра остаются существенными. | verified: документированный предел защиты. | [Docker Engine security](https://docs.docker.com/engine/security/), Linux kernel capabilities |
-
-Рекомендация по реализации: модель вызывается только сервером; секрет не передаётся sandbox. Executor принимает только код/данные и использует фиксированные аргументы запуска. Отдельный ограниченный валидатор перепроверяет заявленные метрики. Хостовая часть **никогда не исполняет сгенерированный Python**; при недоступности Docker запуск блокируется, а не переходит на `exec()` или локальный subprocess с кодом модели.
-
-Подход с собственным небольшим executor выбран ради точного контракта и отсутствия дополнительного SaaS. Это не заявление, что самописный sandbox безопаснее E2B или microVM. Docker API, образ, read-only mounts, лимиты, cleanup, размер stdout и параллельность нужно проверять отдельно. Runtime gVisor или microVM имеет смысл исследовать после работающего сценария, если есть время и подтверждённая совместимость Vultr.
-
-Модель должна быть выбрана из **актуального списка VSI в доступном аккаунте** по прохождению фиксированного набора задач, валидности формата ответа и времени. Название модели и стоимость сейчас не фиксируются предположением. Готовый HTTP-адаптер и mock-тесты не заменяют реальный вызов VSI.
-
-## Что именно отличает предлагаемый MVP
-
-Флагман — **проверяемый отчёт о расхождениях**: числовое утверждение → поддерживаемая формула → исходные строки → реально исполненный код → независимая проверка. Поддержка: (1) экспорт артефактов с хешами, (2) наблюдаемая проверка ограничений sandbox, (3) повторное выполнение и сравнение результата после изменения данных.
-
-Это осмысленная комбинация известных методов. Не доказаны мировая новизна, превосходство над конкурентами, экономия рабочего времени или бизнес-эффект. Хеш подтверждает идентичность байтов относительно записанного значения; он не подтверждает достоверность данных, отсутствие злонамеренного сервера или корректность бизнес-вывода. Независимый валидатор проверяет только объявленные поддерживаемые условия.
-
-## Минимальный эксперимент и условия отказа
-
-1. Синтетическая таблица закупок с заранее вычисленными итогами, дубликатом и расхождением. Несколько разных вопросов должны менять реально генерируемую программу; результаты сравниваются с oracle.
-2. Повредить одно числовое утверждение: независимая проверка обязана отклонить его, а интерфейс не должен показывать зелёный статус.
-3. Запустить специально ограниченную сетевую пробу внутри sandbox и показать реальный отказ; отдельно проверить timeout и удаление контейнера.
-4. Изменить CSV: хеш входа обязан измениться; повторное выполнение должно дать соответствующий новый результат.
-5. На VPS Vultr повторить сценарий через публичный URL и записать модель, образ, параметры sandbox, команды и сырые результаты.
-
-На момент исследования все эти эксперименты **NOT_RUN**. Если на доступном runtime нельзя безопасно ограничить выполнение, соответствующий запуск должен быть BLOCKED. Если независимая проверка покрывает лишь суммы и количества, нельзя называть весь естественно-языковой отчёт проверенным.
-
-## Неопределённости
-
-- Регистрация, кредиты, ключ VSI, VM, публичный URL и права публикации — не подтверждены исследованием.
-- Совместимость модели с JSON-контрактом, качество кода, лимиты аккаунта и задержки — нужны реальные вызовы.
-- Потенциальные пользователи и полезность сценария — гипотеза, нужны интервью/наблюдения.
-- Все страницы проверены 2026-11-03; это документационная проверка, не функциональный аудит конкурентов.
-- Точные конкурсные требования и их статусы ведутся отдельно в `docs/RULES.md` и `docs/REQUIREMENTS.md`.
+- [OPTIMIZATION_RESEARCH.md](docs/OPTIMIZATION_RESEARCH.md)
+- [julius.ai — ai-for-data-analysis](https://julius.ai/home/ai-for-data-analysis)
+- [www.juliuscontent.com — quickstart](https://www.juliuscontent.com/docs/get-started/quickstart)
+- [www.datacamp.com — datalab](https://www.datacamp.com/datalab/)
+- [e2b.dev — security](https://e2b.dev/security)
+- [docs.e2b.dev — internet-access](https://docs.e2b.dev/network/internet-access)
+- [www.openinterpreter.com — sandbox](https://www.openinterpreter.com/docs/terminal/sandbox)
+- [www.openinterpreter.com — execpolicy](https://www.openinterpreter.com/docs/terminal/execpolicy)
+- [arxiv.org — 2211.10435](https://arxiv.org/abs/2211.10435)
+- [arxiv.org — 2210.03629](https://arxiv.org/abs/2210.03629)
+- [docs.docker.com — resource_constraints](https://docs.docker.com/engine/containers/resource_constraints/)
+- [docs.docker.com — none](https://docs.docker.com/engine/network/drivers/none/)
+- [docs.docker.com — security](https://docs.docker.com/engine/security/)

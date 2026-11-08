@@ -1,86 +1,39 @@
-# Prooflane: результат глубокой трансформации
+# Prooflane delivery record
 
-4 ноября 2026. Продукт расширен от одного CSV и изменения одной ячейки до дела с двумя источниками, явными решениями, совместными альтернативами, анализом неопределённости и переносимой проверкой. Предыдущая версия сохранена: `checkpoint/prooflane-before-v3` → `82f1ec3`. Пользовательские данные, прежние API, receipts и сценарии сохранены.
+The current product is a working source-linked invoice review application on Vultr, with real VSI-generated Python, isolated Docker execution, independent Decimal checks and portable evidence. The final media refresh adds an actual website recording with a newly successful AI run and free ElevenLabs narration. [Final material/gate record](docs/FINAL_SUBMISSION_20261109.md).
 
-## Before / After
+The first single-CSV tool required the contract price to be prejoined into an invoice and allowed only one-cell scenarios. The transformation added separate dated contract sources, explicit ambiguity/exclusion decisions, joint shared-contract alternatives, exact ranges, next-evidence reduction and independently reconstructed packets. Later work added cent-level priority switches, grouped rows, CSV/brief handoffs, source-quality warnings, safe reload/recovery and strict JSON parsing.
 
-| До | После | Доказательство |
-|---|---|---|
-| Договорная цена заранее встроена в каждый счёт | Два CSV; точные vendor/item/date; явный выбор перекрывающегося договора и причина исключения | Восемь счетов, один выбор C2R, одно исключение, охват 7/8 |
-| Изменение одной ячейки | До четырёх именованных вариантов, до 12 совместных изменений; общая ставка меняет все связанные счета | Baseline768; C1=80 → 368; C1=80 и quantity80 → 568 |
-| Одно число и одна delta | До 24 диапазонов; точные совместные границы, sensitivity, проверка устойчивости первого места | C1[65,85] → 148..1193; два диапазона → 148..1993 |
-| Приоритет по величине finding | Очередь уточнения исходных фактов по сокращению неопределённости | C1: гарантированное сокращение ширины645, возможное1845; quantity:0..1200 |
-| Пакет двух расчётов | Полное дело: сырые источники, решения, охват, baseline, варианты, диапазоны | Verifier восстанавливает join и все производные; отклоняет смысловые подмены после rehash |
-| Hero-страница с формой и результатом ниже | Workbench Sources/Overview/Explore/Evidence, история дел, инспекторы источников и интерактивные графики | Реальные desktop/mobile screenshots и браузерные проверки |
+Fixture results are768 original,368 shared-price alternative,568 joint alternative,148..1193 for one range and148..1993 for two. The C1 priority boundary is82.60 with adjacent witnesses82.59/82.61. These deterministic calculations do not establish contract truth, probabilities, liability or recovered savings.
 
-Это пять согласованных функциональных направлений. Новый backend разделён на `reconciliation`, `intelligence`, `case_store`, `case_api`, `case_evidence`; новый интерфейс — на workbench-модули. Прежний Single CSV review доступен отдельно. Execution pipeline, quarantine, live gate и проверка результата модели сохранены.
+Independent historical engineering cycles found stale async source reads, packet-response races, unclear source-to-normalized identity and mobile visualization defects. Corrections and separate retests were recorded. The judge required browser-upload disclosure and a two-factor demonstration; both were added. The review also corrected an overly strong claim: C1 has a larger minimum guaranteed range reduction than quantity, not greater benefit for every possible revealed value.
 
-## Исследование и выбор возможностей
+Current regression is179 Python /26 JS; the new recorded AI case passed independent output verification, fresh containment passed five checks and the downloaded packet passed seven groups. [Evidence and environment distinctions](TESTING.md). Customer benefit, live repair quality, full assistive-technology use, real crash/OOM experiments and broad load testing remain unmeasured.
 
-[Исследование](docs/TRANSFORMATION_RESEARCH.md) содержит 26 ранжированных возможностей, первичные источники по Excel, Lucanet/Pigment, AppZen, Julius/DataLab и компонентам исполнения. Научные источники помогли определить ограничения OAT, совместных диапазонов и provenance. Выбрана последовательность от спорного источника до передаваемого решения.
+The code and English documentation are public; media is separately attributed. Official team-form attestations/upload/Submit remain unconfirmed. A preparation artifact or successful GitHub push is not an entry confirmation and cannot guarantee first place.
 
-Потенциальный выигрыш относительно прежнего Prooflane конкретен: больше не нужно заранее переносить цену договора в каждый счёт; становятся видны неоднозначности, связанные изменения и пределы вывода. Преимущество над Excel или коммерческими продуктами, экономия времени и спрос ещё не измерены. Matching, what-if, Python и hashes известны; научное первенство и уникальность рынка не заявляются.
+## Historical source preservation
 
-## Математика и пределы утверждений
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/FINAL_REPORT.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](TESTING.md).
 
-Формула прежняя: `quantity × max(billed_price − contract_price, 0)`, USD. Общая договорная цена — одна переменная; остальные заданные диапазоны независимы. Точные границы следуют из монотонности, а не случайного семплирования. OAT-дельты нельзя складывать для совместных изменений. Очередь уточнения показывает сокращение ширины диапазона, а не вероятность, причинный эффект или ожидаемую прибыль.
+Preserved original source/evidence links:
 
-Независимый scientist перебрал **216 полных малых наборов диапазонов**, включая внутренние значения, общие и независимые договоры. Для двух основных сохранённых пакетов дополнительно проверены все 2001 значения цены C1 с шагом цент от65до85. [Методы](docs/INTELLIGENCE_METHODS.md), [аудит](artifacts/transformation-review/scientist-final.md).
-
-CLI и серверный checker переиспользуют доверенные функции реконструкции. Они независимы от результата модели и доступности исходного сервера, но не являются двумя независимыми реализациями. Отдельный integer-cent oracle написан независимо. Packet verification не подписывает отправителя, не аттестует Docker и не устанавливает истинность договора. C2R остаётся явно записанным выбором пользователя.
-
-## Проверки
-
-| Проверка | Фактический результат |
-|---|---|
-| Python на Windows и в контейнере Linux без сети | 155 PASS в каждой среде; один известный deprecation warning |
-| JavaScript | 12 PASS; проверены точные денежные строки, draft validation и provenance labels |
-| Новый путь через настоящий HTTP/reference/Docker | 52 PASS; ноль вызовов модели; обычные и двухфакторные packets проверены CLI |
-| Прежний baseline → single scenario → packet после restart | 36/36 PASS с настоящим Docker |
-| Независимый второй engineering cycle | 50 backend checks и 12 групп проверок состояния UI PASS |
-| 500 invoices / 500 contracts / 24 ranges | Локальный CPU join + analysis: медиана491.78ms по трём повторам; не cloud latency или публичный load test |
-
-Доказательства: [case smoke](artifacts/transformation/case-http-smoke.json), [Docker case](artifacts/transformation/sandbox-case.json), [два диапазона](artifacts/transformation/sandbox-multi-range-case.json), [legacy smoke](artifacts/transformation/legacy/scenario-smoke.json), [измерение размера](artifacts/transformation/capacity-calculation.json). Команды и границы сведены в [TESTING](TESTING.md). Разные виды проверок не складываются в «accuracy модели».
-
-## Независимые роли и исправления
-
-Пять перспектив: judge/research (`v3_research`), principal engineer (`v3_engineer`), scientist (`v3_scientist`), designer (`v3_design`), adversarial QA (`v3_adversarial_qa`). UI реализован отдельным worker; root отвечал за backend, интеграцию и стабилизацию.
-
-Первый цикл обнаружил и исправил:
-
-- Противоречивую связь baseline с идентификатором дела в пересчитанном пакете.
-- Принятие неудачного запуска варианта за сохранённый результат.
-- Отображение шести успешных проверок пакета как неуспешных.
-- Неатомарную смену дела при ошибке чтения его источника.
-- Устаревший ответ проверки поверх изменённого пакета.
-
-Второй engineering cycle обнаружил гонку чтения двух CSV. Теперь побеждает последний выбор, paste/reset/sample/history отменяют старое чтение, а match/create ждут завершения загрузки. Исправление независимо воспроизведено. [Cycle1](artifacts/transformation-review/engineering-cycle1.md), [cycle2](artifacts/transformation-review/engineering-cycle2.md).
-
-Designer воспроизвёл полный путь: matching, baseline, три варианта, диапазон, скачивание и CLI, загрузка в checker, отказ на подменённом пакете, история и клавиатура. Найдены переполнение истории и нечитаемые SVG-подписи на мобильном экране. История исправлена; мобильный график заменён карточками с фиксированным размером текста. [Первый браузерный цикл](artifacts/transformation-review/design-cycle1.md).
-
-Judge потребовал явно написать, что браузерный checker отправляет пакет и источники серверу, а также усилить демо двумя неизвестными. Оба изменения выполнены. Второй [браузерный цикл](artifacts/transformation-review/design-cycle2.md) прошёл на commit0342f5c: actual file upload, восстановление после ошибки, draft invalidation, два диапазона, packet verification, legacy и читаемые графики при400/320px. Runtime reduced-motion и полный accessibility аудит не заявляются. Найденные существенные дефекты исправлены; новых блокирующих дефектов в проверенной области не обнаружено.
-
-## Официальная рубрика
-
-[Scoreboard](COMPETITIVE_SCOREBOARD.md) сохраняет исходные оценки и историю пересмотра. Названия четырёх критериев взяты с официальной страницы: Application of Technology, Presentation, Business Value, Originality. Event-specific веса неизвестны; общий взвешенный балл и вероятность победы не вычисляются.
-
-Новая комбинация источников, решений, общих допущений и переносимой проверки усиливает отличие от предыдущей версии. Реальное использование Vultr, роль LLM и подтверждённая пользовательская ценность остаются отдельными условиями. Локальные tests не закрывают облачные требования.
-
-Второй [judge cycle](artifacts/transformation-review/judge-cycle2.md) подтверждает содержательную локальную трансформацию, но сохраняет строгие оценки конкурсной готовности: Technology1/5, Presentation2/5, Business Value2/5, Originality3/5. Это мнение независимого reviewer по предъявленным доказательствам, не официальный балл или прогноз места. Для двухфакторных пакетов он отдельно перебрал по122061 допустимой комбинации целых центов/количества и подтвердил границы сужения. Два итоговых инженерных, браузерных и judge-цикла завершены.
-
-## Визуальные изменения и демонстрация
-
-Тёмная боковая навигация, светлое рабочее поле и синие акценты заменили кремово-зелёную hero-композицию. Основные действия доступны в отдельных представлениях; таблица и инспектор показывают источник рядом с результатом. Диаграмма sensitivity выбирает target для редактирования; evidence path связывает invoice, contract, нормализованный input, расчёт и варианты. Предусмотрены явные loading/error/empty состояния и CSS для reduced motion.
-
-Демо: открыть [локальный workbench](http://127.0.0.1:8765), fictional sample; выбрать C2R для INV504, объяснить исключение INV506. Показать охват7/8 и baseline768. В Explore задать C1[65,85], добавить quantity INV501[20,80]. Показать148..1993 и объяснить, почему C1 стоит выше по минимальному гарантированному сокращению ширины:645 против0. Это не означает больший выигрыш при каждом возможном ответе. Выполнить C1=80 →368 и C1=80 + quantity80 →568. Скачать case packet, проверить CLI и показать отказ на пересчитанной смысловой подмене. [Нажатия](docs/TRY_PROJECT.md), [сценарий выступления](docs/DEMO.md).
-
-## Остаточные ограничения и точка остановки
-
-Vultr ещё не активирован: купон$200 отображается, привязка карты без депозита отклонена, пользователь отправил обращение в поддержку. Платёж, VM, VSI, public URL, внешняя публикация и submission не выполнялись. Деньги не потрачены, секреты не выводились и не публиковались. Точный cutoff/timezone и eligibility требуют подтверждения.
-
-Продукт ограничен CSV/USD, точным dated join и заданной формулой. Нет OCR, ERP, налогов, конвертации валют, вероятностной модели или юридической трактовки договоров. Диапазоны задаёт пользователь. Cases принадлежат сессии и имеют логический срок24h; приложение рассчитано на один worker и in-memory quotas. Docker использует общее ядро. Полный screen-reader аудит, публичная нагрузка, runtime attestation, исследование с AP-пользователями и live VSI остаются непроверенными.
-
-Старые PDF/PPTX/cover сохранены как drafts предыдущей версии; они не выдаются за новую submission. Подготовлен новый демонстрационный сценарий, непрерывное видео не записано. После двух итоговых инженерных и браузерных циклов следующий существенный эксперимент — реальный VSI/Vultr deployment и одинаковая задача для целевых пользователей в Prooflane и Excel. Добавление OCR/ERP/fuzzy AI до этих экспериментов увеличит число неподтверждённых допущений и риск демонстрации.
-
-
-Стабильные этапы в Git: `9b5bc30` (case engine), `b1bd9a4` (lineage и независимые oracles), `bd25e99` (workbench), `0342f5c` (второй цикл стабилизации). [Manifest с SHA-256 исходников и доказательств](artifacts/transformation/validation-summary.json). Применены project-bootstrap, hub-research, hub-innovation, hub-engineering и hub-audit; discover/plan/init/verify и Hub packets выполнены внутри проекта. Структурная проверка не подменяет runtime evidence.
+- [TRANSFORMATION_RESEARCH.md](docs/TRANSFORMATION_RESEARCH.md)
+- [INTELLIGENCE_METHODS.md](docs/INTELLIGENCE_METHODS.md)
+- [scientist-final.md](artifacts/transformation-review/scientist-final.md)
+- [case-http-smoke.json](artifacts/transformation/case-http-smoke.json)
+- [sandbox-case.json](artifacts/transformation/sandbox-case.json)
+- [sandbox-multi-range-case.json](artifacts/transformation/sandbox-multi-range-case.json)
+- [scenario-smoke.json](artifacts/transformation/legacy/scenario-smoke.json)
+- [capacity-calculation.json](artifacts/transformation/capacity-calculation.json)
+- [TESTING.md](TESTING.md)
+- [engineering-cycle1.md](artifacts/transformation-review/engineering-cycle1.md)
+- [engineering-cycle2.md](artifacts/transformation-review/engineering-cycle2.md)
+- [design-cycle1.md](artifacts/transformation-review/design-cycle1.md)
+- [design-cycle2.md](artifacts/transformation-review/design-cycle2.md)
+- [COMPETITIVE_SCOREBOARD.md](COMPETITIVE_SCOREBOARD.md)
+- [judge-cycle2.md](artifacts/transformation-review/judge-cycle2.md)
+- [127.0.0.1:8765 — 127.0.0.1:8765](http://127.0.0.1:8765)
+- [TRY_PROJECT.md](docs/TRY_PROJECT.md)
+- [DEMO.md](docs/DEMO.md)
+- [validation-summary.json](artifacts/transformation/validation-summary.json)

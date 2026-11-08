@@ -1,0 +1,200 @@
+{
+  "schema": "prooflane.live-demo-edit.v1",
+  "video": "prooflane-live-demo.mp4",
+  "timeline": [
+    {
+      "chapter": "01-intro",
+      "title": "The disputed invoice",
+      "starts_seconds": 0.0,
+      "duration_seconds": 18.319999999999997,
+      "audio_seconds": 17.27,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 0.31999999999999673,
+      "intervals": [
+        {
+          "clip": "01-intro",
+          "from_seconds": 0,
+          "to_seconds": 18,
+          "source_started_at": "2026-11-08T20:28:10.281Z",
+          "kept_frames": 197
+        }
+      ]
+    },
+    {
+      "chapter": "02-sources",
+      "title": "Resolve the two sources",
+      "starts_seconds": 18.319999999999997,
+      "duration_seconds": 27.189,
+      "audio_seconds": 24.14,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 0.0,
+      "intervals": [
+        {
+          "clip": "02b-reconcile",
+          "from_seconds": 0,
+          "to_seconds": 9.083,
+          "source_started_at": "2026-11-08T20:36:53.315Z",
+          "kept_frames": 100
+        },
+        {
+          "clip": "02c-contract",
+          "from_seconds": 0,
+          "to_seconds": 10.035,
+          "source_started_at": "2026-11-08T20:37:12.363Z",
+          "kept_frames": 111
+        },
+        {
+          "clip": "02d-exclusion",
+          "from_seconds": 0,
+          "to_seconds": 8.071,
+          "source_started_at": "2026-11-08T20:38:41.061Z",
+          "kept_frames": 87
+        }
+      ]
+    },
+    {
+      "chapter": "03-execute",
+      "title": "A real Vultr agent run",
+      "starts_seconds": 45.509,
+      "duration_seconds": 26.0,
+      "audio_seconds": 24.19,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 0.0,
+      "intervals": [
+        {
+          "clip": "03-execute",
+          "from_seconds": 0,
+          "to_seconds": 26,
+          "source_started_at": "2026-11-08T20:40:40.807Z",
+          "kept_frames": 247
+        }
+      ]
+    },
+    {
+      "chapter": "04-decisions",
+      "title": "Trace a decision to the cent",
+      "starts_seconds": 71.509,
+      "duration_seconds": 28.104,
+      "audio_seconds": 25.26,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 0.0,
+      "intervals": [
+        {
+          "clip": "04a-ledger",
+          "from_seconds": 0,
+          "to_seconds": 14.057,
+          "source_started_at": "2026-11-08T20:43:53.431Z",
+          "kept_frames": 153
+        },
+        {
+          "clip": "04c-priority-readable",
+          "from_seconds": 0,
+          "to_seconds": 14.047,
+          "source_started_at": "2026-11-08T21:12:13.306Z",
+          "kept_frames": 154
+        }
+      ]
+    },
+    {
+      "chapter": "05-proof",
+      "title": "Inspect the execution",
+      "starts_seconds": 99.613,
+      "duration_seconds": 25.659999999999997,
+      "audio_seconds": 24.61,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 4.628999999999998,
+      "intervals": [
+        {
+          "clip": "05c-provenance-readable",
+          "from_seconds": 0,
+          "to_seconds": 9,
+          "source_started_at": "2026-11-08T21:03:40.043Z",
+          "kept_frames": 100
+        },
+        {
+          "clip": "05b-code",
+          "from_seconds": 0,
+          "to_seconds": 7,
+          "source_started_at": "2026-11-08T20:46:27.726Z",
+          "kept_frames": 76
+        },
+        {
+          "clip": "05c-provenance-readable",
+          "from_seconds": 9,
+          "to_seconds": 14.031,
+          "source_started_at": "2026-11-08T21:03:40.043Z",
+          "kept_frames": 55
+        }
+      ]
+    },
+    {
+      "chapter": "06-containment",
+      "title": "Test containment live",
+      "starts_seconds": 125.273,
+      "duration_seconds": 27.081,
+      "audio_seconds": 25.39,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 0.0,
+      "intervals": [
+        {
+          "clip": "06-containment",
+          "from_seconds": 0,
+          "to_seconds": 27.081,
+          "source_started_at": "2026-11-08T20:47:32.012Z",
+          "kept_frames": 294
+        }
+      ]
+    },
+    {
+      "chapter": "07-packet",
+      "title": "Export and independently verify",
+      "starts_seconds": 152.35399999999998,
+      "duration_seconds": 31.066,
+      "audio_seconds": 19.41,
+      "audio_offset_seconds": 4.0,
+      "final_frame_padding_seconds": 0.0,
+      "intervals": [
+        {
+          "clip": "07a-export",
+          "from_seconds": 0,
+          "to_seconds": 9.043,
+          "source_started_at": "2026-11-08T20:49:11.166Z",
+          "kept_frames": 99
+        },
+        {
+          "clip": "07b-verify",
+          "from_seconds": 0,
+          "to_seconds": 22.023,
+          "source_started_at": "2026-11-08T21:00:41.046Z",
+          "kept_frames": 236
+        }
+      ]
+    },
+    {
+      "chapter": "08-close",
+      "title": "A review another person can reproduce",
+      "starts_seconds": 183.42,
+      "duration_seconds": 26.129999999999995,
+      "audio_seconds": 25.08,
+      "audio_offset_seconds": 0.4,
+      "final_frame_padding_seconds": 1.0999999999999943,
+      "intervals": [
+        {
+          "clip": "08-close",
+          "from_seconds": 0,
+          "to_seconds": 25.03,
+          "source_started_at": "2026-11-08T21:01:10.122Z",
+          "kept_frames": 274
+        }
+      ]
+    }
+  ],
+  "nominal_total_seconds": 209.54999999999998,
+  "video_bytes": 8019667,
+  "video_sha256": "089ba397bca8c2813dc7f0c71d3afabba6a62994ca3b02632f023cc10dda0e8c",
+  "capture_method": "Timestamped native browser JPEG stream, approximately 11 fps; output 30 fps repeats captured frames. No interpolated motion or generated scenes.",
+  "edit_scope": "Inspection chapters contain editorial view cuts. Execution and containment retain their request, wait and completion. Only idle time after completed execution is trimmed.",
+  "omitted_capture": "02a-upload: native file chooser completed slowly outside the captured interval. Chapter 2 starts with both real selected filenames, then reconciliation.",
+  "captions": "Text matches generated narration. Cue timings are proportional estimates, visually reviewed; not forced alignment.",
+  "voice": "ElevenLabs George, Eleven Multilingual v2, existing Free-plan credits, no purchase. Separate provider terms; attribution elevenlabs.io."
+}

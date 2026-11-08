@@ -1,0 +1,16 @@
+{
+  "title": "Prooflane live product demo | elevenlabs.io narration",
+  "language": "en",
+  "voice_provider": "ElevenLabs",
+  "budget": "Existing Free-plan quota only; no purchases",
+  "chapters": [
+    {"id":"01-intro","text":"An invoice is disputed. Before calculating, we need to know which contract price applies. Prooflane helps accounts payable teams trace that decision and hand another reviewer a case they can reproduce. Here is the actual application running on Vultr."},
+    {"id":"02-sources","text":"We load an invoice CSV and a separate contract CSV. Invoice five hundred and four has two overlapping agreements. We compare their consequences and explicitly select C two R. Another invoice has no active supplied contract. We exclude it with a reason. Seven of eight rows are now in scope; the excluded amount is not counted as savings."},
+    {"id":"03-execute","text":"Now we create the baseline in Vultr agent mode. Serverless Inference writes Python, and the Vultr virtual machine dispatches it to a disposable Docker container. An independent Decimal checker verifies every finding. The completed result is seven hundred and sixty eight dollars of positive price variance, with five rows flagged for review."},
+    {"id":"04-decisions","text":"The result stays connected to its sources. Selecting an invoice reveals the exact quantity and both prices. One contract price, C one, affects three invoices together. The assumptions view calculates the cent at which review priority changes: eighty two dollars and sixty cents creates a tie. One cent more makes a different invoice the priority. These are explicit what if calculations, not predictions."},
+    {"id":"05-proof","text":"In Proof, we can inspect the actual model, the generation and explanation request identifiers, and the Python that ran. Vultr selects the focus of the guidance after verification; the server inserts the checked amounts. Execution has no network, no host mounts or injected credentials, a read only root filesystem, and resource limits. The container is removed after the task."},
+    {"id":"06-containment","text":"Let us test containment from the site. A fresh container runs the probes now. Network access fails, writing to the root filesystem is denied, the inference key variable is absent, and the process is not root. Finally, the system confirms that the container was removed. These five observed checks pass; they are evidence of these controls, not a claim that every possible escape is impossible."},
+    {"id":"07-packet","text":"We download the case packet and verify it again. The verifier reconstructs the source choices, arithmetic, receipt links and priority boundaries. All seven groups pass. The same packet can be checked offline without our server. Its hashes detect changes; they do not prove that a supplier or contract is authentic."},
+    {"id":"08-close","text":"Prooflane turns a disputed amount into a review another colleague can reproduce. Our initial users are accounts payable and procurement teams. A team subscription is a business hypothesis; customer savings have not been measured. Try the public demo and inspect the open source repository. Built on Vultr. Narration generated with ElevenLabs."}
+  ]
+}

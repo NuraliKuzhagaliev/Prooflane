@@ -1,6 +1,6 @@
 # Prooflane — UX, interaction and instruction audit
 
-5 ноября 2026, Asia/Qyzylorda. Read-only review of the current application source and two existing screenshots from this repository. No application edits, browser interaction, new runtime tests, user study or adjacent-project inspection were performed by this reviewer. The reviewer owns this document only. Other agents are working in the repository.
+5 November 2026, Asia/Qyzylorda. Read-only review of the current application source and two existing screenshots from this repository. No application edits, browser interaction, new runtime tests, user study or adjacent-project inspection were performed by this reviewer. The reviewer owns this document only. Other agents are working in the repository.
 
 ## What the product asks a person to do
 

@@ -1,58 +1,16 @@
-# Независимая переоценка жюри — цикл 1
+# Independent judge reassessment — cycle1, 3 November
 
-Дата: 2026-11-03. Область: текущие `comparison.py`, `app.py`, receipt verifier, HTTP-артефакты и проверка связи реального downloaded packet. **Вердикт: условный PASS локального нового поведения; конкурсная готовность остаётся незакрытой.** Browser-проверка, обновлённые слайды и публичный deployment в данный срез не входят. Это качественное мнение, не прогноз места или официальные баллы.
+Conditional PASS for the new local scenario behavior; competition readiness remained open. The reviewer read actual saved HTTP/Docker packets and separately checked downloaded evidence; it did not claim to rerun the containers. Draft pitch text it helped write was excluded as independent positive evidence.
 
-Проверяющий участвовал в написании DEMO/SUBMISSION; эти тексты **не используются как независимое положительное доказательство**. Основание — исходный код, фактические artifacts и отдельные проверки ниже. Свой pitch также не оценивается как независимо подтверждённая качественная презентация.
+The new behavior preserved baseline, declared source change, owner/mode/parent hash and independent deltas. Remaining P0 external gates were actual VSI/Vultr/public deployment; P1 work included a full browser walkthrough and final media. AI usefulness, input-contract truth and customer benefit remained limitations. No measured adoption or official score was invented.
 
-## Что действительно изменилось
+## Historical source preservation
 
-Исходная версия выдавала один фиксированный результат и receipt. Сейчас пользователь может сохранить baseline, изменить одно из трёх числовых полей существующей записи и получить отдельный run с тем же mode, source-linked delta и двумя receipts в переносимом пакете. Это существенное добавление поведения внутри прежней задачи, а не только оформление старого ответа.
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/artifacts/optimization-review/judge-cycle1.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](../../TESTING.md).
 
-[scenario-smoke.json](../optimization/scenario-smoke.json) содержит настоящий локальный HTTP flow reference и fixed Docker, `model_calls: 0`, успешные проверки baseline immutability, скачивания packet, чужой сессии, stale hash, recursive scenario и ложной delta. Прочитан также полный [sandbox-comparison.json](../optimization/sandbox-comparison.json): два разных run/container IDs; cleanup true; output, source inputs и заявленные controls обоих запусков присутствуют. Это чтение сохранённого local execution evidence, **не повторный запуск Docker данным проверяющим**.
+Preserved original source/evidence links:
 
-Арифметика фактического packet: record 3 / INV-2402, contract price 72.00→80.00, quantity 40; variance записи 520.00→200.00; total 1480.00→1160.00; delta −320.00; billed total 34353.00 не изменился; 23 parsed source records неизменны. Это synthetic data, не выявленный реальный долг.
-
-В коде API mode наследуется от baseline; `baseline_receipt_sha256` сравнивается до исполнения; новый run проходит общий execution pipeline. В `compare_receipts` проверяются separate run ID, original-only baseline, оба receipts, parent identity/hash, единственное заявленное изменение и полный нормализованный CSV. Пробелы, quoting и line endings нормализуются parser: обещать побайтовую неизменность всего scenario CSV неверно. Сам исходный baseline не перезаписывается.
-
-## Независимые проверки этого цикла
-
-Окружение: Windows, рабочая `.venv`, исходники текущего worktree; операции в памяти над копией downloaded packet. Исходные артефакты и приложение не менялись. Новые network/model/Docker вызовы не выполнялись.
-
-1. Команда `.venv/Scripts/python.exe scripts/verify_receipt.py artifacts/optimization/sandbox-comparison.json`: exit 0, `passed: true`, точные delta выше. CLI проверяет без обращения к live server или SQLite.
-2. В Python-копии изменена `comparison.delta.total_variance` на `-999.00`, внешний `bundle_sha256` пересчитан через `digest(canonical(body))`. `check_bundle` отклонил: `Comparison deltas do not match independently recalculated results.`
-3. В scenario CSV `Filter cartridges` заменено на `Changed source note`; `summarize(parse_csv(csv))`, `contract_output` и `make_receipt` создали арифметически корректный новый receipt. `check_receipt` вернул true. После обновления внешнего hash `check_bundle` отклонил: `Scenario contains undeclared source changes.` Это проверка отношения двух входов, а не простое обнаружение устаревшего hash.
-4. В обоих receipts заменён `execution.runtime` на произвольную метку; receipts, parent hash и bundle корректно пересобраны. `check_bundle` вернул true. **Ожидаемая граница:** verifier не удостоверяет runtime. Нельзя превращать этот PASS в доказательство Docker/Vultr исполнения. Тексты области проверки это явно оговаривают; нового дефекта по заявленному контракту здесь нет.
-
-Положительный факт — проверяется не только форма packet или сумма hashes. Сильное остаточное возражение — автор, способный пересоздать всю цепочку, может предоставить другой согласованный набор исходных предположений. Подписи издателя, независимой execution attestation и проверки договора нет.
-
-## Переоценка по официальным осям
-
-Основание: [публичная рубрика](https://lablab.ai/ai-hackathons/vultr-hackathon), проверенная 2026-11-03; веса не опубликованы. «Стало сильнее» ниже означает оценку проверяющего относительно исходного продукта.
-
-| Ось | Изменение | Остаточное возражение / следующий приоритет |
-|---|---|---|
-| Application of Technology | Стало сильнее: execution path переиспользован, связь двух состояний проверяется независимо, negative control ловит semantic tampering | Нет live VSI/VM; заданная арифметика не требует LLM. Флагман не устраняет этот аргумент |
-| Presentation | Появилась конкретная проверяемая история: одна исходная цена, отдельный результат и объяснимая delta | Визуальная ясность и воспроизводимость незнакомым человеком ещё не оценены этим циклом; не засчитывать собственный pitch как подтверждение |
-| Business Value | Более правдоподобен reviewer workflow: обсудить одно допущение и передать два согласованных состояния | Нет AP-пользователей; contract price уже подготовлен, сравнение с обычной таблицей не проведено |
-| Originality | Интеграция стала более цельной, чем просто CSV→код→число | What-if, source links и выполнение кода известны; аналогичная функция у всех конкурентов не исключена. Никаких first/only/superiority claims |
-
-## Закрытые и оставшиеся замечания
-
-- **Закрыто в проверенной области:** главное начальное возражение о декоративном развитии — появился отдельный versioned scenario и portable verifier; ложная delta и нечисловая скрытая правка отклонены независимо.
-- **Закрыто по лицензии:** Colorama 0.4.6 подтверждён как BSD-3-Clause по установленному LICENSE; [inventory](../../THIRD_PARTY_LICENSES.md) и исследовательский отчёт уточнены.
-- **P0 внешний:** Vultr VM, live VSI и публичная проверка по-прежнему не выполнены. Local Docker и ноль model calls не закрывают их. Поддержка должна решить billing block; бюджет $0 сохраняется.
-- **P1:** проверка новой версии UI и полного walkthrough ещё не относится к этому срезу. Требуются понятное различение baseline/scenario, label hypothetical, error recovery и download через браузер.
-- **P1:** полезность LLM и допущение о достоверности contract_price остаются ограничениями продукта. Упрощённая декларация задачи предпочтительнее обещаний произвольного анализа.
-- **P2:** текущие cycle1 logs на момент чтения показывают Windows 83 PASS и Linux 80 PASS; это разные срезы. Финальный manifest должен явно связать команду, build и результат после freeze. Старый Linux run нельзя переименовать в проверку всех новых tests.
-- **P2:** однократная local проверка и source review не доказывают безопасность Docker против всех атак, долговечность rate limits, отсутствие потерь при crash или полный accessibility compliance.
-- **Открыто:** реальные пользователи, сравнение с Excel и фактическая экономия времени. Это не обязательные придуманные требования конкурса, а ограничения силы аргумента о пользе.
-
-Новый critical defect в ограниченной проверке comparison не воспроизведён. Это не означает отсутствия дефектов в непроверенных частях.
-
-## Решение и минимальный следующий эксперимент
-
-Сохранить выбранный scope; не добавлять OCR, ERP, автоматические претензии, новые execution платформы или декоративные «советы агентов». Провести один свежий browser walkthrough после UI handoff, скачать packet его кнопкой и проверить CLI; затем выполнить финальную переоценку по замороженному build и комплекту screenshot/evidence.
-
-Для проверки бизнес-гипотезы достаточно двух независимых людей и двух эквивалентных synthetic задач: объяснить исходную variance и одно изменение допущения. Сравнить с прежним экраном/копией таблицы при смене порядка; записать правильность объяснения, нахождение оригинала, успешность обмена packet и ошибки. Если новый workflow не понятнее либо scenario принимается за доказанный долг/экономию, гипотеза преимущества не подтверждена.
-
-Уверенность: **высокая** в точности исследованного synthetic перехода и отказе на проверенных несогласованностях; **средняя** в целесообразности функции как части продукта; **низкая** в рыночном превосходстве. Конкурсный результат не прогнозируется.
+- [scenario-smoke.json](../optimization/scenario-smoke.json)
+- [sandbox-comparison.json](../optimization/sandbox-comparison.json)
+- [lablab.ai — vultr-hackathon](https://lablab.ai/ai-hackathons/vultr-hackathon)
+- [THIRD_PARTY_LICENSES.md](../../THIRD_PARTY_LICENSES.md)

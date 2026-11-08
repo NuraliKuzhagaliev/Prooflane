@@ -2,55 +2,72 @@
 
 **Trace the price. Challenge the assumptions. Keep the evidence.**
 
-[Публичный GitHub](https://github.com/NuraliKuzhagaliev/Prooflane) · [Рабочее демо](https://45.76.92.198/) · [Проверка свежего клона](docs/GITHUB_PUBLICATION_20261109.md)
+A review workspace for accounts payable and procurement teams investigating differences between invoice and contract prices. Resolve source decisions, execute contained analysis, test what could change your priority, and give the next reviewer a case they can reproduce.
 
-**Финальный пакет Agent Rush:** [описание и файлы для загрузки](submission/agent-rush/README.md), [демо-видео с английской озвучкой](submission/agent-rush/video/prooflane-demo.mp4), [PDF](submission/agent-rush/prooflane-deck.pdf), [проверка конкурсных требований](docs/FINAL_SUBMISSION_20261109.md). Ролик смонтирован из реальных кадров сайта; сохранённый AI-прогон и свежие контейнерные пробы обозначены отдельно. Подтверждение отправки на LabLab пока отсутствует.
+[Live application](https://45.76.92.198/) · [Watch the live demo](submission/agent-rush/video-v2/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Demo and submission files](submission/agent-rush/README.md)
 
-**Живой AI проверен через публичную браузерную форму 9 ноября:** DeepSeek сгенерировал код, Docker выполнил его, Decimal-verifier подтвердил USD768.00 и Vultr вернул выбор объяснения. Скачанный пакет принят офлайн и в браузере. [Фактический прогон, исправленный сбой и границы проверки](docs/LIVE_AI_CHECK_20261109.md).
+![The public Vultr application: verified invoice ledger and source inspector, using fictional data](docs/images/ledger.jpg)
 
-**Обновление 8 ноября:** [публичный Prooflane](https://45.76.92.198/) теперь открывает разобранный вымышленный пример за одно действие, показывает последствия спорных договоров, денежный охват исключений, предупреждения о повторяющихся строках и связанные договорные группы. В Proof доступны CSV, читаемое заключение и проверяемый JSON-пакет. Повтор прерванного запроса можно проверить по ID без нового исполнения. [18 изменений, исследования, замеры и реальные проверки](docs/TRANSFORMATION_RESULT_20261108.md).
+*Captured from the deployed application. The execution mode, scope and independent verification are visible. Open the image for full resolution; these are fictional invoices, not customer data.*
 
-Prooflane связывает счета с отдельной таблицей договоров по поставщику, товару и дате. Неоднозначные совпадения требуют выбора, исключения — причины. Из согласованных источников создаётся неизменный baseline. В одном деле можно выполнить до четырёх именованных вариантов с совместными изменениями, задать диапазоны неопределённости и увидеть, какое исходное значение полезнее проверить следующим. Скачанный пакет повторно проверяется без сервера: источники, решения о совпадениях, арифметика, изменения и аналитика.
+## Try the workflow
 
-**Проверенный локальный пример:** восемь synthetic счетов, один спорный договор и один счёт без подходящего договора. После явных решений анализ охватывает семь счетов: `$768` положительной разницы. Общая цена C1 `$72 → $80` меняет три связанные записи и даёт `$368`; совместно с количеством первой записи `40 → 80` — `$568`. Диапазон C1 `$65–85` даёт точные границы `$148–1,193` при остальных фиксированных данных. Это допущения, не исправленный договор и не возвращённые деньги. [Пошаговая демонстрация](docs/TRY_PROJECT.md).
+1. Open the [public demo](https://45.76.92.198/). **Open a reviewed example** loads a disclosed Reference example without a model call.
+2. For a new analysis, choose **Try the fictional review**, or supply the [invoice CSV](examples/case-invoices.csv) and [contract CSV](examples/case-contracts.csv). Reconcile the sources.
+3. Inspect INV504. Two dated contracts overlap; explicitly select C2R. Record why INV506 has no active supplied contract and is excluded.
+4. Create a baseline. The fixture includes seven of eight invoices: **USD 768.00 positive price variance**, five flagged rows, USD 7,110 billed in scope. The USD 250 excluded billed amount is coverage information, not estimated savings.
+5. Inspect a source row, review all invoices sharing C1, explore assumptions, and export the case packet. In **Proof**, run the fixed containment probes or verify a downloaded packet.
 
-Это прототип для **Vultr Agent Rush / Blast Radius Zero**. Фиксированная арифметика, matching и диапазоны вычисляются детерминированно. Живой AI-запуск и Docker проверены через публичный API на Vultr. Прежняя проверка одного шестиколоночного CSV и одноклеточные сценарии сохранены в **Single CSV review**.
+The public application supports Reference and fixed-recipe Docker workflows without an inference key. **Vultr agent** calls require an operator token to protect the available credit allowance. Never publish that token or enter the inference API key in the browser.
 
-![Audit Folio: реальный Ledger с исходной записью и охватом проверки](artifacts/design-studio/final-ledger1440.jpg)
+## What makes the review reproducible
 
-**Audit Folio, 5 ноября:** интерфейс построен как аннотированное дело: Sources → Ledger → Assumptions → Proof. Регистры, примечание выбранного счёта и охват рядом с итогом заменили постоянную боковую панель и карточки метрик. Выше — настоящий локальный браузерный кадр, synthetic данные, reference mode. [Три разные концепции и исследование](docs/design-studio/REFERENCES_AND_CONCEPTS.md), [реализация, проверки и честные оценки](DESIGN_REPORT.md).
+- **Two original sources.** Match exact vendor and item keys against inclusive contract dates. Overlapping contracts need a human choice; exclusions need a reason. The frozen baseline preserves both.
+- **Shared assumptions.** A change to one contract price propagates to every bound invoice. Up to four named alternatives jointly apply up to twelve distinct changes to the same original baseline.
+- **Exact decision boundaries.** For the supplied fixture, C1 at USD 82.59 leaves INV501 uniquely first; USD 82.60 ties INV501 and INV503; USD 82.61 makes INV503 first. All other baseline fields stay fixed. These are deterministic what-if results, not forecasts.
+- **Explicit uncertainty.** Declared ranges yield exact bounds and sensitivity. Confirming a source can reduce uncertainty; this does not estimate a probability, legal liability or recovered money.
+- **Portable evidence.** Export a review CSV, a readable brief, or a JSON packet. The independent packet verifier reconstructs joins, source choices, arithmetic, declared changes and priority boundaries without executing the packet's Python.
 
-## Что действительно работает и что ещё не проверено
+For example, C1 at USD 80 changes three invoices and gives USD 368 positive variance. Changing C1 to USD 80 and INV501 quantity to 80 together gives USD 568. A C1 range of USD 65–85 gives USD 148–1,193 when other inputs stay fixed. [Methods and scope](docs/INTELLIGENCE_METHODS.md).
 
-| Возможность | Статус / граница |
-|---|---|
-| Два источника → dated matching → явные решения → case | Реализовано; независимые manual-oracle и негативные проверки |
-| Общие договорные цены, совместные изменения, до 4 вариантов | Реализовано; настоящий reference/Docker HTTP [case smoke](artifacts/transformation/case-http-smoke.json) |
-| Точные диапазоны, sensitivity, устойчивость первого места и evidence priority | Реализовано для заданной формулы и независимых диапазонов targets; [математические условия](docs/INTELLIGENCE_METHODS.md) |
-| Цена, при которой меняется первый счёт на проверку | Реализовано: точный порог в центах, ничья, соседние значения и подготовка альтернативы; остальные поля исходного baseline фиксированы. [Публичная проверка](artifacts/priority-release/case-http-smoke.json) |
-| Portable case packet и проверка CLI / браузерным загрузчиком | Восстанавливает join, scope, все варианты и аналитику; [реальный Docker packet](artifacts/transformation/sandbox-case.json) |
-| Анализ CSV, API, SQLite, source inspection и JSON receipt | Реализованы; актуальные результаты в [TESTING.md](TESTING.md) |
-| Одно допущение → отдельный расчёт → пакет двух receipts | Реализовано; настоящий HTTP/reference/Docker: [36 проверок](artifacts/optimization/scenario-smoke.json), ни одного вызова модели |
-| Изолированное выполнение Docker и containment-пробы | Реальный локальный smoke прошёл: [sandbox-smoke.json](artifacts/sandbox-smoke.json) |
-| Vultr Serverless Inference | Два живых запроса DeepSeek V4.1 Flash через публичный API, включая объяснение. [Доказательство](artifacts/vultr-release/live-evidence.json) |
-| Backend VM и публичное веб-приложение на Vultr | **PASS**. [Публичное демо](https://45.76.92.198/) и [облачный прогон](artifacts/vultr-release/case-http-smoke.json) |
-| GitHub, итоговое видео, PDF-слайды, cover и lablab submission | Статус материалов в [SUBMISSION.md](docs/SUBMISSION.md); submission-ready пока не заявляется |
+![Exact whole-cent priority boundary, calculated from the same actual AI case](docs/images/priority.jpg)
 
-Публичное демо работает на выделенной VM Vultr. Откройте **Try the fictional review**, выберите C2R для INV504, объясните исключение INV506 и выполните **Sandbox recipe**. В **Proof** можно запустить проверки контейнера и экспортировать пакет. [Трек, дедлайн и условия подачи](docs/AGENT_RUSH_READINESS.md).
+*One shared contract price changes which invoice is first to review. These are deterministic witnesses, not a forecast.*
 
-## Три режима
+## How Vultr powers the product
 
-| Режим | Вычисление | AI-вызов | Для чего |
-|---|---|---|---|
-| `reference` | Доверенный фиксированный Python-код на сервере | Нет | Бесплатный baseline и знакомство с продуктом. Это не независимая проверка агентного запуска. |
-| `sandbox` | Проверенный фиксированный рецепт в настоящем Docker | Нет | Проверка исполнения, изоляции и сравнения с baseline без API-ключа. |
-| `vultr` | Код, реально сгенерированный VSI, в Docker | Да: 1–2 генерации и отдельный запрос объяснения | Конкурсный AI-сценарий: первоначальная программа, максимум одно исправление и проверяемый выбор структуры объяснения. |
+A dedicated **Vultr Cloud Compute VM in Frankfurt** runs FastAPI, SQLite and Docker. Caddy terminates public HTTPS; Uvicorn listens on loopback. This VM is the control layer, not just static hosting.
 
-При недоступном Docker два последних режима отказывают в исполнении; сгенерированный код не переносится на host. Неподтверждённый cleanup или обнаруженные контейнеры предыдущего запуска включают устойчивый к restart карантин. До проверки оператором новые sandbox-запуски блокируются. В Vultr-режиме модель выбирает фокус объяснения и следующий шаг из разрешённых значений; числа берутся из независимо проверенного результата. При недоступности объяснения приложение явно показывает проверенное резюме.
+In **Vultr Serverless Inference** mode, the server requests Python for a bounded analysis task. Docker executes it in a disposable container. An independent Decimal checker verifies every reported row and total. After verification, the model selects the focus of review guidance; the server supplies the verified amounts. The interface exposes the actual model, request IDs, executed code, limits and cleanup outcome.
 
-## Запуск в Windows
+```mermaid
+flowchart LR
+    B[Browser: sources and decisions] --> V[Vultr VM: FastAPI and SQLite]
+    V --> M[Vultr Serverless Inference]
+    M --> V
+    V --> D[Disposable offline Docker]
+    D --> C[Independent Decimal verifier]
+    C --> R[Receipt and portable case packet]
+    R --> B
+```
 
-Проверенная локальная среда: Python 3.13, Docker Desktop с Linux engine, PowerShell. Исходники и virtualenv располагаются на D:. Для первой установки из корня проекта:
+Real public-browser AI runs, actual Docker execution and packet verification have been observed. See the [live evidence](docs/LIVE_AI_CHECK_20261109.md), [test record](TESTING.md) and [submission checklist](docs/FINAL_SUBMISSION_20261109.md). A saved successful run does not guarantee every future model response will succeed.
+
+## Execution modes
+
+| Mode | Execution | Model calls | Purpose |
+| --- | --- | --- | --- |
+| `reference` | Trusted fixed rules in the application | None | Free introduction and arithmetic reference; not proof of agent execution |
+| `sandbox` | Fixed recipe in real disposable Docker | None | Exercise execution and containment without an inference key |
+| `vultr` | VSI-generated Python in real disposable Docker | Generation, at most one bounded repair, then a separate guidance request | The actual agent workflow |
+
+The last two modes refuse to execute if Docker is unavailable. Generated code never falls back to host execution. A failed cleanup or an orphaned labelled container triggers persistent quarantine until an operator inspects the cause.
+
+Container controls include network `none`, a read-only root filesystem, UID/GID 65534, no host mounts or injected credentials, 128 MiB memory, 0.5 CPU, 32 PIDs, bounded tmpfs, wall-clock and output limits, dropped capabilities and `no-new-privileges`. Docker shares the host kernel and daemon access is privileged. This is a bounded prototype, not a claim of universal escape resistance. [Security and recovery](SECURITY.md).
+
+## Run locally
+
+Python 3.13 is the tested development version. Reference mode needs no Docker. Sandbox and agent modes require a Linux Docker engine and the sandbox image.
 
 ```powershell
 git clone https://github.com/NuraliKuzhagaliev/Prooflane.git
@@ -58,80 +75,44 @@ cd Prooflane
 python -m venv .venv
 .\.venv\Scripts\python.exe -m pip install --cache-dir .cache\pip -r requirements.lock
 docker build -t prooflane-sandbox:local sandbox
-.\scripts\start.ps1
-```
-
-Открыть [локальный интерфейс](http://127.0.0.1:8765). Это локальный адрес, не опубликованный demo URL. Если выполнение `.ps1` ограничено вашей политикой, не меняйте её глобально; используйте прямой запуск:
-
-```powershell
 .\.venv\Scripts\python.exe -m uvicorn prooflane.app:app --host 127.0.0.1 --port 8765
 ```
 
-Для reference-режима Docker не нужен. Для sandbox нужен Linux Docker engine и образ `prooflane-sandbox:local`. Зависимости зафиксированы в `requirements.lock`. Windows и Linux проверки перечислены в [TESTING](TESTING.md); публичный прогон Vultr зафиксирован отдельно.
+Open [localhost:8765](http://127.0.0.1:8765/). For a Linux checkout, use `python3 -m venv .venv` and `.venv/bin/python` in the equivalent commands. See [deployment](docs/DEPLOYMENT.md) for the dedicated Vultr VM, service ownership, HTTPS and rollback procedure.
 
-## Как использовать
+To configure agent mode, copy `.env.example` to a new `.env` without overwriting an existing configuration. Set `VULTR_INFERENCE_API_KEY`, an available `VULTR_MODEL`, a separate random `PROOFLANE_OPERATOR_TOKEN`, and explicitly enable `PROOFLANE_LIVE_ENABLED=true`. Restart the server. Keys stay on the server and outside Git.
 
-1. В **Sources** загрузить два UTF-8 CSV и нажать **Reconcile sources** либо нажать **Try the fictional review ↗**: пример сразу сопоставляет источники.
-2. Открыть спорный INV504 и выбрать C2R. Для INV506 указать причину исключения: в предоставленной таблице нет действующего договора. Это сокращает охват до семи счетов и остаётся в пакете.
-3. Создать baseline в доступном `reference` или `sandbox`. В **Ledger** проверить сумму и путь от invoice record к contract record.
-4. В **Assumptions → Ranges & uncertainty** задать диапазон общей цены C1 `65–85`, посмотреть чувствительность, точные границы и evidence priority. Диапазоны описывают допущения, не вероятность исходов.
-5. Выполнить именованный вариант C1 `80`, затем отдельный совместный вариант C1 `80` + quantity первой записи `80`. Каждый начинается от оригинала и наследует его execution mode.
-6. Скачать **case packet**, открыть загрузчик проверки в **Proof** или выполнить `.venv/Scripts/python.exe scripts/verify_receipt.py ПУТЬ_К_ПАКЕТУ.json`. Код из пакета не исполняется. Пакет содержит исходные файлы, поэтому обращаться с ним нужно как с самими данными. Прежний **Single CSV review** находится в **Archive**.
+Raw CSV rows are not automatically sent to the model. Task context, row count and a user-entered question may be sent; do not put secrets in that question. Provider and runtime limits are documented in [architecture](docs/ARCHITECTURE.md).
 
-Два источника используют точный порядок колонок:
-
-```csv
-invoice_id,vendor,item_id,invoice_date,quantity,unit_price,notes
-```
-
-```csv
-contract_id,vendor,item_id,valid_from,valid_to,contract_price
-```
-
-Даты — ISO `YYYY-MM-DD`, границы действия включены. Contract IDs уникальны; vendor/item сопоставляются точно после удаления внешних пробелов, с учётом регистра. До 5,000 eligible invoice–contract links; при чрезмерном перекрытии версий нужно сузить источники. Каждый файл — 1–500 записей и до128KiB. [Точный API и ограничения](docs/WORKBENCH_CONTRACT.md).
-
-**Single CSV review** принимает прежнюю схему с уже встроенной договорной ценой:
-
-```csv
-invoice_id,vendor,quantity,unit_price,contract_price,notes
-INV-001,Example vendor,3,12.50,10.00,Synthetic example
-```
-
-Принимаются 1–500 записей, максимум 128 KiB, количество — целое 1–999999, цены — неотрицательные USD с максимум двумя знаками после точки. Номера источника — номера CSV-записей, начиная с 2 после заголовка; при переносах внутри quoted cells они могут отличаться от физических строк файла. Формула: `quantity × max(unit_price − contract_price, 0)`. Отрицательные расхождения не уменьшают положительные. Другие валюты, налоги, скидки, сложные контракты и свободные аналитические задачи не поддержаны.
-
-## Подключение Vultr
-
-Скопировать `.env.example` в `.env`, не перезаписывая существующий файл. Заполнить локально `VULTR_INFERENCE_API_KEY`, реальный `VULTR_MODEL` из списка доступных моделей и отдельный случайный `PROOFLANE_OPERATOR_TOKEN`. Затем явно включить `PROOFLANE_LIVE_ENABLED=true` и перезапустить сервер. Ключ VSI не вводится в браузер и не отправляется в sandbox. Operator token разрешает расход разрешённых кредитов, поэтому его не следует публиковать.
-
-В модель передаются фиксированная схема/задача, количество записей и вопрос пользователя. **Сырые строки CSV автоматически не отправляются**, но введённый вопрос может содержать данные; не вставляйте в него секреты. В UI live-вызов требует operator token. Общая модель не выбирается автоматически и доступность конкретного model ID не предполагается.
-
-### Как используется Vultr
-
-**Vultr Cloud Compute VM** в Frankfurt запускает FastAPI, SQLite и Docker. Caddy принимает публичный HTTPS, Uvicorn слушает loopback. В режиме **Vultr Serverless Inference** модель получает задачу и число строк, возвращает Python, а VM запускает его в отдельном контейнере и проверяет результат. После проверки модели передаются два счётчика для выбора акцента объяснения. Цены и строки счетов автоматически не передаются модели.
-
-Именно VM backend, веб-развёртывание и VSI обязательны выбранному треку. Сейчас проверен локальный Docker, а облачная часть **не развёрнута и не проверена**. Подробные шаги, границы доступа и smoke gates: [DEPLOYMENT.md](docs/DEPLOYMENT.md). [Официальная страница события](https://lablab.ai/ai-hackathons/vultr-hackathon).
-
-## Проверки
+## Verify the evidence
 
 ```powershell
 .\.venv\Scripts\python.exe -m pytest -q
-.\.venv\Scripts\python.exe scripts\smoke_case.py
-.\.venv\Scripts\python.exe scripts\smoke_sandbox.py
-.\.venv\Scripts\python.exe scripts\verify_receipt.py artifacts\downloaded-receipt.json
+node --test tests/test_*.mjs
+.\.venv\Scripts\python.exe scripts/verify_receipt.py PATH_TO_CASE_PACKET.json
+.\.venv\Scripts\python.exe scripts/smoke_sandbox.py
 ```
 
-В последней команде укажите путь к скачанному пакету. Offline verifier проверяет хеши и повторно считает арифметику. Run и receipt сохраняют отдельные попытки с кодом, исполнением и проверками. Повтор после ошибки проверен тестовыми ответами, а первый живой запрос генерации прошёл без повторной попытки. Отдельный локальный sandbox smoke проверяет таймаут и ограничение вывода. [Журнал проверок](TESTING.md).
+The last command needs a working local Linux Docker engine. It is a local runtime test, not a cloud deployment or inference test. Current recorded regression results are **179 Python tests and 26 JavaScript tests passed**. The final preparation also passed 23 real public HTTP checks, five fresh browser containment probes and seven packet-verification groups. [Commands, dates and limitations](TESTING.md).
 
-## Архитектура и ограничения
+Hashes bind supplied content; they are not signatures and do not authenticate a supplier, contract or execution host. Recomputing hashes cannot make false arithmetic pass the independent verifier, but a self-consistent packet is not proof that its input is true.
 
-FastAPI + Uvicorn, vanilla JavaScript/CSS, SQLite, Python stdlib/Decimal, Docker, HTTP-адаптер VSI. Запуски доступны только в текущей браузерной сессии. Строки БД старше 24 часов удаляются при следующем добавлении, чтении run или чтении списка. Фонового удаления точно по таймеру и гарантированного стирания байтов SQLite нет. Receipt хранит CSV. Для публичной демонстрации используйте только синтетические данные.
+## Scope and data handling
 
-Docker shares the host kernel: это ограниченный прототип, не сертифицированная платформа исполнения враждебного кода. Web backend имеет доступ к Docker daemon; этот доступ привилегирован. Поэтому целевая VM должна быть выделенной и не содержать чужих рабочих нагрузок/секретов. Подробности: [SECURITY.md](SECURITY.md).
+The supported formula is `quantity × max(unit_price − contract_price, 0)`. Prices use USD cents, quantities are positive integers, and each source has size and row limits. Taxes, discounts, foreign exchange, fuzzy matching, OCR and arbitrary accounting tasks are outside this prototype.
 
-Наиболее заметное отличие — связка конкретного расхождения, независимой проверки и экспортируемых артефактов. Python-анализ, sandbox и хеши сами по себе не новые изобретения; конкуренты и пределы заявления изложены в [RESEARCH.md](RESEARCH.md).
+Runs and cases are session-isolated. SQLite and exported receipts contain source data. Retention is activity-triggered after 24 hours, not a background timer or secure erasure. Use fictional data on the public demo. [Security details](SECURITY.md).
 
-Документы: [архитектура](docs/ARCHITECTURE.md), [решения](docs/DECISIONS.md), [правила](docs/RULES.md), [демо](docs/DEMO.md), [материалы подачи](docs/SUBMISSION.md). Лицензия проекта — MIT; сторонние компоненты сохраняют собственные лицензии.
+## Hackathon materials
 
-Черновые материалы: [PDF](submission/prooflane-deck.pdf), [PPTX](submission/prooflane-deck.pptx), [cover](submission/cover.png). Подробные результаты: [TESTING](TESTING.md), [FINAL_REPORT](FINAL_REPORT.md).
+Target track: **Vultr Agent Rush — Blast Radius Zero**. The published criteria cover technology, presentation, business value and originality; there is no guaranteed placing. The project addresses a concrete invoice-review workflow without claiming world-first sandboxing, measured customer ROI or recovered cash.
 
-[Попробовать проект за пять минут](docs/TRY_PROJECT.md). Для повторяемой проверки подготовлены [12 CSV-сценариев с ручными расчётами](examples/evaluation/README.md) и `scripts/evaluate_csv.py`; последний реальный HTTP/Docker прогон — 24/24 PASS без model calls. Это локальная проверка, не подтверждение конкурсного cloud deployment.
+- [Demo plan and narration](submission/agent-rush/video-v2/PLAN.md)
+- [Submission text, slides and cover](submission/agent-rush/README.md)
+- [Requirement and submission gates](docs/FINAL_SUBMISSION_20261109.md)
+- [Research and positioning](RESEARCH.md)
+- [Design history and accessibility evidence](DESIGN_REPORT.md)
+
+The team participates online: Nurali Kuzhagaliev, Nuraiym Kilybayeva, Mariyam Murzagaliyeva and Abylay Tabayev. Uploading files to GitHub does not submit an entry on LabLab. Submission confirmation remains a separate gate.
+
+Project code is [MIT-licensed](LICENSE). [Third-party fonts and generated narration](THIRD_PARTY_NOTICES.md) retain their own terms; demo media is not represented as universally MIT-licensed. Narration for the updated demonstration uses the existing ElevenLabs Free-plan allowance and requires attribution. No paid subscription is required to run Reference mode or the fixed Docker recipe.

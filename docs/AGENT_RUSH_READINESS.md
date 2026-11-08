@@ -1,48 +1,12 @@
-# Prooflane на Agent Rush
+# Agent Rush readiness
 
-**Финальная подготовка 9 ноября:** [актуальный чек-лист](FINAL_SUBMISSION_20261109.md), [материалы для загрузки](../submission/agent-rush/README.md). Видео и PDF подготовлены. Дедлайн повторно подтверждён в живом браузере: 9 ноября, 04:00 по Казахстану. Отправка на LabLab ещё не подтверждена.
+This page is the current navigation point for the Blast Radius Zero entry. The pre-deployment NOT_RUN snapshot is historical; it must not be read as the status of today's public application.
 
-**Публичный GitHub проверен 9 ноября:** [NuraliKuzhagaliev/Prooflane](https://github.com/NuraliKuzhagaliev/Prooflane), ветка `main`. README доступен без авторизации; свежий клон прошёл 179 Python-тестов, 26 JavaScript-тестов и проверку живого пакета. [Отчёт публикации](GITHUB_PUBLICATION_20261109.md).
+- [Final evidence gates and remaining formal steps](FINAL_SUBMISSION_20261109.md)
+- [Rule sources and deadline](RULES.md)
+- [New live browser AI run](LIVE_AI_CHECK_20261109.md)
+- [Working public app](https://45.76.92.198/) and [public repository](https://github.com/NuraliKuzhagaliev/Prooflane)
+- [New recorded demonstration, English copy, slides and cover](../submission/agent-rush/README.md)
+- [Regression/runtime evidence](../TESTING.md)
 
-**9 ноября:** полный браузерный AI-путь теперь проверен, включая генерацию, Docker, независимый вердикт, объяснение и JSON-пакет. [Свежий отчёт](LIVE_AI_CHECK_20261109.md). Это закрывает прежний браузерный gate, но не заменяет GitHub, видео или подтверждение подачи.
-
-**Обновление 8 ноября:** [18 реализованных изменений и свежая проверка публичного продукта](TRANSFORMATION_RESULT_20261108.md). VM/HTTPS, новые HTTP-прогоны, выгрузки и containment проверены повторно без новых модельных запросов. В текущей странице Event Schedule стоит `To be announced`; исторические23:00UTC из проверки6ноября ниже не подтверждены повторно. Это не означает продление. GitHub, финальное видео и подтверждение подачи остаются отдельными открытыми воротами.
-
-[Аудит и браузерный прогон от 7 ноября](AGENT_RUSH_FINAL_AUDIT.md).
-
-Проверено 6 ноября 2026. Целевой трек **Blast Radius Zero**, исполнение кода в песочнице. LabLab показал закрытие подачи **8 ноября в 23:00 UTC**, то есть **9 ноября в 04:00 по времени Казахстана**. Срок подтверждён в шапке и расписании живой страницы. [Страница Agent Rush](https://lablab.build/ai-hackathons/vultr-hackathon).
-
-| Критерий LabLab | Что показать | Наблюдаемый результат и открытый риск |
-|---|---|---|
-| Application of Technology | Proof с живым запросом VSI, выполненным Python и независимой проверкой | Генерация и объяснение выполнены через Vultr Inference. Docker-расчёт на семь строк проверен офлайн. Полный прогон формы прервался по таймауту автоматизации браузера. [Живой прогон](../artifacts/vultr-release/live-evidence.json) |
-| Presentation | Один спорный счёт, одна меняющая решение цена и наблюдаемый containment | Готовы PDF, редактируемые слайды, обложка и видео с английской озвучкой и субтитрами. Это монтаж реальных кадров, не непрерывный скринкаст. [Финальный пакет](../submission/agent-rush/README.md). |
-| Business Value | Сотрудник AP сверяет цены, сотрудник закупок подтверждает договор | На вымышленном деле одна ставка затрагивает три счёта. Подтверждение C1 убирает не меньше $645 из диапазона неопределённости при заданных границах. Экономию времени и финансовый эффект на реальных командах не измеряли. |
-| Originality | Сторонний проверяющий воспроизводит результат из пакета и проверяет подделку | Публичный API и офлайн CLI восстановили источники, арифметику, изменения и диапазоны. Пакет с ложным приоритетом и пересчитанным хешем отклонён. |
-
-Организатор публикует четыре критерия без отдельных весов на странице события. Это сверка доказательств, без прогноза места. [Правила LabLab](https://lablab.ai/hackathon-rules).
-
-## Конкурентные решения
-
-| Проект | Что команда описывает | Вывод для показа Prooflane |
-|---|---|---|
-| Evidence-Gated Agent | Независимый тестовый прогон кода и сравнение с исходником | Делать акцент на повторной проверке делового решения с двух источников. [Заявка](https://lablab.ai/ai-hackathons/vultr-hackathon/evidence-gated-agent/evidence-gated-agent) |
-| ProveRun | Анализ CSV, генерация через Vultr и проверка контейнера из UI | Песочница и CSV уже встречаются. Показать, как спорный договор меняет результат и приоритет следующей проверки. [Заявка](https://lablab.ai/ai-hackathons/vultr-hackathon/peterzhou/proverun) |
-| Blast Radius Zero Solo | gVisor и семь проб ограничений контейнера | Продемонстрировать реальные ограничения своего Docker и оставить зрителю точный результат проб. [Заявка](https://lablab.ai/ai-hackathons/vultr-hackathon/blast-radius-zero-solo/blast-radius-zero-sandboxed-agent-runtime) |
-| PayablesPilot | Трёхсторонняя сверка, дубли, смена банковских реквизитов и human approval | Оставить более узкий кейс спорной цены и передаваемого доказательства. Базовое сопоставление счетов само по себе не отличает проект. [Заявка](https://lablab.build/ai-hackathons/vultr-hackathon/ledger-scout1/payablespilot) |
-
-Сравнение основано на опубликованных описаниях авторов. Внутреннюю реализацию и результаты этих проектов мы не воспроизводили. Позиционирование Prooflane — проверка спорной цены в закупках, где аудитору нужны решение о применённой версии договора, последствия изменения ставки и файл для проверки без доступа к сервису. Следующий продуктовый эксперимент — дать двум коллегам по одному и тому же синтетическому спору в таблице и Prooflane, сравнить время до воспроизводимого решения и число пропущенных связанных строк. Это план измерения, без заявленного результата.
-
-## Условия подачи
-
-| Условие | Статус | Подтверждение или действие |
-|---|---|---|
-| Vultr VM, публичный HTTPS, сервер выполняет задачи | PASS | [Демо](https://45.76.92.198/) и [53 проверки](../artifacts/vultr-release/case-http-smoke.json) |
-| Изолированное выполнение, лимиты, завершение, очистка | PASS для наблюдавшихся контейнеров | Docker inspect в пакете, пять проб из браузера. [Снимок Proof](../artifacts/vultr-release/containment.jpg) |
-| Живой Inference и запрос объяснения | PASS через публичный API | Подтверждены оба ID Vultr, выполнение в Docker и независимая проверка. [Пакет](../artifacts/vultr-release/live-recovered-case-packet.json) |
-| Живой прогон через браузерную форму | PASS для synthetic case, 9 ноября | Vultr agent,7из8 строк,768.00, два ID запросов, Docker и пакет проверены. [Доказательства](LIVE_AI_CHECK_20261109.md) |
-| Обложка 16:9, PDF, описание и архитектура | PASS как локальные материалы | [PDF](../submission/agent-rush/prooflane-deck.pdf), [обложка](../submission/agent-rush/cover.png), [текст](SUBMISSION.md), [README](../README.md) |
-| Видео с показом containment | PASS как локальный файл | MP4 с реальными кадрами, озвучкой, субтитрами, сохранённым AI-прогоном и свежими пятью containment-пробами. Это монтаж, не непрерывный скринкаст. [Файл](../submission/agent-rush/video/prooflane-demo.mp4). |
-| GitHub открывается судьям без аккаунта | PASS, 9 ноября | Публичный README доступен без авторизации. Свежий клон: 179 Python-тестов и 26 JavaScript-тестов PASS; живой пакет принят CLI. [Отчёт](GITHUB_PUBLICATION_20261109.md). |
-| Участник, команда, форма и отправка | NOT_RUN | Подтвердить права на подачу в аккаунте LabLab, сверить поля формы и сохранить подтверждение отправки. |
-
-Офлайн-проверка пакета восстанавливает расчёт и связи данных. Она не подтверждает личность автора, реальность договора или исполнение на определённом хосте. Для проверки исполнения нужны собственный запуск на демо и его наблюдаемый результат.
+Observed technical flows pass: VSI-generated Python, dedicated Vultr Docker execution, independent output verification, five fresh containment checks and seven packet groups. Formal readiness is not asserted: actual form-specific choices, personal attestations and LabLab Submit confirmation remain NOT_RUN. Four team members and online participation were confirmed by the user. No placing is guaranteed.

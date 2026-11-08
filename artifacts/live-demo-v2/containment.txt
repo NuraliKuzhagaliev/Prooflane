@@ -1,0 +1,276 @@
+Browser tab: 7, Title: "Prooflane — Audit Folio", URL: "https://45.76.92.198/".
+0 AXWebArea Prooflane — Audit Folio, URL: 45.76.92.198/
+	1 link Description: Skip to review, Value: 45.76.92.198/#wb-main
+	2 container case-workbench
+		3 container
+			4 link Description: Prooflane home, Value: 45.76.92.198/#, ID: wb-home
+			5 text Invoice reconciliation
+			6 pop up button (collapsed) Archive , ID: wb-rail-toggle, Secondary Actions: Expand
+			7 button New review, ID: wb-new
+		8 container wb-main
+			9 container
+				10 heading November supplier review, Value: 1, ID: wb-title
+					79 text November supplier review
+				80 text 7 included invoice rows · 1 excluded · Vultr agent
+				81 text Independently verified
+				82 link Description: Export case packet ↓, Value: 45.76.92.198/api/cases/18615e14-2242-4f83-9034-3a5afa96479d/packet, ID: wb-packet
+				83 container wb-identity
+					84 text Baseline Nov 9, 01:40 AM ·
+					85 text RUN 80e94339-371
+					86 button Copy ID
+					87 text Revision 1
+			14 container Review chapters
+				15 button 01 Sources
+					16 text 01
+					88 text Sources
+				18 button 02 Ledger
+					19 text 02
+					89 text Ledger
+				20 button 03 Assumptions
+					21 text 03
+					90 text Assumptions
+				22 button 04 Proof
+					23 text 04
+					91 text Proof
+			240 container A claim with a paper trail., ID: wb-view-evidence
+				241 heading A claim with a paper trail., Value: 2, ID: wb-evidence-heading
+					242 text A claim with a paper trail.
+				243 button Environment checks, ID: wb-environment
+				244 container wb-evidence-case
+					245 text Follow a source record
+					246 pop up button (collapsed, settable) Follow a source record, Value: INV501 · Atlas · normalized row 2, ID: wb-evidence-row, Secondary Actions: Expand
+						247 menu
+							248 (selected) INV501 · Atlas · normalized row 2
+							249 INV502 · Atlas · normalized row 3
+							250 INV503 · Nova · normalized row 4
+							251 INV504 · Nova · normalized row 5
+							252 INV505 · Meridian · normalized row 6
+							253 INV507 · Meridian · normalized row 7
+							254 INV508 · Atlas · normalized row 8
+							255 INV506 · excluded · source row 7
+					256 container Description: Source to receipt dependency path, ID: wb-dependency-path
+						257 container
+							258 heading Supplied sources, Value: 3
+								259 text Supplied sources
+							260 checkbox 01. Invoice INV501 Invoice row 2, Value: 1
+								261 text 01. Invoice
+								262 text INV501
+								263 text Invoice row 2
+							264 checkbox 02. Contract price C1 Contract row 2, Value: 0
+								265 text 02. Contract price
+								266 text C1
+								267 text Contract row 2
+						268 container
+							269 heading Reproducible calculation, Value: 3
+								270 text Reproducible calculation
+							271 checkbox 03. Calculation input Input record 2 40 × supplied prices, Value: 0
+								272 text 03. Calculation input
+								273 text Input record 2
+								274 text 40 × supplied prices
+							275 checkbox 04. Baseline $520.00 Independently verified, Value: 0
+								276 text 04. Baseline
+								277 text $520.00
+								278 text Independently verified
+						279 container
+							280 heading Portable evidence, Value: 3
+								281 text Portable evidence
+							282 checkbox 05. Alternatives 0 alternatives Each from this baseline, Value: 0
+								283 text 05. Alternatives
+								284 text 0 alternatives
+								285 text Each from this baseline
+							286 checkbox 06. Receipt Receipt → packet Hash-linked evidence, Value: 0
+								287 text 06. Receipt
+								288 text Receipt → packet
+								289 text Hash-linked evidence
+					290 text Follow the source → calculation → receipt. The checks establish consistency and arithmetic; they do not authenticate a supplier or contract.
+					291 container Description: Selected dependency detail, ID: wb-evidence-inspector
+						292 text DEPENDENCY INSPECTOR
+						293 heading Original invoice INV501, Value: 3
+							294 text Original invoice INV501
+						295 text The supplied source row, before assumptions or exclusions are applied.
+						296 definition list
+							297 container Invoice source row
+								298 text Invoice source row
+							299 text 2
+							300 container Vendor
+								301 text Vendor
+							302 text Atlas
+							303 container Item key
+								304 text Item key
+							305 text FILTER
+							306 container Invoice date
+								307 text Invoice date
+							308 text 2026-11-01
+							309 container Quantity
+								310 text Quantity
+							311 text 40
+							312 container Billed unit price
+								313 text Billed unit price
+							314 text $85.00
+							315 container Notes
+								316 text Notes
+							317 text First shipment against shared contract
+					318 container
+						319 text PORTABLE CASE EVIDENCE
+						320 heading Carry the record forward., Value: 3
+							321 text Carry the record forward.
+						322 text Baseline + 0 completed alternatives · 2 source files · 7 included rows · 1 explicit exclusions · 0 declared ranges.
+						323 link Description: Download review CSV ↓, Value: 45.76.92.198/api/cases/18615e14-2242-4f83-9034-3a5afa96479d/handoff.csv, ID: wb-handoff
+						324 link Description: Download review brief ↓, Value: 45.76.92.198/api/cases/18615e14-2242-4f83-9034-3a5afa96479d/brief.md, ID: wb-review-brief
+						325 link Description: Download case packet ↓, Value: 45.76.92.198/api/cases/18615e14-2242-4f83-9034-3a5afa96479d/packet, ID: wb-packet-secondary
+						326 text Includes source data. Keep it where that data may be shared. Hashes detect changes. They do not authenticate the issuer, the runtime, or the supplied contract.
+					347 container
+						348 button (expanded) Baseline execution, code and receipt, Secondary Actions: Collapse
+							349 text Baseline execution, code and receipt
+						350 container wb-execution-record
+							351 text Independently verified. Vultr generates Python; Docker executes; output checked independently.
+							352 definition list
+								353 container Requested model
+									354 text Requested model
+								355 text deepseek-v4.1-flash-1017
+								356 container Returned model
+									357 text Returned model
+								358 text deepseek-v4.1-flash-1017
+							359 definition list
+								360 container Attempt
+									361 text Attempt
+								362 text 1
+								363 container Vultr request ID
+									364 text Vultr request ID
+								365 text chatcmpl-5c3c7b38-9dbb-4177-8141-644840bc922c
+								366 container Tokens reported
+									367 text Tokens reported
+								368 text 798
+							369 heading Review guidance selected by Vultr, Value: 3
+								370 text Review guidance selected by Vultr
+							371 text Positive price differences total USD 768.00. 5 of 7 included records have a positive price difference. Review the cited invoice and contract rows together.
+							372 definition list
+								373 container Explanation model
+									374 text Explanation model
+								375 text deepseek-v4.1-flash-1017
+								376 container Vultr request ID
+									377 text Vultr request ID
+								378 text chatcmpl-4a182d04-ca35-4c91-bf6e-4894aa9b1d28
+								379 container Tokens reported
+									380 text Tokens reported
+								381 text 116
+							382 text Validate · passed
+							383 text 7 records validated; USD; source records start at 2.
+							384 text Plan · passed
+							385 text Read /tmp/input.csv with utf-8-sig encoding and csv.DictReader. | Validate header and row count, parse quantity as int and prices as Decimal with <=2 decimal places. | Compute total_billed and per-row positive variance without netting. | Emit a single JSON object with exact required fields.
+							386 text Execute · passed
+							387 text Disposable Docker execution; exit=0; cleanup=True.
+							388 text Verify · passed
+							389 text Independent verifier checked totals and every finding.
+							390 text Explain · passed
+							391 text Vultr chose the explanation focus and review step. Values came from the independently checked result.
+							392 text Receipt · passed
+							393 text Input, code and output bound by SHA-256. Integrity only; no issuer authentication.
+							394 definition list
+								395 container Runtime
+									396 text Runtime
+								397 text docker
+								398 container Elapsed
+									399 text Elapsed
+								400 text 673.49 ms
+								401 container Container removed
+									402 text Container removed
+								403 text true
+								404 container Container
+									405 text Container
+								406 text 5477e82da1a7d99d9bc5715af182aaeb86c7f56d12754294a889505c970cb041
+								407 container Container limits
+									408 text Container limits
+								409 text {"network":"none","memory_mb":128,"cpu":0.5,"pids":32,"tmpfs_mb":16,"read_only_root":true,"user":"65534:65534","capabilities":"none","no_new_privileges":true,"host_mounts":false,"timeout_seconds":10,"stdout_bytes":131072,"stderr_bytes":32768}
+							410 button (collapsed) Independent output verification, Secondary Actions: Expand
+								411 text Independent output verification
+							416 container
+								417 button (expanded) Executed Python source, Secondary Actions: Collapse
+									418 text Executed Python source
+								419 text import csv
+import json
+from decimal import Decimal
+
+PATH = "/tmp/input.csv"
+EXPECTED = ["invoice_id","vendor","quantity","unit_price","contract_price","notes"]
+
+def parse_price(s):
+    d = Decimal(s)
+    if d < 0 or d.as_tuple().exponent < -2:
+        raise ValueError("bad price")
+    return d
+
+def fmt(d):
+    return format(d.quantize(Decimal("0.01")), "f")
+
+with open(PATH, encoding="utf-8-sig", newline="") as f:
+    reader = csv.DictReader(f)
+    if reader.fieldnames != EXPECTED:
+        raise ValueError("bad header")
+    rows = list(reader)
+
+if not (1 <= len(rows) <= 500):
+    raise ValueError("bad row count")
+
+total_billed = Decimal(0)
+total_variance = Decimal(0)
+findings = []
+
+for i, r in enumerate(rows, start=2):
+    q = int(r["quantity"])
+    if q <= 0:
+        raise ValueError("bad quantity")
+    up = parse_price(r["unit_price"])
+    cp = parse_price(r["contract_price"])
+    total_billed += q * up
+    diff = up - cp
+    if diff > 0:
+        v = q * diff
+        total_variance += v
+        findings.append({"row": i, "variance": fmt(v)})
+
+print(json.dumps({
+    "row_count": len(rows),
+    "total_billed": fmt(total_billed),
+    "total_variance": fmt(total_variance),
+    "findings": findings,
+}))
+							414 button (collapsed) Full receipt identity, Secondary Actions: Expand
+								415 text Full receipt identity
+				329 container Check sandbox containment
+					330 heading Check sandbox containment, Value: 3, ID: wb-containment-heading
+						331 text Check sandbox containment
+					332 text Run fixed probes in a fresh container using the same runtime as a review.
+					333 button Run containment check, ID: wb-containment-run
+					420 container wb-containment-result
+						421 text Containment checks passed
+						422 content list
+							423 container
+								424 text ✓ Network egress · passed Connection to 192.0.2.1:443 failed inside this network-none container.
+							425 container
+								426 text ✓ Root filesystem · passed Writing /prooflane-write-probe was denied.
+							427 container
+								428 text ✓ Inference credential · passed Checks only that the inference key variable is absent; no secret values are read.
+							429 container
+								430 text ✓ Non-root identity · passed Effective user ID: 65534
+							431 container
+								432 text ✓ Lifecycle cleanup · passed Container absence checked after force removal.
+				334 container
+					335 heading Verify a case packet, Value: 3
+						336 text Verify a case packet
+					337 text Uploads the packet and its included source data to this server for verification. No code is executed. Use the CLI for offline verification. Read-only verification
+					338 container wb-verify-form
+						339 container
+							340 text Choose packet JSON
+							341 button Choose packet JSON, ID: wb-packet-file
+						342 text Up to 8 MiB
+						343 button (disabled) Verify packet, ID: wb-verify
+						344 button (collapsed) Paste packet JSON, Secondary Actions: Expand
+							345 text Paste packet JSON
+				346 text Packet verification checks arithmetic and content integrity. It does not prove contract truth, issuer identity or execution environment.
+			76 container
+				77 text Prooflane
+				78 text Docker execution available
+	433 text Containment checks passed
+
+The focused UI element is 333 button Run containment check, ID: wb-containment-run

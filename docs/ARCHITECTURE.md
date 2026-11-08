@@ -1,79 +1,56 @@
-# Архитектура Prooflane
+# Prooflane architecture
 
-Состояние описания: 2026-11-04. Case workbench добавлен поверх прежнего runner; целевая облачная конфигурация пока NOT_RUN.
-
-## Case workbench
-
-`reconciliation.py` разбирает две независимые CSV-таблицы и сопоставляет точные vendor/item/date. Решения о перекрытиях и исключениях сохраняются рядом с сырыми источниками. Нормализованный шестиколоночный CSV поступает в прежний `execute_run`, поэтому mode gates, verifier, sandbox limits и failures общие для старого и нового интерфейса.
-
-`case_api.py` предоставляет owner-scoped case lifecycle. `case_store.py` создаёт отдельную таблицу SQLite, без изменения прежних runs. Baseline и до4вариантов ссылаются на неизменные run IDs; максимум12distinct changes совместно применяются к оригиналу. Shared contract target распространяет цену на каждую binding row. Case updates используют revision CAS и процессный lock; приложение рассчитано на один worker. Строки cases имеют отдельный24hсрок и лимит200, run references не продлевают сроки.
-
-`intelligence.py` считает диапазоны на host доверенной Decimal-арифметикой, без модели/контейнера. До24target ranges; общая цена — одна переменная. Возвращаются точные монотонные границы, OAT sensitivity, снижение ширины при уточнении входа и зависимый от общей цены strict-leader certificate. Эти значения не являются executed alternative. [Формулы и независимые oracles](INTELLIGENCE_METHODS.md).
-
-`case_evidence.py` реконструирует источники, baseline context, каждый declared joint change, все receipts и аналитику. Экспорт <=8MiB; browser checker отправляет файл серверу, CLI работает offline. Оба переиспользуют доверенные функции проверки; это независимость от модельного output/исходного сервера, не две независимые реализации математики. Отдельный integer-cent oracle в тестах действительно написан независимо.
-
-Create/match JSON ограничен2MiB, каждый CSV128KiB/500rows, matching graph5,000eligible links. Case операции, включая вычислительные GET и packet download, имеют120/session и240/IP запросов в час. Прежние execution/live quotas действуют дополнительно. Форматы: [WORKBENCH_CONTRACT](WORKBENCH_CONTRACT.md). Старый путь ниже сохранён и доступен из Single CSV review.
+Updated 9 November 2026. The public application is deployed on a dedicated Vultr VM; real Serverless Inference, Docker, browser and offline checks have run. [Current evidence](../TESTING.md).
 
 ```mermaid
 flowchart LR
-    B[Браузер: CSV и вопрос] --> C[Caddy HTTPS на Vultr VM]
-    C --> A[FastAPI: валидация и orchestration]
+    B[Browser: CSVs and explicit decisions] --> C[Caddy HTTPS on Vultr]
+    C --> A[FastAPI control layer]
     A --> M[Vultr Serverless Inference]
-    M -->|план и Python| A
-    A --> D[Docker: offline disposable container]
-    D -->|ограниченный stdout JSON| V[Независимый Decimal verifier]
-    A --> V
-    V --> S[SQLite: session owner и run]
-    V --> R[Receipt: вход, код, output, hashes]
+    M -->|Plan and Python| A
+    A --> D[Disposable offline Docker]
+    D -->|Bounded JSON output| V[Independent Decimal verifier]
+    V --> S[Session-owned SQLite records]
+    V --> R[Hash-linked receipt and case packet]
     R --> B
 ```
 
-## Границы и поток
+## Case lifecycle
 
-1. Браузер загружает CSV как JSON в same-origin API. Сервер проверяет body limit, схему, типы/диапазоны, количество записей и размер. Идентификатор сессии генерируется случайно и хранится в HttpOnly/SameSite cookie; в БД используется его SHA-256.
-2. Доверенная функция `summarize` формирует ожидаемую арифметику. Она не вызывает код модели. В reference-режиме это весь вычислительный путь и отдельная независимость не заявляется.
-3. В sandbox-режиме используется фиксированный `RECIPE`. В vultr-режиме сервер отправляет VSI фиксированный контракт, вопрос и число записей. API-ключ остаётся в control plane. Вызов ограничен тайм-аутом и размером ответа; redirects выключены.
-4. Executor создаёт контейнер только с фиксированными параметрами. Вход передаётся через stdin; host bind-mounts отсутствуют. Docker inspect проверяет применённые настройки до старта. Генерируемый код исполняется только в контейнере.
-5. Executor ограничивает stdout/stderr, ожидает завершение и удаляет контейнер; отсутствие контейнера проверяется. Неподтверждённый cleanup отклоняет результат и создаёт `sandbox-quarantine.json` в data directory. При readiness-проверке нового процесса также ищутся оставшиеся контейнеры с label `prooflane.sandbox=true`; их обнаружение включает карантин. Marker переживает restart, новые sandbox-задачи блокируются до действий оператора.
-6. JSON сравнивается с фиксированным контрактом целиком: число записей, billed total, positive variance и упорядоченный список всех findings. Неизвестные поля, неверные типы/значения или неполный набор отклоняются. При неуспехе в vultr-режиме возможна ещё одна генерация с общим feedback. Это не полный repair-agent для произвольных программ.
-7. UI получает только проверенный `summary`, доверенное текстовое объяснение и provenance. Объяснение явно обозначено как детерминированное. JSON receipt содержит фактический output, вход, финальный код, проверки, события и данные runtime. `run.attempts` и `receipt.attempts` сохраняют каждую попытку исполнения: код, execution с output, результаты проверки и model metadata; прерванная ошибка sandbox сохраняет доступные execution/error данные. Верхнеуровневые поля code/execution отражают последнюю попытку. У reference-режима список sandbox attempts пустой.
+`reconciliation.py` reads independent invoice and contract CSVs and matches exact vendor/item keys with inclusive dates. The reviewer resolves overlaps and supplies reasons for exclusions. The frozen raw sources and decisions produce the six-column normalized CSV used by the existing `execute_run` pipeline. Thus case and single-CSV flows share provider gates, sandbox controls and the arithmetic verifier.
 
-## Компоненты
+`case_api.py` exposes owner-scoped operations; `case_store.py` stores a separate case table alongside runs. A baseline and up to four alternatives refer to immutable run IDs. Up to twelve distinct changes are applied jointly to the original baseline, with shared contract prices propagated to every bound invoice. Revision compare-and-swap and a process lock prevent lost updates. The service uses one worker. Cases have a 200-record cap and separate 24-hour expiry; a case reference does not extend a run's lifetime.
 
-| Файл | Ответственность |
-|---|---|
-| `app.py` | HTTP, session boundary, quotas, orchestration и ошибки |
-| `analysis.py` | CSV validation, Decimal oracle, output verifier, canonical JSON |
-| `provider.py` | Только фиксированный HTTPS endpoint VSI, JSON/code contract |
-| `sandbox.py` | Docker lifecycle, fixed controls, bounded I/O, probes |
-| `sandbox/runner.py` | Container-only entrypoint, запись CSV в `/tmp`, исполнение кода |
-| `receipts.py` | SHA-256 links и offline арифметическая проверка без исполнения кода |
-| `comparison.py` | Одно числовое допущение, проверка lineage и полного различия CSV, независимый пересчёт сравнения |
-| `store.py` | SQLite, owner-scoped runs, 24h logical expiry, лимит записей |
-| `web/` | Same-origin интерфейс без отдельного JS framework/build pipeline |
+`intelligence.py` uses trusted host-side Decimal arithmetic for up to 24 declared target ranges. A shared contract is one variable. It returns exact monotone bounds, one-at-a-time sensitivity, deterministic range reduction and a strict-leader certificate. `priority_switch.py` computes whole-cent boundaries with adjacent witnesses. These calculations are not model predictions or separately executed alternatives. [Methods](INTELLIGENCE_METHODS.md).
 
-## Контракты
+`case_evidence.py` reconstructs sources, context, changes, receipts and analytics. The browser uploads a packet to the server; the CLI works offline. Both reuse trusted verification functions. Independence is from model output and the original server, not two separately written production verifiers. Tests include a genuinely separate integer-cent oracle.
 
-API: `GET /api/health`, `GET /api/sample`, `GET /api/runs`, `GET /api/runs/{id}`, `GET /api/runs/{id}/receipt`, `POST /api/runs`, `POST /api/containment`. POST требует JSON и `X-Prooflane-Request: 1`; чужой Origin отвергается. Это CSRF-защита браузерного пути, не универсальная аутентификация HTTP-клиентов. Live дополнительно требует operator token.
+## Execution sequence
 
-Сценарии: `GET /api/runs/{id}/source`, `POST /api/runs/{id}/scenario`, `GET /api/runs/{id}/comparison`. Поля и ошибки — в [SCENARIO_CONTRACT](SCENARIO_CONTRACT.md). Только verified original текущей сессии может быть baseline; hash связывает запрос с сохранённой версией. Сценарий проходит общий `execute_run` в исходном режиме и сохраняется отдельным run. Исходный объект не обновляется. Повторный сценарий строится от оригинала, цепочки scenario-on-scenario запрещены. Неуспех сохраняется как failed без summary/receipt/comparison.
+1. The same-origin API validates JSON/body size, CSV schema, types, ranges and record counts. A random session cookie establishes temporary ownership; SQLite stores its SHA-256.
+2. Trusted `summarize` computes expected arithmetic. Reference mode uses this fixed path and explicitly makes no independent-execution claim.
+3. Sandbox mode uses a fixed recipe. Vultr mode sends the bounded contract, question and row count to VSI; it does not automatically send raw rows. Credentials stay on the server. Response size, timeout, Unicode and response-envelope checks precede execution.
+4. The executor creates a fixed-profile container, inspects actual controls before starting, and supplies input through stdin. Generated Python never executes on the host.
+5. Bounded stdout/stderr are collected; the container is removed and its absence checked. Unconfirmed cleanup persists quarantine and blocks further sandbox work. Orphan detection also runs on process readiness.
+6. The independent verifier checks exact output fields, record count, billed total, positive variance and the complete ordered finding list. Wrong types, missing rows or unknown fields reject the result. At most one model repair is allowed after confirmed cleanup, with generic feedback only.
+7. After verification, a separate VSI request selects the focus and next review step from a bounded contract. The server inserts checked amounts. Invalid guidance receives a disclosed deterministic fallback; it cannot invent totals. Receipts retain code, output, events, usage, actual model/request IDs, execution controls and each attempt. Reference receipts have no container attempts.
 
-Пакет `prooflane.comparison.v1` содержит полные baseline/scenario receipts, lineage и сравнение. Verifier проверяет оба receipt, parent ID/hash, режим и единственное изменение quantity/unit_price/contract_price. Сравниваются все разобранные CSV-записи, включая notes; допустима нормализация сериализации CSV (BOM, quotes, внешние пробелы), а не побайтовое совпадение. Затем независимо пересчитываются все дельты. Скачанный пакет не зависит от срока хранения SQLite; новый экспорт требует наличия обеих версий.
+The observed model is `deepseek-v4.1-flash-1017`; availability is provider/account-specific. Its bounded-JSON calls explicitly disable default reasoning. A failed incomplete response was preserved before the successful retest. [Live history](LIVE_AI_CHECK_20261109.md).
 
-Provider отвергает неправильную оболочку JSON и невалидный UTF-8 в плане, коде и model ID до исполнения. Одна repair-попытка разрешена при несовпавшем output либо ошибке исполнения с **подтверждённым cleanup**; неизвестная/неуспешная очистка не разрешает повтор. Feedback общий, не содержит исходные записи или stderr.
+## Contracts and limits
 
-CSV: точный порядок `invoice_id,vendor,quantity,unit_price,contract_price,notes`. USD, 1–500 записей, максимум 128 KiB, cell до 300 символов. Формула `quantity × max(unit_price − contract_price, 0)`; строки с нулевой/отрицательной разницей не попадают в findings. Сумма не является net difference, задолженностью или гарантированным возвратом.
+The single-CSV schema is `invoice_id,vendor,quantity,unit_price,contract_price,notes`. USD prices have at most two decimal places, quantities are positive integers, cells are bounded, and each file has at most 500 rows / 128 KiB. The formula is `quantity × max(unit_price − contract_price, 0)`. Negative differences are not netted against positive ones. This is neither debt nor recovered cash.
 
-Sandbox: 128 MiB memory и total memory+swap, 0.5 CPU, 32 PID, 16 MiB tmpfs, readonly root, UID/GID 65534, dropped capabilities, no-new-privileges, network none, никаких host mounts или переданных ключей. Обычный timeout 10 секунд; stdout 128 KiB, stderr 32 KiB. Проба использует тот же профиль и отдельный запуск. Параллельно разрешены два run; quotas in-memory и рассчитаны на один worker.
+Runtime: network none, read-only root, UID/GID 65534, no host mounts or injected credentials, 128 MiB memory and swap cap, 0.5 CPU, 32 PIDs, 16 MiB tmpfs, all capabilities dropped, no-new-privileges, 10-second normal deadline, 128 KiB stdout and 32 KiB stderr. Fixed containment probes use a fresh container with the same profile. Two executions may run concurrently.
 
-## Хранение и эксплуатация
+Case create/match JSON is capped at 2 MiB and 5,000 eligible links. Packet verification/export is capped at 8 MiB. Case operations have per-session/IP in-memory quotas in addition to execution/live quotas. A custom request header and Origin checks protect the browser POST path; a separate operator token gates inference spending. [Workbench contract](WORKBENCH_CONTRACT.md), [legacy scenario contract](SCENARIO_CONTRACT.md).
 
-SQLite хранит run и receipt в `PROOFLANE_DATA_DIR`; максимум 1000 записей. Доступ старше 24h закрывается; удаление устаревших строк выполняется на `add`, `get` и `list`. Фонового таймера нет: после idle-периода старые записи могут оставаться до обращения, а байты — в свободных страницах SQLite и backups. Конфиденциальное гарантированное удаление не реализовано.
+Core endpoints include health, samples, owner-scoped runs/receipts, case creation/reconciliation/alternatives/exploration, containment and packet verification. A scenario must use its original verified baseline, original mode and receipt hash; scenario-on-scenario chaining is rejected. Complete parsed source differences, parent links and deltas are checked, including notes. Serialization normalization does not permit undeclared semantic edits.
 
-Сессия — временная принадлежность результатов, не аккаунт и не recovery mechanism. Очистка cookies лишает доступа к старым run. Перезапуск процесса сбрасывает quotas. Несколько workers/реплик потребуют общего limiter и согласованной очереди; текущая конфигурация явно использует один worker.
+## Storage and deployment boundaries
 
-## Проверяемые и непроверяемые утверждения
+Runs have a 1,000-record cap; access expires after 24 hours. Cleanup occurs on add/get/list. There is no secure wipe or background deletion guarantee. Browser storage retains only case/navigation and pending operation IDs, not raw CSV or credentials. Clearing cookies loses ownership access. Request IDs support recovery without silently repeating a charged POST.
 
-Локальный runtime проверен сохранённым Docker smoke; актуальные тесты перечислены в [TESTING](../TESTING.md). Включены проверки cleanup-failure карантина, сохранения marker после restart, orphan-container gate и retry-контракта с doubles. Эксперимент с реальным SIGKILL процесса и настоящий VSI NOT_RUN. Настройки образа и исполнения доступны в receipt, но их authenticity зависит от сервера. SHA-256 обнаруживает изменение относительно сохранённых значений; атакующий может пересчитать весь unsigned receipt. Offline checker перепроверяет арифметику и связь одного изменения, не аутентифицирует issuer и не подтверждает историю исполнения.
+The Vultr VM hosts FastAPI, SQLite and the Docker dispatcher; Caddy provides public HTTPS while Uvicorn binds to loopback. One worker is required for the current in-memory limits and locks. Multiple replicas need a shared limiter, queue and persistence design.
 
-Vultr deployment, настоящий VSI, HTTPS и внешний judge flow требуют отдельной проверки. Linux validation container проверен локально. gVisor, microVM, distributed queue, SSO, подписи receipt, отдельный защищённый Docker broker и автоматические платежи не реализованы.
+Docker is a shared-kernel boundary with privileged daemon access, not a microVM. gVisor, signatures, SSO, a separate protected broker and distributed queues are not implemented. Real SIGKILL, broad public load testing, customer studies, physical touch and full screen-reader listening remain outside recorded verification. [Security](../SECURITY.md), [deployment](DEPLOYMENT.md).

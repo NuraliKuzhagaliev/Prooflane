@@ -1,19 +1,13 @@
-# Публикация Prooflane, 9 ноября 2026
+# GitHub publication record — 9 November 2026
 
-Публичный репозиторий: [NuraliKuzhagaliev/Prooflane](https://github.com/NuraliKuzhagaliev/Prooflane), ветка `main`.
+Public repository: [NuraliKuzhagaliev/Prooflane](https://github.com/NuraliKuzhagaliev/Prooflane), branch `main`.
 
-Опубликован чистый снимок действующей версии с исходниками, тестами, инструкциями, лицензиями, вымышленными примерами, отчётами, скриншотами и доказательством живого Vultr-запуска. Локальная рабочая история сохранена отдельно: старые коммиты содержали временные тестовые SQLite-базы. Удалённый репозиторий до публикации был пуст.
+The initial clean snapshot was `a1369876699e64d6d42a1f77f7f0241160cb5c9e`,423 files. The original local working history was preserved separately because it contained42 temporary test SQLite databases. Publication excluded environments, caches, actual databases, `.env`, keys, `.local` and private artifacts. A pattern scan found only the disclosed synthetic `local-review-token` in a doubles-based probe; a scan is not proof against every kind of secret.
 
-Первоначальный опубликованный снимок: `a1369876699e64d6d42a1f77f7f0241160cb5c9e`, 423 файла. Исключены `.env`, `.local`, виртуальное окружение, кеши, ключи и 42 временные SQLite-базы. Проверка шаблонов секретов обнаружила только `local-review-token` в локальном синтетическом probe с `ProviderDouble`/`RuntimeDouble`; это тестовое значение. Поиск шаблонов не доказывает отсутствие всех возможных видов секретов.
+Initial anonymous README access returned200, fresh clone succeeded,179 Python/26 JS tests passed from that clone using the existing environment, and the included AI packet passed seven CLI groups. This was not a fresh dependency install or a new model call. [Initial verification](../artifacts/github-publication-20261109/verification.json).
 
-После публикации выполнены следующие проверки:
+The final-media publication refreshes current human-facing Markdown to English, including concise editorial summaries of historical reports with complete originals linked at `ff0b6b117fd7f16b819f25894e5aec07314389ad`. Historical independent checks are not presented as newly conducted reviews. Raw fixtures/probes and original Git history are retained. Cyrillic in an adversarial fixture or multilingual test input is intentional data, not an untranslated product interface.
 
-- README получен анонимным HTTP-запросом: 200; команда клонирования и ссылка на AI-отчёт присутствуют.
-- Свежий `git clone` из GitHub выполнен успешно.
-- Из свежего клона: 179 Python-тестов и 26 JavaScript-тестов PASS. Python сообщил одно существующее предупреждение Starlette. Использовано уже установленное окружение; новая установка зависимостей в этой проверке не выполнялась.
-- `scripts/verify_receipt.py artifacts/live-ai-20261109/live-case-packet.json` из свежего клона: все 7 групп проверок PASS. Новых модельных запросов при публикации не делали.
-- Следующий коммит добавляет только документацию и результаты проверки; код приложения после проверенного снимка не меняется.
+The update adds the real-site MP4, free-quota ElevenLabs audio/captions/attribution, new actual AI evidence and unretouched README screenshots. It also includes the small packet-verifier helper-label fix already verified on the VM. Code changes are covered by179 Python/26 JS passing regressions. No provider key, operator token or raw capture cache is published.
 
-[Результат проверки](../artifacts/github-publication-20261109/verification.json), [Python](../artifacts/github-publication-20261109/pytest.txt), [JavaScript](../artifacts/github-publication-20261109/node-tests.txt), [проверка пакета](../artifacts/github-publication-20261109/receipt.txt).
-
-Публикация GitHub не отправляет заявку LabLab и не заменяет финальное видео.
+The exact final commit and anonymous media/link checks are recorded in `artifacts/live-demo-v2/publication.json` after push. GitHub publication does not submit an entry to LabLab or prove personal eligibility, asset acceptance or a guaranteed placing.

@@ -1,19 +1,22 @@
-# Прогресс
+# Progress record
 
-**4 ноября 2026 — case workbench:** два источника и явные решения о совпадениях; общие цены и совместные альтернативы; точные диапазоны и очередь уточнения фактов; portable case verification; новый интерфейс Sources/Overview/Explore/Evidence. Старый review сохранён. Новые реальные HTTP/Docker cases и оба диапазона проверены; независимые reviewer исправили ошибки provenance, загрузки источников, состояния UI и мобильного графика. Подробности и границы — [FINAL_REPORT](FINAL_REPORT.md), [TESTING](TESTING.md), [COMPETITIVE_SCOREBOARD](COMPETITIVE_SCOREBOARD.md). Облачный доступ остаётся внешним блокером; деньги не потрачены, внешняя публикация не выполнялась.
+- **3 November:** created the bounded CSV price-variance tool; researched rules/concepts; implemented Docker, Decimal verification and receipts. Independent audit reproduced cleanup/Unicode defects and retested fixes. Synthetic evaluation and precision fixes followed.
+- **3–4 November:** added single-assumption comparisons, then independent dated sources, explicit decisions, shared joint alternatives, exact ranges and portable cases. Separate engineering, science, design and judge reviews preserved actual evidence and limitations. Local/cloud gates remained distinct.
+- **5 November:** selected and implemented Audit Folio after three concept sheets and a process audit. Real browser iterations changed navigation/register/inspector composition and corrected responsive/state defects.
+- **6 November:** deployed the public Vultr VM/HTTPS app, then connected actual Serverless Inference. An initial client timeout was distinguished from server completion and its recovered packet checked. Palette and focus fixes followed.
+- **8 November:** added exact priority boundaries; later improved handoffs, source-quality disclosure, grouped review, reload/replay, strict JSON and local calculation performance.176 Python/25 JS was that revision's count.
+- **9 November:** repaired bounded DeepSeek JSON reasoning behavior after an incomplete real response, then verified the public AI form. Prepared submission files and public GitHub. Replaced the rejected still-frame movie with actual website recording, a new live AI run and existing-free-quota ElevenLabs narration. Updated current documentation to English, replaced README screenshots and fixed the packet helper verdict. Current regressions:179 Python/26 JS.
 
-Точки реализации: `9b5bc30` — case engine; `b1bd9a4` — lineage и независимые oracles; `bd25e99` — новый workbench; `0342f5c` — второй цикл стабилизации и двухфакторное демо. Восстановление предыдущего состояния: ветка `checkpoint/prooflane-before-v3`, commit `82f1ec3`.
+Latest evidence and remaining formal gates: [TESTING](TESTING.md), [submission](docs/FINAL_SUBMISSION_20261109.md). No new paid resource or subscription was purchased. Team participation is online; official Submit is not confirmed.
 
-**Предыдущая итерация:** original→одно допущение→same-mode scenario→пакет двух receipts. Её Windows/Linux83tests, Node6, HTTPcorpus24/24 и scenario36/36 относятся к прежнему build. Тогда обновлены6слайдов/PDF/cover; эти материалы сохранены как drafts старого flow. Для нового workbench перед подачей нужны обновление слайдов, реальный VSI/Vultr/publicHTTPS и видео.
+## Historical source preservation
 
-## Предыдущие этапы
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/PROGRESS.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](TESTING.md).
 
-2026-11-03: из пустой папки создан Prooflane, выбран C1 Blast Radius Zero. Исследованы правила, четыре альтернативы, три концепции и двенадцать идей. Реализован узкий CSV price-variance workflow с независимой проверкой и Docker containment. Пройдены Windows/Linux tests, локальные HTTP/Docker и браузерные проверки. Исправлены воспроизведённые независимым аудитом ошибки.
+Preserved original source/evidence links:
 
-Статус: **локальный прототип проверен; конкурсная готовность не достигнута**. Пользователь зарегистрировался и активировал купон, но VM и VSI ещё не созданы/не подключены. Cloud, real-model, public URL, video, GitHub и lablab submission остаются открытыми.
-
-Следующий milestone: по [DEPLOYMENT](docs/DEPLOYMENT.md) создать согласованную VM, настроить SSH/VSI server-side, проверить один реальный model-generated run с receipt, повторить sandbox smoke на Vultr, затем записать публичный walkthrough и завершить пакет.
-
-2026-11-03, дополнение после billing setup: на пользовательском скриншоте показан купон Agent Rush на $200, срок — 30 дней после регистрации. Привязка карты с $0 отклонена, требуется депозит от $5. Пользователь отправил запрос поддержки об активации без депозита. VM не создана; платёж и обход ограничения агентом не выполнялись.
-
-За время ожидания: добавлены 12 независимых синтетических CSV-примеров и переносимый HTTP evaluator. Реальный localhost/Docker прогон: **24/24 PASS**, 16 receipts, 0 model calls. Windows и Linux: **53 Python tests PASS**, форматирование: **4 Node tests PASS**. Найдена и исправлена потеря цента в браузере при большой сумме: `99999899990000.01` теперь отображается как `$99,999,899,990,000.01`. Фактический браузерный Docker run подтвердил исправление. Пользовательская репетиция подготовлена в [TRY_PROJECT](docs/TRY_PROJECT.md); human user test и live VSI всё ещё NOT_RUN.
+- [FINAL_REPORT.md](FINAL_REPORT.md)
+- [TESTING.md](TESTING.md)
+- [COMPETITIVE_SCOREBOARD.md](COMPETITIVE_SCOREBOARD.md)
+- [DEPLOYMENT.md](docs/DEPLOYMENT.md)
+- [TRY_PROJECT.md](docs/TRY_PROJECT.md)

@@ -1,80 +1,49 @@
-# Prooflane: реализованное усиление, 8 ноября 2026
+# Implemented improvements — 8 November historical record
 
-Рабочий адрес: https://45.76.92.198/. Пользователь — сотрудник Accounts Payable или закупок, которому нужно понять положительное отклонение цены, выбрать применимый источник и передать воспроизводимое дело коллеге. Данные демонстрации вымышленные. Новых вызовов модели и платных ресурсов в этом проходе нет.
+The release retained two sources, explicit decisions, immutable baseline, actual Docker, Decimal checks, ranges/priority witnesses and honest modes. It implemented18 changes in six areas:
 
-## Исходное состояние и выбор
+| Area | Three changes | Recorded acceptance |
+| --- | --- | --- |
+| User value | CSV handoff, readable brief, shared-contract grouping | Exclusions/reasons/warnings preserved; C1 exposes all three rows including zero variance |
+| Efficiency | Target-local OAT, local residual-width calculation, indexed matching | Full response hashes unchanged on identical benchmark inputs |
+| Technical depth | Bounded model guidance, precise evidence handling, independent verification | Model selects guidance after checked arithmetic; no invented totals |
+| Clarity | One-click disclosed Reference example, CSV help/starter/recovery, saved review/chapter | No credentials/raw sources in browser storage; invalid input retained for correction |
+| Differentiation | Eligible-contract consequences, duplicate financial-row warning, monetary excluded/unresolved scope | INV504 C2=40/C2R=32 remains a human choice; duplicates not called fraud; excluded scope not savings |
+| Reliability | Durable request identity/recovery, per-case locks, duplicate-key JSON rejection | Same replay returns same run; changed replay409; strict API/CLI transport preserves raw packet text |
 
-До изменений сохранены [хеши исходников](../artifacts/transformation-20261108/baseline-sha256.json), кадры [первого входа](../artifacts/transformation-20261108/before-start.jpg), [Ledger](../artifacts/transformation-20261108/before-ledger.jpg) и [Proof](../artifacts/transformation-20261108/before-proof.jpg). Существующие сильные стороны сохранены: два CSV, явный выбор договора и исключения, неизменный baseline, изолированный Docker, независимый Decimal-verifier, диапазоны и приоритетный порог, portable packet и честные режимы Reference/Sandbox/Vultr.
+Synthetic benchmark: Windows/Python3.13,500 invoices/500 contracts,2 warmups/9 samples,no network/model/Docker. Median match22.793→9.060ms and24-bound explore529.871→9.247ms, with equal full-response hashes. This measures function CPU only. [Raw after](../artifacts/transformation-20261108/performance-after.json).
 
-Исследователь отдельно подготовил [36 кандидатов по шести направлениям](TRANSFORMATION_RESEARCH_20261108.md) и изучил пять первичных описаний альтернатив. Выбор уточнён после измерений и воспроизведённых дефектов. Кеширование, новая модель, OCR, чат и глобальная смена палитры не добавлялись: они не решали выявленные ограничения этого прохода. N+1 истории оставлен возможным следующим улучшением; измеренные затраты оказались в повторной обработке CSV и диапазонов.
+At this revision176 Python and25 JS tests passed, plus a clean lockfile targeted install/check. Public Reference/Docker smoke recorded57 case checks and23 review checks, with zero new model calls. Browser malformed-input recovery, duplicate warning, exclusions,768 baseline,368 alternative, downloads/recheck, reload and320/390/900/1280 layouts were observed. Two separate review cycles found and retested brief-warning/group-count and replay/pending-recovery defects. [Cycle1](TRANSFORMATION_REVIEW_CYCLE1.md), [cycle2](TRANSFORMATION_REVIEW_CYCLE2.md).
 
-Для дизайна рассмотрены Ledger folio, Exception desk и Verification tunnel. Выбран Exception desk внутри сохранённой оболочки Audit Folio: очередь нерешённых источников, читабельное сравнение и трёхступенчатый путь доказательства. Типографика, ink/teal/paper палитра и локальные лицензированные шрифты сохранены; новая композиция подчинена действиям аудитора. [Спецификация и источники UI](TRANSFORMATION_UI_20261108.md). Соседние проекты не сравнивались и не менялись.
+No physical touch, screen-reader listening, system-motion validation, customer study or new live model run was claimed in that cycle. Later inference evidence is linked separately from [current TESTING](../TESTING.md).
 
-## 18 отдельных улучшений
+## Historical source preservation
 
-Каждый пункт учитывается один раз. Представление новых продуктовых данных не засчитывается повторно как самостоятельный дизайн-пункт.
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/docs/TRANSFORMATION_RESULT_20261108.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](../TESTING.md).
 
-| Направление | Изменение | Конкретная польза и приёмка | Проверенный результат |
-|---|---|---|---|
-| A1 Польза | Рабочая CSV-выгрузка всех исходных строк | Передача сотруднику AP; сохранены invoice/contract row, состояние, причина исключения. Для исключённых variance пустой. Недоверенные текстовые формулы нейтрализованы | Unit/API и настоящий browser download; 9 строк, 2 исключения, сумма включённого variance768 |
-| A2 Польза | Читаемое Markdown-заключение | Коллеге доступны охват, договорные группы, явные решения, предупреждения, диапазоны и выполненные альтернативы; указана неподписанная природа brief | Browser download содержит768 baseline,368 alternative,3650 excluded billed и предупреждение по строкам2/10 |
-| A3 Польза | Группировка Ledger по общему договору | Видеть весь зависимый набор, включая нулевые отклонения; кнопка фильтрует именно связанные строки, есть сброс | C1 показывает3 строки,620 variance,2 flagged; независимый браузер подтвердил INV501/502/508 |
-| B1 Эффективность | OAT endpoint без сериализации всего CSV | Меняются только строки target; полный результат должен совпасть с прежним | Сохранены полные хеши результатов и независимые математические oracle-тесты |
-| B2 Эффективность | Локальный пересчёт остаточной ширины | Уточнение одного target не строит заново все строковые интервалы; совместные эффекты остаются | Тот же benchmark и oracle с количеством/ценой/общим договором |
-| B3 Эффективность | Общие числовые валидаторы без CSV на каждую строку | Убрать500+500 мелких serialize/parse при сверке, сохранить ограничения и полный финальный parse | Match22.8→9.1мс; валидные полные результаты совпадают, негативные тесты сохранены |
-| C1 Дизайн | Пространственная очередь нерешённых источников | Отличает choose contract от missing source; прогресс показывает учтённые строки с отдельным числом исключений | Собственные и независимые browser actions на INV504/506; accounted не выдаётся за calculated |
-| C2 Дизайн | Вертикальное сравнение альтернатив на мобильном | Подписанные variance/delta/execution и Inspect доступны без чтения широкой таблицы | Реальные390/320px; ширина документа375/305px равна content width, desktop table скрыта |
-| C3 Дизайн | Три стадии Proof | Шесть узлов сгруппированы в источники, расчёт и переносимое доказательство; выбранный узел связан с detail | Enter открывает C1 и правильный инспектор; tablet900 и desktop1280 просмотрены |
-| D1 Понятность | Готовый разобранный пример за одно действие | Дать первый результат без обязательного ручного разрешения учебного спора; решения явно раскрыты, режим Reference | Новый публичный tab:1 клик→768, наблюдавшийся интервал1.387с; это один self-test, не user study и не обещание скорости |
-| D2 Понятность | Справочник CSV, starter-файлы и исправление ввода | Начать с допустимой схемы; ошибка не уничтожает источник, доступны редакторы | Оба Blob CSV скачаны и приняты matcher; неправильный header отклонён, текст сохранён, исправление прошло |
-| D3 Понятность | Восстановление дела и главы после reload | Продолжить чтение в той же session; browser storage хранит только UUID/view/pane | Локально и публично восстановлено то же дело/глава; unit-тесты invalid/denied storage; expiry не обходится |
-| E1 Отличие | Последствия каждого eligible договора до выбора | Показать условную арифметику данного счёта, не советовать выбирать минимальный результат | INV504: C2→40, C2R→32; choice остаётся явным; API и независимый browser |
-| E2 Отличие | Проверяемое предупреждение об одинаковых финансовых строках | Найти повтор исходных полей, сохранив возможность законных одинаковых строк; без автоматического исключения | Повтор INV501 в строках2/10 виден. Исключение выполнено вручную с причиной и осталось в пакете |
-| E3 Отличие | Денежный охват вне расчёта | Не принимать excluded/unresolved за нулевое отклонение; считать billed amount отдельно | Стандартный пример7110 included/250 excluded/0 unresolved; до решений722 unresolved. Никакой savings-оценки |
-| F1 Надёжность | Durable request ID, deadline и status-only recovery | Повтор одного запроса не запускает ещё один контейнер/модель; unknown outcome блокирует новые исполнения | Public create/variant replay возвращает те же IDs, всего2run; SQLite restart/concurrency/delayed-fetch и startup-race tests |
-| F2 Надёжность | Блокировки отдельных дел | Медленный вариант одного дела не блокирует изменение другого; same-case сохраняет409 | Контролируемый конкурентный HTTP/TestClient-прогон; глобальный лимит actual execution2 сохранён |
-| F3 Надёжность | Неоднозначный JSON отклоняется API/CLI | Разные парсеры не должны выбирать разные claims при duplicate keys | До исправления conflicting hash принимался; теперь API,CLI и публичная браузерная форма отвергают его. Обычный пакет проходит |
+Preserved original source/evidence links:
 
-E1–E3 — полезные изменения данного продукта, не заявление мировой новизны. Из официальных страниц Ramp/AppZen следует, что matching и duplicates уже присутствуют на рынке; MindBridge описывает explainability. Отличие демонстрируется конкретной комбинацией источников, условных решений и воспроизводимой передачи, без утверждения, что конкуренты этого не умеют.
-
-## Измерения в одинаковых условиях
-
-`python scripts/benchmark_workbench.py --label before`, затем тот же вызов с `--label after`: Windows/Python 3.13, одни и те же 500 вымышленных invoices и 500 contracts, 2 warmup, 9 измерений, без сети/модели/Docker. В JSON сохранены все времена, min/max и хеш полного ответа. Измерялся CPU-участок функций, не весь веб-сценарий. Выполнены также промежуточные этапы oat-local/residual-local. Повтор команды с тем же label перезаписывает соответствующий отчёт; исходные сохранённые результаты следует сохранить отдельно перед новым сравнением.
-
-| Участок | Медиана до, мс | После, мс | Хеш полного результата |
-|---|---:|---:|---|
-| Matching500×500 | 22.793 | 9.060 | Совпадает |
-| Explore500,12 bounds | 252.450 | 10.085 | Совпадает |
-| Explore500,24 bounds | 529.871 | 9.247 | Совпадает |
-
-[До](../artifacts/transformation-20261108/performance-before.json) · [После](../artifacts/transformation-20261108/performance-after.json). Эти результаты не измеряют пользовательское время и не устанавливают постоянный коэффициент ускорения для произвольных данных.
-
-## Реальные проверки и два ревью
-
-- Полная регрессия: **176 Python PASS**, одно существующее предупреждение Starlette; **25 JavaScript PASS**. Python-лог: [pytest-final](../artifacts/transformation-20261108/pytest-final.txt). Тесты численной логики используют независимый перебор; тесты sandbox doubles не названы реальным Docker.
-- Чистое окружение создано в `.local/clean-start-venv` и установлено из `requirements.lock`, `pip check` прошёл. Uvicorn запущен из этого окружения на8766;15 targeted тестов с новыми SQLite прошли. Первый ограниченный `ensurepip` был остановлен Windows sandbox, повтор с разрешённым запуском успешен. Это чистая установка зависимостей локального дерева; чистый публичный GitHub checkout не заявлен.
-- Настоящий публичный HTTP: **57 case-smoke** с Reference и Docker, плюс **23 review-smoke** с Docker, **0 новых модельных вызовов**. [Основной прогон](../artifacts/transformation-20261108/public-case/case-http-smoke.json) · [Новые функции](../artifacts/transformation-20261108/public-review/sandbox-review-smoke.json). Локальные23 HTTP-проверки также прошли. Первый локальный smoke обнаружил старый загруженный brief без нового quality-раздела; после перезапуска процесса повтор прошёл, первоначальный FAIL сохранён отдельно.
-- Публичный browser E2E: неверный header→сохранённый текст→исправление+повтор исходной строки→предупреждение→выбор C2R→два ручных исключения→Sandbox baseline768→C1=80→alternative368. Скачаны CSV/brief/packet. [Сверка выгрузок](../artifacts/transformation-20261108/browser-export-check.json). [Браузерный packet](../artifacts/transformation-20261108/browser-case.json) принят CLI,7 групп; original принят формой, raw duplicate-key packet отвергнут.
-- Пять публичных containment-проб прошли из UI: network-none, read-only root, отсутствие переменной ключа, non-root65534, cleanup. Это наблюдения конкретных контейнеров, не доказательство защиты от произвольной атаки.
-- Проверены desktop1280, tablet900, mobile390 и320; viewport overrides сброшены. Enter для Proof и узла договора, восстановление главы по reload, source edit и downloads выполнены. Ошибок console в последнем browser trace не наблюдалось. Новых анимаций нет; новые секции статичны и не требуют motion для чтения. Физический touch, screen-reader listening и системный reduced-motion toggle **NOT_RUN**.
-- [Независимый цикл1](TRANSFORMATION_REVIEW_CYCLE1.md): потерянное duplicate-предупреждение brief, неполный group-action и неверный filtered count исправлены. Reviewer лично прошёл свой Chrome-сценарий; его фактическая narrow-ширина500px не выдана за390px.
-- [Независимый цикл2](TRANSFORMATION_REVIEW_CYCLE2.md): fingerprint не учитывал explicit default field, pending ID поздно восстанавливался при старте. Оба исправлены и проверены. Дополнительно сохранён raw JSON в frontend и добавлены deadlines без retry POST. Невоспроизведённые предположения не объявлялись дефектами: Unicode validator уже отдавал422.
-- `project-bootstrap verify`: **STRUCTURAL_ONLY PASS**. Это не замена запуску приложения.
-
-## Конкурс и ограничения
-
-Четыре опубликованных критерия — Technology, Presentation, Business Value, Originality. VM/HTTPS, изолированное исполнение и свежий containment подтверждены; живой VSI-прогон от6ноября сохранён с ID провайдера, в этом проходе не повторялся. Новые server-side и UI функции усиливают разбор и демонстрацию, но пользовательский эффект на реальных AP-командах не измерен.
-
-Текущая официальная страница подтверждает3–8ноября, а Event Schedule показывает `To be announced`. Исторический cutoff23:00UTC от6ноября не подтверждён повторно; нельзя считать это продлением. Public GitHub remote не настроен, итоговое видео с containment и отправка LabLab не подтверждены. Слайды существуют как прежний draft и требуют согласования с обновлённым показом; submission-ready не заявляется. Аккаунтные подтверждения пользователя не выдуманы.
-
-Операции рассчитаны на один application worker. После неопределённого crash исход сохраняется interrupted; автоматический повтор отсутствует. Case/run/operation retention24h; sessionStorage не делает дело вечным. Источники, brief и CSV содержат данные пользователя. Подпись, identity authentication, OCR, multi-currency, tiered contracts и автоматическое решение о платеже не реализованы.
-
-## Запуск, артефакты и демонстрация
-
-Windows: `.venv/Scripts/python.exe -m uvicorn prooflane.app:app --host 127.0.0.1 --port 8765`. Чистая установка описана в README; Docker нужен только для Sandbox/Vultr. Публичный адрес выше уже работает.
-
-Развёрнуты12 файлов с проверкой SHA-256 архива `277458e95f870e6fb907c43eb523320c9669de9c193b645698069ca3c02bea3b`. [Manifest](../artifacts/transformation-20261108/release-manifest.json). Backup на VM: `/opt/prooflane/rollback/pre-transformation-20261108T185127Z.tar.gz`. Новая operations-таблица аддитивна; rollback исходников не требует удаления существующих дел или секретов.
-
-Кадры: [новый вход](../artifacts/transformation-20261108/after-start.jpg), [Ledger/договорные группы](../artifacts/transformation-20261108/after-ledger-groups.jpg), [Proof](../artifacts/transformation-20261108/after-proof.jpg), [mobile390](../artifacts/transformation-20261108/after-alternatives-mobile.jpg), [mobile320](../artifacts/transformation-20261108/after-alternatives-320.jpg), [tablet900](../artifacts/transformation-20261108/after-proof-tablet.jpg), [containment](../artifacts/transformation-20261108/after-containment.jpg).
-
-Сценарий2:45 находится в [DEMO.md](DEMO.md). Он демонстрирует доступные функции и различает Reference/Sandbox/сохранённый live VSI. Непрерывное конкурсное видео ещё не записано.
+- [baseline-sha256.json](../artifacts/transformation-20261108/baseline-sha256.json)
+- [before-start.jpg](../artifacts/transformation-20261108/before-start.jpg)
+- [before-ledger.jpg](../artifacts/transformation-20261108/before-ledger.jpg)
+- [before-proof.jpg](../artifacts/transformation-20261108/before-proof.jpg)
+- [TRANSFORMATION_RESEARCH_20261108.md](TRANSFORMATION_RESEARCH_20261108.md)
+- [TRANSFORMATION_UI_20261108.md](TRANSFORMATION_UI_20261108.md)
+- [performance-before.json](../artifacts/transformation-20261108/performance-before.json)
+- [performance-after.json](../artifacts/transformation-20261108/performance-after.json)
+- [pytest-final.txt](../artifacts/transformation-20261108/pytest-final.txt)
+- [case-http-smoke.json](../artifacts/transformation-20261108/public-case/case-http-smoke.json)
+- [sandbox-review-smoke.json](../artifacts/transformation-20261108/public-review/sandbox-review-smoke.json)
+- [browser-export-check.json](../artifacts/transformation-20261108/browser-export-check.json)
+- [browser-case.json](../artifacts/transformation-20261108/browser-case.json)
+- [TRANSFORMATION_REVIEW_CYCLE1.md](TRANSFORMATION_REVIEW_CYCLE1.md)
+- [TRANSFORMATION_REVIEW_CYCLE2.md](TRANSFORMATION_REVIEW_CYCLE2.md)
+- [release-manifest.json](../artifacts/transformation-20261108/release-manifest.json)
+- [after-start.jpg](../artifacts/transformation-20261108/after-start.jpg)
+- [after-ledger-groups.jpg](../artifacts/transformation-20261108/after-ledger-groups.jpg)
+- [after-proof.jpg](../artifacts/transformation-20261108/after-proof.jpg)
+- [after-alternatives-mobile.jpg](../artifacts/transformation-20261108/after-alternatives-mobile.jpg)
+- [after-alternatives-320.jpg](../artifacts/transformation-20261108/after-alternatives-320.jpg)
+- [after-proof-tablet.jpg](../artifacts/transformation-20261108/after-proof-tablet.jpg)
+- [after-containment.jpg](../artifacts/transformation-20261108/after-containment.jpg)
+- [DEMO.md](DEMO.md)

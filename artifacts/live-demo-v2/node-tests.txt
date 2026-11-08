@@ -1,0 +1,34 @@
+✔ preserves cents at the maximum supported input product (0.7382ms)
+✔ preserves cents for the aggregate of 500 maximum rows (0.1403ms)
+✔ formats ordinary, fractional and zero amounts (0.143ms)
+✔ invalid or missing amounts remain unavailable (0.1059ms)
+✔ signed comparison amounts preserve direction and exact cents (0.2402ms)
+✔ zero deltas are neutral and malformed deltas unavailable (0.1174ms)
+✔ resume persists only a valid review ID and reading location, dropping sources and credentials (1.4078ms)
+✔ invalid or malformed saved navigation never creates a request target (0.1789ms)
+✔ denied browser storage does not prevent the review from running (0.9141ms)
+✔ pending recovery stores an operation identity without payloads or tokens and can be cleared (0.2339ms)
+✔ assumption tool switch exposes one panel and one keyboard tab without changing saved analysis (2.7086ms)
+✔ archive cannot interrupt a pending request and captures the opener before native modal focus (0.8773ms)
+✔ choosing a source row moves focus to the new inspector and returns to the replacement row (1.2072ms)
+✔ packet submission preserves duplicate JSON keys for strict server rejection (1.0517ms)
+✔ a stalled execution response has a deadline and never retries its POST (1.6702ms)
+✔ failed live baseline exposes its safe diagnostic and clears the credential (0.9928ms)
+✔ completed API reads clear their shorter deadline and preserve server errors (0.7962ms)
+✔ pending request identity blocks execution before history or session-readiness promises settle (2.3284ms)
+✔ source focus preserves original identity after a preceding exclusion (1.8651ms)
+✔ source focus never guesses a calculation row for a missing contract binding (0.1356ms)
+✔ reference results cannot claim independent execution verification (0.118ms)
+✔ decimal draft comparisons preserve cents beyond Number precision (0.2504ms)
+✔ drafts reject no-ops, repeated targets, over-capacity and invalid quantities (0.3928ms)
+✔ ranges must contain the original and obey field precision (0.1645ms)
+✔ source queue separates unresolved, selected and excluded with case-insensitive text search (0.1851ms)
+✔ contract inspector only identifies the explicitly returned chosen candidate (0.1171ms)
+ℹ tests 26
+ℹ suites 0
+ℹ pass 26
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 118.1704

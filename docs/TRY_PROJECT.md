@@ -1,24 +1,19 @@
-# Пройти одно дело в Prooflane
+# Try Prooflane
 
-Локальная репетиция использует вымышленные данные, без Vultr-расходов и без вызова модели. Открыть [локальный интерфейс](http://127.0.0.1:8765); запуск из PowerShell: `./scripts/start.ps1`. Docker нужен только для режима Sandbox recipe.
+Open [the public Vultr application](https://45.76.92.198/). Use fictional data only. The [recorded live walkthrough](../submission/agent-rush/video-v2/prooflane-live-demo.mp4) shows the actual site, including a real VSI run.
 
-1. **Sources → Try the fictional review ↗.** Пример сразу сопоставляет два файла: восемь счетов и пять версий договоров. Два счета требуют решения; пока они не разрешены, baseline недоступен. Для собственных файлов раскрыть **Source files and case name**, загрузить CSV и нажать **Reconcile sources**.
-2. Открыть **INV504**, invoice source record5. Дата входит в два договорных интервала; выбрать **C2R**, затем применить решение. Это пользовательский выбор, не установленная системой юридическая приоритетность версии.
-3. Открыть **INV506**, source record7. Подходящего действующего договора нет. Исключить с причиной `No active supplied contract; excluded from this review`. Охват становится **7 из8**; исключение остаётся видимым в деле и пакете.
-4. Выбрать доступный **Reference calculation** или **Sandbox recipe** и создать baseline. **Ledger** должен показать **$768 positive variance**, **$7,110 billed**, семь включённых записей. Открыть INV501: invoice record2 → C1 contract record2; `(85−72)×40 = 520`. При недоступном Docker sandbox обозначен unavailable.
-5. В **Assumptions → Ranges & uncertainty** выбрать общий target **C1**, задать low `65`, high `85`, применить диапазон: **$148–$1,193**. Затем добавить **Quantity INV501**, low `20`, high `80`: совместные границы становятся **$148–$1,993**, ширина **$1,845**. Уточнение C1 гарантированно сокращает ширину минимум на **$645**, возможно на все **$1,845**; уточнение quantity — от **$0** до **$1,200**. Это расчёт допущений, не вероятность или обещание экономии.
-6. Перейти в **Executed alternatives** и создать `Shared price 80`: target C1, proposed `80`, добавить изменение и выполнить. Получится **$368**, delta **−$400**. Общая цена меняет все три связанные записи, включая строку с нулевой исходной разницей. Подвкладки поддерживают Arrow Left/Right, Home и End.
-7. Создать **другой** вариант `Price and volume`: C1=`80` и quantity INV501=`80`. Результат **$568**, delta **−$200**, billed change **+$3,400**. Оба варианта начинаются от исходных `$768`. Складывать эффекты отдельных изменений нельзя: цена и количество взаимодействуют.
-8. В **Proof** открыть происхождение результата и скачать **case packet**. **Follow this source in Proof** сохраняет выбранный счёт; исключённый счёт показывает причину и отсутствие расчёта. Загрузить файл в проверку пакета либо выполнить:
+For an immediate introduction, choose **Open a reviewed example**. It is explicitly Reference mode and makes no model call. To execute a new review, choose **Try the fictional review**, or select [case-invoices.csv](../examples/case-invoices.csv) and [case-contracts.csv](../examples/case-contracts.csv), then **Reconcile sources**.
 
-```powershell
-.venv/Scripts/python.exe scripts/verify_receipt.py ПУТЬ_К_ФАЙЛУ.json
-```
+1. Inspect INV504: two contracts overlap. Compare the source prices and select C2R explicitly.
+2. Inspect INV506: no supplied contract is active on its invoice date. Enter an exclusion reason and record it. Seven of eight rows are now included; the excluded USD250 billed amount is not savings.
+3. Create a baseline. **Reference** is trusted arithmetic, **Sandbox recipe** runs the fixed recipe in actual Docker, and **Vultr agent** generates Python through VSI before Docker execution. Live mode requires an authorized operator token. Never enter an inference API key in the browser.
+4. The fixture should show USD768.00 positive price variance, five flagged rows and USD7,110 billed in scope. Select INV501 to inspect quantity 40, billed price 85 and contract price 72: `40 × (85 − 72) = 520`.
+5. Select C1 to review its three linked invoices. In **Assumptions**, C1 at USD82.60 ties INV501 and INV503 for first priority; one cent further makes INV503 first. All other fields remain at their baseline values.
+6. Optionally execute C1=80 as an alternative (USD368), or jointly set C1=80 and INV501 quantity=80 (USD568). These are named alternatives from the same original baseline, not a chain of overwritten results.
+7. In **Proof**, follow a source dependency, inspect executed Python and actual request IDs, and run the containment check. Download the review CSV, brief or full packet. Verify a packet in the browser or offline with `python scripts/verify_receipt.py PACKET.json`.
 
-Проверка заново соединяет источники, воспроизводит выбор/исключение, все арифметики, совместные изменения и аналитику диапазонов. Она не исполняет код из файла, не подтверждает отправителя, Docker runtime или истинность договоров. Пакет содержит исходные данные.
+An exported packet includes sources. Browser verification sends them to this server; offline CLI verification does not. Verification proves supplied-content consistency and fixed arithmetic, not supplier identity, contract truth, runtime authenticity or recovered money.
 
-Для автоматического повторения с реальными локальными Docker runs: `.venv/Scripts/python.exe scripts/smoke_case.py`. [Сохранённый пакет](../artifacts/transformation/sandbox-case.json) можно проверить независимо от сессии и сервера.
+If a request times out, use the recovery interface; do not repeatedly click a charged POST. Reload stores only navigation and operation identities, not credentials or raw files. Cookies establish temporary ownership; clearing them loses access. Logical retention is 24 hours with activity-triggered cleanup.
 
-**Прежний путь сохранён.** В **Archive → Open single CSV review** открыть старый synthetic sample:24записи,6findings,$1,480. Изменение contract price INV-2402 с72на80 даёт$1,160; прежние receipts/comparisons принимаются тем же CLI. Доступен возврат в сохранённое дело. Archive закрывается Escape и возвращает фокус к кнопке открытия.
-
-После самостоятельного просмотра полезно отметить: удалось ли понять исключённый счёт, увидеть все записи общей цены и объяснить совместный вариант без подсказки. Пока целевые пользователи не прошли такую задачу, удобство и экономия времени остаются непроверенными.
+Keyboard support includes chapter tabs, row inspectors with focus return, and Escape from Archive. Responsive layouts have been exercised at desktop, tablet and narrow widths. Physical touch, full screen-reader listening and system-level reduced-motion validation are not claimed. [Testing record](../TESTING.md).

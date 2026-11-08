@@ -1,0 +1,35 @@
+{
+  "video_bytes": 8019667,
+  "video_sha256": "089ba397bca8c2813dc7f0c71d3afabba6a62994ca3b02632f023cc10dda0e8c",
+  "video_seconds": 209.55,
+  "dimensions": [
+    1920,
+    1080
+  ],
+  "codecs": [
+    "h264",
+    "aac"
+  ],
+  "decode_exit": 0,
+  "max_300mb_passed": true,
+  "eight_chapters_reviewed": true,
+  "priority_and_model_framing_improved": true,
+  "actual_new_ai_run": true,
+  "containment_checks": 5,
+  "packet_groups": 7,
+  "python_tests": 179,
+  "javascript_tests": 26,
+  "public_http_checks": 23,
+  "public_http_model_calls": 0,
+  "bootstrap_scope": "STRUCTURAL_ONLY",
+  "bootstrap_passed": true,
+  "audio_mean_db": -17.3,
+  "audio_max_db": -1.4,
+  "human_audio_listening_panel": "NOT_RUN",
+  "cost": "Existing ElevenLabs Free credits and existing Vultr allowance only; no new subscription/resource",
+  "zip_bytes": 11123820,
+  "zip_crc_passed": true,
+  "zip_sha256": "a2804c65f7d6bdca1a8568b42eec7afe3bf2146af4490d1039149643b93879b8",
+  "submission_confirmation": "NOT_RUN",
+  "personal_attestations": "NOT_RUN"
+}

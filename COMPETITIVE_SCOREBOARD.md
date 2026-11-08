@@ -1,67 +1,41 @@
-**Prooflane — независимый competitive scoreboard.** Дата исходного review: 2026-11-03; финальный cycle2: 2026-11-04 Asia/Qyzylorda. Это мнение рецензента о предъявленных доказательствах, не официальная оценка, рейтинг рынка или прогноз победы. Источники и контрпримеры: [исследовательский отчёт](docs/TRANSFORMATION_RESEARCH.md). Начальный baseline и cycle1 сохранены как история; финальный срез приведён ниже и в [judge-cycle2](artifacts/transformation-review/judge-cycle2.md). Запланированное не засчитывается как сделанное.
+# Competitive evidence and historical reviewer scores
 
-**Критерии и шкала.** Использованы четыре названия с [официальной страницы события](https://lablab.ai/ai-hackathons/vultr-hackathon); числовые ориентиры 1–5 взяты из [общего Rule Book](https://lablab.ai/hackathon-rules). Это репетиционное применение общей шкалы: event-specific веса не опубликованы, поэтому общий взвешенный балл не вычисляется. Production cloud requirements рассматриваются отдельно как gates. UI-эффектность, количество функций и число тестов не добавлены как отдельные критерии.
+The differentiated workflow is explicit dated-source decisions → shared assumptions → exact conditional bounds/priority witnesses → a portable case reconstructed by another verifier. Matching, what-if tools, visible Python and sandboxing already exist elsewhere; the evidence does not justify “first,” “only” or scientific novelty.
 
-| Официальный критерий | Initial, 03.11.2026 | Почему так низко / доказательство | Post implementation | Что позволит пересмотреть |
-|---|---|---|---|---|
-| Application of Technology | **1/5**, provisional; локальная инженерная база сильнее готовности submission | В наличии код, offline verifier и сохранённые Docker receipts; реальная VSI/VM/public deployment отсутствуют в evidence packet. Модель воспроизводит заданную формулу | **1/5, cycle 1**. Новый локальный workflow проверен; модельная интеграция и конкурсный deployment всё ещё не предъявлены | Реальный end-to-end на Vultr, проверенный agent-generated code, отказ на неверном результате, доступный полный demo |
-| Presentation | **2/5**, uncertainty 1–3 | README объясняет ограничения; текущий workflow показывает один delta. Финальное видео и новый полный сценарий не просмотрены, поэтому качество финальной презентации не заявлено | **2/5, cycle 1**, uncertainty 2–3. Четыре новых view и реальные desktop screenshots понятнее; полный browser cycle/видео ещё не рассмотрены | Один понятный спорный случай, причина unresolved, сравнение решений, скачанный пакет; финальные видео/PDF отдельно |
-| Business Value | **2/5** | Возможная польза узкому аналитическому review; нет пользователей, task benchmark, заявок на pilot или подтверждённого сокращения ошибок. Цена договора уже должна быть подготовлена в CSV | **2/5, cycle 1**. Pre-join больше не требуется; измеренного выигрыша над Excel и пользовательской проверки всё ещё нет | Самостоятельный join двух источников, честное coverage, передаваемое дело; затем сравнительная задача с целевыми пользователями |
-| Originality | **2/5** | What-if и видимый Python присутствуют у известных альтернатив. Receipt + verifier — перспективная композиция, уникальность рынка не доказана | **3/5, cycle 1**, мнение. Теперь проверена предметная комбинация source decisions, shared assumptions, exact ranges и portable verification; научная/рыночная уникальность не заявлена | Связная демонстрация dated evidence → unresolved → alternatives → exact bounds → independent verification; прямое объяснение отличия без «первый/единственный» |
+The independent3–4 November reviewer used four published category names and a provisional1–5 rehearsal scale. No event-specific weights or weighted total were invented. Historical final scores were Technology1/5, Presentation2/5 (uncertainty2–3), Business Value2/5 and Originality3/5. These reflect the local-only evidence at that date, when real VSI/public deployment and final video were absent. They are not current official scores or a prediction. The new public VSI/browser/movie evidence closes specific technical gaps; no new independent numerical rescore has been performed for this update.
 
-Initial score — строгая оценка готовности предъявленного проекта, а не наказание за honesty. Она не обесценивает локальный Docker. Допустимое улучшение строки post требует ссылки на новый результат; написанные тесты, красивые screenshots или review автора сами по себе не закрывают путь пользователя.
+The reviewer independently reconstructed baseline768, shared368, joint568 and interval148..1193 using existing packets, and rejected eight rehashed semantic forgeries. Later two-factor examples established148..1993. That was packet arithmetic, not new Docker execution by the judge or user-benefit measurement.
 
-**Матрица конкуренции по пользовательским действиям.** `V-local` — прочитано/повторно проверено локально; `C-vendor` — официальное заявление поставщика; `H` — план; `?` — неизвестно, не отсутствие функции. Продукты не запускались для сравнительного benchmark; цены и SLA не сравнивались.
+| Alternative | Relevant overlap | Boundary of comparison |
+| --- | --- | --- |
+| Excel | What-if analysis and familiar review tables | No claim that a portable Python checker beats a properly built spreadsheet |
+| Lucanet / Pigment | Planning, scenarios and collaboration | Much broader established workflows; Prooflane is a bounded prototype |
+| AppZen / Ramp | AP matching, duplicate/exception review | Those capabilities are not original to this project |
+| Julius / DataLab | Natural-language data work and visible code | Actual workflow, evidence export and trust boundaries need direct comparison |
+| E2B | Isolated execution infrastructure | A runtime component, not an AP product to assign an invented competitor score |
 
-| Пользовательское действие | Prooflane initial | Excel | Causal / Lucanet и Pigment | AppZen | Julius / DataLab |
-|---|---|---|---|---|---|
-| Изменить и сравнить допущения | V-local: одна ячейка, два receipts | C-vendor: scenarios/data tables/goal seek | C-vendor: несколько альтернатив | ? в рассматриваемом узком виде | C-vendor: анализ/изменяемый код; конкретный protocol ? |
-| Проверить происхождение договорной ставки | Отдельного contract input нет | Зависит от workbook | Зависит от модели | C-vendor: contract/rate/period checking | Зависит от кода/данных |
-| Отказаться от неоднозначного dated join | H | Зависит от workbook | ? | ? точное поведение | ? точное поведение |
-| Показать underlying code / audit trail | V-local | Формулы | Модели/сценарии C-vendor | Audit trail C-vendor | Underlying code C-vendor |
-| Проверить fixed arithmetic вне сервера | V-local: CLI и два сохранённых packets повторно прошли | Возможно повторить workbook; равнозначный protocol ? | ? | ? | ? |
-| Провести весь требуемый workflow на Vultr | NOT_RUN | Не предмет сравнения | Не предмет сравнения | Не предмет сравнения | Не предмет сравнения |
+Business demand, time saved against Excel, preparation effort and willingness to pay remain unmeasured. A3–5 reviewer study with the same task and a second-person reconstruction is a proposed next experiment, not completed research. [Current technical gates](docs/FINAL_SUBMISSION_20261109.md).
 
-Первоисточники для ячеек: [Excel](https://support.microsoft.com/en-us/excel/introduction-to-what-if-analysis), [Lucanet](https://www.lucanet.com/en/solutions/extended-planning-and-analysis/), [Pigment](https://www.pigment.com/blog/scenario-planning-guide), [AppZen](https://www.appzen.com/learn/accounts-payable-automation-what-it-changes), [Julius](https://julius.ai/product/chat-with-your-data), [DataLab](https://www.datacamp.com/datalab/home), все просмотрены 2026-11-03. E2B — runtime-компонент, а не аналог AP-продукта; он не получает фиктивный «конкурентный балл».
+## Historical source preservation
 
-**Журнал этапов, без ретроспективного изменения baseline.**
+This English page is an editorial summary/update prepared for the final publication, not a newly conducted independent review or a full literal translation. The [complete original at its prior revision](https://github.com/NuraliKuzhagaliev/Prooflane/blob/ff0b6b117fd7f16b819f25894e5aec07314389ad/COMPETITIVE_SCOREBOARD.md) retains original wording, dates, hashes, detailed findings and limitations. Raw probe files were not translated or altered. Current release evidence belongs to [TESTING](TESTING.md).
 
-| Этап | Evidence | Результат | Предел |
-|---|---|---|---|
-| Initial independent review | Исходники analysis/comparison/receipts/provider, текущий HTML; повтор CLI двух packets | Арифметика/lineage двух пакетов PASS; широкое конкурентное отличие не подтверждено | Ни браузер, ни новые HTTP/Docker/cloud/model вызовы этим reviewer не исполнялись |
-| Post cycle 1: новые функции | `9b5bc30` + `b1bd9a4`; [два case packets](artifacts/transformation/), собственный cents oracle и CLI | PASS в рассмотренной области: 7/8 строк, baseline768, shared368, joint568, range148..1193 | Истинность договора и пользовательская эффективность не проверяются этими числами |
-| Post cycle 1: отрицательные контроли | Собственные четыре перехешированные подделки каждого пакета: source edge, coverage, leader, delta | 8/8 отклонены по семантической реконструкции | Это не доказательство отсутствия всех дефектов; другие отрицательные cases покрыты отдельными QA/science reviews |
-| Post cycle 1: HTTP/исполнение | [case-http-smoke.json](artifacts/transformation/case-http-smoke.json), сохранённый реальный HTTP reference/fixed Docker, 0 model calls | Артефакт PASS; оба скачанных пакета независимо пересчитаны этим judge | Физические контейнеры этим judge повторно не запускались; receipt не runtime attestation |
-| Post cycle 1: полный browser путь | [Desktop screenshots](artifacts/transformation-review/design-v3/) source/baseline/range просмотрены; новый UI `bd25e99` | PARTIAL: состояния видны, полный interaction/download/mobile ещё не просмотрен | Не присваивать browser PASS по статическому коду или API; финальный designer report ожидается |
-| Post cycle 1: capacity | [capacity-calculation.json](artifacts/transformation/capacity-calculation.json): 500 invoices/500 contracts/24 ranges, 3 local samples, median491.78ms | OBSERVED_ARTIFACT; собственный повтор не проводился | CPU calculation, не end-to-end SLA, browser/model latency или user time saved |
-| Post: Vultr/C1 | VM + public browser + VSI-generated code + containment evidence | NOT_RUN / внешний доступ blocked по рабочему контексту | Local fixed recipe не переносится в cloud claim |
-| Post: сравнительная ценность | 3–5 целевых пользователей, одинаковая задача с Excel | NOT_RUN | Synthetic correctness ≠ demand/time saved |
-| Cycle 2: четыре packets / совместная неопределённость | Собственный повтор CLI; независимый integer-cent oracle122061 комбинаций на каждый двухфакторный packet | PASS:148..1993, width1845; C1 reduction645..1845, quantity0..1200;4 новые перехешированные смысловые подмены отклонены | Исчерпывающий перебор этих двух диапазонов, не всех допустимых cases; checker production использует trusted functions |
-| Cycle 2: итоговые claims/UI/demo | [FINAL_REPORT](FINAL_REPORT.md), [design-cycle2](artifacts/transformation-review/design-cycle2.md), реальные mobile/native screenshots; frozen code0342f5c | REVIEWED: reference journey PASS в области designer review; D1/D2 fixed_verified; judge просмотрел screenshots и сверил claims | Judge не управлял браузером; full accessibility и browser concurrent-read race NOT_RUN; видео и новая deck не предъявлены |
+Preserved original source/evidence links:
 
-**Функциональный post-срез, 2026-11-04 Asia/Qyzylorda (2026-11-03 19:21 UTC).** Начальная матрица выше сохранена без переписывания. Новый результат:
-
-| Возможность | Реально предъявлено | Остаточная граница |
-|---|---|---|
-| Датированный join двух источников | Exact vendor/item/date; overlap требует выбора, unmatched — исправления или явного exclusion; raw source links восстановлены независимым oracle | Выбор C2R — утверждение пользователя, не доказательство применимости договора; дата счёта может отличаться от периода услуги |
-| Совместные альтернативы | Два сохранённых варианта на baseline; C1 меняет три связанные записи; joint recomputation768→568, не сумма отдельных дельт | Лимиты4×12 проверены кодом/QA, а не заполнением всех слотов вручную этим judge |
-| Exact intelligence | 2001 допустимая цена C1 независимо перечислена для каждого packet: диапазон148..1193, worst leader margin−96 | Сохранённый основной demo имеет только одну uncertain variable; ранжирование next evidence в нём тривиально |
-| Полный case packet | CLI без сервера повторяет join/receipts/changes/intelligence; отрицательные контроли выше | Runtime checker повторно использует reconcile/explore; независимый integer-cent oracle существует отдельно в verification evidence |
-| Новый workspace | Sources/Overview/Explore/Evidence, история и инспектор видны в исходниках/screenshots; источники и included scope подписаны | Browser verifier использует серверный POST. После замечания добавлено и проверено в HTML явное disclosure об отправке packet/source data; CLI указан как offline путь |
-
-**Решение cycle 1:** трансформация содержательная и заслуживает завершения browser/demo-проверки; локальный аналитический путь существенно сильнее baseline. Общий конкурсный вывод остаётся условным. Высокая уверенность в проверенных суммах и связях сохранённых артефактов, средняя — в полезности композиции, низкая — в бизнес-превосходстве и высокой конкурсной оценке. Почему часть баллов не выросла: не появились live AI, публичный Vultr demo, финальная презентация и пользовательские результаты. [Полный cycle 1 с сильнейшими возражениями](artifacts/transformation-review/judge-cycle1.md).
-
-**Финальный срез cycle 2 — 4 ноября 2026, код0342f5c.** Первоначальные оценки и наблюдения выше не заменены новым состоянием.
-
-| Официальный критерий | Initial → cycle1 → final | Что теперь подтверждено | Почему оценка ограничена |
-|---|---|---|---|
-| Application of Technology | **1 → 1 → 1/5** | Связный двухисточниковый workflow, shared alternatives, exact intelligence, переносимый checker; локальные HTTP/fixed Docker artifacts | VSI-generated code и реальный Vultr/public end-to-end не предъявлены. Fixed recipe не доказывает полезность LLM |
-| Presentation | **2 → 2 → 2/5**, final uncertainty2–3 | Реальный reference browser journey, читаемые400/320px charts, source inspector, joint ranges, download/verify/reload; substantive UI transformation | Непрерывное финальное видео не записано. PDF/PPTX честно отмечены как старые drafts, текущая конкурсная презентация не просмотрена |
-| Business Value | **2 → 2 → 2/5** | Analyst может сам связать invoices/contracts, явно исключить unresolved, сравнить совместные предположения и передать проверяемое дело | Целевые пользователи, трудозатраты подготовки данных, сравнение с Excel и willingness to pay не измерены |
-| Originality | **2 → 3 → 3/5** | Проверена композиция dated source decisions → shared assumptions → exact conditional bounds → portable reconstruction | Отдельные matching/scenarios/code/audit capabilities уже описаны альтернативами. Нет оснований для «первый/единственный» или научной новизны |
-
-**Что изменилось после cycle1.** Слабость одного диапазона устранена: два диапазона C1[65,85] и quantity INV501[20,80] дают148..1993. Их независимый перебор подтверждает содержательное различие между OAT-эффектом и сокращением совместной неопределённости. C1 стоит выше по минимально гарантированному сокращению ширины645 против0; это не превосходство при каждом возможном ответе и не денежная полезность. Browser checker явно сообщает об отправке packet/source data серверу; offline доступен CLI. Полный reference путь, загрузка файлов, invalidation, история и legacy проверены дизайнером в браузере; final native screenshots просмотрены judge. Существенные замечания в проверенной локальной области закрыты.
-
-**Предел конкурсного решения.** Локальная готовность выросла существенно, однако число тестов и качество screenshots не закрывают cloud/AI, presentation и market gates.52 HTTP checks,36 legacy checks,155 Python tests,12 JS tests и50backend/12UI инженерных probes остаются разными видами инженерных доказательств, а не business success rate. Сравнение с конкурентами — первичные описания возможностей, не прямой продуктовый benchmark; неизвестное не объявляется отсутствующей функцией. Никакого общего взвешенного балла или вероятности победы нет.
-
-**Минимальный следующий эксперимент.**3–5 целевых аналитиков выполняют одну задачу в Prooflane и привычном Excel с чередованием порядка; фиксировать время, правильность выбора/исключения договора и объяснение границ диапазона/receipt. Это exploratory pilot, не статистическое доказательство превосходства. Независимый конкурсный gate — настоящий разрешённый Vultr/VSI/public run после получения доступа. Уверенность высокая в проверенной арифметике и packet reconstruction, средняя в понятности workflow, низкая в рыночном превосходстве и конкурсном результате. [Итоговый judge review и точные hashes](artifacts/transformation-review/judge-cycle2.md).
+- [TRANSFORMATION_RESEARCH.md](docs/TRANSFORMATION_RESEARCH.md)
+- [judge-cycle2.md](artifacts/transformation-review/judge-cycle2.md)
+- [lablab.ai — vultr-hackathon](https://lablab.ai/ai-hackathons/vultr-hackathon)
+- [lablab.ai — hackathon-rules](https://lablab.ai/hackathon-rules)
+- [support.microsoft.com — introduction-to-what-if-analysis](https://support.microsoft.com/en-us/excel/introduction-to-what-if-analysis)
+- [www.lucanet.com — extended-planning-and-analysis](https://www.lucanet.com/en/solutions/extended-planning-and-analysis/)
+- [www.pigment.com — scenario-planning-guide](https://www.pigment.com/blog/scenario-planning-guide)
+- [www.appzen.com — accounts-payable-automation-what-it-changes](https://www.appzen.com/learn/accounts-payable-automation-what-it-changes)
+- [julius.ai — chat-with-your-data](https://julius.ai/product/chat-with-your-data)
+- [www.datacamp.com — home](https://www.datacamp.com/datalab/home)
+- [transformation](artifacts/transformation/)
+- [case-http-smoke.json](artifacts/transformation/case-http-smoke.json)
+- [design-v3](artifacts/transformation-review/design-v3/)
+- [capacity-calculation.json](artifacts/transformation/capacity-calculation.json)
+- [FINAL_REPORT.md](FINAL_REPORT.md)
+- [design-cycle2.md](artifacts/transformation-review/design-cycle2.md)
+- [judge-cycle1.md](artifacts/transformation-review/judge-cycle1.md)

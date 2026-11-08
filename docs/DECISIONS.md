@@ -1,22 +1,23 @@
-# Принятые решения
+# Engineering decisions
 
-2026-11-03. Решения обратимы, кроме внешних публикаций/расходов, которые сейчас не выполнялись.
+Updated 9 November 2026; historical choices are retained with their current consequences.
 
-| Решение | Основание и tradeoff | Когда пересмотреть |
-|---|---|---|
-| C1: узкий price-variance workflow | Понятный результат, фиксированный oracle и реальный containment moment. Свободный CSV-чат слишком широкий для проверяемого MVP. | Если официальный трек/допуск изменится или пользователи отвергнут сценарий. |
-| FastAPI + vanilla JS + SQLite | Один deployable backend и same-origin UI; мало moving parts, нет Node runtime в production. SQLite достаточен для bounded demo. | Нужны несколько реплик, длительная история, collaboration или большая очередь. |
-| Decimal verifier независимо от generated program | Модель не является источником арифметической истины. Цена: анализ ограничен заранее определённой формулой; свободный вопрос не расширяет контракт. | Только после добавления новых формальных контрактов и oracle-тестов. |
-| Модель пишет код, но не итоговый рассказ | Текст собирается из проверенного summary; меньше неподтверждённых чисел. Это ограничивает роль LLM и должно быть ясно в pitch. | Если появляется проверяемый контракт narrative generation и тесты grounded claims. |
-| Raw CSV не передаётся VSI | Модель знает схему, число записей и вопрос, пишет программу для `/tmp/input.csv`. Сырые значения обрабатывает offline container. Вопрос всё же может содержать данные. | Если конкретная задача требует data-aware generation, с явным согласием и измерением эффекта. |
-| Docker с фиксированным профилем | Доступный локально и рекомендованный организатором механизм. Shared kernel и privileged daemon остаются рисками. | Нужны hostile public workloads: выделенный broker, rootless/gVisor/microVM после runtime-валидации. |
-| Нет host fallback для generated code | Fail closed при отсутствии engine/image/control confirmation. Reference обозначен отдельно и исполняет лишь доверенный код. | Не пересматривать ради удобства демо. |
-| Максимум одна repair-генерация | Ограничивает задержку и расход. Общий feedback не отправляет модельные stderr или данные CSV провайдеру. Не все ошибки инфраструктуры повторяются. | Только после измерения реальной частоты/качества исправлений. |
-| Отдельный журнал attempts | Run/receipt сохраняет код, execution и проверки каждой попытки; ошибка не исчезает при успешном retry. Контракт проверен doubles, настоящий VSI остаётся NOT_RUN. | При расширении workflow добавить версионирование схемы, не скрывая прежние попытки. |
-| Постоянный карантин после cleanup failure | Marker в data directory и поиск контейнеров с project label при готовности нового процесса блокируют новые sandbox-задачи. Автоматически удалять неизвестные leftover containers рискованно. | После надёжного отдельного lifecycle supervisor и аварийных runtime-испытаний. |
-| Unsigned JSON receipt | Легко скачать и проверить offline. Integrity и fixed arithmetic доступны, issuer authentication отсутствует. | Есть реальный consumer и инфраструктура ключей; тогда добавить signatures с проверяемым trust model. |
-| Operator gate для live | Открытый сайт не должен бесконтрольно расходовать кредиты. Судье доступны бесплатные reference/sandbox; live демо проводит оператор. | Перед публичной подачей согласовать безопасный judge access без выдачи VSI ключа. |
-| Один Uvicorn worker | Semaphore и quotas живут в памяти процесса; несколько worker нарушили бы глобальные пределы. | После общей очереди/rate limiter и соответствующих тестов. |
-| Отдельная Vultr VM | Backend, Docker и веб-приложение должны быть на Vultr. Отделяет риск sandbox от чужих сервисов. | Только при согласованной более сильной изоляции и подтверждённом правиле. |
+| Decision | Reason and tradeoff | Revisit when |
+| --- | --- | --- |
+| Narrow price-variance review | A fixed, independently checkable arithmetic contract and a concrete AP workflow. A free-form question cannot expand the supported computation. | New tasks have formal contracts and independent oracles. |
+| FastAPI, vanilla JS and SQLite | One deployable same-origin application, no production Node build/runtime, bounded persistence. | Collaboration, multiple replicas or a durable queue is needed. |
+| Independent Decimal verification | The generated program is not the authority for arithmetic. Every finding and total is checked. | Extending the verifier with separately tested contracts. |
+| Bounded model guidance after verification | VSI selects a focus and next step; the server inserts checked values. This replaced a solely deterministic explanation without permitting invented totals. | A broader grounded narrative contract has evidence and tests. |
+| No automatic raw-CSV transfer to VSI | The model knows the schema, count and question and writes for `/tmp/input.csv`. The offline container processes actual values. Questions can still disclose data. | A specific task needs data-aware generation with explicit consent. |
+| Fixed Docker profile on a dedicated VM | Available, demonstrable isolation. Shared kernel and privileged daemon are residual risks. | Hostile public workloads justify a broker, rootless runtime, gVisor or microVM validation. |
+| No host execution fallback | Missing/unconfirmed Docker controls fail closed. Reference mode is separately labelled trusted code. | Do not relax this for demo convenience. |
+| At most one repair | Bounds delay and credit consumption. Generic feedback omits CSV and stderr; retries require confirmed cleanup. | Real repair-rate and quality measurements justify a change. |
+| Separate attempt records | Successful repair cannot hide previous code, output or errors. | Versioning an expanded execution contract. |
+| Persistent quarantine | Cleanup failure and project-labelled leftovers block execution after restart. Unknown leftovers are not deleted automatically. | A tested lifecycle supervisor and real crash experiments exist. |
+| Unsigned portable receipts | Easy offline checking; no issuer authentication or runtime attestation. | A real consumer and key/trust-management design justify signatures. |
+| Operator gate for live calls | Protects the existing allowance. Reference/fixed Docker remain publicly usable without a provider key. | A safe judge-access or account/budget design is agreed. |
+| One worker | Limits, semaphore and locks are process-local. | A shared limiter/queue is implemented and tested. |
+| Explicit source decisions and shared variables | Ambiguity is visible; one contract change affects all bound invoices. | Domain research supports additional matching or contracts. |
+| Deterministic priority boundaries | Whole-cent witnesses help identify the next source to review; no probability or legal claim. | A different supported arithmetic contract needs new math. |
 
-Модель и VM SKU намеренно не выбраны по предположению. Сначала проверяются доступный model ID, существующая VM, кредиты и разрешённый расход. Ни внешний SaaS, ни новый платный ресурс не включаются автоматически.
+The actual model ID and existing VM were verified rather than invented. No new paid resource or subscription was created during final demo production. Inference live gates changed from NOT_RUN only after real tests; historical reports retain their original dates and limitations.
