@@ -156,9 +156,9 @@ def build():
         timeline.append({'scene': i, 'title': scene['title'], 'start_seconds': round(elapsed, 3), 'duration_seconds': round(duration, 3), 'source': scene.get('source'), 'narration': scene['narration']})
         elapsed += duration
     concat.append(concat[-2])
-    (BUILD / 'frames.ffconcat').write_text('\n'.join(concat) + '\n', encoding='utf-8')
-    (VIDEO / 'prooflane-demo.en.srt').write_text('\n'.join(subtitle_items), encoding='utf-8')
-    (VIDEO / 'transcript.en.txt').write_text('\n\n'.join(s['narration'] for s in story['scenes']) + '\n', encoding='utf-8')
+    (BUILD / 'frames.ffconcat').write_text('\n'.join(concat) + '\n', encoding='utf-8', newline='\n')
+    (VIDEO / 'prooflane-demo.en.srt').write_text('\n'.join(subtitle_items), encoding='utf-8', newline='\n')
+    (VIDEO / 'transcript.en.txt').write_text('\n\n'.join(s['narration'] for s in story['scenes']) + '\n', encoding='utf-8', newline='\n')
     with wave.open(str(BUILD / 'narration.wav'), 'wb') as audio:
         audio.setnchannels(audio_format[0])
         audio.setsampwidth(audio_format[1])
@@ -171,7 +171,7 @@ def build():
     subprocess.run([ffmpeg, '-hide_banner', '-v', 'error', '-i', str(output), '-f', 'null', '-'], check=True)
     assert output.stat().st_size < 300_000_000 and elapsed < 300
     manifest = {'title': story['title'], 'format': story['format'], 'width': W, 'height': H, 'fps': 12, 'duration_seconds': round(elapsed, 3), 'bytes': output.stat().st_size, 'sha256': hashlib.sha256(output.read_bytes()).hexdigest(), 'voice': story['voice'], 'audio': 'AAC, local Windows synthetic English voice', 'captions': 'Burned-in English captions plus SRT', 'fully_decoded_without_error': True, 'new_model_calls_for_video': 0, 'timeline': timeline, 'ffmpeg': subprocess.check_output([ffmpeg, '-version'], text=True).splitlines()[0]}
-    (VIDEO / 'video-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8')
+    (VIDEO / 'video-manifest.json').write_text(json.dumps(manifest, ensure_ascii=False, indent=2) + '\n', encoding='utf-8', newline='\n')
     print(json.dumps({k: manifest[k] for k in ['duration_seconds', 'bytes', 'sha256', 'fully_decoded_without_error']}))
 
 

@@ -2,18 +2,18 @@
   "files": [
     {
       "path": "title.txt",
-      "bytes": 11,
-      "sha256": "36be3400a841f2f6d009cbf1ca139676be17cd6d57d21c44c207cc3760543834"
+      "bytes": 10,
+      "sha256": "3486bcf373794c19d0a80479450e4bcba5ae6bab1353d51dc4c2a9e558bc23e8"
     },
     {
       "path": "short_description.txt",
-      "bytes": 189,
-      "sha256": "c7e10da5cc75aac9f1ad8dd6886dd7b4d17eda7ca5366516458de39047378a98"
+      "bytes": 188,
+      "sha256": "fb3dbbafb4ce2b8568b579c5c13c3af9b77640ab28f76a1d4867cabc6102b272"
     },
     {
       "path": "long_description.txt",
-      "bytes": 1765,
-      "sha256": "23035e0fd1f4a6d0e505da5d49d5930c88359e59bb2f5d8c4381156a6e6fdee2"
+      "bytes": 1756,
+      "sha256": "3e6171578ae0cfb8029e1ab16185363bcee5fc60dc0de265faec840d39e83503"
     },
     {
       "path": "submission.json",
@@ -22,8 +22,8 @@
     },
     {
       "path": "field-validation.json",
-      "bytes": 387,
-      "sha256": "1f39a1405be7a546ebdd976e288f28089a86b63f3fff9699573515c322072e65"
+      "bytes": 365,
+      "sha256": "b83d5c38990b1af6336fcbcb0e374d90f28b99a2d0cd0d07e28d04fd8d0131d0"
     },
     {
       "path": "prooflane-deck.pdf",
@@ -47,19 +47,20 @@
     },
     {
       "path": "video/prooflane-demo.en.srt",
-      "bytes": 4515,
-      "sha256": "056217625c8362d05a6d3e96e49053515f414459d715856521eae20edb4f295f"
+      "bytes": 4388,
+      "sha256": "7dc097311475c75792c7aeddd39a2e3317b6b0f4154611514a539cb10d376b08"
     },
     {
       "path": "video/transcript.en.txt",
-      "bytes": 3338,
-      "sha256": "25d228ee4940de60e5ec05820ff69dba3c147e8ab7825d433c4b6aaf3d7a0a1c"
+      "bytes": 3319,
+      "sha256": "14849d58e617c327a4bc636c5720f401321626d05ae884f85162cbe011289acb"
     },
     {
       "path": "video/video-manifest.json",
-      "bytes": 6245,
-      "sha256": "91bd4360f05da4f8ed27f4db613a477343db4956e54d81519b03cccfccbe042d"
+      "bytes": 6147,
+      "sha256": "babd3edc26b58387e17a1862978c5dccfd53d7b61531ac987ef2a7010359ed53"
     }
   ],
-  "note": "Submission materials only. Source code remains in public GitHub; no secrets or local databases included."
+  "note": "Submission materials only. Source code remains in public GitHub; no secrets or local databases included.",
+  "hash_scope": "Exact upload-file bytes; text files pinned to LF with scoped .gitattributes"
 }

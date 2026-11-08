@@ -1,0 +1,10 @@
+# Preserve the upload files' hashes across GitHub and platform checkouts.
+*.txt text eol=lf
+*.json text eol=lf
+*.srt text eol=lf
+*.md text eol=lf
+*.mp4 binary
+*.pdf binary
+*.pptx binary
+*.png binary
+*.jpg binary

@@ -1,10 +1,12 @@
 {
   "video_sha256": "4c69239cc5517cb44b7d8ec38b8dee10d3075a96d44da2da64341fca3b2255d8",
-  "archive_sha256": "5f722fbc1b2cc66b70e8b90724f84d8b1704b0103fea42bc957a38447d44c805",
-  "archive_bytes": 5039031,
+  "archive_sha256": "8ff408e5e442278630725cf568eb676d9fc222f1b76d9ac352e53a4d08df610a",
+  "archive_bytes": 5039247,
   "zip_crc_check": "PASS",
   "local_delivery_links": "PASS",
   "media_frames_reviewed": 10,
   "video_readability": "Captured UI and captions inspected at chapter midpoints; chapter counter moved out of image area",
-  "formal_submission": "NOT_RUN"
+  "formal_submission": "NOT_RUN",
+  "upload_file_hashes_in_zip": "PASS",
+  "git_line_endings": "Pinned to LF for submission text files"
 }
