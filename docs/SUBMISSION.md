@@ -1,6 +1,6 @@
 # Материалы подачи Prooflane
 
-Пакет подготовлен для LabLab, Blast Radius Zero. Закрытие подачи 9 ноября 2026, 04:00 по времени Казахстана. Публичный API, Docker и живой Inference проверены. Остались полный прогон через браузер, видео и публичный GitHub. [Требования и доказательства](AGENT_RUSH_READINESS.md).
+Пакет подготовлен для LabLab, Blast Radius Zero. На 9 ноября публичный API, Docker, живой Inference через браузер и публичный GitHub проверены. Финальное видео и подтверждение отправки остаются открытыми. Исторический срок подачи и ограничения его повторной проверки приведены в [требованиях и доказательствах](AGENT_RUSH_READINESS.md).
 
 **Title**
 
@@ -27,7 +27,7 @@
 - **Slide PDF** · [Готовый PDF](../submission/agent-rush/prooflane-deck.pdf).
 - **Editable slides** · [PPTX](../submission/agent-rush/prooflane-deck.pptx).
 - **Cover** · [PNG 16:9](../submission/agent-rush/cover.png).
-- **Video** · [Сценарий](DEMO.md). Финальная запись ожидает прогона формы в браузере.
+- **Video** · [Сценарий](DEMO.md). Браузерный AI-прогон выполнен; финальная запись не подтверждена.
 - **Participation mode** · Указать фактический режим участия в форме.
 
 Сверить поля с активной формой LabLab. [Стандартные лимиты полей](https://lablab.ai/delivering-your-hackathon-solution) · [Доказательство живого запуска](../artifacts/vultr-release/live-evidence.json).

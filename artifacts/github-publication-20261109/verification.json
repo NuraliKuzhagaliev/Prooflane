@@ -1,0 +1,37 @@
+{
+  "checked_at": "2026-11-09T00:28:30.4961098+05:00",
+  "repository": "https://github.com/NuraliKuzhagaliev/Prooflane",
+  "branch": "main",
+  "tested_source_commit": "a1369876699e64d6d42a1f77f7f0241160cb5c9e",
+  "initial_snapshot_files": 423,
+  "anonymous_readme_status": 200,
+  "fresh_clone": true,
+  "python": {
+    "passed": 179,
+    "dependencies": "Existing workspace virtual environment; clean dependency install not tested in this check",
+    "duration_seconds": 6.42,
+    "warnings": 1
+  },
+  "javascript": {
+    "passed": 26,
+    "duration_ms": 215.0356,
+    "failed": 0
+  },
+  "receipt": {
+    "path": "artifacts/live-ai-20261109/live-case-packet.json",
+    "passed_groups": 7
+  },
+  "excluded_temporary_database_files": 42,
+  "exclusions": [
+    ".env",
+    ".local",
+    ".venv",
+    ".cache",
+    "data",
+    "node_modules",
+    "private key files",
+    "SQLite files"
+  ],
+  "followup_changes": "Documentation and verification logs only; application code unchanged after tested commit",
+  "new_model_calls": 0
+}
