@@ -1,0 +1,48 @@
+Browser tab: 4, Title: "Prooflane — Audit Folio", URL: "https://45.76.92.198/".
+The following is a diff from the previous accessibility tree with ~ and + representing changed and added elements, respectively. Removed elements are summarized by ID range.
+Removed element IDs: 406-408
+~			6 pop up button (collapsed) Archive , ID: wb-rail-toggle, Secondary Actions: Expand
+~			7 button New review, ID: wb-new
+~				21 button 01 Sources
+~					22 text 01
++					406 text Sources
+~				24 button 02 Ledger
+~					25 text 02
++					407 text Ledger
+~				27 button 03 Assumptions
+~					28 text 03
++					408 text Assumptions
+~				30 button 04 Proof
+~					31 text 04
++					409 text Proof
+~							380 button Choose packet JSON, ID: wb-packet-file
+~						382 button Verify packet, ID: wb-verify
++					410 container wb-verify-result
++						411 text Packet checks passed
++						412 heading Arithmetic and content integrity checked., Value: 3
++							413 text Arithmetic and content integrity checked.
++						414 text Source/assumption consistency and arithmetic only. No issuer authentication, runtime attestation or proof that supplied contracts are true.
++						415 content list
++							416 container
++								417 text ✓
++								418 text Source reconciliation and explicit exclusions · passed
++							419 container
++								420 text ✓
++								421 text Baseline receipt and source CSV · passed
++							422 container
++								423 text ✓
++								424 text All alternative arithmetic and parent links · passed
++							425 container
++								426 text ✓
++								427 text Declared changes and shared-contract propagation · passed
++							428 container
++								429 text ✓
++								430 text Exact ranges, sensitivity and review priorities · passed
++							431 container
++								432 text ✓
++								433 text Case hash and all comparisons · passed
++							434 container
++								435 text ✓
++								436 text Priority boundaries and cent-grid witnesses · passed
++	437 text Packet verification passed. See the verification scope.
+The focused UI element is 0 AXWebArea Prooflane — Audit Folio, URL: 45.76.92.198/

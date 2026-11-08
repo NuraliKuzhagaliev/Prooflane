@@ -1,0 +1,127 @@
+1
+00:00:00,000 --> 00:00:08,784
+An invoice says one price. A contract says another. Which agreement applied, and can a second reviewer reproduce the
+
+2
+00:00:08,784 --> 00:00:17,105
+decision? Prooflane gives accounts payable and procurement teams a review record that connects the price difference to its
+
+3
+00:00:17,105 --> 00:00:22,190
+sources. This edited walkthrough uses fictional data and real browser captures.
+
+4
+00:00:22,190 --> 00:00:30,955
+The case starts with invoice and contract CSVs. Prooflane matches the supplier, item, and effective date. Seven of eight
+
+5
+00:00:30,955 --> 00:00:39,719
+invoices enter this calculation. One has no active supplied contract and is excluded with a reason. Its billed amount
+
+6
+00:00:39,719 --> 00:00:43,871
+remains visible; exclusion never turns it into estimated savings.
+
+7
+00:00:43,871 --> 00:00:52,480
+Invoice five hundred and four has two overlapping contract versions. The interface shows the consequence of each eligible
+
+8
+00:00:52,480 --> 00:01:01,568
+price: forty dollars or thirty two dollars. The reviewer explicitly selected C two R. That decision remains attached to
+
+9
+00:01:01,568 --> 00:01:06,351
+the frozen baseline, instead of disappearing into a spreadsheet formula.
+
+10
+00:01:06,351 --> 00:01:15,622
+This is the saved successful AI run from November ninth, not a new model call during this recording. Vultr Serverless
+
+11
+00:01:15,622 --> 00:01:23,040
+Inference generated Python, and a disposable Docker container executed it. An independent Decimal verifier checked every
+
+12
+00:01:23,040 --> 00:01:30,921
+finding. The result is seven hundred and sixty eight dollars of positive price variance, not recovered cash.
+
+13
+00:01:30,921 --> 00:01:39,822
+The proof chapter exposes the actual returned model and both Vultr request identifiers. After verification, the model
+
+14
+00:01:39,822 --> 00:01:49,770
+selected the focus of the review guidance. The server inserted the checked amounts. Generated code runs with no network,
+
+15
+00:01:49,770 --> 00:01:57,101
+no host mounts, no injected credentials, and strict resource limits. Docker unavailability causes refusal.
+
+16
+00:01:57,101 --> 00:02:05,339
+Prooflane also calculates when a review priority would change. One shared contract price affects three invoices together.
+
+17
+00:02:05,339 --> 00:02:15,516
+At eighty two dollars and fifty nine cents, invoice five hundred and one remains first. One cent higher produces a tie;
+
+18
+00:02:15,516 --> 00:02:22,301
+the next cent changes the leader. These are explicit arithmetic assumptions, not AI predictions.
+
+19
+00:02:22,301 --> 00:02:31,499
+Here is the containment moment. These fixed probes were freshly run from the public site on the existing Vultr virtual
+
+20
+00:02:31,499 --> 00:02:39,317
+machine. Network access failed, a root filesystem write was denied, the inference credential variable was absent, the
+
+21
+00:02:39,317 --> 00:02:45,756
+effective user was non root, and container removal was confirmed. Five observed checks passed.
+
+22
+00:02:45,756 --> 00:02:54,908
+A reviewer can download the source linked JSON packet and check it again. The original AI packet passed all seven
+
+23
+00:02:54,908 --> 00:03:02,687
+verification groups in the browser and in the offline command line verifier. These checks reconstruct source choices,
+
+24
+00:03:02,687 --> 00:03:10,923
+arithmetic, hashes, and priority boundaries. They do not authenticate the supplier or prove that a supplied contract is
+
+25
+00:03:10,923 --> 00:03:11,381
+true.
+
+26
+00:03:11,381 --> 00:03:19,162
+The initial audience is accounts payable teams that already export invoice and contract tables. A team subscription for
+
+27
+00:03:19,162 --> 00:03:26,510
+recurring exception reviews is a business hypothesis. We have not measured customer savings or adoption. Our next
+
+28
+00:03:26,510 --> 00:03:34,723
+validation compares how quickly a second reviewer can reproduce the same dispute with a spreadsheet and with a Prooflane
+
+29
+00:03:34,723 --> 00:03:35,155
+packet.
+
+30
+00:03:35,155 --> 00:03:44,640
+Try the public demo, inspect the open source repository, and verify the included fictional case yourself. Prooflane
+
+31
+00:03:44,640 --> 00:03:53,008
+connects source decisions, contained AI execution, and portable arithmetic evidence. Our four person team participated
+
+32
+00:03:53,008 --> 00:03:57,471
+online. The prototype is available now on Vultr.

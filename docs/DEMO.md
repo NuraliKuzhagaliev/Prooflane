@@ -1,4 +1,12 @@
-# Updated product walkthrough — 2:45, 8 November
+# Готовое демо, 9 ноября
+
+[MP4](../submission/agent-rush/video/prooflane-demo.mp4) · [English transcript](../submission/agent-rush/video/transcript.en.txt) · [English SRT](../submission/agent-rush/video/prooflane-demo.en.srt) · [Фактические таймкоды](../submission/agent-rush/video/video-manifest.json).
+
+Ролик длится около 3:58 и содержит английскую локальную синтетическую озвучку и встроенные субтитры. Это монтаж настоящих браузерных кадров, не непрерывная запись экрана. Сохранённый AI-прогон 9 ноября назван сохранённым, новые пять containment-проб и повторная проверка пакета выполнены при финальной подготовке. Секреты не вводились и в ролик не попали. [Описание производства](../submission/agent-rush/video/PRODUCTION.md).
+
+Ниже сохранены прежние сценарии для отдельной записи живого выступления. Они не описывают уже записанное непрерывное видео.
+
+# Historical product walkthrough — 2:45, 8 November
 
 This is a script, not a claim that a final video was recorded. Use fictional inputs, keep the mode visible, and do not show operator credentials. The new one-click example is Reference; it must never be presented as live AI. A live VSI recording needs its own successful request; the saved November6 evidence may be shown only as a labelled previous run.
 

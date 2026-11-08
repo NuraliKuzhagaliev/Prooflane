@@ -11,7 +11,7 @@ const build = path.join(out, '.build');
 const revision = new Date().toISOString().replaceAll(':','-').replaceAll('.','-');
 const validatedPath = path.join(out,'.validated',`prooflane-deck-${revision}.pptx`);
 const validationPath = path.join(build,`validation-${revision}.json`);
-const skill = 'C:/Users/nural/.codex/plugins/cache/openai-primary-runtime/presentations/26.1105.12137/skills/presentations';
+const skill = 'C:/Users/nural/.codex/plugins/cache/openai-primary-runtime/presentations/26.1104.22356/skills/presentations';
 const runtimeModules = 'C:/Users/nural/.cache/codex-runtimes/codex-primary-runtime/dependencies/node/node_modules';
 const runtimePython = 'C:/Users/nural/.cache/codex-runtimes/codex-primary-runtime/dependencies/python/python.exe';
 process.env.RUNTIME_NODE_MODULES = runtimeModules;
@@ -42,7 +42,7 @@ const cloud=JSON.parse(await fs.readFile(path.join(evidence,'case-http-smoke.jso
 if(!cloud.passed||!cloud.containment?.passed||cloud.model_calls!==0)throw new Error('Missing actual Vultr Docker evidence');
 const sample=cloud.cases.find(item=>item.mode==='sandbox');
 let live=null;
-try { live=JSON.parse(await fs.readFile(path.join(evidence,'live-evidence.json'),'utf8')); }
+try { live=JSON.parse(await fs.readFile(path.join(project,'artifacts/live-ai-20261109/live-evidence.json'),'utf8')); }
 catch(error) { if(error.code!=='ENOENT')throw error; }
 const liveVerified=live?.passed===true&&live?.model_calls>0;
 const liveLabel=liveVerified ? 'Live Inference verified' : 'Live Inference awaiting validation';

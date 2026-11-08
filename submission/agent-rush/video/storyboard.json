@@ -1,0 +1,84 @@
+{
+  "title": "Prooflane — Trace the price. Keep the evidence.",
+  "format": "Edited walkthrough assembled from real browser captures; not a continuous screen recording",
+  "voice": "Microsoft Zira Desktop",
+  "scenes": [
+    {
+      "title": "A price dispute needs its sources",
+      "label": "THE PROBLEM",
+      "source": "../cover.png",
+      "facts": ["Accounts payable and procurement", "Invoice + dated contract evidence", "A case another reviewer can reproduce"],
+      "narration": "An invoice says one price. A contract says another. Which agreement applied, and can a second reviewer reproduce the decision? Prooflane gives accounts payable and procurement teams a review record that connects the price difference to its sources. This edited walkthrough uses fictional data and real browser captures."
+    },
+    {
+      "title": "Every source row stays accounted for",
+      "label": "SOURCE COVERAGE",
+      "source": "frames/02-sources.jpg",
+      "crop": [18, 435, 680, 893],
+      "facts": ["8 supplied invoice rows", "7 included, 1 explicitly excluded", "$250 excluded billed amount is not savings"],
+      "narration": "The case starts with invoice and contract CSVs. Prooflane matches the supplier, item, and effective date. Seven of eight invoices enter this calculation. One has no active supplied contract and is excluded with a reason. Its billed amount remains visible; exclusion never turns it into estimated savings."
+    },
+    {
+      "title": "The reviewer chooses the contract",
+      "label": "EXPLICIT SOURCE DECISIONS",
+      "source": "frames/03-contract-choice.jpg",
+      "crop": [18, 78, 680, 820],
+      "facts": ["INV504 has two eligible versions", "C2 gives $40; C2R gives $32", "The selected source is preserved"],
+      "narration": "Invoice five hundred and four has two overlapping contract versions. The interface shows the consequence of each eligible price: forty dollars or thirty two dollars. The reviewer explicitly selected C two R. That decision remains attached to the frozen baseline, instead of disappearing into a spreadsheet formula."
+    },
+    {
+      "title": "A real AI result, independently checked",
+      "label": "SAVED AI RUN · 9 NOVEMBER 2026",
+      "source": "frames/01-ai-ledger.jpg",
+      "crop": [18, 436, 680, 832],
+      "facts": ["Vultr agent mode", "$768 positive price variance", "5 flagged rows out of 7 included"],
+      "narration": "This is the saved successful AI run from November ninth, not a new model call during this recording. Vultr Serverless Inference generated Python, and a disposable Docker container executed it. An independent Decimal verifier checked every finding. The result is seven hundred and sixty eight dollars of positive price variance, not recovered cash."
+    },
+    {
+      "title": "The execution has a visible record",
+      "label": "SAVED AI RUN · REQUEST IDENTITIES",
+      "source": "frames/05-proof-full.jpg",
+      "crop": [18, 1970, 680, 2760],
+      "facts": ["DeepSeek V4.1 Flash on Vultr", "Generation and explanation request IDs", "Verified amounts filled in by the server"],
+      "narration": "The proof chapter exposes the actual returned model and both Vultr request identifiers. After verification, the model selected the focus of the review guidance. The server inserted the checked amounts. Generated code runs with no network, no host mounts, no injected credentials, and strict resource limits. Docker unavailability causes refusal."
+    },
+    {
+      "title": "Know when the priority changes",
+      "label": "EXACT WHAT-IF ARITHMETIC",
+      "source": "frames/04-assumptions-full.jpg",
+      "crop": [18, 775, 680, 1335],
+      "facts": ["One C1 price links three invoices", "$82.59: INV501 stays first", "$82.60: tie; $82.61: INV503 leads"],
+      "narration": "Prooflane also calculates when a review priority would change. One shared contract price affects three invoices together. At eighty two dollars and fifty nine cents, invoice five hundred and one remains first. One cent higher produces a tie; the next cent changes the leader. These are explicit arithmetic assumptions, not AI predictions."
+    },
+    {
+      "title": "Containment is observed on the VM",
+      "label": "FRESH BROWSER CHECK · 9 NOVEMBER 2026",
+      "source": "frames/06-containment-full.jpg",
+      "crop": [18, 3265, 680, 3790],
+      "facts": ["Network access and root writes denied", "No inference credential; non-root UID", "Container removal confirmed"],
+      "narration": "Here is the containment moment. These fixed probes were freshly run from the public site on the existing Vultr virtual machine. Network access failed, a root filesystem write was denied, the inference credential variable was absent, the effective user was non root, and container removal was confirmed. Five observed checks passed."
+    },
+    {
+      "title": "The evidence survives the session",
+      "label": "FRESH PACKET RECONSTRUCTION",
+      "source": "frames/07-packet-verified.jpg",
+      "crop": [18, 245, 680, 794],
+      "facts": ["Original downloaded AI packet", "7 verification groups passed again", "CLI verification works without our server"],
+      "narration": "A reviewer can download the source linked JSON packet and check it again. The original AI packet passed all seven verification groups in the browser and in the offline command line verifier. These checks reconstruct source choices, arithmetic, hashes, and priority boundaries. They do not authenticate the supplier or prove that a supplied contract is true."
+    },
+    {
+      "title": "A focused workflow with a clear next test",
+      "label": "BUSINESS VALUE AND LIMITS",
+      "source": "frames/09-business-slide.png",
+      "facts": ["CSV exports from existing AP workflows", "No claimed customers or recovered savings", "Next: measure second-reviewer reproducibility"],
+      "narration": "The initial audience is accounts payable teams that already export invoice and contract tables. A team subscription for recurring exception reviews is a business hypothesis. We have not measured customer savings or adoption. Our next validation compares how quickly a second reviewer can reproduce the same dispute with a spreadsheet and with a Prooflane packet."
+    },
+    {
+      "title": "Try Prooflane. Inspect the evidence.",
+      "label": "VULTR AGENT RUSH · BLAST RADIUS ZERO",
+      "source": null,
+      "facts": ["Demo: https://45.76.92.198/", "GitHub: NuraliKuzhagaliev/Prooflane", "Online team · four members"],
+      "narration": "Try the public demo, inspect the open source repository, and verify the included fictional case yourself. Prooflane connects source decisions, contained AI execution, and portable arithmetic evidence. Our four person team participated online. The prototype is available now on Vultr."
+    }
+  ]
+}

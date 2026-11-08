@@ -1,0 +1,23 @@
+{
+  "counts": {
+    "title": 9,
+    "short_description": 187,
+    "long_description": 1755
+  },
+  "limits": {
+    "title": [
+      5,
+      50
+    ],
+    "short_description": [
+      50,
+      255
+    ],
+    "long_description": [
+      600,
+      2000
+    ]
+  },
+  "passed": true,
+  "scope": "Published standard limits; authenticated event form not yet inspected"
+}

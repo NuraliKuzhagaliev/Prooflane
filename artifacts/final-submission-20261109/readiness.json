@@ -1,0 +1,43 @@
+{
+  "technical_package": "PASS",
+  "formal_submission": "NOT_RUN",
+  "decision": "not_ready_to_claim_all_submission_gates_closed",
+  "participation": "online",
+  "team_size": 4,
+  "video_duration_seconds": 237.471,
+  "video_bytes": 4612381,
+  "video_sha256": "4c69239cc5517cb44b7d8ec38b8dee10d3075a96d44da2da64341fca3b2255d8",
+  "video_format": "Edited walkthrough assembled from real browser captures; not a continuous screen recording",
+  "video_decode": "PASS",
+  "pdf_pages": 6,
+  "cover_dimensions": [
+    1600,
+    900
+  ],
+  "field_counts": {
+    "title": 9,
+    "short_description": 187,
+    "long_description": 1755
+  },
+  "python_tests": 179,
+  "javascript_tests": 26,
+  "public_http_checks": 23,
+  "fresh_browser_containment_checks": 5,
+  "packet_check_groups": 7,
+  "new_model_calls": 0,
+  "tested_application_base_commit": "6cbcedfc9b0d5479194ed91b6a2261c5e2809a25",
+  "application_matches_published_base": true,
+  "application_files": 51,
+  "application_tree_sha256": "e07bd416c4dbd1031a26ee07afafb0ee4bccdc48302ba4be91c37190b6172423",
+  "open_gates": [
+    "Authenticated event form and category mapping",
+    "Personal participation attestations",
+    "Upload and Submit confirmation"
+  ],
+  "known_ui_note": "Paste helper label remains not verified after successful result; final result panel correctly shows PASS",
+  "limitations": [
+    "Edited still-frame walkthrough, not continuous screen recording",
+    "AI run is saved evidence from local Nov9; no new model calls",
+    "PDF rendered and structurally checked; native PowerPoint not exercised"
+  ]
+}

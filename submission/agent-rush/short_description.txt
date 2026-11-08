@@ -1,0 +1,1 @@
+Trace invoice price disputes to dated contracts. Run AI-generated analysis in isolated Vultr containers, challenge shared assumptions, and hand reviewers an independently verifiable case.
