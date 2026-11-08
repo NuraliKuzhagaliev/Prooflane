@@ -2,8 +2,8 @@
   "files": [
     {
       "path": "README.md",
-      "bytes": 2542,
-      "sha256": "ae4d9820788e82517820503a6731cd392483073504e1060b617552220b3f96b1"
+      "bytes": 2558,
+      "sha256": "df1d5b8c23b6e608c355c052a62a497c29c5ecc9a46d93a235259789d47abba9"
     },
     {
       "path": "title.txt",
@@ -32,18 +32,18 @@
     },
     {
       "path": "prooflane-deck.pdf",
-      "bytes": 482476,
-      "sha256": "1b6caf0b2751ecba8ccb3f1b814520ef7e0128d110899787bcf48e8d35b3116a"
+      "bytes": 690128,
+      "sha256": "f24d7d627ffd4e79e029f2a17e30e4f1dc65fdce9e047215d6c5ddd70d3d3351"
     },
     {
       "path": "prooflane-deck.pptx",
-      "bytes": 147671,
-      "sha256": "19b18bf39564b7b663ba8840aaa91b01f751255b9ce8fc33859812ec4d27ae88"
+      "bytes": 3847621,
+      "sha256": "d7ced17f6f2b0b61306a1ce3ca9660b9701bf1c4fd65a1145595786230614270"
     },
     {
       "path": "cover.png",
-      "bytes": 164938,
-      "sha256": "aff5c26aefea8e314917ed3c436fb069345e82db177d8748c5b2534b0e782cd4"
+      "bytes": 1577169,
+      "sha256": "e718ec4fd284a948d2bc0f6a9b52ec448559c3842e0345b08c6b30086b2dd71d"
     },
     {
       "path": "video-v2/audio/01-intro.mp3",

@@ -1,0 +1,22 @@
+{
+  "desktop": {
+    "label": "Prooflane home",
+    "logoHeight": 62.625,
+    "logoHref": "/static/brand/prooflane-logo.webp",
+    "logoWidth": 230,
+    "scrollWidth": 1425,
+    "svgHidden": "true",
+    "width": 1440
+  },
+  "mobile": {
+    "width": 390,
+    "scrollWidth": 375,
+    "logoWidth": 168,
+    "logoHeight": 45.75,
+    "accessibleName": "Prooflane home"
+  },
+  "referenceCase": "e5392d04-945f-4e9d-8d06-4f10a564c252",
+  "referenceRun": "71a59f51-412",
+  "observedVariance": "768.00",
+  "scope": "Reference example only; no new AI call in brand verification"
+}

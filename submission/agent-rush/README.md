@@ -16,7 +16,7 @@ The captured deadline is9 November 2026,04:00 Kazakhstan time (UTC+5). [Event](h
 | Video plan / script | [Shot plan](video-v2/PLAN.md), [narration](video-v2/narration.en.txt) |
 | English captions | [SRT](video-v2/prooflane-live-demo.en.srt); also burned into the MP4 |
 | Slides | [Six-page PDF](prooflane-deck.pdf), [editable PPTX](prooflane-deck.pptx) |
-| Cover | [PNG1600×900](cover.png) |
+| Cover | [Team-supplied PNG, 1672×941](cover.png) |
 | Demo platform | Vultr Cloud Compute |
 | Demo URL | [Public application](https://45.76.92.198/) |
 | Public source | [GitHub](https://github.com/NuraliKuzhagaliev/Prooflane) |

@@ -1,0 +1,58 @@
+{
+  "passed": true,
+  "assets": {
+    "web/index.html": {
+      "sha256": "3b872b0a5f5d0f24d7c102f19a8a1744379e118f35730323da85e7b56c681382",
+      "bytes": 44726
+    },
+    "web/workbench.css": {
+      "sha256": "433fea05f1bf8572de0a9ff7785f38873dd68f831baea280d9e21b5d3db74783",
+      "bytes": 55250
+    },
+    "web/brand/prooflane-logo.webp": {
+      "sha256": "f65ceb336645e29b01ed0bb4569ab10a97cd124b76e06719800275d0ae544c93",
+      "bytes": 385564
+    },
+    "docs/brand/prooflane-logo-original.png": {
+      "sha256": "9049c075c1c2c856b3c5b42e5024f288149497eaf4ca5bb39eb1f930e6fe09d8",
+      "bytes": 616383
+    },
+    "docs/images/prooflane-cover.png": {
+      "sha256": "e718ec4fd284a948d2bc0f6a9b52ec448559c3842e0345b08c6b30086b2dd71d",
+      "bytes": 1577169
+    },
+    "submission/agent-rush/prooflane-deck.pptx": {
+      "sha256": "d7ced17f6f2b0b61306a1ce3ca9660b9701bf1c4fd65a1145595786230614270",
+      "bytes": 3847621
+    },
+    "submission/agent-rush/prooflane-deck.pdf": {
+      "sha256": "f24d7d627ffd4e79e029f2a17e30e4f1dc65fdce9e047215d6c5ddd70d3d3351",
+      "bytes": 690128
+    },
+    "submission/agent-rush/cover.png": {
+      "sha256": "e718ec4fd284a948d2bc0f6a9b52ec448559c3842e0345b08c6b30086b2dd71d",
+      "bytes": 1577169
+    }
+  },
+  "lossless_logo_pixel_match": true,
+  "cover_exact_match": true,
+  "pdf_pages": 6,
+  "slides_visually_inspected": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6
+  ],
+  "native_powerpoint_rendering": "NOT_RUN",
+  "javascript_tests": {
+    "command": "node --test tests/*.mjs",
+    "passed": 26,
+    "failed": 0
+  },
+  "bootstrap_verify": "STRUCTURAL_ONLY_PASS",
+  "backend_tests_this_brand_revision": "NOT_RUN; no backend logic changed",
+  "deployment": "Existing VM, three static files only; service active, HTTPS health Docker available and inference configured/enabled",
+  "browser": "Actual public Reference example; desktop 1440x960 and mobile 390x844. No new model call."
+}

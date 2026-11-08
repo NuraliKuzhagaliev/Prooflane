@@ -253,3 +253,9 @@ body{background:var(--folio-paper);color:var(--folio-ink);font-family:'Segoe UI'
   .wb-recovery { display:block; }
   .wb-recovery .wb-button { width:100%; margin-top:14px; }
 }
+
+/* Team-supplied logo: crop only the original image whitespace in the SVG viewport. */
+.prooflane-logo{display:block;width:230px;height:auto;aspect-ratio:1120/305;max-width:100%;mix-blend-mode:darken;filter:brightness(1.06);pointer-events:none}
+.folio-wordmark{gap:0;flex-shrink:0;min-height:44px}
+@media(max-width:700px){.folio-wordmark .prooflane-logo{width:195px}.folio-masthead{row-gap:12px}}
+@media(max-width:420px){.folio-wordmark .prooflane-logo{width:168px}.folio-utilities{margin-left:0;width:100%;justify-content:flex-end}}

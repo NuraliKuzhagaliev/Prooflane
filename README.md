@@ -6,9 +6,9 @@ A review workspace for accounts payable and procurement teams investigating diff
 
 [Live application](https://45.76.92.198/) · [Watch demo — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Demo and submission files](submission/agent-rush/README.md)
 
-![The public Vultr application: verified invoice ledger and source inspector, using fictional data](docs/images/ledger.jpg)
+![Prooflane brand cover: invoice reconciliation with evidence, assumptions and proof](docs/images/prooflane-cover.png)
 
-*Captured from the deployed application. The execution mode, scope and independent verification are visible. Open the image for full resolution; these are fictional invoices, not customer data.*
+*Team-supplied brand illustration. The interface, counts and percentages in the cover are illustrative. Actual product behavior and verified fictional results are documented below.*
 
 ## Try the workflow
 
@@ -35,6 +35,10 @@ For example, C1 at USD 80 changes three invoices and gives USD 368 positive vari
 *One shared contract price changes which invoice is first to review. These are deterministic witnesses, not a forecast.*
 
 ## How Vultr powers the product
+
+![Actual deployed application with the verified USD768 invoice ledger](docs/images/ledger.jpg)
+
+*Native screenshot of the deployed application using fictional data; the mode and scope remain visible.*
 
 A dedicated **Vultr Cloud Compute VM in Frankfurt** runs FastAPI, SQLite and Docker. Caddy terminates public HTTPS; Uvicorn listens on loopback. This VM is the control layer, not just static hosting.
 

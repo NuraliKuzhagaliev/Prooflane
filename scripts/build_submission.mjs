@@ -20,7 +20,7 @@ const { Presentation, PresentationFile, FileBlob } = await importRuntimeModule('
 const { finalizePresentation, resolvePresentationFont } = await import(pathToFileURL(path.join(skill, 'container_tools/artifact_tool_utils.mjs')).href);
 const bodyFont = resolvePresentationFont({ fontFamily: 'Segoe UI' });
 const titleFont = resolvePresentationFont({ fontFamily: 'Georgia' });
-const C = { paper:'#EDF2F3',white:'#FAFCFC',ink:'#162633',navy:'#173238',olive:'#346C68',teal:'#215B58',soft:'#DBEBE9',muted:'#465B65',line:'#BDCDD1',orange:'#9D4A29' };
+const C = { paper:'#FBFAF7',white:'#FAFCFC',ink:'#162633',navy:'#173238',olive:'#346C68',teal:'#215B58',soft:'#DBEBE9',muted:'#465B65',line:'#BDCDD1',orange:'#9D4A29' };
 await fs.mkdir(build, { recursive: true });
 await fs.mkdir(path.join(out,'.validated'), { recursive: true });
 const nativeLink=fs.link.bind(fs);
@@ -33,6 +33,11 @@ fs.link=async(source,destination)=>{
  }
 };
 const deck = Presentation.create({slideSize:{width:1600,height:900}});
+const logoBytes = await fs.readFile(path.join(project,'docs/brand/prooflane-logo-original.png'));
+function brand(slide,number){
+ const width=number===1?460:260;
+ slide.images.add({blob:logoBytes.buffer.slice(logoBytes.byteOffset,logoBytes.byteOffset+logoBytes.byteLength),contentType:'image/png',alt:'Prooflane team logo',fit:'cover',crop:{left:75/1248,top:265/726,right:53/1248,bottom:156/726},position:{left:76,top:number===1?30:24,width,height:width*305/1120}});
+}
 const evidence=path.join(project,'artifacts/vultr-release');
 const packetPath=path.join(evidence,'sandbox-multi-range-case.json');
 const packet=JSON.parse(await fs.readFile(packetPath,'utf8'));
@@ -53,22 +58,22 @@ function txt(slide,value,x,y,w,h,size=28,color=C.ink,bold=false,font=bodyFont){
   return s;
 }
 function line(slide,x,y,w,color=C.line){return slide.shapes.add({geometry:'line',position:{left:x,top:y,width:w,height:0},line:{fill:color,width:1.2}});}
-function base(title,number,dark=false){const s=deck.slides.add();s.background.fill=dark?C.navy:C.paper;txt(s,'Prooflane',76,40,300,45,28,dark?C.soft:C.teal,true);txt(s,String(number).padStart(2,'0'),1465,44,60,35,18,dark?'#B5C5AC':C.muted);if(title)txt(s,title,76,130,1440,90,52,dark?C.white:C.ink,false,titleFont);line(s,76,823,1448,dark?'#40584B':C.line);txt(s,'VULTR AGENT RUSH   ·   BLAST RADIUS ZERO   ·   NOVEMBER 2026',76,843,1100,26,15,dark?'#B5C5AC':C.muted);return s;}
+function base(title,number,dark=false){const s=deck.slides.add();s.background.fill=dark?C.navy:C.paper;brand(s,number);txt(s,String(number).padStart(2,'0'),1465,44,60,35,18,dark?'#B5C5AC':C.muted);if(title)txt(s,title,76,130,1440,90,52,dark?C.white:C.ink,false,titleFont);line(s,76,823,1448,dark?'#40584B':C.line);txt(s,'VULTR AGENT RUSH   ·   BLAST RADIUS ZERO   ·   NOVEMBER 2026',76,843,1100,26,15,dark?'#B5C5AC':C.muted);return s;}
 async function img(slide,file,x,y,w,h){const b=await fs.readFile(file);slide.images.add({blob:b.buffer.slice(b.byteOffset,b.byteOffset+b.byteLength),contentType:file.endsWith('.png')?'image/png':'image/jpeg',alt:'Actual Prooflane screenshot from the public Vultr deployment',fit:'contain',position:{left:x,top:y,width:w,height:h}});}
 function table(slide,values,x,y,w,h,widths){const t=slide.tables.add({rows:values.length,columns:values[0].length,left:x,top:y,width:w,height:h,columnWidths:widths,values});t.borders.assign({fill:C.line,width:1,style:'solid'});for(let r=0;r<values.length;r++){t.rows[r].height=h/values.length;for(let c=0;c<values[0].length;c++){const cell=t.getCell(r,c);cell.fill=r===0?C.navy:r===values.length-1&&values[r][0]==='Total'?C.soft:C.white;cell.text.style={typeface:bodyFont,fontSize:r===0?22:25,color:r===0?C.white:C.ink,bold:r===0||values[r][0]==='Total'};}}return t;}
 function diagramBox(slide,title,subtitle,x,y,w,h){const b=slide.shapes.add({geometry:'rect',name:`architecture-${++serial}`,position:{left:x,top:y,width:w,height:h},fill:C.white,line:{fill:C.line,width:1.5}});txt(slide,title,x+22,y+24,w-44,38,26,C.teal,true);txt(slide,subtitle,x+22,y+75,w-44,h-88,22,C.muted);return b;}
 function arrow(slide,x,y,w){slide.shapes.add({geometry:'rightArrow',position:{left:x,top:y,width:w,height:21},fill:C.olive,line:{fill:'none',width:0}});}
-const shot=path.join(project,'artifacts/vultr-prooflane-ledger.jpg');
+const shot=path.join(project,'docs/images/ledger.jpg');
 const containmentShot=path.join(evidence,'containment.jpg');
 
 // The six slides follow one fictional case and use the deployed build's evidence.
 {
  const s=base('',1);
- txt(s,'Which contract price\nsupports this invoice?',76,176,700,194,60,C.ink,false,titleFont);
- txt(s,'Prooflane gives accounts payable reviewers a way to trace a price dispute and hand it over with the evidence intact.',80,420,600,172,32,C.muted);
+ txt(s,'Which contract price\nsupports this invoice?',76,225,640,160,54,C.ink,false,titleFont);
+ txt(s,'Prooflane gives accounts payable reviewers a way to trace a price dispute and hand it over with the evidence intact.',80,451,600,172,32,C.muted);
  txt(s,'Live demo  ·  https://45.76.92.198/',80,680,620,46,24,C.teal,true);
  await img(s,shot,715,174,809,550);
- s.speakerNotes.text='The screenshot shows the public HTTPS application on the Vultr VM with the fictional case and a fixed Docker recipe. Source: artifacts/vultr-prooflane-ledger.jpg and TESTING.md.';
+ s.speakerNotes.text='Actual public Vultr Inference/Docker run with fictional data. Screenshot: docs/images/ledger.jpg. Reproducible evidence: artifacts/live-demo-v2/live-case-packet.json. The team-supplied logo is branding, not runtime evidence.';
 }
 {
  const s=base('The review records which invoices count',2);
@@ -134,8 +139,7 @@ for(const [index,slide] of finalDeck.slides.items.entries()){
  const png=await finalDeck.export({slide,format:'png',scale:1});
  await fs.writeFile(path.join(build,`slide-${index+1}.png`),new Uint8Array(await png.arrayBuffer()));
 }
-const cover=await finalDeck.export({slide:finalDeck.slides.items[0],format:'png',scale:1});
-await fs.writeFile(path.join(out,'cover.png'),new Uint8Array(await cover.arrayBuffer()));
+await fs.copyFile(path.join(project,'docs/images/prooflane-cover.png'),path.join(out,'cover.png'));
 try {
  const pdf=await finalDeck.export({format:'pdf'});
  await fs.writeFile(path.join(out,'prooflane-deck.pdf'),new Uint8Array(await pdf.arrayBuffer()));

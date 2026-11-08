@@ -1,6 +1,6 @@
 # Submission build notes
 
-The final Agent Rush files are under [agent-rush](agent-rush/README.md). The editable deck and PDF were built with `scripts/build_submission.mjs` and `scripts/build_submission_pdf.py`; the six-page PDF and1600×900 cover were rendered/inspected in the earlier final preparation. They were retained for the video refresh.
+The final Agent Rush files are under [agent-rush](agent-rush/README.md). After the video refresh, the existing editable deck was imported into an Artifact Session and updated with the team-supplied logo on all six slides. The exported PPTX passed structural package/layout validation; all six rendered slides were visually inspected. `scripts/build_submission_pdf.py` assembled the updated renders into the six-page PDF. The unchanged team-supplied 1672×941 cover replaces the earlier slide-derived cover. Native PowerPoint rendering was not tested. `scripts/build_submission.mjs` now preserves these brand assets on a future rebuild.
 
 The current movie is built by `scripts/build_live_demo.py` from timestamped native browser recordings in the ignored project cache and eight downloaded ElevenLabs MP3 chapters. It is an actual-site recording, unlike the previous still-frame walkthrough. The plan, script, captions, rights and edit manifest are public alongside the MP4. Raw capture frames are local cache and are not needed to run the application.
 

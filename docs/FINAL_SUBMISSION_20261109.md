@@ -16,7 +16,7 @@ Checked the [event](https://lablab.build/ai-hackathons/vultr-hackathon), [standa
 | Executed and independently verified result | New packet accepted by browser and offline CLI, seven groups. [Verdict](../artifacts/live-demo-v2/packet-verification.json). |
 | Public repository, setup and architecture | English current documentation and source on [GitHub](https://github.com/NuraliKuzhagaliev/Prooflane). Final commit/access checks are in [publication record](GITHUB_PUBLICATION_20261109.md). |
 | Video / containment moment | New H.264/AAC MP4,1920×1080,about 3:30,under 10 MB, English ElevenLabs speech and captions. Real actions/new AI/probes/recheck; no generated scenes. [Edit manifest](../submission/agent-rush/video-v2/edit-manifest.json). |
-| PDF / cover / copy | Six-page PDF,1600×900 PNG; title9, short187,long1755 characters. Actual form takes priority. [Files](../submission/agent-rush/README.md). |
+| PDF / cover / copy | Six-page PDF with the team logo, team-supplied 1672×941 PNG; title9, short187,long1755 characters. Actual form takes priority. [Files](../submission/agent-rush/README.md). |
 | Team and format | Four user-confirmed participants, online. Team name/roles are not invented. [Fields](../submission/agent-rush/submission.json). |
 | Licensing | MIT code, retained font licenses, fictional data, separately attributed ElevenLabs Free-plan audio. Free audio has noncommercial terms; commercial licensing and organizer acceptance of any asset remain separate questions. |
 | Form-specific categories/attestations | NOT_RUN. Candidate tags require mapping to actual options; participant must confirm personal statements. |
@@ -43,7 +43,7 @@ The frontend now updates a pasted packet's helper label to the actual verdict. I
 
 The MP4 fully decoded without errors; actual frames from each chapter were inspected. Mean audio level was −17.3 dB and maximum −1.4 dB. These are technical measurements, not a listening-panel claim. The native screen stream is approximately11fps, encoded as30fps with repeated frames, without motion interpolation. Captions match the script with approximate cue timing. The slow native file-selection interval was omitted; chapter2 starts with the actual selected CSV filenames, then shows reconciliation. [Production detail](../submission/agent-rush/video-v2/PRODUCTION.md).
 
-PDF and cover were retained from the previous verified preparation; their production did not recur in this video-only revision. Historical test logs and original document versions remain versioned; English historical summaries are editorial summaries, not newly performed independent reviews.
+The later brand update adds the team logo to all six slides, regenerates the PDF and replaces the cover with the unchanged team-supplied image. The cover is a brand illustration, not evidence of the depicted features or metrics. Historical test logs and original document versions remain versioned; English historical summaries are editorial summaries, not newly performed independent reviews.
 
 ## Remaining limitations
 
