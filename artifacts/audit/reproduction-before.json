@@ -1,0 +1,17 @@
+{
+  "cleanup_failure_not_latched": {
+    "first_status": "failed",
+    "second_status": "verified",
+    "sandbox_calls": 2
+  },
+  "invalid_unicode_csv": {
+    "http_status": 500
+  },
+  "unicode_operator_token": {
+    "http_status": 500
+  },
+  "expired_retention": {
+    "api_visible": false,
+    "database_rows": 1
+  }
+}

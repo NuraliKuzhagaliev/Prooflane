@@ -1,0 +1,2 @@
+invoice_id,vendor,item_id,invoice_date,quantity,unit_price,notes
+EXAMPLE-001,Example supplier,ITEM-001,2026-11-01,10,12.50,Fictional starter row

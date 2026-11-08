@@ -1,0 +1,17 @@
+{
+  "scope": "Synthetic fixed-schema USD invoice comparisons; manual expected values; no live-model evaluation",
+  "cases": [
+    {"id":"no-variance", "expected_status":200, "expected":{"row_count":3,"total_billed":"42.50","total_variance":"0.00","findings":[]}},
+    {"id":"decimal-prices", "expected_status":200, "expected":{"row_count":2,"total_billed":"1.10","total_variance":"0.60","findings":[{"row":2,"variance":"0.60"}]}},
+    {"id":"duplicate-ids", "expected_status":200, "expected":{"row_count":3,"total_billed":"31.00","total_variance":"4.00","findings":[{"row":2,"variance":"2.00"},{"row":3,"variance":"2.00"}]}},
+    {"id":"quoted-multiline", "expected_status":200, "expected":{"row_count":2,"total_billed":"30.68","total_variance":"7.68","findings":[{"row":2,"variance":"4.68"},{"row":3,"variance":"3.00"}]}},
+    {"id":"untrusted-text", "expected_status":200, "expected":{"row_count":2,"total_billed":"21.50","total_variance":"1.00","findings":[{"row":2,"variance":"1.00"}]}},
+    {"id":"bom-whitespace", "expected_status":200, "expected":{"row_count":2,"total_billed":"8.00","total_variance":"2.00","findings":[{"row":2,"variance":"1.00"},{"row":3,"variance":"1.00"}]}},
+    {"id":"large-amount", "expected_status":200, "expected":{"row_count":1,"total_billed":"99999899990000.01","total_variance":"9999.99","findings":[{"row":2,"variance":"9999.99"}]}},
+    {"id":"positive-only", "expected_status":200, "expected":{"row_count":4,"total_billed":"24.00","total_variance":"10.00","findings":[{"row":2,"variance":"5.00"},{"row":3,"variance":"4.00"},{"row":4,"variance":"1.00"}]}},
+    {"id":"invalid-negative-price", "expected_status":422, "error_contains":"nonnegative USD"},
+    {"id":"invalid-fractional-quantity", "expected_status":422, "error_contains":"quantity must be an integer"},
+    {"id":"invalid-extra-column", "expected_status":422, "error_contains":"unexpected number of columns"},
+    {"id":"invalid-price-precision", "expected_status":422, "error_contains":"at most 2 decimals"}
+  ]
+}

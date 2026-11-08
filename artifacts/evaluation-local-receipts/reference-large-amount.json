@@ -1,0 +1,88 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "3b719698-21c4-430e-8c6b-272cb11bb174",
+  "created_at": "2026-11-03T17:35:42.666091+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nMAX-1,North,999999,99999999.99,99999999.98,Upper supported input bounds; synthetic stress case\n",
+  "code": "def summarize(rows):\n    billed, variance = Decimal(\"0\"), Decimal(\"0\")\n    vendors = defaultdict(lambda: Decimal(\"0\"))\n    findings = []\n    for row in rows:\n        quantity = int(row[\"quantity\"])\n        price, contract = Decimal(row[\"unit_price\"]), Decimal(row[\"contract_price\"])\n        billed += price * quantity\n        difference = max(price - contract, Decimal(\"0\")) * quantity\n        if difference:\n            variance += difference\n            vendors[row[\"vendor\"]] += difference\n            findings.append({**row, \"quantity\": quantity, \"unit_price\": f\"{price:.2f}\",\n                             \"contract_price\": f\"{contract:.2f}\", \"variance\": f\"{difference:.2f}\"})\n    return {\"row_count\": len(rows), \"total_billed\": f\"{billed:.2f}\", \"total_variance\": f\"{variance:.2f}\",\n            \"flagged_count\": len(findings), \"findings\": findings,\n            \"vendors\": [{\"vendor\": name, \"variance\": f\"{value:.2f}\"} for name, value in\n                        sorted(vendors.items(), key=lambda item: (-item[1], item[0]))]}\n",
+  "output": {
+    "row_count": 1,
+    "total_billed": "99999899990000.01",
+    "total_variance": "9999.99",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "9999.99"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 1,
+    "total_billed": "99999899990000.01",
+    "total_variance": "9999.99",
+    "flagged_count": 1,
+    "findings": [
+      {
+        "invoice_id": "MAX-1",
+        "vendor": "North",
+        "quantity": 999999,
+        "unit_price": "99999999.99",
+        "contract_price": "99999999.98",
+        "notes": "Upper supported input bounds; synthetic stress case",
+        "row": 2,
+        "variance": "9999.99"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "North",
+        "variance": "9999.99"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Reference calculation",
+        "passed": true,
+        "detail": "Fixed Decimal arithmetic; this mode is the baseline, not an independently verified agent run."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "1 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Calculate",
+      "status": "passed",
+      "detail": "Trusted reference arithmetic. No model call or sandbox execution."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "runtime": "trusted-reference",
+    "elapsed_ms": 0.4
+  },
+  "attempts": [],
+  "provenance": {
+    "mode": "reference",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "b045cb5c1bae0cccd978d48e353f7678e0088a84b4482b5fb2287f5187854156",
+    "code_sha256": "431e91da6123803e2b0e5af1a372f3ef5f0f5bad44829d34db16c43bf722f0ad",
+    "output_sha256": "995f38c363dbe4add949c9792aa7862171a0504fd39fe1f5c6b76b345d022055"
+  },
+  "receipt_sha256": "52b5f0e72ca91063f73ed070f06ee6cd927c172a626966bb7c5ac47932c16fd7"
+}

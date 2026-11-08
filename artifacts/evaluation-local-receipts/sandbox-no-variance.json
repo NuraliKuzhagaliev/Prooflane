@@ -1,0 +1,214 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "60aaefae-bc8f-4c52-b492-3eb370d2db18",
+  "created_at": "2026-11-03T17:35:42.711489+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nZERO-1,North,2,10.00,10.00,Equal prices\nZERO-2,South,3,7.50,8.00,Below contract\nZERO-3,West,1,0,0,Free item\n",
+  "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+  "output": {
+    "row_count": 3,
+    "total_billed": "42.50",
+    "total_variance": "0.00",
+    "findings": []
+  },
+  "summary": {
+    "row_count": 3,
+    "total_billed": "42.50",
+    "total_variance": "0.00",
+    "flagged_count": 0,
+    "findings": [],
+    "vendors": []
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Output schema",
+        "passed": true,
+        "detail": "Only the four documented output fields are accepted."
+      },
+      {
+        "name": "Record coverage",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Billed total",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Positive variance",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Every source record",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "3 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Plan",
+      "status": "passed",
+      "detail": "Reviewed fixed recipe. No AI model call."
+    },
+    {
+      "stage": "Execute",
+      "status": "passed",
+      "detail": "Disposable Docker execution; exit=0; cleanup=True."
+    },
+    {
+      "stage": "Verify",
+      "status": "passed",
+      "detail": "Independent verifier checked totals and every finding."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "stdout": "{\"row_count\": 3, \"total_billed\": \"42.50\", \"total_variance\": \"0.00\", \"findings\": []}\n",
+    "stderr": "",
+    "exit_code": 0,
+    "container_id": "ddad1f47d8082ad257d82f613a1a4a2485a182dead60bfa26ae89ac64a86888e",
+    "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+    "cleanup": true,
+    "runtime": "docker",
+    "limits": {
+      "network": "none",
+      "memory_mb": 128,
+      "cpu": 0.5,
+      "pids": 32,
+      "tmpfs_mb": 16,
+      "read_only_root": true,
+      "user": "65534:65534",
+      "capabilities": "none",
+      "no_new_privileges": true,
+      "host_mounts": false,
+      "timeout_seconds": 10,
+      "stdout_bytes": 131072,
+      "stderr_bytes": 32768
+    },
+    "observed_controls": {
+      "network": "none",
+      "read_only_root": true,
+      "user": "65534:65534",
+      "memory_bytes": 134217728,
+      "memory_swap_bytes": 134217728,
+      "nano_cpus": 500000000,
+      "pids": 32,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_options": [
+        "no-new-privileges=true"
+      ],
+      "host_mount_count": 0
+    },
+    "oom_killed": false,
+    "elapsed_ms": 1440.27
+  },
+  "attempts": [
+    {
+      "index": 1,
+      "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+      "execution": {
+        "stdout": "{\"row_count\": 3, \"total_billed\": \"42.50\", \"total_variance\": \"0.00\", \"findings\": []}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "ddad1f47d8082ad257d82f613a1a4a2485a182dead60bfa26ae89ac64a86888e",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1440.27
+      },
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Output schema",
+            "passed": true,
+            "detail": "Only the four documented output fields are accepted."
+          },
+          {
+            "name": "Record coverage",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Billed total",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Positive variance",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Every source record",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          }
+        ]
+      },
+      "model": null,
+      "usage": {}
+    }
+  ],
+  "provenance": {
+    "mode": "sandbox",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "c3a38bc2ae2b8b063089d83c52b6d098bdef07748d0a1c8cd168aa06991015fc",
+    "code_sha256": "484887fd422783e3595b60e24cf954a41c8f41203b68da3c4bd05c37954bf920",
+    "output_sha256": "ca3b802da789f0d431816bb344c7a27ccd14e76107f2c5d0ddbdf0945d85a9aa"
+  },
+  "receipt_sha256": "45ee6f77cc7100379edf152d8f48bc4105d93a26601d9a6dfde6530754996b46"
+}

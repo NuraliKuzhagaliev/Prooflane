@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "created_at_utc": "20261103T181629Z",
+  "mode": "audit",
+  "project": "D:\\projects\\vultre",
+  "objective": "Independent engineering review of c2a3662; source read-only, bounded mocked local probes, no provider or cloud access.",
+  "skill": "hub-audit",
+  "status": "FAIL",
+  "stages": [
+    {
+      "id": "scope",
+      "status": "PASS",
+      "evidence": [
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-initial.md",
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-probes.json"
+      ]
+    },
+    {
+      "id": "reproduction",
+      "status": "PASS",
+      "evidence": [
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-initial.md",
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-probes.json"
+      ]
+    },
+    {
+      "id": "findings",
+      "status": "PASS",
+      "evidence": [
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-initial.md",
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-probes.json"
+      ]
+    },
+    {
+      "id": "residual_risk",
+      "status": "PASS",
+      "evidence": [
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-initial.md",
+        "D:\\projects\\vultre\\artifacts\\optimization-review\\engineering-probes.json"
+      ]
+    }
+  ],
+  "scope": "The packet does not authorize deployment, sending messages, purchases, or unrelated edits.",
+  "findings": [
+    "E1 medium clean-timeout retry missing",
+    "E2 medium provider malformed envelope causes unhandled 500"
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "scope": "REAL_PUBLIC_BROWSER_VULTR_AI_TO_DOCKER_AND_DOWNLOADED_PACKET",
+  "case_id": "f73c5d8c-8923-40e2-b070-5123983a5063",
+  "run_id": "93ccc09e-5289-402d-b7b8-41be8c8e958e",
+  "created_at_utc": "2026-11-08T19:14:24.341640+00:00",
+  "model": "deepseek-v4.1-flash-1017",
+  "model_calls": 2,
+  "generation_request_ids": [
+    "chatcmpl-da46cfa5-ca31-4ac1-8e13-9757e978f989"
+  ],
+  "explanation_request_id": "chatcmpl-de6f9e21-11e9-41a9-a13b-0f4ad4b2af72",
+  "generation_usage": {
+    "completion_tokens": 608,
+    "prompt_tokens": 301,
+    "total_tokens": 909
+  },
+  "explanation_usage": {
+    "completion_tokens": 12,
+    "prompt_tokens": 104,
+    "total_tokens": 116
+  },
+  "checks": {
+    "offline_packet": true,
+    "actual_vultr_mode": true,
+    "generated_attempt": true,
+    "generation_id_present": true,
+    "explanation_checked": true,
+    "actual_docker": true,
+    "cleanup_confirmed": true,
+    "independent_verifier": true,
+    "manual_baseline": true,
+    "network_none": true,
+    "no_host_mounts": true,
+    "non_root": true,
+    "read_only_root": true,
+    "token_file_removed": true
+  }
+}

@@ -1,0 +1,4 @@
+﻿invoice_id,vendor,quantity,unit_price,contract_price,notes
+ SPACE-1 , North , 2 , 2.50 , 2.00 , surrounding spaces 
+
+ SPACE-2 , South , 4 , 0.75 , 0.50 , blank physical line above 

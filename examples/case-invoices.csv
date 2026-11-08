@@ -1,0 +1,9 @@
+invoice_id,vendor,item_id,invoice_date,quantity,unit_price,notes
+INV501,Atlas,FILTER,2026-11-01,40,85.00,First shipment against shared contract
+INV502,Atlas,FILTER,2026-11-02,10,82.00,Second shipment against shared contract
+INV503,Nova,SENSOR,2026-11-01,8,120.00,Before overlapping contract version
+INV504,Nova,SENSOR,2026-11-15,4,118.00,Requires explicit contract version selection
+INV505,Meridian,PACK,2026-11-03,100,3.00,Packaging materials
+INV506,Helix,TOOL,2026-11-04,5,50.00,No active supplied contract
+INV507,Meridian,PACK,2026-11-05,40,2.70,Billed below supplied contract price
+INV508,Atlas,FILTER,2026-11-06,15,70.00,Below baseline price but sensitive to lower assumptions

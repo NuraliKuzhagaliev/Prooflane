@@ -1,0 +1,9 @@
+{
+  "scope": "Current local Docker availability, not execution or Vultr evidence",
+  "health": {
+    "available": false,
+    "detail": "A running Linux Docker engine is required."
+  },
+  "sandbox_smoke": "NOT_RUN",
+  "reason": "Frontend task; no sandbox code changed. Existing historical smoke retained."
+}

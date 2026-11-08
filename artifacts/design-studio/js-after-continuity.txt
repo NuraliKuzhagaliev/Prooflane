@@ -1,0 +1,106 @@
+TAP version 13
+# Subtest: preserves cents at the maximum supported input product
+ok 1 - preserves cents at the maximum supported input product
+  ---
+  duration_ms: 1.0027
+  type: 'test'
+  ...
+# Subtest: preserves cents for the aggregate of 500 maximum rows
+ok 2 - preserves cents for the aggregate of 500 maximum rows
+  ---
+  duration_ms: 0.1495
+  type: 'test'
+  ...
+# Subtest: formats ordinary, fractional and zero amounts
+ok 3 - formats ordinary, fractional and zero amounts
+  ---
+  duration_ms: 0.0856
+  type: 'test'
+  ...
+# Subtest: invalid or missing amounts remain unavailable
+ok 4 - invalid or missing amounts remain unavailable
+  ---
+  duration_ms: 0.1754
+  type: 'test'
+  ...
+# Subtest: signed comparison amounts preserve direction and exact cents
+ok 5 - signed comparison amounts preserve direction and exact cents
+  ---
+  duration_ms: 0.2627
+  type: 'test'
+  ...
+# Subtest: zero deltas are neutral and malformed deltas unavailable
+ok 6 - zero deltas are neutral and malformed deltas unavailable
+  ---
+  duration_ms: 0.1304
+  type: 'test'
+  ...
+# Subtest: assumption tool switch exposes one panel and one keyboard tab without changing saved analysis
+ok 7 - assumption tool switch exposes one panel and one keyboard tab without changing saved analysis
+  ---
+  duration_ms: 2.3654
+  type: 'test'
+  ...
+# Subtest: archive cannot interrupt a pending request and captures the opener before native modal focus
+ok 8 - archive cannot interrupt a pending request and captures the opener before native modal focus
+  ---
+  duration_ms: 2.1387
+  type: 'test'
+  ...
+# Subtest: source focus preserves original identity after a preceding exclusion
+ok 9 - source focus preserves original identity after a preceding exclusion
+  ---
+  duration_ms: 1.979
+  type: 'test'
+  ...
+# Subtest: source focus never guesses a calculation row for a missing contract binding
+ok 10 - source focus never guesses a calculation row for a missing contract binding
+  ---
+  duration_ms: 0.1297
+  type: 'test'
+  ...
+# Subtest: reference results cannot claim independent execution verification
+ok 11 - reference results cannot claim independent execution verification
+  ---
+  duration_ms: 0.1193
+  type: 'test'
+  ...
+# Subtest: decimal draft comparisons preserve cents beyond Number precision
+ok 12 - decimal draft comparisons preserve cents beyond Number precision
+  ---
+  duration_ms: 0.1952
+  type: 'test'
+  ...
+# Subtest: drafts reject no-ops, repeated targets, over-capacity and invalid quantities
+ok 13 - drafts reject no-ops, repeated targets, over-capacity and invalid quantities
+  ---
+  duration_ms: 0.3681
+  type: 'test'
+  ...
+# Subtest: ranges must contain the original and obey field precision
+ok 14 - ranges must contain the original and obey field precision
+  ---
+  duration_ms: 0.2232
+  type: 'test'
+  ...
+# Subtest: source queue separates unresolved, selected and excluded with case-insensitive text search
+ok 15 - source queue separates unresolved, selected and excluded with case-insensitive text search
+  ---
+  duration_ms: 0.2185
+  type: 'test'
+  ...
+# Subtest: contract inspector only identifies the explicitly returned chosen candidate
+ok 16 - contract inspector only identifies the explicitly returned chosen candidate
+  ---
+  duration_ms: 0.1559
+  type: 'test'
+  ...
+1..16
+# tests 16
+# suites 0
+# pass 16
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 113.7409

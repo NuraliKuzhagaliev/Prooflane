@@ -1,0 +1,6 @@
+contract_id,vendor,item_id,valid_from,valid_to,contract_price
+C1,Atlas,FILTER,2026-11-01,2026-11-30,72.00
+C2,Nova,SENSOR,2026-11-01,2026-11-30,108.00
+C2R,Nova,SENSOR,2026-11-10,2026-11-30,110.00
+C3,Meridian,PACK,2026-11-01,2026-11-30,2.80
+C4,Helix,TOOL,2026-10-01,2026-10-31,45.00

@@ -1,0 +1,25 @@
+{
+  "scope": "HTTP acceptance with synthetic CSV; no live AI; hosting location not attested",
+  "at": "2026-11-03T17:42:35.554896+00:00",
+  "target": "http://127.0.0.1:8765",
+  "expected_values": "Intentionally altered test oracle; not the canonical corpus",
+  "cases": [
+    {
+      "case": "decimal-prices",
+      "mode": "reference",
+      "passed": false,
+      "input_sha256": "f30fcdcc90ea74a17223183f8ca362cdbb753f091820648e7fe6f2749defaa78",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "D:\\projects\\vultre\\artifacts\\evaluation-negative-control-receipts\\reference-decimal-prices.json",
+      "error": "Run differs from manually calculated expected result",
+      "elapsed_ms": 17.7
+    }
+  ],
+  "live_model": "NOT_RUN",
+  "passed": false,
+  "passed_count": 0,
+  "total_count": 1,
+  "negative_control": "Deliberately replaced expected variance 0.60 with 0.59; the real HTTP result must fail this expectation.",
+  "cli_exit_code": 1
+}

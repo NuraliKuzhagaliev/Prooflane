@@ -1,0 +1,106 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "0192aba1-d033-4164-a7ca-87eec4d76de7",
+  "created_at": "2026-11-03T18:22:40.171770+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nQUOTE-1,\"ACME, Supplies\",2,12.34,10.00,\"First physical line\nsecond physical line\"\nQUOTE-2,\"Vendor \"\"B\"\"\",3,2.00,1.00,Next source record is 3\n",
+  "code": "def summarize(rows):\n    billed, variance = Decimal(\"0\"), Decimal(\"0\")\n    vendors = defaultdict(lambda: Decimal(\"0\"))\n    findings = []\n    for row in rows:\n        quantity = int(row[\"quantity\"])\n        price, contract = Decimal(row[\"unit_price\"]), Decimal(row[\"contract_price\"])\n        billed += price * quantity\n        difference = max(price - contract, Decimal(\"0\")) * quantity\n        if difference:\n            variance += difference\n            vendors[row[\"vendor\"]] += difference\n            findings.append({**row, \"quantity\": quantity, \"unit_price\": f\"{price:.2f}\",\n                             \"contract_price\": f\"{contract:.2f}\", \"variance\": f\"{difference:.2f}\"})\n    return {\"row_count\": len(rows), \"total_billed\": f\"{billed:.2f}\", \"total_variance\": f\"{variance:.2f}\",\n            \"flagged_count\": len(findings), \"findings\": findings,\n            \"vendors\": [{\"vendor\": name, \"variance\": f\"{value:.2f}\"} for name, value in\n                        sorted(vendors.items(), key=lambda item: (-item[1], item[0]))]}\n",
+  "output": {
+    "row_count": 2,
+    "total_billed": "30.68",
+    "total_variance": "7.68",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "4.68"
+      },
+      {
+        "row": 3,
+        "variance": "3.00"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 2,
+    "total_billed": "30.68",
+    "total_variance": "7.68",
+    "flagged_count": 2,
+    "findings": [
+      {
+        "invoice_id": "QUOTE-1",
+        "vendor": "ACME, Supplies",
+        "quantity": 2,
+        "unit_price": "12.34",
+        "contract_price": "10.00",
+        "notes": "First physical line\nsecond physical line",
+        "row": 2,
+        "variance": "4.68"
+      },
+      {
+        "invoice_id": "QUOTE-2",
+        "vendor": "Vendor \"B\"",
+        "quantity": 3,
+        "unit_price": "2.00",
+        "contract_price": "1.00",
+        "notes": "Next source record is 3",
+        "row": 3,
+        "variance": "3.00"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "ACME, Supplies",
+        "variance": "4.68"
+      },
+      {
+        "vendor": "Vendor \"B\"",
+        "variance": "3.00"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Reference calculation",
+        "passed": true,
+        "detail": "Fixed Decimal arithmetic; this mode is the baseline, not an independently verified agent run."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "2 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Calculate",
+      "status": "passed",
+      "detail": "Trusted reference arithmetic. No model call or sandbox execution."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "runtime": "trusted-reference",
+    "elapsed_ms": 0.479
+  },
+  "attempts": [],
+  "provenance": {
+    "mode": "reference",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "9292287d4db3cb9ea103698535497aceae4d34bc3a9048e275e14242af957954",
+    "code_sha256": "431e91da6123803e2b0e5af1a372f3ef5f0f5bad44829d34db16c43bf722f0ad",
+    "output_sha256": "8d870054d8c6645942882135d21657fda7048a182840ddeb28096b1742b8aca6"
+  },
+  "receipt_sha256": "4f829c401fcdf45df2860c1fe2a637dd4dfe94cd85e1149b844333a8770e6fa8"
+}

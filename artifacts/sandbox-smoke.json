@@ -1,0 +1,217 @@
+{
+  "scope": "REAL_LOCAL_DOCKER_NOT_VULTR",
+  "at": "2026-11-03T18:28:48.353897+00:00",
+  "health": {
+    "available": true,
+    "detail": "Linux Docker engine and sandbox image are available."
+  },
+  "tests": [
+    {
+      "name": "CSV arithmetic",
+      "passed": true,
+      "execution": {
+        "stdout": "{\"variance\": \"7.50\"}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "4330b6a3f4c241415592cb43c4dd3c54436c3f310b482d7c28537fcd009ee420",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1571.57
+      }
+    },
+    {
+      "name": "Timeout",
+      "passed": true,
+      "detail": "Sandbox exceeded its wall-clock time limit.",
+      "execution": {
+        "exit_code": 1,
+        "container_id": "2d6fecf4cae9acef49e26f58461ed5e34d7c32de68e1b46ef1b7f2b7478e62be",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 1,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "elapsed_ms": 1806.02
+      }
+    },
+    {
+      "name": "Output cap",
+      "passed": true,
+      "detail": "Sandbox output exceeded the configured byte limit.",
+      "execution": {
+        "exit_code": 1,
+        "container_id": "6ba9cf0a3c31efdede870f7b22a5c35dac3fdc294811aa161233032a51f034d7",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 5,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "elapsed_ms": 1025.97
+      }
+    }
+  ],
+  "probe": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Network egress",
+        "passed": true,
+        "detail": "Connection to 192.0.2.1:443 failed inside this network-none container."
+      },
+      {
+        "name": "Root filesystem",
+        "passed": true,
+        "detail": "Writing /prooflane-write-probe was denied."
+      },
+      {
+        "name": "Inference credential",
+        "passed": true,
+        "detail": "Checks only that the inference key variable is absent; no secret values are read."
+      },
+      {
+        "name": "Non-root identity",
+        "passed": true,
+        "detail": "Effective user ID: 65534"
+      },
+      {
+        "name": "Lifecycle cleanup",
+        "passed": true,
+        "detail": "Container absence checked after force removal."
+      }
+    ],
+    "execution": {
+      "stdout": "{\"checks\": [{\"name\": \"Network egress\", \"passed\": true, \"detail\": \"Connection to 192.0.2.1:443 failed inside this network-none container.\"}, {\"name\": \"Root filesystem\", \"passed\": true, \"detail\": \"Writing /prooflane-write-probe was denied.\"}, {\"name\": \"Inference credential\", \"passed\": true, \"detail\": \"Checks only that the inference key variable is absent; no secret values are read.\"}, {\"name\": \"Non-root identity\", \"passed\": true, \"detail\": \"Effective user ID: 65534\"}]}\n",
+      "stderr": "",
+      "exit_code": 0,
+      "container_id": "fa1d45beaadc045bc55cbb72f58a63bb082908be4a9bb040d9d25c467cb752cc",
+      "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+      "cleanup": true,
+      "runtime": "Docker / Python",
+      "limits": {
+        "network": "none",
+        "memory_mb": 128,
+        "cpu": 0.5,
+        "pids": 32,
+        "tmpfs_mb": 16,
+        "read_only_root": true,
+        "user": "65534:65534",
+        "capabilities": "none",
+        "no_new_privileges": true,
+        "host_mounts": false,
+        "timeout_seconds": 8,
+        "stdout_bytes": 131072,
+        "stderr_bytes": 32768
+      },
+      "observed_controls": {
+        "network": "none",
+        "read_only_root": true,
+        "user": "65534:65534",
+        "memory_bytes": 134217728,
+        "memory_swap_bytes": 134217728,
+        "nano_cpus": 500000000,
+        "pids": 32,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges=true"
+        ],
+        "host_mount_count": 0
+      },
+      "oom_killed": false,
+      "elapsed_ms": 1314.01
+    }
+  },
+  "passed": true
+}

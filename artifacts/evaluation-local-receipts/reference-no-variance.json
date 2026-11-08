@@ -1,0 +1,67 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "c6a0ecb8-0c75-4a87-914c-7a0b063075a4",
+  "created_at": "2026-11-03T17:35:42.542233+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nZERO-1,North,2,10.00,10.00,Equal prices\nZERO-2,South,3,7.50,8.00,Below contract\nZERO-3,West,1,0,0,Free item\n",
+  "code": "def summarize(rows):\n    billed, variance = Decimal(\"0\"), Decimal(\"0\")\n    vendors = defaultdict(lambda: Decimal(\"0\"))\n    findings = []\n    for row in rows:\n        quantity = int(row[\"quantity\"])\n        price, contract = Decimal(row[\"unit_price\"]), Decimal(row[\"contract_price\"])\n        billed += price * quantity\n        difference = max(price - contract, Decimal(\"0\")) * quantity\n        if difference:\n            variance += difference\n            vendors[row[\"vendor\"]] += difference\n            findings.append({**row, \"quantity\": quantity, \"unit_price\": f\"{price:.2f}\",\n                             \"contract_price\": f\"{contract:.2f}\", \"variance\": f\"{difference:.2f}\"})\n    return {\"row_count\": len(rows), \"total_billed\": f\"{billed:.2f}\", \"total_variance\": f\"{variance:.2f}\",\n            \"flagged_count\": len(findings), \"findings\": findings,\n            \"vendors\": [{\"vendor\": name, \"variance\": f\"{value:.2f}\"} for name, value in\n                        sorted(vendors.items(), key=lambda item: (-item[1], item[0]))]}\n",
+  "output": {
+    "row_count": 3,
+    "total_billed": "42.50",
+    "total_variance": "0.00",
+    "findings": []
+  },
+  "summary": {
+    "row_count": 3,
+    "total_billed": "42.50",
+    "total_variance": "0.00",
+    "flagged_count": 0,
+    "findings": [],
+    "vendors": []
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Reference calculation",
+        "passed": true,
+        "detail": "Fixed Decimal arithmetic; this mode is the baseline, not an independently verified agent run."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "3 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Calculate",
+      "status": "passed",
+      "detail": "Trusted reference arithmetic. No model call or sandbox execution."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "runtime": "trusted-reference",
+    "elapsed_ms": 1.429
+  },
+  "attempts": [],
+  "provenance": {
+    "mode": "reference",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "c3a38bc2ae2b8b063089d83c52b6d098bdef07748d0a1c8cd168aa06991015fc",
+    "code_sha256": "431e91da6123803e2b0e5af1a372f3ef5f0f5bad44829d34db16c43bf722f0ad",
+    "output_sha256": "ca3b802da789f0d431816bb344c7a27ccd14e76107f2c5d0ddbdf0945d85a9aa"
+  },
+  "receipt_sha256": "485707a982b834cd48b553c7cb746a2974622af17bd599d875fe1ba8efc5c6da"
+}

@@ -1,0 +1,14 @@
+{
+  "scope": "local Python CPU; generated 500 invoices / 500 contracts / 24 uncertainty ranges; includes join, targets, full analysis",
+  "samples_ms": [
+    497.1,
+    491.78,
+    487.13
+  ],
+  "median_ms": 491.78,
+  "baseline": "260000.00",
+  "low": "247520.00",
+  "high": "261920.00",
+  "passed": true,
+  "not_measured": "Browser rendering, cloud concurrency and model latency"
+}

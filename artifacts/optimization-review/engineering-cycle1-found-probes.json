@@ -1,0 +1,102 @@
+{
+  "scope": "MOCKED_API_AND_LOCAL_VERIFIER_NOT_LIVE",
+  "file_sha256": {
+    "prooflane/app.py": "48d50511aeafb7091339cdd2addb2fdd83571896b9a9fa9718723492e57bdf28",
+    "prooflane/provider.py": "d24055da178b544d120f8e25b664ef95d60c6d54d5ce1eab8b44e83610c5a01c",
+    "prooflane/comparison.py": "fae43016d4e09a47f7af92d6ffd615319256e5b62fce73fed89077c2bc08366a",
+    "scripts/verify_receipt.py": "db9a2f1e83988739df56ec0f349e6b696962bad0c5887d888474c0ebf19ac5b2"
+  },
+  "checks": [
+    {
+      "case": "valid_bundle",
+      "result": {
+        "total_variance": "-2.00",
+        "total_billed": "0.00",
+        "flagged_count": 0
+      }
+    },
+    {
+      "case": "hidden_notes_edit",
+      "exception": "ValueError",
+      "error": "Scenario contains undeclared source changes."
+    },
+    {
+      "case": "hidden_other_price_edit",
+      "exception": "ValueError",
+      "error": "Scenario contains undeclared source changes."
+    },
+    {
+      "case": "hidden_same_row_vendor_edit",
+      "exception": "ValueError",
+      "error": "Scenario contains undeclared source changes."
+    },
+    {
+      "case": "hidden_numeric_equivalence_edit",
+      "exception": "ValueError",
+      "error": "Scenario contains undeclared source changes."
+    },
+    {
+      "case": "removed_record",
+      "exception": "ValueError",
+      "error": "Scenario contains undeclared source changes."
+    },
+    {
+      "case": "parent_substitution",
+      "exception": "ValueError",
+      "error": "Scenario is linked to a different baseline."
+    },
+    {
+      "case": "false_original_value",
+      "exception": "ValueError",
+      "error": "The declared original value does not match the baseline."
+    },
+    {
+      "case": "mode_mismatch",
+      "exception": "ValueError",
+      "error": "Baseline and scenario must use the same execution mode."
+    },
+    {
+      "case": "delta_forgery",
+      "exception": "ValueError",
+      "error": "Comparison deltas do not match independently recalculated results."
+    },
+    {
+      "case": "surrogate_plan",
+      "http_status": 500,
+      "sandbox_calls": 1,
+      "stored_statuses": [],
+      "database_statuses": [
+        "verified"
+      ]
+    },
+    {
+      "case": "surrogate_model",
+      "http_status": 500,
+      "sandbox_calls": 1,
+      "stored_statuses": [],
+      "database_statuses": [
+        "verified"
+      ]
+    },
+    {
+      "case": "scenario_uncertain",
+      "http_status": 200,
+      "status": "failed",
+      "sandbox_calls": 1,
+      "export_status": 404,
+      "baseline_unchanged": true,
+      "foreign_status": 404,
+      "missing_live_token_status": 403
+    },
+    {
+      "case": "scenario_unknown",
+      "http_status": 200,
+      "status": "failed",
+      "sandbox_calls": 1,
+      "export_status": 404,
+      "baseline_unchanged": true,
+      "foreign_status": 404,
+      "missing_live_token_status": 403
+    }
+  ]
+}

@@ -1,0 +1,36 @@
+{
+  "scope": "Final source structure and bytes; not browser, execution or deployment attestation",
+  "baseline_revision": "0782a525129704384768d5c2fc21ab2a574f70b7",
+  "original_ids": 237,
+  "current_ids": 249,
+  "unique_ids": 249,
+  "duplicate_ids": [],
+  "missing_original_ids": [],
+  "guidance_sha256": "c9cdcb3ff6ed6175491a64ed9ebf4d1a1140d5924806028d471377327849216c",
+  "static_bytes": {
+    "app.js": 30007,
+    "format.js": 887,
+    "index.html": 39655,
+    "scenario.js": 9559,
+    "styles.css": 43178,
+    "workbench-model.js": 3809,
+    "workbench.css": 41469,
+    "workbench.js": 71061,
+    "fonts/ibm-plex-mono.ttf": 128812,
+    "fonts/IBMPlexMono-OFL.txt": 4456,
+    "fonts/Newsreader-OFL.txt": 4394,
+    "fonts/newsreader.ttf": 109472
+  },
+  "all_web_bytes": 486759,
+  "font_bytes": 238284,
+  "budget_bytes": 786432,
+  "within_budget": true,
+  "code_sha256": {
+    "web/index.html": "62eb79c1b9af4f2eef5151f24308782b51f33f88e6b432969242465241abb42d",
+    "web/workbench.css": "73807656ce7b5077ab20d759a35518eec0e99428de6e998a0593f23b1d38280b",
+    "web/workbench.js": "36d1e7ba3a21c4ea2dab42fdcca1b17b3b25aa6ac9e12a35f53f6aa798ea170d",
+    "web/workbench-model.js": "6fc43ec236504ddbf96eeae173c9e876043202c60c2d516b7f4a124eeaa303ce",
+    "tests/test_studio.mjs": "7c0fa4c28d2f47d8fdcfa4f4030b5025ecda7a335c79f73f685cd431a2f7c2eb",
+    "tests/test_workbench.mjs": "205dd6239fe741dc4d0afbe3889a846e2ac6b6dd668b99959027a72490abb900"
+  }
+}

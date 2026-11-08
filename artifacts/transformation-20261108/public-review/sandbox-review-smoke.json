@@ -1,0 +1,102 @@
+{
+  "at": "2026-11-08T18:53:35.676771+00:00",
+  "base_url": "https://45.76.92.198",
+  "mode": "sandbox",
+  "scope": "REAL_HTTP_NO_MODEL_CALLS",
+  "passed": true,
+  "checks": [
+    {
+      "name": "Eligible rival consequences before choice",
+      "passed": true
+    },
+    {
+      "name": "Unresolved billed exposure not inferred variance",
+      "passed": true
+    },
+    {
+      "name": "No automatic rival selection",
+      "passed": true
+    },
+    {
+      "name": "Case execution successful",
+      "passed": true
+    },
+    {
+      "name": "Manual baseline",
+      "passed": true
+    },
+    {
+      "name": "Create replay returns same case and run",
+      "passed": true
+    },
+    {
+      "name": "Completed operation is retrievable without another execution",
+      "passed": true
+    },
+    {
+      "name": "Operation session isolation",
+      "passed": true
+    },
+    {
+      "name": "Request ID cannot change source meaning",
+      "passed": true
+    },
+    {
+      "name": "Contract groups include zero variance bound row",
+      "passed": true
+    },
+    {
+      "name": "Excluded amount visible",
+      "passed": true
+    },
+    {
+      "name": "Handoff has all source rows and excluded row has no invented variance",
+      "passed": true
+    },
+    {
+      "name": "Readable brief includes amounts and verification limits",
+      "passed": true
+    },
+    {
+      "name": "Handoff session isolation /handoff.csv",
+      "passed": true
+    },
+    {
+      "name": "Handoff session isolation /brief.md",
+      "passed": true
+    },
+    {
+      "name": "Variant replay does not execute a second alternative",
+      "passed": true
+    },
+    {
+      "name": "Real variant and baseline remain distinct",
+      "passed": true
+    },
+    {
+      "name": "Exported evidence reconstructs",
+      "passed": true
+    },
+    {
+      "name": "Raw duplicate-key JSON rejected",
+      "passed": true
+    },
+    {
+      "name": "Non-JSON request content type rejected",
+      "passed": true
+    },
+    {
+      "name": "Strict parser accepts normal case",
+      "passed": true
+    },
+    {
+      "name": "Repeated financial line warned without implicit exclusion",
+      "passed": true
+    },
+    {
+      "name": "No extra replay runs",
+      "passed": true
+    }
+  ],
+  "case_id": "9cae5f8a-e8d4-440e-a07f-ca03780c2781"
+}

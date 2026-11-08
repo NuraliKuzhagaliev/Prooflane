@@ -1,0 +1,46 @@
+TAP version 13
+# Subtest: preserves cents at the maximum supported input product
+ok 1 - preserves cents at the maximum supported input product
+  ---
+  duration_ms: 1.4477
+  type: 'test'
+  ...
+# Subtest: preserves cents for the aggregate of 500 maximum rows
+ok 2 - preserves cents for the aggregate of 500 maximum rows
+  ---
+  duration_ms: 0.1554
+  type: 'test'
+  ...
+# Subtest: formats ordinary, fractional and zero amounts
+ok 3 - formats ordinary, fractional and zero amounts
+  ---
+  duration_ms: 0.0804
+  type: 'test'
+  ...
+# Subtest: invalid or missing amounts remain unavailable
+ok 4 - invalid or missing amounts remain unavailable
+  ---
+  duration_ms: 0.1437
+  type: 'test'
+  ...
+# Subtest: signed comparison amounts preserve direction and exact cents
+ok 5 - signed comparison amounts preserve direction and exact cents
+  ---
+  duration_ms: 0.4988
+  type: 'test'
+  ...
+# Subtest: zero deltas are neutral and malformed deltas unavailable
+ok 6 - zero deltas are neutral and malformed deltas unavailable
+  ---
+  duration_ms: 0.1389
+  type: 'test'
+  ...
+1..6
+# tests 6
+# suites 0
+# pass 6
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 96.4261

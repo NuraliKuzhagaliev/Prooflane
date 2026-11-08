@@ -1,0 +1,28 @@
+{
+  "scope": "same local sequential GET / protocol as baseline; no browserpaint/cloud claims",
+  "http_ms": [
+    6.644,
+    2.583,
+    1.909
+  ],
+  "html_bytes": 39559,
+  "static_bytes": {
+    "app.js": 30007,
+    "format.js": 887,
+    "index.html": 39559,
+    "scenario.js": 9559,
+    "styles.css": 43178,
+    "workbench-model.js": 3210,
+    "workbench.css": 40868,
+    "workbench.js": 68206,
+    "fonts\\ibm-plex-mono.ttf": 128812,
+    "fonts\\IBMPlexMono-OFL.txt": 4456,
+    "fonts\\Newsreader-OFL.txt": 4394,
+    "fonts\\newsreader.ttf": 109472
+  },
+  "total_web_files_bytes": 482608,
+  "font_payload_bytes": 238284,
+  "external_runtime_assets": 0,
+  "budget": "all shipped web files including font licenses under 768KiB",
+  "within_budget": true
+}

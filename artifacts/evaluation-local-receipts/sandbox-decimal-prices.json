@@ -1,0 +1,235 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "0d28c0e0-1a12-4695-b681-9d2f0f6e07ae",
+  "created_at": "2026-11-03T17:35:44.915716+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nCENT-1,North,3,0.30,0.10,Exact cents\nCENT-2,South,2,0.10,0.20,Negative difference does not offset positive\n",
+  "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+  "output": {
+    "row_count": 2,
+    "total_billed": "1.10",
+    "total_variance": "0.60",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "0.60"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 2,
+    "total_billed": "1.10",
+    "total_variance": "0.60",
+    "flagged_count": 1,
+    "findings": [
+      {
+        "invoice_id": "CENT-1",
+        "vendor": "North",
+        "quantity": 3,
+        "unit_price": "0.30",
+        "contract_price": "0.10",
+        "notes": "Exact cents",
+        "row": 2,
+        "variance": "0.60"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "North",
+        "variance": "0.60"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Output schema",
+        "passed": true,
+        "detail": "Only the four documented output fields are accepted."
+      },
+      {
+        "name": "Record coverage",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Billed total",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Positive variance",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Every source record",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "2 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Plan",
+      "status": "passed",
+      "detail": "Reviewed fixed recipe. No AI model call."
+    },
+    {
+      "stage": "Execute",
+      "status": "passed",
+      "detail": "Disposable Docker execution; exit=0; cleanup=True."
+    },
+    {
+      "stage": "Verify",
+      "status": "passed",
+      "detail": "Independent verifier checked totals and every finding."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "stdout": "{\"row_count\": 2, \"total_billed\": \"1.10\", \"total_variance\": \"0.60\", \"findings\": [{\"row\": 2, \"variance\": \"0.60\"}]}\n",
+    "stderr": "",
+    "exit_code": 0,
+    "container_id": "b777d68d90bee287cb01f1d37036565471ef894908d18254151e7f5806139219",
+    "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+    "cleanup": true,
+    "runtime": "docker",
+    "limits": {
+      "network": "none",
+      "memory_mb": 128,
+      "cpu": 0.5,
+      "pids": 32,
+      "tmpfs_mb": 16,
+      "read_only_root": true,
+      "user": "65534:65534",
+      "capabilities": "none",
+      "no_new_privileges": true,
+      "host_mounts": false,
+      "timeout_seconds": 10,
+      "stdout_bytes": 131072,
+      "stderr_bytes": 32768
+    },
+    "observed_controls": {
+      "network": "none",
+      "read_only_root": true,
+      "user": "65534:65534",
+      "memory_bytes": 134217728,
+      "memory_swap_bytes": 134217728,
+      "nano_cpus": 500000000,
+      "pids": 32,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_options": [
+        "no-new-privileges=true"
+      ],
+      "host_mount_count": 0
+    },
+    "oom_killed": false,
+    "elapsed_ms": 1278.83
+  },
+  "attempts": [
+    {
+      "index": 1,
+      "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+      "execution": {
+        "stdout": "{\"row_count\": 2, \"total_billed\": \"1.10\", \"total_variance\": \"0.60\", \"findings\": [{\"row\": 2, \"variance\": \"0.60\"}]}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "b777d68d90bee287cb01f1d37036565471ef894908d18254151e7f5806139219",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1278.83
+      },
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Output schema",
+            "passed": true,
+            "detail": "Only the four documented output fields are accepted."
+          },
+          {
+            "name": "Record coverage",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Billed total",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Positive variance",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Every source record",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          }
+        ]
+      },
+      "model": null,
+      "usage": {}
+    }
+  ],
+  "provenance": {
+    "mode": "sandbox",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "f30fcdcc90ea74a17223183f8ca362cdbb753f091820648e7fe6f2749defaa78",
+    "code_sha256": "484887fd422783e3595b60e24cf954a41c8f41203b68da3c4bd05c37954bf920",
+    "output_sha256": "b8ad109513a812241305efe9604187f21071802ad75b12b75069654f928b0fc7"
+  },
+  "receipt_sha256": "b4b53ad069e25026bff11571f0042a949a573dcf5c5c541be41237da95eed3ea"
+}

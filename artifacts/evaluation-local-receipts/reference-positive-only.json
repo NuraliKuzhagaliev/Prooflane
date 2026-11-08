@@ -1,0 +1,120 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "2fa41e31-6fef-4d36-95c2-af399a157075",
+  "created_at": "2026-11-03T17:35:42.683842+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nPOS-1,Zebra,1,15,10,Positive five\nPOS-2,Alpha,2,3,1,Positive four\nPOS-3,Alpha,1,2,1,Positive one\nPOS-4,Beta,1,1,100,Do not subtract ninety nine\n",
+  "code": "def summarize(rows):\n    billed, variance = Decimal(\"0\"), Decimal(\"0\")\n    vendors = defaultdict(lambda: Decimal(\"0\"))\n    findings = []\n    for row in rows:\n        quantity = int(row[\"quantity\"])\n        price, contract = Decimal(row[\"unit_price\"]), Decimal(row[\"contract_price\"])\n        billed += price * quantity\n        difference = max(price - contract, Decimal(\"0\")) * quantity\n        if difference:\n            variance += difference\n            vendors[row[\"vendor\"]] += difference\n            findings.append({**row, \"quantity\": quantity, \"unit_price\": f\"{price:.2f}\",\n                             \"contract_price\": f\"{contract:.2f}\", \"variance\": f\"{difference:.2f}\"})\n    return {\"row_count\": len(rows), \"total_billed\": f\"{billed:.2f}\", \"total_variance\": f\"{variance:.2f}\",\n            \"flagged_count\": len(findings), \"findings\": findings,\n            \"vendors\": [{\"vendor\": name, \"variance\": f\"{value:.2f}\"} for name, value in\n                        sorted(vendors.items(), key=lambda item: (-item[1], item[0]))]}\n",
+  "output": {
+    "row_count": 4,
+    "total_billed": "24.00",
+    "total_variance": "10.00",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "5.00"
+      },
+      {
+        "row": 3,
+        "variance": "4.00"
+      },
+      {
+        "row": 4,
+        "variance": "1.00"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 4,
+    "total_billed": "24.00",
+    "total_variance": "10.00",
+    "flagged_count": 3,
+    "findings": [
+      {
+        "invoice_id": "POS-1",
+        "vendor": "Zebra",
+        "quantity": 1,
+        "unit_price": "15.00",
+        "contract_price": "10.00",
+        "notes": "Positive five",
+        "row": 2,
+        "variance": "5.00"
+      },
+      {
+        "invoice_id": "POS-2",
+        "vendor": "Alpha",
+        "quantity": 2,
+        "unit_price": "3.00",
+        "contract_price": "1.00",
+        "notes": "Positive four",
+        "row": 3,
+        "variance": "4.00"
+      },
+      {
+        "invoice_id": "POS-3",
+        "vendor": "Alpha",
+        "quantity": 1,
+        "unit_price": "2.00",
+        "contract_price": "1.00",
+        "notes": "Positive one",
+        "row": 4,
+        "variance": "1.00"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "Alpha",
+        "variance": "5.00"
+      },
+      {
+        "vendor": "Zebra",
+        "variance": "5.00"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Reference calculation",
+        "passed": true,
+        "detail": "Fixed Decimal arithmetic; this mode is the baseline, not an independently verified agent run."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "4 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Calculate",
+      "status": "passed",
+      "detail": "Trusted reference arithmetic. No model call or sandbox execution."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "runtime": "trusted-reference",
+    "elapsed_ms": 0.618
+  },
+  "attempts": [],
+  "provenance": {
+    "mode": "reference",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "0abbaa97f8748ab6e33c56652a0a2ef109de4c0e350e5c70f0bbbee188f30d15",
+    "code_sha256": "431e91da6123803e2b0e5af1a372f3ef5f0f5bad44829d34db16c43bf722f0ad",
+    "output_sha256": "a6ccf2caa5b10a9a35d7daf1de81fe835cf8bb67afd5a88a17c97e76daa0b5d3"
+  },
+  "receipt_sha256": "db93e6f73219920906fb8c8819eaf9f33b29b8ee40d6edd0b695be1b4e75aebe"
+}

@@ -1,0 +1,4 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+ZERO-1,North,2,10.00,10.00,Equal prices
+ZERO-2,South,3,7.50,8.00,Below contract
+ZERO-3,West,1,0,0,Free item

@@ -1,0 +1,106 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "a4781c3b-48dc-494d-af25-ae567090c398",
+  "created_at": "2026-11-03T17:35:42.648244+00:00",
+  "input_csv": "\ufeffinvoice_id,vendor,quantity,unit_price,contract_price,notes\n SPACE-1 , North , 2 , 2.50 , 2.00 , surrounding spaces \n\n SPACE-2 , South , 4 , 0.75 , 0.50 , blank physical line above \n",
+  "code": "def summarize(rows):\n    billed, variance = Decimal(\"0\"), Decimal(\"0\")\n    vendors = defaultdict(lambda: Decimal(\"0\"))\n    findings = []\n    for row in rows:\n        quantity = int(row[\"quantity\"])\n        price, contract = Decimal(row[\"unit_price\"]), Decimal(row[\"contract_price\"])\n        billed += price * quantity\n        difference = max(price - contract, Decimal(\"0\")) * quantity\n        if difference:\n            variance += difference\n            vendors[row[\"vendor\"]] += difference\n            findings.append({**row, \"quantity\": quantity, \"unit_price\": f\"{price:.2f}\",\n                             \"contract_price\": f\"{contract:.2f}\", \"variance\": f\"{difference:.2f}\"})\n    return {\"row_count\": len(rows), \"total_billed\": f\"{billed:.2f}\", \"total_variance\": f\"{variance:.2f}\",\n            \"flagged_count\": len(findings), \"findings\": findings,\n            \"vendors\": [{\"vendor\": name, \"variance\": f\"{value:.2f}\"} for name, value in\n                        sorted(vendors.items(), key=lambda item: (-item[1], item[0]))]}\n",
+  "output": {
+    "row_count": 2,
+    "total_billed": "8.00",
+    "total_variance": "2.00",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "1.00"
+      },
+      {
+        "row": 3,
+        "variance": "1.00"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 2,
+    "total_billed": "8.00",
+    "total_variance": "2.00",
+    "flagged_count": 2,
+    "findings": [
+      {
+        "invoice_id": "SPACE-1",
+        "vendor": "North",
+        "quantity": 2,
+        "unit_price": "2.50",
+        "contract_price": "2.00",
+        "notes": "surrounding spaces",
+        "row": 2,
+        "variance": "1.00"
+      },
+      {
+        "invoice_id": "SPACE-2",
+        "vendor": "South",
+        "quantity": 4,
+        "unit_price": "0.75",
+        "contract_price": "0.50",
+        "notes": "blank physical line above",
+        "row": 3,
+        "variance": "1.00"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "North",
+        "variance": "1.00"
+      },
+      {
+        "vendor": "South",
+        "variance": "1.00"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Reference calculation",
+        "passed": true,
+        "detail": "Fixed Decimal arithmetic; this mode is the baseline, not an independently verified agent run."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "2 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Calculate",
+      "status": "passed",
+      "detail": "Trusted reference arithmetic. No model call or sandbox execution."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "runtime": "trusted-reference",
+    "elapsed_ms": 0.38
+  },
+  "attempts": [],
+  "provenance": {
+    "mode": "reference",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "d6f871ceeac8a08f03226bd63f3b6e4b019d6a5414acdb9969e32fa18bc52f9a",
+    "code_sha256": "431e91da6123803e2b0e5af1a372f3ef5f0f5bad44829d34db16c43bf722f0ad",
+    "output_sha256": "643361efbc16e4d51a344f9cb116b6ae124088358e48bd8a8f3e99fc18f64d1d"
+  },
+  "receipt_sha256": "59c07c75552402271786746a86a1b21d1d12916349c973bcf1693fb35ab16939"
+}

@@ -1,0 +1,113 @@
+{
+  "at": "2026-11-03T18:35:15.285758+00:00",
+  "scope": "LOCAL_ONLY_NO_LIVE_MODEL_NO_VULTR_DEPLOYMENT",
+  "source_revision": "00d752a2a1258c822edc38b6cc0f1c7cd080a661",
+  "source_sha256": {
+    "prooflane/__init__.py": "81bab55293e066985ff0b5552bf7ad24bf2bc0ecf82a4b4dd013861f27c1b8ba",
+    "prooflane/analysis.py": "08008d679ddae3fa1e231c3f26ea1a6211d8b9fa1639ea05ca201a16b3a24817",
+    "prooflane/app.py": "48d50511aeafb7091339cdd2addb2fdd83571896b9a9fa9718723492e57bdf28",
+    "prooflane/comparison.py": "fae43016d4e09a47f7af92d6ffd615319256e5b62fce73fed89077c2bc08366a",
+    "prooflane/provider.py": "b21dd84c8a6fd9451696407ea62fe0e2f4a2207d774b354b229dc2c7b4672c47",
+    "prooflane/receipts.py": "f873decc606c79f2b6ad392ba48bc50555c533e440cd824776461ea60949b275",
+    "prooflane/recipe.py": "c7cba35b9ad3a983da43f269a698a2fc48dfe751b6d73286995acda220ad6cd5",
+    "prooflane/sandbox.py": "db25f04d923759f6df1d1b830c61ff3c388d5ff4a002f98eeea7d98c9e425524",
+    "prooflane/store.py": "d3a73052b3b215f502f4f850e8a07e01d96c1d70aa269e22869766358acc2e7f",
+    "scripts/smoke_scenario.py": "fb4b67e57d0ebbbf874565aa9d592e0ebbc95f2c0ed3d519dbf88d696b9aa567",
+    "scripts/verify_receipt.py": "db9a2f1e83988739df56ec0f349e6b696962bad0c5887d888474c0ebf19ac5b2",
+    "tests/test_analysis.py": "6c980b9ee37a2ecbdf1621c3948c51d28a79aac3c649a2cbfb203356bfc6351c",
+    "tests/test_api.py": "7fa27266c6dc43ed58521480c9119ed8dbbbd09eb88053a1db45b29860486726",
+    "tests/test_comparison.py": "bf51c70b134c8ab84e870de6b81e05ffb7eaa52fa588ba22c58a73f7dd5bc943",
+    "tests/test_evaluation.py": "e5c327510145eda624e51811ec2e21d2d1e8f956b484444417edc588d0aa038e",
+    "tests/test_format.mjs": "c35d2166a11d4c04a983b355910a4adbbb92a82a804c0eeb58bf9c4c794aa6a1",
+    "tests/test_provider.py": "0396902e27d8624c7e8a6bc8c7f127f10aab873ab6f439e9f2dd56d38a50afb4",
+    "tests/test_sandbox.py": "949bc6350295c2b99b95e57b53725b7a31a2ad5e13b52fc4a071d6e308fb1135",
+    "web/app.js": "e439dd4dc9c90213caba50725298cd8459ac6e587005ac76daac4253b353bf7c",
+    "web/format.js": "0e49c70ff4d8ac79a2170b50c933ec1ecae2effcafbaeac5a09a5f1b18c7efb0",
+    "web/index.html": "1bdd13c19a456c57523c013285d407e085575f04ecf73aeead42596acc3e08a0",
+    "web/scenario.js": "4fc5b0ba7d7451373c30f9a4f3a1480da7758063d59aa818cee1a4eea2bb64df",
+    "web/styles.css": "ec7ba263dddea65cb8001babed2679ddeaa8a7454dbd0907cef13ae975d1dbd8"
+  },
+  "checks": {
+    "windows_python": {
+      "passed": 83,
+      "evidence": "artifacts/optimization/windows-cycle1.txt"
+    },
+    "linux_python": {
+      "passed": 83,
+      "evidence": "artifacts/optimization/linux-final.txt"
+    },
+    "node_formatting": {
+      "passed": 6,
+      "evidence": "artifacts/optimization/node-final.txt"
+    },
+    "real_http_corpus": {
+      "passed": 24,
+      "total": 24,
+      "evidence": "artifacts/optimization/evaluation.json"
+    },
+    "real_http_scenario_cycle2": {
+      "passed": 36,
+      "all_passed": true,
+      "evidence": "artifacts/optimization/final/scenario-smoke.json"
+    },
+    "real_docker_containment": {
+      "evidence": "artifacts/sandbox-smoke.json"
+    }
+  },
+  "model_calls": 0,
+  "not_run": [
+    "Live Vultr inference",
+    "Vultr VM and public HTTPS",
+    "External judge access",
+    "Human user study",
+    "Final video and submission",
+    "Multi-user load and SIGKILL/OOM stress"
+  ],
+  "performance_scope": "One local synthetic corpus pass; HTTP case timings include receipt and ownership checks. Not a benchmark or production SLO.",
+  "observed_case_timings": {
+    "reference": {
+      "successful_cases": 8,
+      "min_ms": 16.38,
+      "median_ms": 19.59,
+      "max_ms": 24.74
+    },
+    "sandbox": {
+      "successful_cases": 8,
+      "min_ms": 1962.9,
+      "median_ms": 2019.69,
+      "max_ms": 2495.05
+    }
+  },
+  "review_cycles": {
+    "initial": [
+      "engineering-initial.md",
+      "ux-initial.md",
+      "judge-initial.md"
+    ],
+    "cycle1": [
+      "engineering-cycle1.md",
+      "ux-cycle1.md",
+      "judge-cycle1.md"
+    ],
+    "cycle2": [
+      "engineering-cycle2.md",
+      "ux-cycle2.md",
+      "judge-cycle2.md"
+    ],
+    "directory": "artifacts/optimization-review",
+    "scope": "Independent engineering, UX browser, and judge perspectives; no real customer evaluation."
+  },
+  "delivery_sha256": {
+    "submission/prooflane-deck.pptx": "f9f3721e00c38f948b5cb34822e3e92b5590cfdb0a90eeb8b0d3a5767f4a4218",
+    "submission/prooflane-deck.pdf": "69b646867163583c8f4123cd944998b2a1243e0761e53bf8e7dcab2ec82a254e",
+    "submission/cover.png": "4b2a8682a97b11fdf210c5ac9593accf387bdd7a2e32b8ed1742fa5354d13a8b"
+  },
+  "final_source_hash_check": {
+    "passed": true,
+    "changed": []
+  },
+  "documentation_links": {
+    "checked_files": 19,
+    "missing": []
+  }
+}

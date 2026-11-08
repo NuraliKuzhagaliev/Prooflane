@@ -1,0 +1,399 @@
+{
+  "at": "2026-11-08T18:26:05.993745+00:00",
+  "scope": "REAL_HTTP_REFERENCE_AND_FIXED_DOCKER_NO_VULTR",
+  "base_url": "https://45.76.92.198",
+  "model_calls": 0,
+  "passed": true,
+  "checks": [
+    {
+      "name": "Two sources expose overlap and missing contract",
+      "passed": true
+    },
+    {
+      "name": "Explicit scope 7 of 8",
+      "passed": true
+    },
+    {
+      "name": "reference case HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference manual baseline",
+      "passed": true
+    },
+    {
+      "name": "reference priority boundary and exact tie",
+      "passed": true
+    },
+    {
+      "name": "reference shared alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference all bound records changed",
+      "passed": true
+    },
+    {
+      "name": "reference joint alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference joint recomputation manual oracle",
+      "passed": true
+    },
+    {
+      "name": "reference bounds HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference exact uncertainty and evidence priority",
+      "passed": true
+    },
+    {
+      "name": "reference stale revision conflict",
+      "passed": true
+    },
+    {
+      "name": "reference original immutable",
+      "passed": true
+    },
+    {
+      "name": "reference downloadable packet",
+      "passed": true
+    },
+    {
+      "name": "reference independent offline CLI",
+      "passed": true
+    },
+    {
+      "name": "reference browser verification API",
+      "passed": true
+    },
+    {
+      "name": "reference rehashed false boundary rejected",
+      "passed": true
+    },
+    {
+      "name": "reference rehashed false priority rejected",
+      "passed": true
+    },
+    {
+      "name": "reference private case ",
+      "passed": true
+    },
+    {
+      "name": "reference private case /packet",
+      "passed": true
+    },
+    {
+      "name": "reference child cannot become original",
+      "passed": true
+    },
+    {
+      "name": "reference two-range HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference two joint unknowns",
+      "passed": true
+    },
+    {
+      "name": "reference guaranteed versus possible information value",
+      "passed": true
+    },
+    {
+      "name": "reference multi-range download",
+      "passed": true
+    },
+    {
+      "name": "reference multi-range offline CLI",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime 3e84411a-3cd4-4ac1-a090-5c443096de03",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime 9e4a3e87-ad05-4d38-af6c-106ff0a3dd26",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime fdf66549-a3a9-4762-8b57-64d7711530c5",
+      "passed": true
+    },
+    {
+      "name": "sandbox case HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox manual baseline",
+      "passed": true
+    },
+    {
+      "name": "sandbox priority boundary and exact tie",
+      "passed": true
+    },
+    {
+      "name": "sandbox shared alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox all bound records changed",
+      "passed": true
+    },
+    {
+      "name": "sandbox joint alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox joint recomputation manual oracle",
+      "passed": true
+    },
+    {
+      "name": "sandbox bounds HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox exact uncertainty and evidence priority",
+      "passed": true
+    },
+    {
+      "name": "sandbox stale revision conflict",
+      "passed": true
+    },
+    {
+      "name": "sandbox original immutable",
+      "passed": true
+    },
+    {
+      "name": "sandbox downloadable packet",
+      "passed": true
+    },
+    {
+      "name": "sandbox independent offline CLI",
+      "passed": true
+    },
+    {
+      "name": "sandbox browser verification API",
+      "passed": true
+    },
+    {
+      "name": "sandbox rehashed false boundary rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox rehashed false priority rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox private case ",
+      "passed": true
+    },
+    {
+      "name": "sandbox private case /packet",
+      "passed": true
+    },
+    {
+      "name": "sandbox child cannot become original",
+      "passed": true
+    },
+    {
+      "name": "sandbox two-range HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox two joint unknowns",
+      "passed": true
+    },
+    {
+      "name": "sandbox guaranteed versus possible information value",
+      "passed": true
+    },
+    {
+      "name": "sandbox multi-range download",
+      "passed": true
+    },
+    {
+      "name": "sandbox multi-range offline CLI",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime 5871de12-cf27-43c0-a2b0-5d40805837f2",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime bb73850e-0530-4c23-b215-26fec7a51b90",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime 3e39eeed-08ab-4551-a115-031781d5cc40",
+      "passed": true
+    },
+    {
+      "name": "Live containment probes pass with verified cleanup",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "cb5491f0-04c1-4982-90f9-b1016383322c",
+      "mode": "reference",
+      "packet": "D:\\projects\\vultre\\artifacts\\priority-release\\reference-case.json",
+      "baseline": "768.00",
+      "alternatives": [
+        "368.00",
+        "568.00"
+      ],
+      "range": [
+        "148.00",
+        "1193.00"
+      ],
+      "multi_range_packet": "D:\\projects\\vultre\\artifacts\\priority-release\\reference-multi-range-case.json",
+      "multi_range": {
+        "low": "148.00",
+        "high": "1993.00",
+        "width": "1845.00",
+        "review_queue": [
+          {
+            "target": "contract:C1",
+            "label": "Contract C1",
+            "rows": [
+              2,
+              3,
+              8
+            ],
+            "guaranteed_width_reduction": "645.00",
+            "possible_width_reduction": "1845.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          },
+          {
+            "target": "row:2:quantity",
+            "label": "INV501 \u00b7 record 2 \u00b7 quantity",
+            "rows": [
+              2
+            ],
+            "guaranteed_width_reduction": "0.00",
+            "possible_width_reduction": "1200.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          }
+        ]
+      }
+    },
+    {
+      "id": "616d0d63-d896-41ec-bb1a-c74a805a73c4",
+      "mode": "sandbox",
+      "packet": "D:\\projects\\vultre\\artifacts\\priority-release\\sandbox-case.json",
+      "baseline": "768.00",
+      "alternatives": [
+        "368.00",
+        "568.00"
+      ],
+      "range": [
+        "148.00",
+        "1193.00"
+      ],
+      "multi_range_packet": "D:\\projects\\vultre\\artifacts\\priority-release\\sandbox-multi-range-case.json",
+      "multi_range": {
+        "low": "148.00",
+        "high": "1993.00",
+        "width": "1845.00",
+        "review_queue": [
+          {
+            "target": "contract:C1",
+            "label": "Contract C1",
+            "rows": [
+              2,
+              3,
+              8
+            ],
+            "guaranteed_width_reduction": "645.00",
+            "possible_width_reduction": "1845.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          },
+          {
+            "target": "row:2:quantity",
+            "label": "INV501 \u00b7 record 2 \u00b7 quantity",
+            "rows": [
+              2
+            ],
+            "guaranteed_width_reduction": "0.00",
+            "possible_width_reduction": "1200.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          }
+        ]
+      }
+    }
+  ],
+  "containment": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Network egress",
+        "passed": true,
+        "detail": "Connection to 192.0.2.1:443 failed inside this network-none container."
+      },
+      {
+        "name": "Root filesystem",
+        "passed": true,
+        "detail": "Writing /prooflane-write-probe was denied."
+      },
+      {
+        "name": "Inference credential",
+        "passed": true,
+        "detail": "Checks only that the inference key variable is absent; no secret values are read."
+      },
+      {
+        "name": "Non-root identity",
+        "passed": true,
+        "detail": "Effective user ID: 65534"
+      },
+      {
+        "name": "Lifecycle cleanup",
+        "passed": true,
+        "detail": "Container absence checked after force removal."
+      }
+    ],
+    "execution": {
+      "stdout": "{\"checks\": [{\"name\": \"Network egress\", \"passed\": true, \"detail\": \"Connection to 192.0.2.1:443 failed inside this network-none container.\"}, {\"name\": \"Root filesystem\", \"passed\": true, \"detail\": \"Writing /prooflane-write-probe was denied.\"}, {\"name\": \"Inference credential\", \"passed\": true, \"detail\": \"Checks only that the inference key variable is absent; no secret values are read.\"}, {\"name\": \"Non-root identity\", \"passed\": true, \"detail\": \"Effective user ID: 65534\"}]}\n",
+      "stderr": "",
+      "exit_code": 0,
+      "container_id": "6d7b5df9084f63298468eeae87a412e830d1697036a56187563c4b708be33ad6",
+      "image_id": "sha256:9e8411fa207bee5321689dcb4c1a8e3aae8e88fc0e2b165b811f0d957d446e16",
+      "cleanup": true,
+      "runtime": "Docker / Python",
+      "limits": {
+        "network": "none",
+        "memory_mb": 128,
+        "cpu": 0.5,
+        "pids": 32,
+        "tmpfs_mb": 16,
+        "read_only_root": true,
+        "user": "65534:65534",
+        "capabilities": "none",
+        "no_new_privileges": true,
+        "host_mounts": false,
+        "timeout_seconds": 8,
+        "stdout_bytes": 131072,
+        "stderr_bytes": 32768
+      },
+      "observed_controls": {
+        "network": "none",
+        "read_only_root": true,
+        "user": "65534:65534",
+        "memory_bytes": 134217728,
+        "memory_swap_bytes": 134217728,
+        "nano_cpus": 500000000,
+        "pids": 32,
+        "cap_drop": [
+          "ALL"
+        ],
+        "security_options": [
+          "no-new-privileges=true"
+        ],
+        "host_mount_count": 0
+      },
+      "oom_killed": false,
+      "elapsed_ms": 777.56
+    }
+  }
+}

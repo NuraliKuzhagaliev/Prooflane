@@ -1,0 +1,306 @@
+{
+  "at": "2026-11-03T19:23:26.685817+00:00",
+  "scope": "REAL_HTTP_REFERENCE_AND_FIXED_DOCKER_NO_VULTR",
+  "model_calls": 0,
+  "passed": true,
+  "checks": [
+    {
+      "name": "Two sources expose overlap and missing contract",
+      "passed": true
+    },
+    {
+      "name": "Explicit scope 7 of 8",
+      "passed": true
+    },
+    {
+      "name": "reference case HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference manual baseline",
+      "passed": true
+    },
+    {
+      "name": "reference shared alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference all bound records changed",
+      "passed": true
+    },
+    {
+      "name": "reference joint alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference joint recomputation manual oracle",
+      "passed": true
+    },
+    {
+      "name": "reference bounds HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference exact uncertainty and evidence priority",
+      "passed": true
+    },
+    {
+      "name": "reference stale revision conflict",
+      "passed": true
+    },
+    {
+      "name": "reference original immutable",
+      "passed": true
+    },
+    {
+      "name": "reference downloadable packet",
+      "passed": true
+    },
+    {
+      "name": "reference independent offline CLI",
+      "passed": true
+    },
+    {
+      "name": "reference browser verification API",
+      "passed": true
+    },
+    {
+      "name": "reference rehashed false priority rejected",
+      "passed": true
+    },
+    {
+      "name": "reference private case ",
+      "passed": true
+    },
+    {
+      "name": "reference private case /packet",
+      "passed": true
+    },
+    {
+      "name": "reference child cannot become original",
+      "passed": true
+    },
+    {
+      "name": "reference two-range HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference two joint unknowns",
+      "passed": true
+    },
+    {
+      "name": "reference guaranteed versus possible information value",
+      "passed": true
+    },
+    {
+      "name": "reference multi-range download",
+      "passed": true
+    },
+    {
+      "name": "reference multi-range offline CLI",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime f327ea7d-9a90-4eab-b97c-dceb4e5da672",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime d38e9e60-c426-4770-a04f-3cc52dde2851",
+      "passed": true
+    },
+    {
+      "name": "reference actual runtime 39357ada-5c8a-4cf6-a1b6-f40998ceb67c",
+      "passed": true
+    },
+    {
+      "name": "sandbox case HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox manual baseline",
+      "passed": true
+    },
+    {
+      "name": "sandbox shared alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox all bound records changed",
+      "passed": true
+    },
+    {
+      "name": "sandbox joint alternative HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox joint recomputation manual oracle",
+      "passed": true
+    },
+    {
+      "name": "sandbox bounds HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox exact uncertainty and evidence priority",
+      "passed": true
+    },
+    {
+      "name": "sandbox stale revision conflict",
+      "passed": true
+    },
+    {
+      "name": "sandbox original immutable",
+      "passed": true
+    },
+    {
+      "name": "sandbox downloadable packet",
+      "passed": true
+    },
+    {
+      "name": "sandbox independent offline CLI",
+      "passed": true
+    },
+    {
+      "name": "sandbox browser verification API",
+      "passed": true
+    },
+    {
+      "name": "sandbox rehashed false priority rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox private case ",
+      "passed": true
+    },
+    {
+      "name": "sandbox private case /packet",
+      "passed": true
+    },
+    {
+      "name": "sandbox child cannot become original",
+      "passed": true
+    },
+    {
+      "name": "sandbox two-range HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox two joint unknowns",
+      "passed": true
+    },
+    {
+      "name": "sandbox guaranteed versus possible information value",
+      "passed": true
+    },
+    {
+      "name": "sandbox multi-range download",
+      "passed": true
+    },
+    {
+      "name": "sandbox multi-range offline CLI",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime aa4c266a-8c70-4ece-896d-135822fe69b0",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime 9433c9bf-7cbd-4e1f-8c30-8d5477b013a3",
+      "passed": true
+    },
+    {
+      "name": "sandbox actual runtime 42c932ff-471d-4af2-a585-ed927ea60cac",
+      "passed": true
+    }
+  ],
+  "cases": [
+    {
+      "id": "58651a43-640f-4685-8bee-0db579cbf54e",
+      "mode": "reference",
+      "packet": "D:\\projects\\vultre\\artifacts\\transformation\\reference-case.json",
+      "baseline": "768.00",
+      "alternatives": [
+        "368.00",
+        "568.00"
+      ],
+      "range": [
+        "148.00",
+        "1193.00"
+      ],
+      "multi_range_packet": "D:\\projects\\vultre\\artifacts\\transformation\\reference-multi-range-case.json",
+      "multi_range": {
+        "low": "148.00",
+        "high": "1993.00",
+        "width": "1845.00",
+        "review_queue": [
+          {
+            "target": "contract:C1",
+            "label": "Contract C1",
+            "rows": [
+              2,
+              3,
+              8
+            ],
+            "guaranteed_width_reduction": "645.00",
+            "possible_width_reduction": "1845.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          },
+          {
+            "target": "row:2:quantity",
+            "label": "INV501 \u00b7 record 2 \u00b7 quantity",
+            "rows": [
+              2
+            ],
+            "guaranteed_width_reduction": "0.00",
+            "possible_width_reduction": "1200.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          }
+        ]
+      }
+    },
+    {
+      "id": "3fcf918a-f792-4271-81d9-8bfcd667ab7b",
+      "mode": "sandbox",
+      "packet": "D:\\projects\\vultre\\artifacts\\transformation\\sandbox-case.json",
+      "baseline": "768.00",
+      "alternatives": [
+        "368.00",
+        "568.00"
+      ],
+      "range": [
+        "148.00",
+        "1193.00"
+      ],
+      "multi_range_packet": "D:\\projects\\vultre\\artifacts\\transformation\\sandbox-multi-range-case.json",
+      "multi_range": {
+        "low": "148.00",
+        "high": "1993.00",
+        "width": "1845.00",
+        "review_queue": [
+          {
+            "target": "contract:C1",
+            "label": "Contract C1",
+            "rows": [
+              2,
+              3,
+              8
+            ],
+            "guaranteed_width_reduction": "645.00",
+            "possible_width_reduction": "1845.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          },
+          {
+            "target": "row:2:quantity",
+            "label": "INV501 \u00b7 record 2 \u00b7 quantity",
+            "rows": [
+              2
+            ],
+            "guaranteed_width_reduction": "0.00",
+            "possible_width_reduction": "1200.00",
+            "reason": "Range removed by learning this input exactly; all other declared ranges remain."
+          }
+        ]
+      }
+    }
+  ]
+}

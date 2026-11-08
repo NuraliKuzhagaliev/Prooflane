@@ -1,0 +1,68 @@
+{
+  "scope": "REAL_LOCAL_HTTP_AND_DOCKER_NOT_VULTR",
+  "at": "2026-11-03T16:52:19.913656+00:00",
+  "tests": [
+    {
+      "name": "static assets",
+      "passed": true
+    },
+    {
+      "name": "reference request",
+      "passed": true
+    },
+    {
+      "name": "reference result",
+      "passed": true
+    },
+    {
+      "name": "reference receipt verification",
+      "passed": true
+    },
+    {
+      "name": "reference cross-session isolation",
+      "passed": true
+    },
+    {
+      "name": "sandbox request",
+      "passed": true
+    },
+    {
+      "name": "sandbox result",
+      "passed": true
+    },
+    {
+      "name": "sandbox receipt verification",
+      "passed": true
+    },
+    {
+      "name": "sandbox cleanup",
+      "passed": true
+    },
+    {
+      "name": "sandbox cross-session isolation",
+      "passed": true
+    },
+    {
+      "name": "invalid CSV rejected",
+      "passed": true
+    },
+    {
+      "name": "CSRF marker enforced",
+      "passed": true
+    }
+  ],
+  "health": {
+    "version": "0.1.0",
+    "docker": {
+      "available": true,
+      "detail": "Linux Docker engine and sandbox image are available."
+    },
+    "inference": {
+      "configured": false,
+      "enabled": false,
+      "model": ""
+    }
+  },
+  "sandbox_elapsed_ms": 1420.63,
+  "passed": true
+}

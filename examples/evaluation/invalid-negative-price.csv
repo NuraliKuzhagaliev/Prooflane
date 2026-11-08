@@ -1,0 +1,2 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+BAD-1,North,1,-1,2,Negative price is unsupported

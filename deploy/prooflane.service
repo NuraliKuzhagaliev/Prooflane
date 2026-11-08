@@ -1,0 +1,26 @@
+[Unit]
+Description=Prooflane web control plane
+After=network-online.target docker.service
+Wants=network-online.target
+Requires=docker.service
+
+[Service]
+Type=simple
+User=prooflane
+Group=prooflane
+SupplementaryGroups=docker
+WorkingDirectory=/opt/prooflane
+EnvironmentFile=/opt/prooflane/.env
+Environment=PYTHONDONTWRITEBYTECODE=1
+Environment=PYTHONUNBUFFERED=1
+ExecStart=/opt/prooflane/.venv/bin/uvicorn prooflane.app:app --host 127.0.0.1 --port 8765 --workers 1 --proxy-headers --forwarded-allow-ips 127.0.0.1
+Restart=on-failure
+RestartSec=3
+TimeoutStopSec=20
+UMask=0077
+NoNewPrivileges=true
+# Docker group remains privileged. This unit does not make daemon access unprivileged.
+# No host paths are mounted into task containers; runtime controls live in sandbox.py.
+
+[Install]
+WantedBy=multi-user.target

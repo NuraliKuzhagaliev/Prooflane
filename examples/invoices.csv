@@ -1,0 +1,25 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+INV-2401,Northstar Supply,120,18.50,18.50,Safety gloves
+INV-2402,Atlas Industrial,40,85.00,72.00,Filter cartridges
+INV-2403,Meridian Tools,15,129.00,129.00,Torque wrenches
+INV-2404,Northstar Supply,200,4.80,4.20,Seal kits
+INV-2405,Atlas Industrial,24,32.00,32.00,Mounting brackets
+INV-2406,Coastal Logistics,8,190.00,175.00,Regional freight
+INV-2407,Meridian Tools,50,14.00,14.00,Measuring tape
+INV-2408,Northstar Supply,100,9.50,9.50,Eye protection
+INV-2409,Atlas Industrial,60,26.00,22.00,Hydraulic fittings
+INV-2410,Coastal Logistics,10,145.00,145.00,Standard delivery
+INV-2411,Meridian Tools,8,310.00,275.00,Drill sets
+INV-2412,Northstar Supply,300,2.10,2.10,Fasteners
+INV-2413,Atlas Industrial,20,115.00,115.00,Pressure gauges
+INV-2414,Coastal Logistics,4,225.00,225.00,Overnight freight
+INV-2415,Meridian Tools,35,48.00,48.00,Tool cases
+INV-2416,Northstar Supply,80,17.50,15.00,Work gloves
+INV-2417,Atlas Industrial,25,62.00,62.00,Valve assemblies
+INV-2418,Coastal Logistics,6,180.00,180.00,Consolidated freight
+INV-2419,Meridian Tools,12,95.00,95.00,Socket sets
+INV-2420,Northstar Supply,150,6.40,6.40,Packaging supplies
+INV-2421,Atlas Industrial,10,210.00,210.00,Motor components
+INV-2422,Coastal Logistics,5,160.00,160.00,Returns collection
+INV-2423,Meridian Tools,40,22.00,22.00,Utility knives
+INV-2424,Northstar Supply,90,11.00,11.50,Discounted safety vests

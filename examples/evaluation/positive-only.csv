@@ -1,0 +1,5 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+POS-1,Zebra,1,15,10,Positive five
+POS-2,Alpha,2,3,1,Positive four
+POS-3,Alpha,1,2,1,Positive one
+POS-4,Beta,1,1,100,Do not subtract ninety nine

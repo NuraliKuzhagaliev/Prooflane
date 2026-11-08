@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-03",
+  "scope": "LOCAL_PROTOTYPE_NOT_SUBMISSION_READY",
+  "unit_contract_tests": {
+    "windows": 38,
+    "linux_clean_container": 38,
+    "status": "PASS",
+    "warning": "Starlette HTTPX TestClient deprecation"
+  },
+  "real_docker": "PASS artifacts/sandbox-smoke.json",
+  "real_http": "PASS artifacts/api-smoke.json",
+  "browser": {
+    "engine": "Chromium in-app browser via CUA",
+    "viewports": [
+      [
+        1440,
+        1000
+      ],
+      [
+        390,
+        844
+      ]
+    ],
+    "horizontal_overflow": false,
+    "sample_variance": "1480.00",
+    "changed_input_variance": "0.60",
+    "changed_input_billed": "1.10",
+    "dialog_escape": "PASS",
+    "invalid_csv_error": "PASS",
+    "literal_html_like_data": "PASS",
+    "download_and_offline_verify": "PASS",
+    "console_errors_final": []
+  },
+  "dependency_advisories": "PASS no known vulnerabilities for23 pinned Python packages",
+  "independent_audit": "3 reproduced findings fixed and retested; see artifacts/audit",
+  "vultr_vm": "BLOCKED not created",
+  "live_vultr_inference": "BLOCKED not configured",
+  "public_demo": "NOT_DEPLOYED",
+  "video": "NOT_RECORDED",
+  "lablab_submission": "NOT_SUBMITTED",
+  "slides": "PASS draft6slides local PDF/PPTX; raster PDF, native PPTX editable",
+  "cover": "PASS1600x900",
+  "skills": [
+    "project-bootstrap",
+    "hub-hackathon",
+    "hub-research",
+    "hub-innovation",
+    "hub-engineering",
+    "hub-audit",
+    "Presentations",
+    "pdf"
+  ],
+  "agents_invoked": [
+    "rules_research",
+    "concept_research",
+    "sandbox_engine",
+    "independent_audit:hub_evidence_reviewer"
+  ]
+}

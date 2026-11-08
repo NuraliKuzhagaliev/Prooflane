@@ -1,0 +1,20 @@
+{
+  "fonts": [
+    {
+      "file": "web\\fonts\\newsreader.ttf",
+      "bytes": 109472,
+      "weight": 400,
+      "sha256": "b8f5e0a8bdd6a12c722ca5635d9da87e77ccbb2d0172112e34e00c4e55f2cd5a",
+      "license": "web\\fonts\\Newsreader-OFL.txt"
+    },
+    {
+      "file": "web\\fonts\\ibm-plex-mono.ttf",
+      "bytes": 128812,
+      "weight": 400,
+      "sha256": "a7fdc993f9f0387caedba4e42521136fa97e4c0837ae6239bf0413ccf8af00c2",
+      "license": "web\\fonts\\IBMPlexMono-OFL.txt"
+    }
+  ],
+  "total_font_bytes": 238284,
+  "source_stylesheet": "font-source.css"
+}

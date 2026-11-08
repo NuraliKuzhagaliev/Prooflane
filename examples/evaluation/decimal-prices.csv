@@ -1,0 +1,3 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+CENT-1,North,3,0.30,0.10,Exact cents
+CENT-2,South,2,0.10,0.20,Negative difference does not offset positive

@@ -1,0 +1,39 @@
+{
+  "passed": true,
+  "case_id": "4e4528d0-dc09-4a6a-9a73-3359adb57bb2",
+  "model": "deepseek-v4.1-flash-1017",
+  "model_calls": 2,
+  "generation_request_ids": [
+    "chatcmpl-1e321cad-6cf9-4f5e-a814-8ede2ca0a20a"
+  ],
+  "explanation_request_id": "chatcmpl-c867fe74-cd28-4cac-af68-cb30c9e10603",
+  "verification": {
+    "passed": true,
+    "case_name": "Vultr agent verification \u00b7 synthetic",
+    "case_id": "4e4528d0-dc09-4a6a-9a73-3359adb57bb2",
+    "checks": [
+      "Source reconciliation and explicit exclusions",
+      "Baseline receipt and source CSV",
+      "All alternative arithmetic and parent links",
+      "Declared changes and shared-contract propagation",
+      "Exact ranges, sensitivity and review priorities",
+      "Case hash and all comparisons"
+    ],
+    "counts": {
+      "excluded": 1,
+      "matched": 6,
+      "selected": 1,
+      "total": 8,
+      "unresolved": 0
+    },
+    "alternatives": 0,
+    "range": {
+      "low": "768.00",
+      "high": "768.00",
+      "width": "0.00"
+    },
+    "scope": "Source/assumption consistency and arithmetic only. No issuer authentication, runtime attestation or proof that supplied contracts are true."
+  },
+  "source": "Public HTTPS POST returned 200 on the server. The client timed out while reading the response. The synthetic packet was recovered from the VM and verified offline.",
+  "browser_run": "NOT_COMPLETED"
+}

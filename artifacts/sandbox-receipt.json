@@ -1,0 +1,317 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "6ca5f133-7921-498e-85fa-2b0c4def5338",
+  "created_at": "2026-11-03T16:52:20.874967+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nINV-2401,Northstar Supply,120,18.50,18.50,Safety gloves\nINV-2402,Atlas Industrial,40,85.00,72.00,Filter cartridges\nINV-2403,Meridian Tools,15,129.00,129.00,Torque wrenches\nINV-2404,Northstar Supply,200,4.80,4.20,Seal kits\nINV-2405,Atlas Industrial,24,32.00,32.00,Mounting brackets\nINV-2406,Coastal Logistics,8,190.00,175.00,Regional freight\nINV-2407,Meridian Tools,50,14.00,14.00,Measuring tape\nINV-2408,Northstar Supply,100,9.50,9.50,Eye protection\nINV-2409,Atlas Industrial,60,26.00,22.00,Hydraulic fittings\nINV-2410,Coastal Logistics,10,145.00,145.00,Standard delivery\nINV-2411,Meridian Tools,8,310.00,275.00,Drill sets\nINV-2412,Northstar Supply,300,2.10,2.10,Fasteners\nINV-2413,Atlas Industrial,20,115.00,115.00,Pressure gauges\nINV-2414,Coastal Logistics,4,225.00,225.00,Overnight freight\nINV-2415,Meridian Tools,35,48.00,48.00,Tool cases\nINV-2416,Northstar Supply,80,17.50,15.00,Work gloves\nINV-2417,Atlas Industrial,25,62.00,62.00,Valve assemblies\nINV-2418,Coastal Logistics,6,180.00,180.00,Consolidated freight\nINV-2419,Meridian Tools,12,95.00,95.00,Socket sets\nINV-2420,Northstar Supply,150,6.40,6.40,Packaging supplies\nINV-2421,Atlas Industrial,10,210.00,210.00,Motor components\nINV-2422,Coastal Logistics,5,160.00,160.00,Returns collection\nINV-2423,Meridian Tools,40,22.00,22.00,Utility knives\nINV-2424,Northstar Supply,90,11.00,11.50,Discounted safety vests\n",
+  "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+  "output": {
+    "row_count": 24,
+    "total_billed": "34353.00",
+    "total_variance": "1480.00",
+    "findings": [
+      {
+        "row": 3,
+        "variance": "520.00"
+      },
+      {
+        "row": 5,
+        "variance": "120.00"
+      },
+      {
+        "row": 7,
+        "variance": "120.00"
+      },
+      {
+        "row": 10,
+        "variance": "240.00"
+      },
+      {
+        "row": 12,
+        "variance": "280.00"
+      },
+      {
+        "row": 17,
+        "variance": "200.00"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 24,
+    "total_billed": "34353.00",
+    "total_variance": "1480.00",
+    "flagged_count": 6,
+    "findings": [
+      {
+        "invoice_id": "INV-2402",
+        "vendor": "Atlas Industrial",
+        "quantity": 40,
+        "unit_price": "85.00",
+        "contract_price": "72.00",
+        "notes": "Filter cartridges",
+        "row": 3,
+        "variance": "520.00"
+      },
+      {
+        "invoice_id": "INV-2404",
+        "vendor": "Northstar Supply",
+        "quantity": 200,
+        "unit_price": "4.80",
+        "contract_price": "4.20",
+        "notes": "Seal kits",
+        "row": 5,
+        "variance": "120.00"
+      },
+      {
+        "invoice_id": "INV-2406",
+        "vendor": "Coastal Logistics",
+        "quantity": 8,
+        "unit_price": "190.00",
+        "contract_price": "175.00",
+        "notes": "Regional freight",
+        "row": 7,
+        "variance": "120.00"
+      },
+      {
+        "invoice_id": "INV-2409",
+        "vendor": "Atlas Industrial",
+        "quantity": 60,
+        "unit_price": "26.00",
+        "contract_price": "22.00",
+        "notes": "Hydraulic fittings",
+        "row": 10,
+        "variance": "240.00"
+      },
+      {
+        "invoice_id": "INV-2411",
+        "vendor": "Meridian Tools",
+        "quantity": 8,
+        "unit_price": "310.00",
+        "contract_price": "275.00",
+        "notes": "Drill sets",
+        "row": 12,
+        "variance": "280.00"
+      },
+      {
+        "invoice_id": "INV-2416",
+        "vendor": "Northstar Supply",
+        "quantity": 80,
+        "unit_price": "17.50",
+        "contract_price": "15.00",
+        "notes": "Work gloves",
+        "row": 17,
+        "variance": "200.00"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "Atlas Industrial",
+        "variance": "760.00"
+      },
+      {
+        "vendor": "Northstar Supply",
+        "variance": "320.00"
+      },
+      {
+        "vendor": "Meridian Tools",
+        "variance": "280.00"
+      },
+      {
+        "vendor": "Coastal Logistics",
+        "variance": "120.00"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Output schema",
+        "passed": true,
+        "detail": "Only the four documented output fields are accepted."
+      },
+      {
+        "name": "Record coverage",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Billed total",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Positive variance",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Every source record",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "24 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Plan",
+      "status": "passed",
+      "detail": "Reviewed fixed recipe. No AI model call."
+    },
+    {
+      "stage": "Execute",
+      "status": "passed",
+      "detail": "Disposable Docker execution; exit=0; cleanup=True."
+    },
+    {
+      "stage": "Verify",
+      "status": "passed",
+      "detail": "Independent verifier checked totals and every finding."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "stdout": "{\"row_count\": 24, \"total_billed\": \"34353.00\", \"total_variance\": \"1480.00\", \"findings\": [{\"row\": 3, \"variance\": \"520.00\"}, {\"row\": 5, \"variance\": \"120.00\"}, {\"row\": 7, \"variance\": \"120.00\"}, {\"row\": 10, \"variance\": \"240.00\"}, {\"row\": 12, \"variance\": \"280.00\"}, {\"row\": 17, \"variance\": \"200.00\"}]}\n",
+    "stderr": "",
+    "exit_code": 0,
+    "container_id": "8fc56bade70244d5649b9a59aa103dc445916e7f866562414d2fd1a592e41109",
+    "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+    "cleanup": true,
+    "runtime": "docker",
+    "limits": {
+      "network": "none",
+      "memory_mb": 128,
+      "cpu": 0.5,
+      "pids": 32,
+      "tmpfs_mb": 16,
+      "read_only_root": true,
+      "user": "65534:65534",
+      "capabilities": "none",
+      "no_new_privileges": true,
+      "host_mounts": false,
+      "timeout_seconds": 10,
+      "stdout_bytes": 131072,
+      "stderr_bytes": 32768
+    },
+    "observed_controls": {
+      "network": "none",
+      "read_only_root": true,
+      "user": "65534:65534",
+      "memory_bytes": 134217728,
+      "memory_swap_bytes": 134217728,
+      "nano_cpus": 500000000,
+      "pids": 32,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_options": [
+        "no-new-privileges=true"
+      ],
+      "host_mount_count": 0
+    },
+    "oom_killed": false,
+    "elapsed_ms": 1420.63
+  },
+  "attempts": [
+    {
+      "index": 1,
+      "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+      "execution": {
+        "stdout": "{\"row_count\": 24, \"total_billed\": \"34353.00\", \"total_variance\": \"1480.00\", \"findings\": [{\"row\": 3, \"variance\": \"520.00\"}, {\"row\": 5, \"variance\": \"120.00\"}, {\"row\": 7, \"variance\": \"120.00\"}, {\"row\": 10, \"variance\": \"240.00\"}, {\"row\": 12, \"variance\": \"280.00\"}, {\"row\": 17, \"variance\": \"200.00\"}]}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "8fc56bade70244d5649b9a59aa103dc445916e7f866562414d2fd1a592e41109",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1420.63
+      },
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Output schema",
+            "passed": true,
+            "detail": "Only the four documented output fields are accepted."
+          },
+          {
+            "name": "Record coverage",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Billed total",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Positive variance",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Every source record",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          }
+        ]
+      },
+      "model": null,
+      "usage": {}
+    }
+  ],
+  "provenance": {
+    "mode": "sandbox",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "379a5246d46bac9819ffb094ebf130e7c98c3a3c373ed5a70b504040f736de8e",
+    "code_sha256": "484887fd422783e3595b60e24cf954a41c8f41203b68da3c4bd05c37954bf920",
+    "output_sha256": "7b4eddb4f76f9fee39122292307a807d71a80334dfd79622fa401e04954710eb"
+  },
+  "receipt_sha256": "e5106ff97cc3eea95f253afe436438701fe0a063e71876d7c76695bf7d40279d"
+}

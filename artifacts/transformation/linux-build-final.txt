@@ -1,0 +1,60 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.validation
+#1 transferring dockerfile: 604B 0.0s done
+#1 DONE 0.1s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed
+#2 DONE 0.2s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 145B done
+#3 DONE 0.0s
+
+#4 [internal] load build context
+#4 transferring context: 154.05kB 0.0s done
+#4 DONE 0.0s
+
+#5 [ 1/10] FROM docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed
+#5 resolve docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed 0.1s done
+#5 DONE 0.1s
+
+#6 [ 4/10] RUN pip install --no-cache-dir -r requirements.lock
+#6 CACHED
+
+#7 [ 5/10] COPY prooflane /app/prooflane
+#7 CACHED
+
+#8 [ 2/10] WORKDIR /app
+#8 CACHED
+
+#9 [ 3/10] COPY requirements.lock /app/requirements.lock
+#9 CACHED
+
+#10 [ 6/10] COPY tests /app/tests
+#10 CACHED
+
+#11 [ 7/10] COPY scripts /app/scripts
+#11 DONE 0.1s
+
+#12 [ 8/10] COPY examples /app/examples
+#12 DONE 0.1s
+
+#13 [ 9/10] COPY web /app/web
+#13 DONE 0.1s
+
+#14 [10/10] COPY pytest.ini /app/pytest.ini
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 0.3s done
+#15 exporting manifest sha256:4be576750dcab4abc68f71ffdadac676edd52d10e9d4e0a33626296c6b72e2b2 0.0s done
+#15 exporting config sha256:3a979558aeb32af559f95b5a932d0c9bef5bda600af43e7c26617b9a85f2acf7 0.0s done
+#15 exporting attestation manifest sha256:bb89f6cc09aa31e0ca899c9ec98edc4cb86cbda0c0e593b6e8d85f45897e4cf8 0.0s done
+#15 exporting manifest list sha256:5a173b9877ffb5bf1da37949243cf1e1562333ca352de5d7983acdb3e7136c5d
+#15 exporting manifest list sha256:5a173b9877ffb5bf1da37949243cf1e1562333ca352de5d7983acdb3e7136c5d 0.0s done
+#15 naming to docker.io/library/prooflane-validation:local done
+#15 unpacking to docker.io/library/prooflane-validation:local
+#15 unpacking to docker.io/library/prooflane-validation:local 0.2s done
+#15 DONE 0.7s

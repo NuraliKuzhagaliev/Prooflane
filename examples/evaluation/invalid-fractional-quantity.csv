@@ -1,0 +1,2 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+BAD-2,North,1.5,2,1,Fractional quantity is unsupported

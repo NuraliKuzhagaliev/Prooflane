@@ -1,0 +1,5 @@
+{
+  "packet_verification": "Packet checks passed\nArithmetic and content integrity checked.\n\nSource/assumption consistency and arithmetic only. No issuer authentication, runtime attestation or proof that supplied contracts are true.\n\n✓\nSource reconciliation and explicit exclusions · passed\n✓\nBaseline receipt and source CSV · passed\n✓\nAll alternative arithmetic and parent links · passed\n✓\nDeclared changes and shared-contract propagation · passed\n✓\nExact ranges, sensitivity and review priorities · passed\n✓\nCase hash and all comparisons · passed\n✓\nPriority boundaries and cent-grid witnesses · passed",
+  "same_case_after_reload": true,
+  "case_packet_href": "/api/cases/f73c5d8c-8923-40e2-b070-5123983a5063/packet"
+}

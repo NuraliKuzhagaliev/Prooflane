@@ -1,0 +1,166 @@
+TAP version 13
+# Subtest: preserves cents at the maximum supported input product
+ok 1 - preserves cents at the maximum supported input product
+  ---
+  duration_ms: 1.5826
+  type: 'test'
+  ...
+# Subtest: preserves cents for the aggregate of 500 maximum rows
+ok 2 - preserves cents for the aggregate of 500 maximum rows
+  ---
+  duration_ms: 0.4507
+  type: 'test'
+  ...
+# Subtest: formats ordinary, fractional and zero amounts
+ok 3 - formats ordinary, fractional and zero amounts
+  ---
+  duration_ms: 0.3407
+  type: 'test'
+  ...
+# Subtest: invalid or missing amounts remain unavailable
+ok 4 - invalid or missing amounts remain unavailable
+  ---
+  duration_ms: 0.399
+  type: 'test'
+  ...
+# Subtest: signed comparison amounts preserve direction and exact cents
+ok 5 - signed comparison amounts preserve direction and exact cents
+  ---
+  duration_ms: 0.4588
+  type: 'test'
+  ...
+# Subtest: zero deltas are neutral and malformed deltas unavailable
+ok 6 - zero deltas are neutral and malformed deltas unavailable
+  ---
+  duration_ms: 0.2486
+  type: 'test'
+  ...
+# Subtest: resume persists only a valid review ID and reading location, dropping sources and credentials
+ok 7 - resume persists only a valid review ID and reading location, dropping sources and credentials
+  ---
+  duration_ms: 5.4419
+  type: 'test'
+  ...
+# Subtest: invalid or malformed saved navigation never creates a request target
+ok 8 - invalid or malformed saved navigation never creates a request target
+  ---
+  duration_ms: 1.3017
+  type: 'test'
+  ...
+# Subtest: denied browser storage does not prevent the review from running
+ok 9 - denied browser storage does not prevent the review from running
+  ---
+  duration_ms: 1.1542
+  type: 'test'
+  ...
+# Subtest: pending recovery stores an operation identity without payloads or tokens and can be cleared
+ok 10 - pending recovery stores an operation identity without payloads or tokens and can be cleared
+  ---
+  duration_ms: 1.5289
+  type: 'test'
+  ...
+# Subtest: assumption tool switch exposes one panel and one keyboard tab without changing saved analysis
+ok 11 - assumption tool switch exposes one panel and one keyboard tab without changing saved analysis
+  ---
+  duration_ms: 4.2759
+  type: 'test'
+  ...
+# Subtest: archive cannot interrupt a pending request and captures the opener before native modal focus
+ok 12 - archive cannot interrupt a pending request and captures the opener before native modal focus
+  ---
+  duration_ms: 1.8512
+  type: 'test'
+  ...
+# Subtest: choosing a source row moves focus to the new inspector and returns to the replacement row
+ok 13 - choosing a source row moves focus to the new inspector and returns to the replacement row
+  ---
+  duration_ms: 3.8449
+  type: 'test'
+  ...
+# Subtest: packet submission preserves duplicate JSON keys for strict server rejection
+ok 14 - packet submission preserves duplicate JSON keys for strict server rejection
+  ---
+  duration_ms: 2.851
+  type: 'test'
+  ...
+# Subtest: a stalled execution response has a deadline and never retries its POST
+ok 15 - a stalled execution response has a deadline and never retries its POST
+  ---
+  duration_ms: 4.4875
+  type: 'test'
+  ...
+# Subtest: failed live baseline exposes its safe diagnostic and clears the credential
+ok 16 - failed live baseline exposes its safe diagnostic and clears the credential
+  ---
+  duration_ms: 3.1192
+  type: 'test'
+  ...
+# Subtest: completed API reads clear their shorter deadline and preserve server errors
+ok 17 - completed API reads clear their shorter deadline and preserve server errors
+  ---
+  duration_ms: 1.7535
+  type: 'test'
+  ...
+# Subtest: pending request identity blocks execution before history or session-readiness promises settle
+ok 18 - pending request identity blocks execution before history or session-readiness promises settle
+  ---
+  duration_ms: 10.2028
+  type: 'test'
+  ...
+# Subtest: source focus preserves original identity after a preceding exclusion
+ok 19 - source focus preserves original identity after a preceding exclusion
+  ---
+  duration_ms: 6.4244
+  type: 'test'
+  ...
+# Subtest: source focus never guesses a calculation row for a missing contract binding
+ok 20 - source focus never guesses a calculation row for a missing contract binding
+  ---
+  duration_ms: 0.3196
+  type: 'test'
+  ...
+# Subtest: reference results cannot claim independent execution verification
+ok 21 - reference results cannot claim independent execution verification
+  ---
+  duration_ms: 0.3023
+  type: 'test'
+  ...
+# Subtest: decimal draft comparisons preserve cents beyond Number precision
+ok 22 - decimal draft comparisons preserve cents beyond Number precision
+  ---
+  duration_ms: 2.4295
+  type: 'test'
+  ...
+# Subtest: drafts reject no-ops, repeated targets, over-capacity and invalid quantities
+ok 23 - drafts reject no-ops, repeated targets, over-capacity and invalid quantities
+  ---
+  duration_ms: 2.4849
+  type: 'test'
+  ...
+# Subtest: ranges must contain the original and obey field precision
+ok 24 - ranges must contain the original and obey field precision
+  ---
+  duration_ms: 0.5666
+  type: 'test'
+  ...
+# Subtest: source queue separates unresolved, selected and excluded with case-insensitive text search
+ok 25 - source queue separates unresolved, selected and excluded with case-insensitive text search
+  ---
+  duration_ms: 0.4432
+  type: 'test'
+  ...
+# Subtest: contract inspector only identifies the explicitly returned chosen candidate
+ok 26 - contract inspector only identifies the explicitly returned chosen candidate
+  ---
+  duration_ms: 0.2926
+  type: 'test'
+  ...
+1..26
+# tests 26
+# suites 0
+# pass 26
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 291.4339

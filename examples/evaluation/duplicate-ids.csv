@@ -1,0 +1,4 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+DUP-1,North,1,12,10,First line of invoice
+DUP-1,North,2,8,7,Second line of same invoice
+DUP-2,South,1,3,3,Equal prices

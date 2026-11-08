@@ -1,0 +1,286 @@
+{
+  "scope": "INDEPENDENT_CYCLE2_LOCAL_DOUBLES_OFFLINE_CLI_NOT_VSI",
+  "passed": true,
+  "file_sha256": {
+    "prooflane/app.py": "48d50511aeafb7091339cdd2addb2fdd83571896b9a9fa9718723492e57bdf28",
+    "prooflane/provider.py": "b21dd84c8a6fd9451696407ea62fe0e2f4a2207d774b354b229dc2c7b4672c47",
+    "prooflane/comparison.py": "fae43016d4e09a47f7af92d6ffd615319256e5b62fce73fed89077c2bc08366a",
+    "prooflane/sandbox.py": "db25f04d923759f6df1d1b830c61ff3c388d5ff4a002f98eeea7d98c9e425524",
+    "prooflane/analysis.py": "08008d679ddae3fa1e231c3f26ea1a6211d8b9fa1639ea05ca201a16b3a24817",
+    "prooflane/receipts.py": "f873decc606c79f2b6ad392ba48bc50555c533e440cd824776461ea60949b275",
+    "prooflane/store.py": "d3a73052b3b215f502f4f850e8a07e01d96c1d70aa269e22869766358acc2e7f",
+    "scripts/verify_receipt.py": "db9a2f1e83988739df56ec0f349e6b696962bad0c5887d888474c0ebf19ac5b2",
+    "README.md": "ad471492d4b06dafd61dc03e6fd88fbf3923e1d5ee1c24b578e519f4bff0f05f",
+    "TESTING.md": "6d47d5eb84b64b17f9d269a746936f42828c8a8a4c28a381787cb6adb3121f22",
+    "FINAL_REPORT.md": "c3ccf467d307b29ab91001203ab0c22812766788038b4a7e7510aa1bccd17f8f",
+    "SECURITY.md": "a90cbbd6388cd4a7c85c7a1ea47b97aa96255bfa02bfff2133f279fc30fc736e",
+    "docs/ARCHITECTURE.md": "40a0b4f9eae5fbf8382906b7b11c7912fb642d0cf81c2b0e26d788924aa7209c",
+    "docs/SCENARIO_CONTRACT.md": "a4445b2a826c985f055b6a0ecedbcc86551c213d6e777083061a3bbc80d7b796"
+  },
+  "checks": [
+    {
+      "case": "E1_clean_timeout",
+      "passed": true,
+      "status": "verified",
+      "provider_calls": 2,
+      "sandbox_calls": 2
+    },
+    {
+      "case": "E2_null_choice",
+      "passed": true,
+      "http_status": 200,
+      "status": "failed",
+      "sandbox_calls": 0,
+      "history_count": 1
+    },
+    {
+      "case": "E3_plan_surrogate",
+      "passed": true,
+      "http_status": 200,
+      "status": "failed",
+      "sandbox_calls": 0,
+      "history_count": 1
+    },
+    {
+      "case": "E3_model_surrogate",
+      "passed": true,
+      "http_status": 200,
+      "status": "failed",
+      "sandbox_calls": 0,
+      "history_count": 1
+    },
+    {
+      "case": "no_docker_sandbox",
+      "passed": true,
+      "status": "failed",
+      "sandbox_calls": 0,
+      "provider_calls": 0
+    },
+    {
+      "case": "no_docker_vultr",
+      "passed": true,
+      "status": "failed",
+      "sandbox_calls": 0,
+      "provider_calls": 0
+    },
+    {
+      "case": "scenario_signed_exact_delta",
+      "passed": true,
+      "delta": {
+        "total_variance": "2.00",
+        "total_billed": "4.00",
+        "flagged_count": 0
+      }
+    },
+    {
+      "case": "baseline_immutable",
+      "passed": true
+    },
+    {
+      "case": "lineage_and_access_boundaries",
+      "passed": true,
+      "statuses": {
+        "wrong_hash": 409,
+        "mode_override": 422,
+        "missing_csrf": 403,
+        "scenario_as_parent": 422,
+        "foreign_source": 404,
+        "foreign_scenario": 404,
+        "foreign_comparison": 404
+      }
+    },
+    {
+      "case": "offline_CLI_real_reference",
+      "passed": true,
+      "exit_code": 0,
+      "output": {
+        "passed": true,
+        "checks": [
+          "Both receipt hashes and arithmetic",
+          "Baseline identity and hash",
+          "Exactly one declared source assumption",
+          "Same execution mode",
+          "Every signed delta"
+        ],
+        "comparison": {
+          "scope": "Hypothetical assumption; not a contract correction, payment instruction or recovered savings.",
+          "baseline": {
+            "run_id": "976c6024-6370-4e55-a8b0-5f0088bf997e",
+            "receipt_sha256": "d08e5d0a96f3224fa85e86ac23e8dbc999667012b89f63e4e75204999ab05827",
+            "mode": "reference",
+            "row_count": 24,
+            "flagged_count": 6,
+            "total_billed": "34353.00",
+            "total_variance": "1480.00"
+          },
+          "scenario": {
+            "run_id": "f96fc400-84e6-4716-9329-4edcff9894d8",
+            "receipt_sha256": "001812594e579b5773c96a59d496326306d8fc523c9e7420198a25903bee8d7f",
+            "mode": "reference",
+            "row_count": 24,
+            "flagged_count": 6,
+            "total_billed": "34353.00",
+            "total_variance": "1160.00"
+          },
+          "delta": {
+            "total_variance": "-320.00",
+            "total_billed": "0.00",
+            "flagged_count": 0
+          },
+          "change": {
+            "row": 3,
+            "field": "contract_price",
+            "before": "72.00",
+            "after": "80.00",
+            "invoice_id": "INV-2402",
+            "vendor": "Atlas Industrial",
+            "before_variance": "520.00",
+            "after_variance": "200.00",
+            "variance_delta": "-320.00"
+          },
+          "unchanged_records": 23
+        },
+        "scope": "Integrity and arithmetic only. No authentication of issuer, execution host or truth of the assumption."
+      }
+    },
+    {
+      "case": "offline_CLI_real_docker",
+      "passed": true,
+      "exit_code": 0,
+      "output": {
+        "passed": true,
+        "checks": [
+          "Both receipt hashes and arithmetic",
+          "Baseline identity and hash",
+          "Exactly one declared source assumption",
+          "Same execution mode",
+          "Every signed delta"
+        ],
+        "comparison": {
+          "scope": "Hypothetical assumption; not a contract correction, payment instruction or recovered savings.",
+          "baseline": {
+            "run_id": "dbc6b4fd-b34f-4569-815f-955165f87297",
+            "receipt_sha256": "8f8c9a53a5f36d4975b21b378c7bae1e1383a2132ef8d61f536096de9cbc2716",
+            "mode": "sandbox",
+            "row_count": 24,
+            "flagged_count": 6,
+            "total_billed": "34353.00",
+            "total_variance": "1480.00"
+          },
+          "scenario": {
+            "run_id": "5eccc9f5-fb6d-4957-8318-a16fe71042bf",
+            "receipt_sha256": "7465c80cd1a970633fce7a864bf9e2cef1939532d569bab9ecf63477a107747b",
+            "mode": "sandbox",
+            "row_count": 24,
+            "flagged_count": 6,
+            "total_billed": "34353.00",
+            "total_variance": "1160.00"
+          },
+          "delta": {
+            "total_variance": "-320.00",
+            "total_billed": "0.00",
+            "flagged_count": 0
+          },
+          "change": {
+            "row": 3,
+            "field": "contract_price",
+            "before": "72.00",
+            "after": "80.00",
+            "invoice_id": "INV-2402",
+            "vendor": "Atlas Industrial",
+            "before_variance": "520.00",
+            "after_variance": "200.00",
+            "variance_delta": "-320.00"
+          },
+          "unchanged_records": 23
+        },
+        "scope": "Integrity and arithmetic only. No authentication of issuer, execution host or truth of the assumption."
+      }
+    },
+    {
+      "case": "offline_CLI_fresh_reference",
+      "passed": true,
+      "exit_code": 0,
+      "output": {
+        "passed": true,
+        "checks": [
+          "Both receipt hashes and arithmetic",
+          "Baseline identity and hash",
+          "Exactly one declared source assumption",
+          "Same execution mode",
+          "Every signed delta"
+        ],
+        "comparison": {
+          "scope": "Hypothetical assumption; not a contract correction, payment instruction or recovered savings.",
+          "baseline": {
+            "run_id": "4ca7c157-29a4-4052-85cf-e08abcce424a",
+            "receipt_sha256": "0064dcd4c7350f1c769b74e237accdcd6cc8d54bfb6aa0d2b6a8ad959f2745ee",
+            "mode": "reference",
+            "row_count": 1,
+            "flagged_count": 1,
+            "total_billed": "2.00",
+            "total_variance": "1.00"
+          },
+          "scenario": {
+            "run_id": "75ac9e1f-cbd7-4405-8a0e-118955fc2ea2",
+            "receipt_sha256": "11d00fdabaa79bc240d9397916cd8860163288c2cc451522ad84ed4fc55f7794",
+            "mode": "reference",
+            "row_count": 1,
+            "flagged_count": 1,
+            "total_billed": "6.00",
+            "total_variance": "3.00"
+          },
+          "delta": {
+            "total_variance": "2.00",
+            "total_billed": "4.00",
+            "flagged_count": 0
+          },
+          "change": {
+            "row": 2,
+            "field": "quantity",
+            "before": "1",
+            "after": "3",
+            "invoice_id": "TEST",
+            "vendor": "Vendor",
+            "before_variance": "1.00",
+            "after_variance": "3.00",
+            "variance_delta": "2.00"
+          },
+          "unchanged_records": 0
+        },
+        "scope": "Integrity and arithmetic only. No authentication of issuer, execution host or truth of the assumption."
+      }
+    },
+    {
+      "case": "offline_CLI_rehashed_hidden_notes",
+      "passed": true,
+      "individual_receipts_valid": true,
+      "exit_code": 1,
+      "error": "FAIL: Scenario contains undeclared source changes."
+    },
+    {
+      "case": "offline_CLI_rehashed_hidden_numeric",
+      "passed": true,
+      "individual_receipts_valid": true,
+      "exit_code": 1,
+      "error": "FAIL: Scenario contains undeclared source changes."
+    },
+    {
+      "case": "offline_CLI_rehashed_false_delta",
+      "passed": true,
+      "individual_receipts_valid": true,
+      "exit_code": 1,
+      "error": "FAIL: Comparison deltas do not match independently recalculated results."
+    },
+    {
+      "case": "live_scenario_auth_and_failure",
+      "passed": true,
+      "auth_status": 403,
+      "status": "failed",
+      "export_status": 404,
+      "sandbox_calls": 1,
+      "quarantine": true,
+      "baseline_unchanged": true
+    }
+  ]
+}

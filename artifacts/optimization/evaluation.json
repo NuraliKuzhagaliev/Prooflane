@@ -1,0 +1,538 @@
+{
+  "scope": "HTTP acceptance with synthetic CSV; no live AI; hosting location not attested",
+  "at": "2026-11-03T18:22:39.736567+00:00",
+  "target": "http://127.0.0.1:8765",
+  "expected_values": "manually calculated examples/evaluation/cases.json",
+  "cases": [
+    {
+      "case": "no-variance",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "c3a38bc2ae2b8b063089d83c52b6d098bdef07748d0a1c8cd168aa06991015fc",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-no-variance.json",
+      "result": {
+        "row_count": 3,
+        "total_billed": "42.50",
+        "total_variance": "0.00",
+        "findings": []
+      },
+      "receipt_sha256": "649cf9cfc3eb691b4ba4550acb05d5606c415bcd04a3507627d8ebb10d591548",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 20.48
+    },
+    {
+      "case": "decimal-prices",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "f30fcdcc90ea74a17223183f8ca362cdbb753f091820648e7fe6f2749defaa78",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-decimal-prices.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "1.10",
+        "total_variance": "0.60",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "0.60"
+          }
+        ]
+      },
+      "receipt_sha256": "95a23e84e1209699aa8314f2b9a4eab97bb4ba8b983a8facf33dc3a3b2c9f243",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 17.67
+    },
+    {
+      "case": "duplicate-ids",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "a812afb8266f0d525a628b4a251f4dc2521f2991f15a0422a1a5170997da95c9",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-duplicate-ids.json",
+      "result": {
+        "row_count": 3,
+        "total_billed": "31.00",
+        "total_variance": "4.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "2.00"
+          },
+          {
+            "row": 3,
+            "variance": "2.00"
+          }
+        ]
+      },
+      "receipt_sha256": "630b321147f0932d247a44b53e2d0f42f57fa26e40a7d7e4a01002125119ede3",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 16.38
+    },
+    {
+      "case": "quoted-multiline",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "9292287d4db3cb9ea103698535497aceae4d34bc3a9048e275e14242af957954",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-quoted-multiline.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "30.68",
+        "total_variance": "7.68",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "4.68"
+          },
+          {
+            "row": 3,
+            "variance": "3.00"
+          }
+        ]
+      },
+      "receipt_sha256": "4f829c401fcdf45df2860c1fe2a637dd4dfe94cd85e1149b844333a8770e6fa8",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 21.37
+    },
+    {
+      "case": "untrusted-text",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "6d3ace5cf22bfd74dbec17ab9fc50003086014cc4280dd0849b67bb8f4c3d1cf",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-untrusted-text.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "21.50",
+        "total_variance": "1.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "117cd2860ae8f1b74f6fe1422458778760cbca1045b7c811b44f09ba03f7e745",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 18.7
+    },
+    {
+      "case": "bom-whitespace",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "d6f871ceeac8a08f03226bd63f3b6e4b019d6a5414acdb9969e32fa18bc52f9a",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-bom-whitespace.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "8.00",
+        "total_variance": "2.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "1.00"
+          },
+          {
+            "row": 3,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "9874d6e2c5d333fcd7b6f656f35ac3c1cc3fb6aa23d40dfabf4bdf4e657ed242",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 18.56
+    },
+    {
+      "case": "large-amount",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "b045cb5c1bae0cccd978d48e353f7678e0088a84b4482b5fb2287f5187854156",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-large-amount.json",
+      "result": {
+        "row_count": 1,
+        "total_billed": "99999899990000.01",
+        "total_variance": "9999.99",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "9999.99"
+          }
+        ]
+      },
+      "receipt_sha256": "4c079d4d8b967ac68537bd316f792047c528d323231860952729bf56d691ea38",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 24.74
+    },
+    {
+      "case": "positive-only",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "0abbaa97f8748ab6e33c56652a0a2ef109de4c0e350e5c70f0bbbee188f30d15",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\reference-positive-only.json",
+      "result": {
+        "row_count": 4,
+        "total_billed": "24.00",
+        "total_variance": "10.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "5.00"
+          },
+          {
+            "row": 3,
+            "variance": "4.00"
+          },
+          {
+            "row": 4,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "74d1583ecfd0ce280c8dd929737305178bb338d343d9dca02525ec7e8cce4f6f",
+      "runtime": "trusted-reference",
+      "cleanup": null,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 20.57
+    },
+    {
+      "case": "invalid-negative-price",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "37b36f655985a473238a5bb46cab90fba3a03f7545d7dd7bc85a1059192db59f",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unit_price must be nonnegative USD with at most 2 decimals.",
+      "elapsed_ms": 2.94
+    },
+    {
+      "case": "invalid-fractional-quantity",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "b9a149d130926faa87a087b8c9c82083d34d4d2c04e973ce92d50ee41d882373",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: quantity must be an integer from 1 to 999999.",
+      "elapsed_ms": 3.22
+    },
+    {
+      "case": "invalid-extra-column",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "3c8319ebe6fc84cd7d37efa7625805b3fd811438a8c4e5a361ece6943e2de8e6",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unexpected number of columns.",
+      "elapsed_ms": 2.96
+    },
+    {
+      "case": "invalid-price-precision",
+      "mode": "reference",
+      "passed": true,
+      "input_sha256": "9ac3b210a9af4a2c70cbe3937fc5dbe6c291a95ab6e1346e998372bc395ce042",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unit_price must be nonnegative USD with at most 2 decimals.",
+      "elapsed_ms": 2.88
+    },
+    {
+      "case": "no-variance",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "c3a38bc2ae2b8b063089d83c52b6d098bdef07748d0a1c8cd168aa06991015fc",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-no-variance.json",
+      "result": {
+        "row_count": 3,
+        "total_billed": "42.50",
+        "total_variance": "0.00",
+        "findings": []
+      },
+      "receipt_sha256": "132ba54c57d20fa9c42d1b29713bbe69c4a20f879585ac7a05aa236e56c40caf",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2295.44
+    },
+    {
+      "case": "decimal-prices",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "f30fcdcc90ea74a17223183f8ca362cdbb753f091820648e7fe6f2749defaa78",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-decimal-prices.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "1.10",
+        "total_variance": "0.60",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "0.60"
+          }
+        ]
+      },
+      "receipt_sha256": "f0f835fdc1e35d2d2360343a7c22f397ba7ddba11e904eb0bf43a6f8fe8dd977",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2495.05
+    },
+    {
+      "case": "duplicate-ids",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "a812afb8266f0d525a628b4a251f4dc2521f2991f15a0422a1a5170997da95c9",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-duplicate-ids.json",
+      "result": {
+        "row_count": 3,
+        "total_billed": "31.00",
+        "total_variance": "4.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "2.00"
+          },
+          {
+            "row": 3,
+            "variance": "2.00"
+          }
+        ]
+      },
+      "receipt_sha256": "6f2c6d3a1be309be66953e929ff23a3074af682dac4291174ac8df1c80fd7aa3",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 1962.9
+    },
+    {
+      "case": "quoted-multiline",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "9292287d4db3cb9ea103698535497aceae4d34bc3a9048e275e14242af957954",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-quoted-multiline.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "30.68",
+        "total_variance": "7.68",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "4.68"
+          },
+          {
+            "row": 3,
+            "variance": "3.00"
+          }
+        ]
+      },
+      "receipt_sha256": "c180f07cb6b4e5a68725017e4344aa90a5c23192a5cca4a5b4a25129d75da68d",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 1990.09
+    },
+    {
+      "case": "untrusted-text",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "6d3ace5cf22bfd74dbec17ab9fc50003086014cc4280dd0849b67bb8f4c3d1cf",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-untrusted-text.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "21.50",
+        "total_variance": "1.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "4d745d1d171e687ab6fe43f9130e4f620bf9314beb30dfc8d3044160a7f3deb9",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2012.59
+    },
+    {
+      "case": "bom-whitespace",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "d6f871ceeac8a08f03226bd63f3b6e4b019d6a5414acdb9969e32fa18bc52f9a",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-bom-whitespace.json",
+      "result": {
+        "row_count": 2,
+        "total_billed": "8.00",
+        "total_variance": "2.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "1.00"
+          },
+          {
+            "row": 3,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "eaea502c544361c15f87b55c06151935b6f926d88442ddac2292a49d3786c52d",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2026.8
+    },
+    {
+      "case": "large-amount",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "b045cb5c1bae0cccd978d48e353f7678e0088a84b4482b5fb2287f5187854156",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-large-amount.json",
+      "result": {
+        "row_count": 1,
+        "total_billed": "99999899990000.01",
+        "total_variance": "9999.99",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "9999.99"
+          }
+        ]
+      },
+      "receipt_sha256": "1e37d91ad77e31b41a0c5090bee8ce20a3425ba5fff8c265519905b31183d280",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2000.66
+    },
+    {
+      "case": "positive-only",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "0abbaa97f8748ab6e33c56652a0a2ef109de4c0e350e5c70f0bbbee188f30d15",
+      "expected_status": 200,
+      "http_status": 200,
+      "receipt": "artifacts\\optimization\\evaluation-receipts\\sandbox-positive-only.json",
+      "result": {
+        "row_count": 4,
+        "total_billed": "24.00",
+        "total_variance": "10.00",
+        "findings": [
+          {
+            "row": 2,
+            "variance": "5.00"
+          },
+          {
+            "row": 3,
+            "variance": "4.00"
+          },
+          {
+            "row": 4,
+            "variance": "1.00"
+          }
+        ]
+      },
+      "receipt_sha256": "421c68db3b9e9e1bd0048df0db4c4b093c0d30db28b62e5c8d74e092da5b1c9f",
+      "runtime": "docker",
+      "cleanup": true,
+      "model_calls": 0,
+      "session_isolation": true,
+      "elapsed_ms": 2175.21
+    },
+    {
+      "case": "invalid-negative-price",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "37b36f655985a473238a5bb46cab90fba3a03f7545d7dd7bc85a1059192db59f",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unit_price must be nonnegative USD with at most 2 decimals.",
+      "elapsed_ms": 2.83
+    },
+    {
+      "case": "invalid-fractional-quantity",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "b9a149d130926faa87a087b8c9c82083d34d4d2c04e973ce92d50ee41d882373",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: quantity must be an integer from 1 to 999999.",
+      "elapsed_ms": 2.34
+    },
+    {
+      "case": "invalid-extra-column",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "3c8319ebe6fc84cd7d37efa7625805b3fd811438a8c4e5a361ece6943e2de8e6",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unexpected number of columns.",
+      "elapsed_ms": 2.26
+    },
+    {
+      "case": "invalid-price-precision",
+      "mode": "sandbox",
+      "passed": true,
+      "input_sha256": "9ac3b210a9af4a2c70cbe3937fc5dbe6c291a95ab6e1346e998372bc395ce042",
+      "expected_status": 422,
+      "http_status": 422,
+      "rejection": "Record 2: unit_price must be nonnegative USD with at most 2 decimals.",
+      "elapsed_ms": 2.77
+    }
+  ],
+  "live_model": "NOT_RUN",
+  "passed": true,
+  "passed_count": 24,
+  "total_count": 24
+}

@@ -1,0 +1,59 @@
+#0 building with "desktop-linux" instance using docker driver
+
+#1 [internal] load build definition from Dockerfile.validation
+#1 transferring dockerfile: 604B 0.0s done
+#1 DONE 0.0s
+
+#2 [internal] load metadata for docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed
+#2 DONE 0.3s
+
+#3 [internal] load .dockerignore
+#3 transferring context: 145B done
+#3 DONE 0.0s
+
+#4 [ 1/10] FROM docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed
+#4 resolve docker.io/library/python:3.13-slim-bookworm@sha256:5024f48ba9441d4b13a95d3945abc6365538e3a31109833367a1923523c6efed 0.0s done
+#4 DONE 0.0s
+
+#5 [internal] load build context
+#5 transferring context: 325.55kB 0.0s done
+#5 DONE 0.0s
+
+#6 [ 2/10] WORKDIR /app
+#6 CACHED
+
+#7 [ 3/10] COPY requirements.lock /app/requirements.lock
+#7 CACHED
+
+#8 [ 4/10] RUN pip install --no-cache-dir -r requirements.lock
+#8 CACHED
+
+#9 [ 5/10] COPY prooflane /app/prooflane
+#9 DONE 0.1s
+
+#10 [ 6/10] COPY tests /app/tests
+#10 DONE 0.1s
+
+#11 [ 7/10] COPY scripts /app/scripts
+#11 DONE 0.1s
+
+#12 [ 8/10] COPY examples /app/examples
+#12 DONE 0.1s
+
+#13 [ 9/10] COPY web /app/web
+#13 DONE 0.1s
+
+#14 [10/10] COPY pytest.ini /app/pytest.ini
+#14 DONE 0.1s
+
+#15 exporting to image
+#15 exporting layers
+#15 exporting layers 0.4s done
+#15 exporting manifest sha256:e081ba5bd5f9f3afc07fa05036615e49a5e98e567658c00fa7b28373c41e3762 0.0s done
+#15 exporting config sha256:5b6405c31bf4f770db0bc4f182ed6c150ae24b8ea94c4bf58c32a217f480afa7 0.0s done
+#15 exporting attestation manifest sha256:6b45dd8d6b01c705cfe12507a0ab542688acfa6e6422b0659b91db4e120b3d67 0.0s done
+#15 exporting manifest list sha256:385782d8eacdd5a3fdb074ea661c0d56620a920e0efee5c202a0c8aea287ae5d 0.0s done
+#15 naming to docker.io/library/prooflane-validation:local done
+#15 unpacking to docker.io/library/prooflane-validation:local
+#15 unpacking to docker.io/library/prooflane-validation:local 0.2s done
+#15 DONE 0.7s

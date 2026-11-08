@@ -1,0 +1,2 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+BAD-4,North,1,1.001,1,More than two decimals is unsupported

@@ -1,0 +1,289 @@
+{
+  "scope": "REAL_HTTP_REFERENCE_AND_FIXED_DOCKER_NOT_VULTR",
+  "at": "2026-11-03T19:19:25.322498+00:00",
+  "base_url": "http://127.0.0.1:8765",
+  "model_calls": 0,
+  "checks": [
+    {
+      "name": "reference: baseline HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference: baseline verified",
+      "passed": true
+    },
+    {
+      "name": "reference: source record",
+      "passed": true
+    },
+    {
+      "name": "reference: scenario HTTP",
+      "passed": true
+    },
+    {
+      "name": "reference: scenario verified",
+      "passed": true
+    },
+    {
+      "name": "reference: manual expected totals",
+      "passed": true
+    },
+    {
+      "name": "reference: baseline immutable",
+      "passed": true
+    },
+    {
+      "name": "reference: packet download",
+      "passed": true
+    },
+    {
+      "name": "reference: independent bundle verification",
+      "passed": true
+    },
+    {
+      "name": "reference: offline CLI",
+      "passed": true
+    },
+    {
+      "name": "reference: honest runtime eb7bd6a8-3a14-4fea-9050-f5854c4beb4a",
+      "passed": true
+    },
+    {
+      "name": "reference: honest runtime 9bb79975-0ec5-4f2d-8e97-0ad44e35ded4",
+      "passed": true
+    },
+    {
+      "name": "reference: foreign session denied /source",
+      "passed": true
+    },
+    {
+      "name": "reference: foreign session denied /comparison",
+      "passed": true
+    },
+    {
+      "name": "reference: foreign session denied /receipt",
+      "passed": true
+    },
+    {
+      "name": "reference: stale baseline rejected",
+      "passed": true
+    },
+    {
+      "name": "reference: recursive scenario rejected",
+      "passed": true
+    },
+    {
+      "name": "reference: rehashed false delta rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox: baseline HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox: baseline verified",
+      "passed": true
+    },
+    {
+      "name": "sandbox: source record",
+      "passed": true
+    },
+    {
+      "name": "sandbox: scenario HTTP",
+      "passed": true
+    },
+    {
+      "name": "sandbox: scenario verified",
+      "passed": true
+    },
+    {
+      "name": "sandbox: manual expected totals",
+      "passed": true
+    },
+    {
+      "name": "sandbox: baseline immutable",
+      "passed": true
+    },
+    {
+      "name": "sandbox: packet download",
+      "passed": true
+    },
+    {
+      "name": "sandbox: independent bundle verification",
+      "passed": true
+    },
+    {
+      "name": "sandbox: offline CLI",
+      "passed": true
+    },
+    {
+      "name": "sandbox: honest runtime acb33e82-59fd-49f0-b84f-ed2713d9f68c",
+      "passed": true
+    },
+    {
+      "name": "sandbox: honest runtime 44bb16ab-90b5-42b0-a1e5-62767e97b7ca",
+      "passed": true
+    },
+    {
+      "name": "sandbox: foreign session denied /source",
+      "passed": true
+    },
+    {
+      "name": "sandbox: foreign session denied /comparison",
+      "passed": true
+    },
+    {
+      "name": "sandbox: foreign session denied /receipt",
+      "passed": true
+    },
+    {
+      "name": "sandbox: stale baseline rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox: recursive scenario rejected",
+      "passed": true
+    },
+    {
+      "name": "sandbox: rehashed false delta rejected",
+      "passed": true
+    }
+  ],
+  "runs": [
+    {
+      "mode": "reference",
+      "baseline_id": "eb7bd6a8-3a14-4fea-9050-f5854c4beb4a",
+      "scenario_id": "9bb79975-0ec5-4f2d-8e97-0ad44e35ded4",
+      "packet": "artifacts\\transformation\\legacy\\reference-comparison.json",
+      "comparison": {
+        "scope": "Hypothetical assumption; not a contract correction, payment instruction or recovered savings.",
+        "baseline": {
+          "run_id": "eb7bd6a8-3a14-4fea-9050-f5854c4beb4a",
+          "receipt_sha256": "032e17eb3521c2a9483a6af85aadb4e2ad3a7d2e3bf6119620a256cb8987f010",
+          "mode": "reference",
+          "row_count": 24,
+          "flagged_count": 6,
+          "total_billed": "34353.00",
+          "total_variance": "1480.00"
+        },
+        "scenario": {
+          "run_id": "9bb79975-0ec5-4f2d-8e97-0ad44e35ded4",
+          "receipt_sha256": "3926d2f3a6ba55a9796caf3242307f4b8b018f7e3a4b95c1949546e740f3bf33",
+          "mode": "reference",
+          "row_count": 24,
+          "flagged_count": 6,
+          "total_billed": "34353.00",
+          "total_variance": "1160.00"
+        },
+        "delta": {
+          "total_variance": "-320.00",
+          "total_billed": "0.00",
+          "flagged_count": 0
+        },
+        "change": {
+          "row": 3,
+          "field": "contract_price",
+          "before": "72.00",
+          "after": "80.00",
+          "invoice_id": "INV-2402",
+          "vendor": "Atlas Industrial",
+          "before_variance": "520.00",
+          "after_variance": "200.00",
+          "variance_delta": "-320.00"
+        },
+        "unchanged_records": 23
+      },
+      "execution": {
+        "runtime": "trusted-reference",
+        "elapsed_ms": 0.537
+      }
+    },
+    {
+      "mode": "sandbox",
+      "baseline_id": "acb33e82-59fd-49f0-b84f-ed2713d9f68c",
+      "scenario_id": "44bb16ab-90b5-42b0-a1e5-62767e97b7ca",
+      "packet": "artifacts\\transformation\\legacy\\sandbox-comparison.json",
+      "comparison": {
+        "scope": "Hypothetical assumption; not a contract correction, payment instruction or recovered savings.",
+        "baseline": {
+          "run_id": "acb33e82-59fd-49f0-b84f-ed2713d9f68c",
+          "receipt_sha256": "3badc55dfdc8734af47b55685e820fecd7bbf3aed22ad7da5f0f4c30a044ab4e",
+          "mode": "sandbox",
+          "row_count": 24,
+          "flagged_count": 6,
+          "total_billed": "34353.00",
+          "total_variance": "1480.00"
+        },
+        "scenario": {
+          "run_id": "44bb16ab-90b5-42b0-a1e5-62767e97b7ca",
+          "receipt_sha256": "262362998f2c34094908233e7c67766dfed592953f901ee08889c7dfe4c0d48f",
+          "mode": "sandbox",
+          "row_count": 24,
+          "flagged_count": 6,
+          "total_billed": "34353.00",
+          "total_variance": "1160.00"
+        },
+        "delta": {
+          "total_variance": "-320.00",
+          "total_billed": "0.00",
+          "flagged_count": 0
+        },
+        "change": {
+          "row": 3,
+          "field": "contract_price",
+          "before": "72.00",
+          "after": "80.00",
+          "invoice_id": "INV-2402",
+          "vendor": "Atlas Industrial",
+          "before_variance": "520.00",
+          "after_variance": "200.00",
+          "variance_delta": "-320.00"
+        },
+        "unchanged_records": 23
+      },
+      "execution": {
+        "stdout": "{\"row_count\": 24, \"total_billed\": \"34353.00\", \"total_variance\": \"1160.00\", \"findings\": [{\"row\": 3, \"variance\": \"200.00\"}, {\"row\": 5, \"variance\": \"120.00\"}, {\"row\": 7, \"variance\": \"120.00\"}, {\"row\": 10, \"variance\": \"240.00\"}, {\"row\": 12, \"variance\": \"280.00\"}, {\"row\": 17, \"variance\": \"200.00\"}]}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "f7fd89e5b685f08e97d1467ec511f5e7e50e79a536baf758534bbb6dee77c620",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "docker",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1564.44
+      }
+    }
+  ],
+  "passed": true
+}

@@ -1,0 +1,6 @@
+# Replace this reserved example domain with your actual DNS name.
+# Match PROOFLANE_PUBLIC_ORIGIN=https://YOUR_DOMAIN in /opt/prooflane/.env.
+prooflane.example.com {
+    encode zstd gzip
+    reverse_proxy 127.0.0.1:8765
+}

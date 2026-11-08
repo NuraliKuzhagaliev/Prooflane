@@ -1,0 +1,2 @@
+contract_id,vendor,item_id,valid_from,valid_to,contract_price
+EXAMPLE-C1,Example supplier,ITEM-001,2026-11-01,2026-11-30,10.00

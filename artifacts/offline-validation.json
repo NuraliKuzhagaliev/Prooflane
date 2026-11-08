@@ -1,0 +1,85 @@
+{
+  "at": "2026-11-03T17:44:27.835666+00:00",
+  "scope": "Local offline acceptance and decimal display fix; no paid services or live AI calls",
+  "base_revision": "3c33922",
+  "working_copy_sha256": {
+    "scripts/evaluate_csv.py": "a9926dfd535d9ef5f718afd87106822e3595770cdbbd4ee6d1cd642a5f69e49d",
+    "examples/evaluation/cases.json": "bc26879633bcd4aebf4e40172ce3a16c149bcbfe0bb173e0d799117300489558",
+    "web/app.js": "f1b4904d4a79fe65c2f484415ad98a2f29003b22a5b0b68cadd083d5a6ab9ff9",
+    "web/format.js": "65485be81d60a058b9f7473da189cc22b6c4e9e0f77aedba34e683ba2f0cbe8f",
+    "web/index.html": "06ffc52e01114e3b62c63c9d1b2295ecc6a13ebffb81833250488fdc00eaecea",
+    "tests/test_evaluation.py": "e5c327510145eda624e51811ec2e21d2d1e8f956b484444417edc588d0aa038e",
+    "tests/test_format.mjs": "6f1648804dce7e4363d520265cad1208aa16f87e898136f73042cf3f16a00d99"
+  },
+  "checks": [
+    {
+      "command": ".venv/Scripts/python.exe -m pytest -q --tb=short",
+      "environment": "Windows Python 3.13.2",
+      "exit_code": 0,
+      "passed_tests": 53
+    },
+    {
+      "command": "docker build --pull=false -f Dockerfile.validation -t prooflane-validation:local .",
+      "exit_code": 0
+    },
+    {
+      "command": "docker run --rm --network none --read-only --cap-drop ALL --security-opt no-new-privileges=true --memory 512m --cpus 2 --pids-limit 128 --tmpfs /tmp:rw,nosuid,size=64m prooflane-validation:local",
+      "environment": "Linux Python 3.13",
+      "exit_code": 0,
+      "passed_tests": 53,
+      "scope": "Python suite; final .mjs-to-.js rename was subsequently checked in Node and browser"
+    },
+    {
+      "command": "node --test tests/test_format.mjs",
+      "exit_code": 0,
+      "passed_tests": 4
+    },
+    {
+      "command": ".venv/Scripts/python.exe scripts/evaluate_csv.py --output artifacts/evaluation-local.json",
+      "exit_code": 0,
+      "passed_cases": 24,
+      "receipt_count": 16,
+      "model_calls": 0
+    },
+    {
+      "check": "Deliberately wrong expected amount 0.59 instead of 0.60",
+      "expected_cli_exit": 1,
+      "actual_cli_exit": 1,
+      "evidence": "artifacts/evaluation-negative-control.json"
+    },
+    {
+      "check": "CUA browser large amount",
+      "run_id": "4b648b71-6659-44ed-9748-c18d905182bc",
+      "displayed_billed": "$99,999,899,990,000.01",
+      "displayed_variance": "$9,999.99",
+      "cleanup": true,
+      "evidence": "artifacts/screenshots/large-amount-fixed.jpg"
+    },
+    {
+      "check": "CUA browser sample",
+      "run_id": "72513657-72e8-4353-8c74-7cade453febf",
+      "rows": 24,
+      "findings": 6,
+      "variance": "1480.00",
+      "billed": "34353.00",
+      "cleanup": true,
+      "evidence": "artifacts/screenshots/offline-demo-ready.jpg"
+    },
+    {
+      "check": "project-bootstrap discover / plan / init / verify",
+      "status": "PASS",
+      "scope": "Structure and guidance preservation only"
+    }
+  ],
+  "observed_and_fixed": [
+    "Old Number/Intl formatting rounded 99999899990000.01 to $99,999,899,990,000.02; exact decimal-string formatting now preserves cents.",
+    "Windows served .mjs as text/plain; renamed browser module to .js and verified it via actual browser workflow."
+  ],
+  "not_run": [
+    "Vultr VM",
+    "public HTTPS",
+    "real VSI",
+    "human user test",
+    "final video and submission"
+  ]
+}

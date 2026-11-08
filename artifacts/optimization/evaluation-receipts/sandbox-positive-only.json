@@ -1,0 +1,267 @@
+{
+  "schema": "prooflane.receipt.v1",
+  "run_id": "0da29f93-4d26-4972-bd8c-2db9527f05ce",
+  "created_at": "2026-11-03T18:22:55.072110+00:00",
+  "input_csv": "invoice_id,vendor,quantity,unit_price,contract_price,notes\nPOS-1,Zebra,1,15,10,Positive five\nPOS-2,Alpha,2,3,1,Positive four\nPOS-3,Alpha,1,2,1,Positive one\nPOS-4,Beta,1,1,100,Do not subtract ninety nine\n",
+  "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+  "output": {
+    "row_count": 4,
+    "total_billed": "24.00",
+    "total_variance": "10.00",
+    "findings": [
+      {
+        "row": 2,
+        "variance": "5.00"
+      },
+      {
+        "row": 3,
+        "variance": "4.00"
+      },
+      {
+        "row": 4,
+        "variance": "1.00"
+      }
+    ]
+  },
+  "summary": {
+    "row_count": 4,
+    "total_billed": "24.00",
+    "total_variance": "10.00",
+    "flagged_count": 3,
+    "findings": [
+      {
+        "invoice_id": "POS-1",
+        "vendor": "Zebra",
+        "quantity": 1,
+        "unit_price": "15.00",
+        "contract_price": "10.00",
+        "notes": "Positive five",
+        "row": 2,
+        "variance": "5.00"
+      },
+      {
+        "invoice_id": "POS-2",
+        "vendor": "Alpha",
+        "quantity": 2,
+        "unit_price": "3.00",
+        "contract_price": "1.00",
+        "notes": "Positive four",
+        "row": 3,
+        "variance": "4.00"
+      },
+      {
+        "invoice_id": "POS-3",
+        "vendor": "Alpha",
+        "quantity": 1,
+        "unit_price": "2.00",
+        "contract_price": "1.00",
+        "notes": "Positive one",
+        "row": 4,
+        "variance": "1.00"
+      }
+    ],
+    "vendors": [
+      {
+        "vendor": "Alpha",
+        "variance": "5.00"
+      },
+      {
+        "vendor": "Zebra",
+        "variance": "5.00"
+      }
+    ]
+  },
+  "verification": {
+    "passed": true,
+    "checks": [
+      {
+        "name": "Output schema",
+        "passed": true,
+        "detail": "Only the four documented output fields are accepted."
+      },
+      {
+        "name": "Record coverage",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Billed total",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Positive variance",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      },
+      {
+        "name": "Every source record",
+        "passed": true,
+        "detail": "Matches independent Decimal calculation."
+      }
+    ]
+  },
+  "events": [
+    {
+      "stage": "Validate",
+      "status": "passed",
+      "detail": "4 records validated; USD; source records start at 2."
+    },
+    {
+      "stage": "Plan",
+      "status": "passed",
+      "detail": "Reviewed fixed recipe. No AI model call."
+    },
+    {
+      "stage": "Execute",
+      "status": "passed",
+      "detail": "Disposable Docker execution; exit=0; cleanup=True."
+    },
+    {
+      "stage": "Verify",
+      "status": "passed",
+      "detail": "Independent verifier checked totals and every finding."
+    },
+    {
+      "stage": "Receipt",
+      "status": "passed",
+      "detail": "Input, code and output bound by SHA-256. Integrity only; no issuer authentication."
+    }
+  ],
+  "execution": {
+    "stdout": "{\"row_count\": 4, \"total_billed\": \"24.00\", \"total_variance\": \"10.00\", \"findings\": [{\"row\": 2, \"variance\": \"5.00\"}, {\"row\": 3, \"variance\": \"4.00\"}, {\"row\": 4, \"variance\": \"1.00\"}]}\n",
+    "stderr": "",
+    "exit_code": 0,
+    "container_id": "098c8345649c2443b4da40d7f8912128c6f6eb4a4dfb482d04643418e5506e15",
+    "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+    "cleanup": true,
+    "runtime": "docker",
+    "limits": {
+      "network": "none",
+      "memory_mb": 128,
+      "cpu": 0.5,
+      "pids": 32,
+      "tmpfs_mb": 16,
+      "read_only_root": true,
+      "user": "65534:65534",
+      "capabilities": "none",
+      "no_new_privileges": true,
+      "host_mounts": false,
+      "timeout_seconds": 10,
+      "stdout_bytes": 131072,
+      "stderr_bytes": 32768
+    },
+    "observed_controls": {
+      "network": "none",
+      "read_only_root": true,
+      "user": "65534:65534",
+      "memory_bytes": 134217728,
+      "memory_swap_bytes": 134217728,
+      "nano_cpus": 500000000,
+      "pids": 32,
+      "cap_drop": [
+        "ALL"
+      ],
+      "security_options": [
+        "no-new-privileges=true"
+      ],
+      "host_mount_count": 0
+    },
+    "oom_killed": false,
+    "elapsed_ms": 1452.03
+  },
+  "attempts": [
+    {
+      "index": 1,
+      "code": "import csv, json\nfrom decimal import Decimal\nwith open('/tmp/input.csv', encoding='utf-8-sig', newline='') as source:\n    rows = list(csv.DictReader(source))\nbilled_cents = 0\nvariance_cents = 0\nfindings = []\nfor record, row in enumerate(rows, 2):\n    units = int(row['quantity'])\n    price = int(Decimal(row['unit_price'].strip()) * 100)\n    agreed = int(Decimal(row['contract_price'].strip()) * 100)\n    billed_cents += units * price\n    excess = units * max(0, price - agreed)\n    if excess:\n        variance_cents += excess\n        findings.append({'row': record, 'variance': f'{excess // 100}.{excess % 100:02d}'})\ndef usd(cents):\n    return f'{cents // 100}.{cents % 100:02d}'\nprint(json.dumps({'row_count': len(rows), 'total_billed': usd(billed_cents),\n    'total_variance': usd(variance_cents), 'findings': findings}))\n",
+      "execution": {
+        "stdout": "{\"row_count\": 4, \"total_billed\": \"24.00\", \"total_variance\": \"10.00\", \"findings\": [{\"row\": 2, \"variance\": \"5.00\"}, {\"row\": 3, \"variance\": \"4.00\"}, {\"row\": 4, \"variance\": \"1.00\"}]}\n",
+        "stderr": "",
+        "exit_code": 0,
+        "container_id": "098c8345649c2443b4da40d7f8912128c6f6eb4a4dfb482d04643418e5506e15",
+        "image_id": "sha256:2eee55550b0b0214d6bb0f9c521c1cd692607b57f13145a75ed77fffd0e30947",
+        "cleanup": true,
+        "runtime": "Docker / Python",
+        "limits": {
+          "network": "none",
+          "memory_mb": 128,
+          "cpu": 0.5,
+          "pids": 32,
+          "tmpfs_mb": 16,
+          "read_only_root": true,
+          "user": "65534:65534",
+          "capabilities": "none",
+          "no_new_privileges": true,
+          "host_mounts": false,
+          "timeout_seconds": 10,
+          "stdout_bytes": 131072,
+          "stderr_bytes": 32768
+        },
+        "observed_controls": {
+          "network": "none",
+          "read_only_root": true,
+          "user": "65534:65534",
+          "memory_bytes": 134217728,
+          "memory_swap_bytes": 134217728,
+          "nano_cpus": 500000000,
+          "pids": 32,
+          "cap_drop": [
+            "ALL"
+          ],
+          "security_options": [
+            "no-new-privileges=true"
+          ],
+          "host_mount_count": 0
+        },
+        "oom_killed": false,
+        "elapsed_ms": 1452.03
+      },
+      "verification": {
+        "passed": true,
+        "checks": [
+          {
+            "name": "Output schema",
+            "passed": true,
+            "detail": "Only the four documented output fields are accepted."
+          },
+          {
+            "name": "Record coverage",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Billed total",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Positive variance",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          },
+          {
+            "name": "Every source record",
+            "passed": true,
+            "detail": "Matches independent Decimal calculation."
+          }
+        ]
+      },
+      "model": null,
+      "usage": {}
+    }
+  ],
+  "provenance": {
+    "mode": "sandbox",
+    "model": null,
+    "requested_model": null,
+    "model_calls": 0,
+    "raw_records_sent_to_model": false
+  },
+  "question": "Find positive differences against contract prices and cite each source record.",
+  "hashes": {
+    "input_sha256": "0abbaa97f8748ab6e33c56652a0a2ef109de4c0e350e5c70f0bbbee188f30d15",
+    "code_sha256": "484887fd422783e3595b60e24cf954a41c8f41203b68da3c4bd05c37954bf920",
+    "output_sha256": "a6ccf2caa5b10a9a35d7daf1de81fe835cf8bb67afd5a88a17c97e76daa0b5d3"
+  },
+  "receipt_sha256": "421c68db3b9e9e1bd0048df0db4c4b093c0d30db28b62e5c8d74e092da5b1c9f"
+}

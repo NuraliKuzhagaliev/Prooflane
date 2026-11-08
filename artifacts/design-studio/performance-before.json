@@ -1,0 +1,24 @@
+{
+  "scope": "local sequential GET /, not browser render or cloud latency",
+  "http_ms": [
+    7.991,
+    2.401,
+    2.848
+  ],
+  "html_bytes": 38761,
+  "static_bytes": {
+    "app.js": 30007,
+    "format.js": 887,
+    "index.html": 38761,
+    "scenario.js": 9559,
+    "styles.css": 43178,
+    "workbench-model.js": 3210,
+    "workbench.css": 38728,
+    "workbench.js": 64428
+  },
+  "dom_nodes": 731,
+  "measured_viewport": [
+    2276,
+    1186
+  ]
+}

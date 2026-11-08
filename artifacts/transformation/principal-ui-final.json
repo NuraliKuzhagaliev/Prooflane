@@ -1,0 +1,108 @@
+{
+  "scope": "Actual source functions executed in Node VM; fetch/DOM rendering boundaries stubbed; no browser or provider call",
+  "source_sha256": "02b6a995cac6f6a57013cceaa10af492f83157697f5c7b2a5f9e9e9729ea868c",
+  "passed": true,
+  "results": [
+    {
+      "probe": "failed_alternative",
+      "previous_variants": 0,
+      "retained_draft": true,
+      "errors": [
+        "Sandbox became unavailable"
+      ],
+      "notices": [],
+      "exception": null,
+      "passed": true
+    },
+    {
+      "probe": "failed_alternative",
+      "previous_variants": 1,
+      "retained_draft": true,
+      "errors": [
+        "Sandbox became unavailable"
+      ],
+      "notices": [],
+      "exception": null,
+      "passed": true
+    },
+    {
+      "probe": "case_source_fetch_failure",
+      "active_case": "old-case",
+      "visible_source": "old-invoice",
+      "exception": "Error: source fetch unavailable",
+      "passed": true
+    },
+    {
+      "probe": "case_string_checks",
+      "rows": [
+        {
+          "css": "",
+          "label": "Source reconciliation · passed"
+        },
+        {
+          "css": "",
+          "label": "All alternatives · passed"
+        }
+      ],
+      "passed": true
+    },
+    {
+      "probe": "packet_edit_during_verification",
+      "current_packet": "{\"tampered\":true}",
+      "result_visible": false,
+      "editor_disabled_while_busy": true,
+      "passed": true
+    },
+    {
+      "probe": "invoice_file_read_order",
+      "selected_last": "second.csv",
+      "final_text": "second selected source",
+      "final_label": "second.csv · 100 bytes",
+      "passed": true
+    },
+    {
+      "probe": "old_completion_keeps_new_read_busy",
+      "still_loading_after_old": true,
+      "loading_after_latest": false,
+      "final_text": "latest",
+      "passed": true
+    },
+    {
+      "probe": "cross_source_reads_and_execution_gate",
+      "pending_contracts_after_invoice": true,
+      "requests_while_loading": 0,
+      "invoices": "invoice source",
+      "contracts": "contract source",
+      "all_finished": true,
+      "passed": true
+    },
+    {
+      "probe": "pending_source_then_paste",
+      "final_text": "pasted newer source",
+      "loading": false,
+      "late_source_ignored": true,
+      "passed": true
+    },
+    {
+      "probe": "pending_source_then_reset",
+      "final_text": "",
+      "loading": false,
+      "late_source_ignored": true,
+      "passed": true
+    },
+    {
+      "probe": "pending_source_then_sample",
+      "final_text": "sample invoices",
+      "loading": false,
+      "late_source_ignored": true,
+      "passed": true
+    },
+    {
+      "probe": "pending_source_then_openCase",
+      "final_text": "",
+      "loading": false,
+      "late_source_ignored": true,
+      "passed": true
+    }
+  ]
+}

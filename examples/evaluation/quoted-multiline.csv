@@ -1,0 +1,4 @@
+invoice_id,vendor,quantity,unit_price,contract_price,notes
+QUOTE-1,"ACME, Supplies",2,12.34,10.00,"First physical line
+second physical line"
+QUOTE-2,"Vendor ""B""",3,2.00,1.00,Next source record is 3

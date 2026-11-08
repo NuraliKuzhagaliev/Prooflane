@@ -1,0 +1,282 @@
+{
+  "scope": "Hashes of retained local source, reports and evidence; integrity only, not truth/execution attestation",
+  "code_revision": "627eb822ccd4da6e59d56973fc68c3bb25d7d991",
+  "files": {
+    "AGENTS.md": {
+      "bytes": 3192,
+      "sha256": "c9cdcb3ff6ed6175491a64ed9ebf4d1a1140d5924806028d471377327849216c"
+    },
+    "artifacts/design-studio/async-regression.json": {
+      "bytes": 2780,
+      "sha256": "d38b08e003745bcc3d4a2e73730bad50632e865e7e30b7e7af959870304f132b"
+    },
+    "artifacts/design-studio/before-desktop.png": {
+      "bytes": 74515,
+      "sha256": "8a3785ff2a8068cc52cb193a8dd715a443fbb4b9d89adbd11318febab1fea79f"
+    },
+    "artifacts/design-studio/bootstrap-verify.json": {
+      "bytes": 222,
+      "sha256": "dfe501d9d8f077a613d405296774ac3402b8ed5299330893e957693733f6de05"
+    },
+    "artifacts/design-studio/browser-case-cycle2.json": {
+      "bytes": 13394,
+      "sha256": "8298672f00354bfad417bb5aaa5c913a83d0630baf244d2fca49c34912bbc96b"
+    },
+    "artifacts/design-studio/browser-case-verification.json": {
+      "bytes": 841,
+      "sha256": "b5fe270f6d271c14ed4fcdf66534dc57f376fae04e4d54c7b30aa054df3fc8e8"
+    },
+    "artifacts/design-studio/browser-cycle2.json": {
+      "bytes": 2834,
+      "sha256": "e672086feb66261b804e9bf810f5bf10288f2fc2039d20933cade65fa4a56b73"
+    },
+    "artifacts/design-studio/concept-comparison.png": {
+      "bytes": 128552,
+      "sha256": "cfd6d155f0982855a36dec107555c2399469fcb08d916155d0273fe6435e0819"
+    },
+    "artifacts/design-studio/concepts/A-evidence-atlas.svg": {
+      "bytes": 5063,
+      "sha256": "343ba4cc7d62bc0dec32a634e9d8b61ebcedbe19b40c03bb6a25c6295109318c"
+    },
+    "artifacts/design-studio/concepts/B-audit-folio.svg": {
+      "bytes": 7442,
+      "sha256": "45ad76e76ff59291342f97bb30a51a84340f9a74a940e9dd6bceb64c828f8940"
+    },
+    "artifacts/design-studio/concepts/C-comparison-theatre.svg": {
+      "bytes": 5211,
+      "sha256": "93dfd449444c0fe546b0545cdd966379962e0110a0402cb236bf562b8f968228"
+    },
+    "artifacts/design-studio/concepts/index.html": {
+      "bytes": 878,
+      "sha256": "8d2a64105a7c5e4df033e6dd6c63b63e699694a3ed4c38684b988cfbf4edd21e"
+    },
+    "artifacts/design-studio/critic/cycle1-01-desktop-entry.jpg": {
+      "bytes": 81266,
+      "sha256": "b521579008f6ac6dfdf565bba330ddf54ee099152b1da9f638d2e8ae6c54060c"
+    },
+    "artifacts/design-studio/critic/cycle1-02-source-decisions.jpg": {
+      "bytes": 57370,
+      "sha256": "275ecc37e84ed436f3f0e9e2746fe51cd2208bd840ccbf0a9be398d0c7b80f24"
+    },
+    "artifacts/design-studio/critic/cycle1-03-desktop-ledger.jpg": {
+      "bytes": 102912,
+      "sha256": "dbbbfc918499d4db67c1d3d7652b80c2b4935fdab9b5dbf588637a9d43b90ed5"
+    },
+    "artifacts/design-studio/critic/cycle1-04-packet-verified.jpg": {
+      "bytes": 82901,
+      "sha256": "a648d057ab9c02178f7da31483c416c4722124424ac7e698529475ec7666024c"
+    },
+    "artifacts/design-studio/critic/cycle1-05-tablet-entry.jpg": {
+      "bytes": 68262,
+      "sha256": "2c1c55bf14842e3496e321ca39b94b974e243101c78b37f44067aad709c1493b"
+    },
+    "artifacts/design-studio/critic/cycle1-06-tablet-selected-note.jpg": {
+      "bytes": 85438,
+      "sha256": "f9e652322d1cd63366e2498f0496f02109b00b348ea0381e3f1396a094a2ed00"
+    },
+    "artifacts/design-studio/critic/cycle1-07-mobile391-note.jpg": {
+      "bytes": 37230,
+      "sha256": "7988bc293f159345e0288c0f0132506627f1be931908105c41862b465c974681"
+    },
+    "artifacts/design-studio/critic-cycle1.md": {
+      "bytes": 14866,
+      "sha256": "e48bba01cffc68096d82b28f93536b9cee261b980b979c8c5c46630ddbaaa374"
+    },
+    "artifacts/design-studio/critic-cycle2.md": {
+      "bytes": 16368,
+      "sha256": "328022967d5f1e75d14cb6f7978325d94c18b7a9d55ad16a0e0d96b7a3c82bea"
+    },
+    "artifacts/design-studio/cycle2-desktop1440.jpg": {
+      "bytes": 69679,
+      "sha256": "414e43ee3d245b21f0386ab3bf4260f56115af18ea682fead0be5ea9c2133e00"
+    },
+    "artifacts/design-studio/cycle2-exclusion-desktop.jpg": {
+      "bytes": 61287,
+      "sha256": "00ae6c7ae957a324e3a457a742bbe7a8565e1e1c5ea7bf5359a219d2c0a7f5e2"
+    },
+    "artifacts/design-studio/cycle2-legacy.jpg": {
+      "bytes": 73126,
+      "sha256": "8ee9e5aabbf36130605b1354012f835b769d880b8287eedea4c19317db83bcda"
+    },
+    "artifacts/design-studio/cycle2-mobile320.jpg": {
+      "bytes": 37666,
+      "sha256": "3b2870e3002dfc4d61a564614617cd6c3044b29c9398ba943dc5a44f95557882"
+    },
+    "artifacts/design-studio/cycle2-mobile390.jpg": {
+      "bytes": 36580,
+      "sha256": "e11a27ac1e8f65b5b0523e0e26161ed96d661ef96bbdfc8f2b37731bd9d1901e"
+    },
+    "artifacts/design-studio/cycle2-tablet900.jpg": {
+      "bytes": 61019,
+      "sha256": "2b7a4cf886940c50a7db53fb1f844d5476e161a5c97a00b368405cced417504e"
+    },
+    "artifacts/design-studio/final-csv-error.jpg": {
+      "bytes": 52971,
+      "sha256": "fa9766bcadf5f23eb6b2c7054769d64da45c74b56dc5544bf31ce807d9057c53"
+    },
+    "artifacts/design-studio/final-entry1440.jpg": {
+      "bytes": 55186,
+      "sha256": "40f284652f988df0493b2acb9b28aabbbb2c4f67c0366be8e8d0998ebb0aa4bd"
+    },
+    "artifacts/design-studio/final-file-upload.jpg": {
+      "bytes": 37958,
+      "sha256": "f7d1c4e63f73d0a58ee9f2a1f2bfe7223b4b9037272cffd7ee20e1b641171ffe"
+    },
+    "artifacts/design-studio/final-ledger1440.jpg": {
+      "bytes": 70192,
+      "sha256": "f134909f086b5ad4abb1a4b99ca17ee6efb19172d7dc58a29209f8e1426f531e"
+    },
+    "artifacts/design-studio/final-sources1440.jpg": {
+      "bytes": 51581,
+      "sha256": "ff798d3d6d4e38681c0891bdd483f43b605d22d29b5f93b77e53a6820b19491d"
+    },
+    "artifacts/design-studio/final-static.json": {
+      "bytes": 1487,
+      "sha256": "6d403ff0edf1bdcab8f3f712a7c70e60b43ada9b57197c3121c2fa197590d315"
+    },
+    "artifacts/design-studio/font-manifest.json": {
+      "bytes": 584,
+      "sha256": "e3ddf3c65ba82963c647f34cae45fdac74027ea94d03cca43e1fc554043f04b2"
+    },
+    "artifacts/design-studio/font-source.css": {
+      "bytes": 1205,
+      "sha256": "9241c2807c4c4ce2ac3cdf5238bc53db33e0e4dd9916c9624d96916d89b9298c"
+    },
+    "artifacts/design-studio/frontend-implementation.md": {
+      "bytes": 5863,
+      "sha256": "11ffb9bd6ed0983d07098e35eb195242c07ac09744716a9e54cebabdae89c93b"
+    },
+    "artifacts/design-studio/frontend-static.json": {
+      "bytes": 197,
+      "sha256": "8e1cd6b3695cc387d206387c9afb5d5fd345b6adfc2c68812e0211060245849c"
+    },
+    "artifacts/design-studio/js-after-continuity.txt": {
+      "bytes": 3366,
+      "sha256": "7f297d474c824f434479fe8cba91d5838c71e26698ef8428e11cbafbb2d4e8ea"
+    },
+    "artifacts/design-studio/js-cycle2.txt": {
+      "bytes": 3365,
+      "sha256": "126729a54f16a8b1f407065ac5098667c3bc8753ad34e3822a22e4cb48cbda10"
+    },
+    "artifacts/design-studio/js-final.txt": {
+      "bytes": 3472,
+      "sha256": "f35b030795755749d45a8f573435e35e788248e7177d5ccdcb42c9f4f2c069af"
+    },
+    "artifacts/design-studio/js-regression.txt": {
+      "bytes": 3034,
+      "sha256": "d66facb1bdfe67805e19f317862b76ebe4e20c8eeaf76bd0aa022c9e8fcdaaff"
+    },
+    "artifacts/design-studio/performance-after.json": {
+      "bytes": 780,
+      "sha256": "0dce64ab765f7b8344e4cdc215b5b2b5d783e09b53b1581eba6d4ea35d4f0bcc"
+    },
+    "artifacts/design-studio/performance-before.json": {
+      "bytes": 472,
+      "sha256": "045f04a97db550350d4f494885d77214825c850ff8c92d9c729b5769ab9354f8"
+    },
+    "artifacts/design-studio/python-regression.txt": {
+      "bytes": 734,
+      "sha256": "56c8679aaa200a1c4e61d4513966c2357ac4fa7da4c3f114bafa289dc5850578"
+    },
+    "artifacts/design-studio/runtime-availability.json": {
+      "bytes": 314,
+      "sha256": "2a70bb00274d3153f070d2126f2b47f416a1c1b17b3e735d49a06875be6d6599"
+    },
+    "artifacts/design-studio/three-concepts-full.png": {
+      "bytes": 355425,
+      "sha256": "0e2e63e839222a2e837b74837706fbabad11c20ada3e04d4b1a1b9507dab105a"
+    },
+    "DESIGN_REPORT.md": {
+      "bytes": 27225,
+      "sha256": "e5786d2807b0f629598b886301930d4043d138ea0c29de08f8378760291b00d2"
+    },
+    "docs/DEMO.md": {
+      "bytes": 4629,
+      "sha256": "8fa2dd9c55f597ae6c61788e851d333d24c6b7c28276af99b77aef540462f12b"
+    },
+    "docs/design-studio/REFERENCES_AND_CONCEPTS.md": {
+      "bytes": 26657,
+      "sha256": "85acf36195360dfe9408330da486a641bed9746485aa8ed2550281c92da3daa5"
+    },
+    "docs/design-studio/UX_AND_PROCESS_AUDIT.md": {
+      "bytes": 30498,
+      "sha256": "0d34ff5cff15fdd69e60e901981b13b76b10d5b36b43055042a1ab66420afbf8"
+    },
+    "docs/TRY_PROJECT.md": {
+      "bytes": 5814,
+      "sha256": "fe67023316f5ecc08c96526cc4a8374eed0c5553747b205f86fd72dd5b5988ad"
+    },
+    "docs/WORKSPACE_DESIGN.md": {
+      "bytes": 34163,
+      "sha256": "7a852d2d1fbbdc827d2bba42a8c387ca7fb007e58a6627f164f1abe3773ac25c"
+    },
+    "README.md": {
+      "bytes": 19745,
+      "sha256": "e91f6b21bcada13e25b325816e0fa502a241b839963b847a762ab561cbf312aa"
+    },
+    "TESTING.md": {
+      "bytes": 8896,
+      "sha256": "eab48a391a26dad01d0f5d29ff76051014b1d9e9a7b41e04e041dde7456c7e18"
+    },
+    "tests/test_studio.mjs": {
+      "bytes": 2962,
+      "sha256": "7c0fa4c28d2f47d8fdcfa4f4030b5025ecda7a335c79f73f685cd431a2f7c2eb"
+    },
+    "tests/test_workbench.mjs": {
+      "bytes": 3805,
+      "sha256": "205dd6239fe741dc4d0afbe3889a846e2ac6b6dd668b99959027a72490abb900"
+    },
+    "THIRD_PARTY_LICENSES.md": {
+      "bytes": 2811,
+      "sha256": "9e6c800e47cec4404533585a0bd71faadb1040775f9bce6dbd5b5614250832ed"
+    },
+    "web/app.js": {
+      "bytes": 30007,
+      "sha256": "142d320589e28d848b9d924c676bc1626b9cd499a38563d978d5adf7ec73c3e3"
+    },
+    "web/fonts/ibm-plex-mono.ttf": {
+      "bytes": 128812,
+      "sha256": "a7fdc993f9f0387caedba4e42521136fa97e4c0837ae6239bf0413ccf8af00c2"
+    },
+    "web/fonts/IBMPlexMono-OFL.txt": {
+      "bytes": 4456,
+      "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+    },
+    "web/fonts/Newsreader-OFL.txt": {
+      "bytes": 4394,
+      "sha256": "fdfad38143ec470553cae82a1e45320bdd1b9ec70415d37bd0171051d8a4ded8"
+    },
+    "web/fonts/newsreader.ttf": {
+      "bytes": 109472,
+      "sha256": "b8f5e0a8bdd6a12c722ca5635d9da87e77ccbb2d0172112e34e00c4e55f2cd5a"
+    },
+    "web/format.js": {
+      "bytes": 887,
+      "sha256": "0e49c70ff4d8ac79a2170b50c933ec1ecae2effcafbaeac5a09a5f1b18c7efb0"
+    },
+    "web/index.html": {
+      "bytes": 39655,
+      "sha256": "62eb79c1b9af4f2eef5151f24308782b51f33f88e6b432969242465241abb42d"
+    },
+    "web/scenario.js": {
+      "bytes": 9559,
+      "sha256": "d617d3e2a49f9999e0d64fcda1a6b0512442dc58292c3bf2e900e573979cb9fc"
+    },
+    "web/styles.css": {
+      "bytes": 43178,
+      "sha256": "ec7ba263dddea65cb8001babed2679ddeaa8a7454dbd0907cef13ae975d1dbd8"
+    },
+    "web/workbench-model.js": {
+      "bytes": 3809,
+      "sha256": "6fc43ec236504ddbf96eeae173c9e876043202c60c2d516b7f4a124eeaa303ce"
+    },
+    "web/workbench.css": {
+      "bytes": 41469,
+      "sha256": "73807656ce7b5077ab20d759a35518eec0e99428de6e998a0593f23b1d38280b"
+    },
+    "web/workbench.js": {
+      "bytes": 71061,
+      "sha256": "36d1e7ba3a21c4ea2dab42fdcca1b17b3b25aa6ac9e12a35f53f6aa798ea170d"
+    }
+  }
+}

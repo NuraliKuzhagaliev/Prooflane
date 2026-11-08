@@ -1,0 +1,103 @@
+{
+  "scope": "Root actual CUA browser observations, not independent second-browser operation or cloud attestation",
+  "browser": "in-app browser, localhost:8765",
+  "case_id": "374834a3-9900-43e7-b406-543ff8c48be8",
+  "baseline": {
+    "variance": "768.00",
+    "billed": "7110.00",
+    "included": 7,
+    "total_sources": 8,
+    "mode": "reference"
+  },
+  "checks": {
+    "source_8_to_normalized_7": "PASS; INV507/C3 source contract5; no guessed row",
+    "excluded_source_7": "PASS; INV506/reason/no calculated amount",
+    "joint_range": [
+      "148.00",
+      "1993.00"
+    ],
+    "invalid_range_recovery": "PASS; aria-invalid true then false; saved range retained",
+    "archive_escape_focus": "PASS; returned to wb-rail-toggle",
+    "archive_live_announcement": "Saved case opened. 7 included invoices. Reference complete.",
+    "tool_keys": [
+      "ArrowRight->alternatives",
+      "Home->ranges",
+      "End->alternatives",
+      "ArrowLeft->ranges"
+    ],
+    "legacy_reference": {
+      "original": "1480.00",
+      "scenario": "1160.00",
+      "delta": "-320.00",
+      "case_return": "PASS",
+      "comparison_packet_download": "NOT_RUN_THIS_CYCLE"
+    },
+    "malformed_csv_recovery": "PASS; exact header rejected; fictional sample restored8/2unresolved",
+    "filechooser_csv": {
+      "invoices": "examples/case-invoices.csv",
+      "invoice_bytes": 682,
+      "contracts": "examples/case-contracts.csv",
+      "contract_bytes": 281,
+      "matched": 6,
+      "unresolved": 2,
+      "total": 8
+    },
+    "console_logs": {
+      "levels": [
+        "error",
+        "warn"
+      ],
+      "limit": 20,
+      "returned": []
+    }
+  },
+  "viewport_observations": [
+    {
+      "width": 1440,
+      "height": 1100,
+      "clientWidth": 1425,
+      "scrollWidth": 1425,
+      "image": "final-ledger1440.jpg"
+    },
+    {
+      "width": 900,
+      "height": 1000,
+      "clientWidth": 885,
+      "scrollWidth": 885,
+      "image": "cycle2-tablet900.jpg"
+    },
+    {
+      "width": 390,
+      "height": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "image": "cycle2-mobile390.jpg"
+    },
+    {
+      "width": 320,
+      "height": 844,
+      "clientWidth": 305,
+      "scrollWidth": 305,
+      "image": "cycle2-mobile320.jpg"
+    }
+  ],
+  "packet": {
+    "file": "browser-case-cycle2.json",
+    "actual_browser_download": true,
+    "alternatives": 0,
+    "cli_check_groups_passed": 6,
+    "independent_cli_recheck": true
+  },
+  "not_run": [
+    "screen reader",
+    "physical touch",
+    "runtime OS reduced motion",
+    "timed motion recording",
+    "production load",
+    "live model",
+    "Vultr VM",
+    "new sandbox smoke"
+  ],
+  "viewport_override_reset": true,
+  "tab_left_as_deliverable": true
+}

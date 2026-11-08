@@ -1,0 +1,18 @@
+{
+  "archive": ".local\\prooflane-transformation-20261108.tar.gz",
+  "sha256": "277458e95f870e6fb907c43eb523320c9669de9c193b645698069ca3c02bea3b",
+  "files": {
+    "prooflane/analysis.py": "056b6c84b0192d54af8cf2fd32656f18d49a8904036e398ff719ff5bb17271cb",
+    "prooflane/reconciliation.py": "408a48b5a4eaa00358c78a603b12b24452f11ea28cb8c53e1090444c9c06f3ae",
+    "prooflane/intelligence.py": "5c6af01fab73c47509e04ebf3cd21141d0789fe77450f78ab8270e852923e4d3",
+    "prooflane/case_api.py": "feea27ca6e691675e8d57e43dce20ef3238e19896e42b54468d24a4e5a52e3aa",
+    "prooflane/operations.py": "e7ba2904f4da050dfdb034f00331ccca9aa872b72b2d474d131627bf39ef0910",
+    "prooflane/strict_json.py": "0b7d0476df147b755a12c12a6999066d93f2cfaf2c848e02914d977297a7976d",
+    "prooflane/review_insights.py": "d6ddc260780bb99347b5dddf13877c30082274f3863206e301ba35bb4efc5cae",
+    "scripts/verify_receipt.py": "98261f0d7ec028305d6eff2d17b280bed3007806c0512c33ccacc83b63fcafba",
+    "web/index.html": "758d572836232aed049e851351f74bcedd8a93c6b859bddb4427eeabf9a7dd41",
+    "web/workbench.js": "f2ab13c011665c20c5b0fbd7af711e8d091c859d3072e737eef9a800db422362",
+    "web/workbench.css": "d6877ddda69615a064c0c7f83d3d3950957e3152aac2bef5b4f6264be0df357b",
+    "web/review-session.js": "c3b634cd4c7ac25fc54b466c71318f66093858b2808b79132428f9504d4ceaf3"
+  }
+}

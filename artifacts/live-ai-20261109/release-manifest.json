@@ -1,0 +1,8 @@
+{
+  "archive": ".local\\prooflane-live-fix-20261109.tar.gz",
+  "sha256": "d0d13f8cf7707081592fdbf78d4606cb7b9a14c6573994a8ad598d0b60d9025d",
+  "files": {
+    "prooflane/provider.py": "1aee0b3238be64db7ab174d5a40cc413334ed1f14573e724afd05c5146df209d",
+    "web/workbench.js": "098a7d48fb204c252aecb32d70d40e3d8ffd3eb3993f7a53b588b910a5f0328b"
+  }
+}

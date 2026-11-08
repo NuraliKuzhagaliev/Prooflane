@@ -1,0 +1,8 @@
+{
+  "source_rows": 9,
+  "excluded_rows": 2,
+  "included_variance": "768.00",
+  "excluded_variance_blank": true,
+  "brief_duplicate_warning": true,
+  "brief_original_and_variant": true
+}
