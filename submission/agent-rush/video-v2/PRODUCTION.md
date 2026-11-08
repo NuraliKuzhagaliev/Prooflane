@@ -25,3 +25,7 @@ Application screenshots use fictional authored inputs. Web fonts retain their su
 The complete MP4 decoded without errors; H.264 video and AAC speech are present. Frames from all eight chapters were inspected. Model/request IDs and all three priority witnesses were recaptured at readable positions after the first draft's framing review. Updated README images are unretouched native application captures, not rendered mockups. [QA artifacts](../../../artifacts/live-demo-v2/).
 
 Only the packet-verifier helper label changed in the deployed app during production. Its text now follows the actual verdict.179 Python /26 JavaScript tests passed after the change. No backend arithmetic, secrets, resource profile or infrastructure settings were changed.
+
+## Public playback
+
+The same MP4 is served from the existing Vultr application static directory at [the public video URL](https://45.76.92.198/static/demo/prooflane-live-demo.mp4). Its SHA-256 matches the GitHub/upload file. Actual browser playback was observed. No new server, service or infrastructure setting was created. GitHub stores the MP4 but its blob page may offer download instead of inline playback.

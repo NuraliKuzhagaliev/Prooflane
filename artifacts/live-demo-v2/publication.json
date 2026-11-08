@@ -1,0 +1,80 @@
+{
+  "checked_at_utc": "2026-11-08T21:34:16.544651+00:00",
+  "tested_code_and_media_commit": "fd346d182a731e60e55959518aecdac4ec26ff5e",
+  "scope": "Fresh anonymous clone, existing installed Python environment; no fresh dependency installation or additional model call. Follow-up documentation commit adds these observations and direct-playback links without application changes.",
+  "checks": [
+    {
+      "name": "anonymous_readme",
+      "url": "https://raw.githubusercontent.com/NuraliKuzhagaliev/Prooflane/fd346d182a731e60e55959518aecdac4ec26ff5e/README.md",
+      "status": 200,
+      "content_type": "text/plain; charset=utf-8",
+      "content_range": null,
+      "bytes_read": 10326
+    },
+    {
+      "name": "readme_image_ledger",
+      "url": "https://raw.githubusercontent.com/NuraliKuzhagaliev/Prooflane/fd346d182a731e60e55959518aecdac4ec26ff5e/docs/images/ledger.jpg",
+      "status": 206,
+      "content_type": "image/jpeg",
+      "content_range": "bytes 0-255/84053",
+      "bytes_read": 256
+    },
+    {
+      "name": "readme_image_priority",
+      "url": "https://raw.githubusercontent.com/NuraliKuzhagaliev/Prooflane/fd346d182a731e60e55959518aecdac4ec26ff5e/docs/images/priority.jpg",
+      "status": 206,
+      "content_type": "image/jpeg",
+      "content_range": "bytes 0-255/95529",
+      "bytes_read": 256
+    },
+    {
+      "name": "github_video",
+      "url": "https://raw.githubusercontent.com/NuraliKuzhagaliev/Prooflane/fd346d182a731e60e55959518aecdac4ec26ff5e/submission/agent-rush/video-v2/prooflane-live-demo.mp4",
+      "status": 206,
+      "content_type": "application/octet-stream",
+      "content_range": "bytes 0-255/8019667",
+      "bytes_read": 256
+    },
+    {
+      "name": "public_video",
+      "url": "https://45.76.92.198/static/demo/prooflane-live-demo.mp4",
+      "status": 206,
+      "content_type": "video/mp4",
+      "content_range": "bytes 0-255/8019667",
+      "bytes_read": 256
+    },
+    {
+      "name": "public_health",
+      "url": "https://45.76.92.198/api/health",
+      "status": 200,
+      "content_type": "application/json",
+      "content_range": null,
+      "bytes_read": 193
+    },
+    {
+      "name": "repository_metadata",
+      "url": "https://api.github.com/repos/NuraliKuzhagaliev/Prooflane",
+      "status": 200,
+      "content_type": "application/json; charset=utf-8",
+      "content_range": null,
+      "bytes_read": 5815
+    }
+  ],
+  "clone_python_tests": 179,
+  "clone_javascript_tests": 26,
+  "clone_packet_groups": 7,
+  "clone_submission_hashes_passed": true,
+  "all_markdown_english": true,
+  "markdown_files": 79,
+  "public_playback_observed_in_browser": true,
+  "video_sha256": "089ba397bca8c2813dc7f0c71d3afabba6a62994ca3b02632f023cc10dda0e8c",
+  "repository_description": "Source-linked invoice review with Vultr AI, isolated code execution, exact what-if boundaries and independently verifiable case packets.",
+  "repository_homepage": "https://45.76.92.198/",
+  "repository_topics": [
+    "vultr",
+    "vultr-serverless-inference"
+  ],
+  "public_video_url": "https://45.76.92.198/static/demo/prooflane-live-demo.mp4",
+  "http_model_calls": 0,
+  "official_submission_confirmation": "NOT_RUN"
+}

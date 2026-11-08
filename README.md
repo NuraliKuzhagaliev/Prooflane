@@ -4,7 +4,7 @@
 
 A review workspace for accounts payable and procurement teams investigating differences between invoice and contract prices. Resolve source decisions, execute contained analysis, test what could change your priority, and give the next reviewer a case they can reproduce.
 
-[Live application](https://45.76.92.198/) · [Watch the live demo](submission/agent-rush/video-v2/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Demo and submission files](submission/agent-rush/README.md)
+[Live application](https://45.76.92.198/) · [Watch demo — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4) · [Product walkthrough](docs/TRY_PROJECT.md) · [Architecture](docs/ARCHITECTURE.md) · [Demo and submission files](submission/agent-rush/README.md)
 
 ![The public Vultr application: verified invoice ledger and source inspector, using fictional data](docs/images/ledger.jpg)
 

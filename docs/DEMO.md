@@ -1,5 +1,7 @@
 # Demo guide
 
+[Watch the public recording — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4). GitHub also retains the exact downloadable MP4.
+
 Use the [new live recording](../submission/agent-rush/video-v2/prooflane-live-demo.mp4), [shot plan](../submission/agent-rush/video-v2/PLAN.md), [exact narration](../submission/agent-rush/video-v2/narration.en.txt) and [English captions](../submission/agent-rush/video-v2/prooflane-live-demo.en.srt). It shows real operation of the public site, a new AI request, containment and verification. The previous still-frame video is historical and is not the final submission video.
 
 The eight chapters cover the disputed invoice, two-source decisions, actual Vultr execution, linked ledger/priority boundary, model/code provenance, fresh containment, packet export/recheck and a bounded business case. The application fills the main frame; captions use a separate footer. No generated video, stock scenes or fake cursor is used.

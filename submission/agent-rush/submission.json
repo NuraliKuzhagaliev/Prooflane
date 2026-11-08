@@ -35,5 +35,6 @@
   "cover": "cover.png",
   "form_note": "Candidate tags must be mapped to actual form options. Submission has not been sent.",
   "video_title": "Prooflane live product demo | elevenlabs.io narration",
-  "media_notice": "ElevenLabs Free-plan narration: attribution and noncommercial terms; see video-v2/PRODUCTION.md. No paid subscription used."
+  "media_notice": "ElevenLabs Free-plan narration: attribution and noncommercial terms; see video-v2/PRODUCTION.md. No paid subscription used.",
+  "video_url": "https://45.76.92.198/static/demo/prooflane-live-demo.mp4"
 }

@@ -4,6 +4,8 @@ Track: **Blast Radius Zero**. Participation: **online**. User-confirmed team: Nu
 
 The captured deadline is9 November 2026,04:00 Kazakhstan time (UTC+5). [Event](https://lablab.build/ai-hackathons/vultr-hackathon). **Official submission is not confirmed.**
 
+[Watch the video directly — elevenlabs.io narration](https://45.76.92.198/static/demo/prooflane-live-demo.mp4). The same MP4 is preserved below as an upload file.
+
 | Form field | File or value |
 | --- | --- |
 | Project title | [Prooflane](title.txt),9 characters |

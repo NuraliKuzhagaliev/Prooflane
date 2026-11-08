@@ -11,3 +11,11 @@ The final-media publication refreshes current human-facing Markdown to English, 
 The update adds the real-site MP4, free-quota ElevenLabs audio/captions/attribution, new actual AI evidence and unretouched README screenshots. It also includes the small packet-verifier helper-label fix already verified on the VM. Code changes are covered by179 Python/26 JS passing regressions. No provider key, operator token or raw capture cache is published.
 
 The exact final commit and anonymous media/link checks are recorded in `artifacts/live-demo-v2/publication.json` after push. GitHub publication does not submit an entry to LabLab or prove personal eligibility, asset acceptance or a guaranteed placing.
+
+## Latest observed publication
+
+The tested code/media revision is `fd346d182a731e60e55959518aecdac4ec26ff5e`. A fresh anonymous clone passed 179 Python tests (one existing warning), 26 JavaScript tests and seven packet groups using the existing installed environment. All 24 bundle hashes matched. All 79 current Markdown files were English. These are actual clone checks, not a fresh dependency installation or additional model call.
+
+Anonymous HTTPS checks passed for README, both README images, the exact GitHub MP4, public MP4 playback and application health. The repository About description, website and Vultr/Serverless Inference topics were saved in English. GitHub offers the 8 MB file as a download; [direct public playback](https://45.76.92.198/static/demo/prooflane-live-demo.mp4) was observed in the browser. Attribution: **elevenlabs.io**.
+
+The follow-up documentation commit adds these results and direct-playback links; it does not change application code. [Machine record](../artifacts/live-demo-v2/publication.json), [GitHub view](../artifacts/live-demo-v2/github-readme.jpg), [public playback](../artifacts/live-demo-v2/public-playback.jpg).

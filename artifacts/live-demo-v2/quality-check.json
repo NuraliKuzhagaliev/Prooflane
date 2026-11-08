@@ -27,9 +27,12 @@
   "audio_max_db": -1.4,
   "human_audio_listening_panel": "NOT_RUN",
   "cost": "Existing ElevenLabs Free credits and existing Vultr allowance only; no new subscription/resource",
-  "zip_bytes": 11123820,
+  "zip_bytes": 11124070,
   "zip_crc_passed": true,
-  "zip_sha256": "a2804c65f7d6bdca1a8568b42eec7afe3bf2146af4490d1039149643b93879b8",
+  "zip_sha256": "31c1323121a7486a69785c221b5c7deedc46297eea43f9c98677536b8231c3ac",
   "submission_confirmation": "NOT_RUN",
-  "personal_attestations": "NOT_RUN"
+  "personal_attestations": "NOT_RUN",
+  "public_video_url": "https://45.76.92.198/static/demo/prooflane-live-demo.mp4",
+  "public_playback_observed": true,
+  "deployed_workbench_sha256_raw": "90ec7007a682a8e731e632a5b247365b8b3c821aad70b767f9ebd38b738aa0b8"
 }
